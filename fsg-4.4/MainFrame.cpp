@@ -1116,7 +1116,7 @@ void MainFrame::loadPhysics(wxString filename){
 bool OnNew(wxWindow* window){
   //New
   wxString choices[] = {_("320x240 (fastest)"), _("640x480"), _("800x600"), _("1024x768"), _("1280x1024 (slowest)")};
-  wxSingleChoiceDialog dialog(NULL, _("Select an area size"), _("New"), 5, choices, NULL);
+  wxSingleChoiceDialog dialog(NULL, _("Select an area size"), _("New"), 5, choices, (char**)NULL);
   
   if (dialog.ShowModal() == wxID_OK){
     if (dialog.GetSelection() == 0){
@@ -1165,7 +1165,7 @@ void MainFrame::OnMenu(wxCommandEvent& event){
   }
   else if(event.GetId() == 1051){
     //Load
-    wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Any Image Files (*.*)|*.*"), wxOPEN);
+    wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Any Image Files (*.*)|*.*"), wxFD_OPEN);
     
     if (dialog.ShowModal() == wxID_OK){
       sandboxFilename = dialog.GetPath();
@@ -1174,7 +1174,7 @@ void MainFrame::OnMenu(wxCommandEvent& event){
   }
   else if(event.GetId() == 1052){
     //Save
-    wxFileDialog dialog(this, _("Save to a file"), _(""), _(""), _("PNG files (*.png)|*.png|BMP files (*.bmp)|*.bmp"), wxSAVE);
+    wxFileDialog dialog(this, _("Save to a file"), _(""), _(""), _("PNG files (*.png)|*.png|BMP files (*.bmp)|*.bmp"), wxFD_SAVE);
     
     if (dialog.ShowModal() == wxID_OK){
       wxString filename = dialog.GetPath();
@@ -1216,7 +1216,7 @@ void MainFrame::OnMenu(wxCommandEvent& event){
   else if(event.GetId() == 1055){
     //Load physics
 
-    wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Physics Files (*.txt)|*.txt"), wxOPEN);
+    wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Physics Files (*.txt)|*.txt"), wxFD_OPEN);
     if (dialog.ShowModal() == wxID_OK){
       physicsFilename = dialog.GetPath();
       loadPhysics(physicsFilename);
@@ -1229,7 +1229,7 @@ void MainFrame::OnMenu(wxCommandEvent& event){
     dlg.ShowModal();
 
     /*
-    wxFileDialog dialog(this, _("Save to a file"), _(""), _(""), _("Physics files (*.txt)|*.txt"), wxSAVE);
+    wxFileDialog dialog(this, _("Save to a file"), _(""), _(""), _("Physics files (*.txt)|*.txt"), wxFD_SAVE);
     
     if (dialog.ShowModal() == wxID_OK){
       wxString filename = dialog.GetPath();
@@ -1336,7 +1336,7 @@ void MainFrame::OnMenu(wxCommandEvent& event){
     dp->Show(true);
 
 
-    //wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Physics Files (*.txt)|*.txt"), wxOPEN);
+    //wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Physics Files (*.txt)|*.txt"), wxFD_OPEN);
     //if (dialog.ShowModal() == wxID_OK){
     //  physicsFilename = dialog.GetPath();
     //  loadPhysics(physicsFilename);

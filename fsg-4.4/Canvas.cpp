@@ -889,7 +889,11 @@ void Canvas::Refresh(){
   if (doDraw){
     wxClientDC dc(this);
 
-    dc.BeginDrawing();
+    // Note: BeginDrawing and EndDrawing were deprecated in 2006 and removed from recent wxWidgets
+    // libraries, so I just commented them out. It seems to work fine without them.
+    // ftp://ftp.wxwidgets.org/pub/2.8.12/changes-2.8.12.txt
+    // - wxDC::BeginDrawing() and wxDC::EndDrawing() deprecated, don't use them.
+    //dc.BeginDrawing();
     
     wxMemoryDC memdc;
     wxImage image(g_width, g_height, bitmapdata, true);
@@ -899,7 +903,7 @@ void Canvas::Refresh(){
     dc.Blit(0,0,g_width, g_height, &memdc, 0, 0);
     
     if (!drawAll){
-      dc.EndDrawing();
+      //dc.EndDrawing();
       return;
     }
     else{
@@ -912,7 +916,7 @@ void Canvas::Refresh(){
     }
     
 
-    dc.EndDrawing();
+    //dc.EndDrawing();
 
   }
 }
