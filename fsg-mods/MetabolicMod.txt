@@ -1,0 +1,74 @@
+#subversion 2
+
+group	Tools	Empty
+group	Constructive	Red	Green	Blue	Sealer	Consumer	Builder	Weaver	Web	Wall
+group	Destructive	Decomposer
+
+element	Empty	0	0	0	0	0	0	0	1
+
+#Eats green, decays slowly in empty.
+element	Red	255	0	0	0	0	0	0	1
+neighbor .005	Red	Empty	1	Empty	Empty
+neighbor .05	Red	Green	1	Red	Red
+
+#Eats blue, decays slowly in empty.
+element	Green	0	255	0	0	0	0	0	1
+neighbor .005	Green	Empty	1	Empty	Empty
+neighbor .05	Green	Blue	1	Green	Green
+
+#Eats red, decays slowly in empty.
+element	Blue	0	0	255	0	0	0	0	1
+neighbor .005	Blue	Empty	1	Empty	Empty
+neighbor .05	Blue	Red	1	Blue	Blue
+
+#Lives in red, seals off empty by creating a layer of web and weavers.
+element	Sealer	0	255	255	0	0	0	0	1
+neighbor 1	Sealer	Empty	1	Weaver	Weaver
+neighbor .5	Sealer	Red	.98	Red	Sealer	.02	Sealer	Sealer
+neighbor .5	Sealer	Green	1	Green	Sealer
+neighbor .5	Sealer	Blue	1	Blue	Sealer
+neighbor .03	Sealer	Sealer	1	Sealer	Red
+
+#Lives in green, consumes web and processes it into green.
+element	Consumer	255	0	255	0	0	0	0	1
+neighbor .005	Consumer	Empty	1	Empty	Empty
+neighbor .5	Consumer	Red	1	Red	Consumer
+neighbor .5	Consumer	Green	.98	Green	Consumer	.02	Consumer	Consumer
+neighbor .5	Consumer	Blue	1	Blue	Consumer
+neighbor .03	Consumer	Consumer	1	Consumer	Green
+neighbor .05	Consumer	Web	1	Consumer Green
+
+#Lives in blue, seals off empty by building walls.
+element	Builder	255	255	0	0	0	0	0	1
+neighbor 1	Builder	Empty	1	Wall	Wall
+neighbor .5	Builder	Red	1	Red	Builder
+neighbor .5	Builder	Green	1	Green	Builder
+neighbor .5	Builder	Blue	.98	Blue	Builder	.02	Builder	Builder
+neighbor 1	Builder	Web	1	Wall	Wall
+neighbor .03	Builder	Builder	1	Builder	Blue
+neighbor .1	Builder	Wall	1	Wall	Builder
+
+#Protects sensitive elements from empty.
+element	Wall	125	125	125	0	0	0	0	1
+
+#Weaves and lives in a web.
+element	Weaver	255	100	0	0	0	0	1
+neighbor 1	Weaver	Web	.99	Web	Weaver	.01	Weaver	Weaver
+neighbor .03	Weaver	Weaver	1	Weaver	Web
+neighbor .03	Weaver	Empty	1	Weaver	Web
+neighbor .02	Weaver	Wall	1	Weaver	Empty
+
+#Decays very slowly in empty unless maintained by weavers.
+element	Web	100	100	255	0	0	0	0	1
+neighbor .001	Web	Empty	1	Empty	Empty
+
+#Eats away at structures and causes them to rot.
+element	Decomposer	75	75	75	0	0	0	0	1
+self	.002	Decomposer	1	Empty
+neighbor .5	Decomposer	Empty	1	Empty	Decomposer
+neighbor .5	Decomposer	Web	.98	Web	Decomposer	.02	Decomposer	Decomposer
+neighbor .03	Decomposer	Weaver	1	Decomposer	Web
+neighbor .5	Decomposer	Red	.99	Red	Decomposer	.01	Decomposer	Decomposer
+neighbor .5	Decomposer	Green	.99	Green	Decomposer	.01	Decomposer	Decomposer
+neighbor .5	Decomposer	Blue	.99	Blue	Decomposer	.01	Decomposer	Decomposer
+

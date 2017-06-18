@@ -1,0 +1,701 @@
+#Version 4.4, File subversion 2											##
+#element element r g b gravity slip density conductivity visible								##
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]					##
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element						##
+#hotcolor element r g b											##
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]		##
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2					##
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255								##
+#pexplosion neighbor1 neighbor2 diameter element									##
+##########################################################################################################
+
+element	Empty		0	0	0	0	1	0	0	1
+
+element	UnBigBang	255	255	255	0	1	0	0	1
+
+element	Space		0	0	0	0	1	0	0	0
+
+####################################################################################################
+
+element	BigBang		255	255	255	0	0	0	0	1
+neighbor	1.0	BigBang	Empty	1.0	BigBang	BigBang
+self	0.1	BigBang	0.98	Space	0.02	CosmicDust
+
+element	CosmicDust	255	255	0	0	0	0	0	0
+neighbor	1.0	CosmicDust	Space		1.0	Space	CosmicDust
+neighbor	1.0	CosmicDust	CosmicDust	1.0	ProtoStar1	ProtoStar1
+
+element	ProtoStar1		255	155	0	0	0	0	0	0
+element	ProtoStar2		255	160	0	0	0	0	0	0
+element	ProtoStar3		255	165	0	0	0	0	0	0
+element	ProtoStar4		255	170	0	0	0	0	0	0
+element	ProtoStar5		255	175	0	0	0	0	0	0
+
+neighbor	1.0	CosmicDust	ProtoStar1	1.0	ProtoStar2	ProtoStar2
+neighbor	1.0	ProtoStar2		ProtoStar1	1.0	ProtoStar2	ProtoStar2
+neighbor	1.0	CosmicDust	ProtoStar2	1.0	ProtoStar3	ProtoStar3
+neighbor	1.0	ProtoStar3		ProtoStar2	1.0	ProtoStar3	ProtoStar3
+neighbor	1.0	CosmicDust	ProtoStar3	1.0	ProtoStar4	ProtoStar4
+neighbor	1.0	ProtoStar4		ProtoStar3	1.0	ProtoStar4	ProtoStar4
+neighbor	1.0	CosmicDust	ProtoStar4	1.0	ProtoStar5	ProtoStar5
+
+element	Star		255	10	0	0	0	0	1.5	0
+element	Star1		255	240	0	0	0	0	0.21	0
+hotcolor	Star1		255	10	0
+element	Star2		255	240	0	0	0	0	0.21	0
+hotcolor	Star2		255	10	0
+element	Star3		255	240	0	0	0	0	0.21	0
+hotcolor	Star3		255	10	0
+element	Star4		255	240	0	0	0	0	0.21	0
+hotcolor	Star4		255	10	0
+element	Star5		255	240	0	0	0	0	0.21	0
+hotcolor	Star5		255	10	0
+element	Star6		255	240	0	0	0	0	0.21	0
+hotcolor	Star6		255	10	0
+element	Star7		255	240	0	0	0	0	0.21	0
+hotcolor	Star7		255	10	0
+element	Star8		255	240	0	0	0	0	0.21	0
+hotcolor	Star8		255	10	0
+element	Star9		255	240	0	0	0	0	0.21	0
+hotcolor	Star9		255	10	0
+element	Star10		255	240	0	0	0	0	0.21	0
+self	0.1	Star10	1.0	SuperNova
+hotself	80	Star10
+hotcolor	Star10		255	10	0
+
+neighbor	1.0	ProtoStar5		Space	1.0	Star	Star1
+neighbor	1.0	Star1		Space	1.0	Star1	Star2
+neighbor	1.0	Star2		Space	1.0	Star2	Star3
+neighbor	1.0	Star3		Space	1.0	Star3	Star4
+neighbor	1.0	Star4		Space	1.0	Star4	Star5
+neighbor	1.0	Star5		Space	1.0	Star5	Star6
+neighbor	1.0	Star6		Space	1.0	Star6	Star7
+neighbor	1.0	Star7		Space	1.0	Star7	Star8
+neighbor	1.0	Star8		Space	1.0	Star8	Star9
+neighbor	1.0	Star9		Space	1.0	Star9	Star10
+
+neighbor	1.0	Star		ProtoStar5	1.0	Star	Star
+
+##########################################################################################
+
+element	Gravity1		5	5	5	0	0	0	0	0
+element	Gravity2		5	5	5	0	0	0	0	0
+element	Gravity3		5	5	5	0	0	0	0	0
+element	Gravity4		5	5	5	0	0	0	0	0
+element	Gravity5		5	5	5	0	0	0	0	0
+element	Gravity6		5	5	5	0	0	0	0	0
+element	Gravity7		5	5	5	0	0	0	0	0
+element	Gravity8		5	5	5	0	0	0	0	0
+element	Gravity9		5	5	5	0	0	0	0	0
+element	Gravity10		5	5	5	0	0	0	0	0
+element	Gravity11		4	4	4	0	0	0	0	0
+element	Gravity12		4	4	4	0	0	0	0	0
+element	Gravity13		4	4	4	0	0	0	0	0
+element	Gravity14		4	4	4	0	0	0	0	0
+element	Gravity15		4	4	4	0	0	0	0	0
+element	Gravity16		4	4	4	0	0	0	0	0
+element	Gravity17		4	4	4	0	0	0	0	0
+element	Gravity18		4	4	4	0	0	0	0	0
+element	Gravity19		4	4	4	0	0	0	0	0
+element	Gravity20		4	4	4	0	0	0	0	0
+element	Gravity21		3	3	3	0	0	0	0	0
+element	Gravity22		3	3	3	0	0	0	0	0
+element	Gravity23		3	3	3	0	0	0	0	0
+element	Gravity24		3	3	3	0	0	0	0	0
+element	Gravity25		3	3	3	0	0	0	0	0
+element	Gravity26		3	3	3	0	0	0	0	0
+element	Gravity27		3	3	3	0	0	0	0	0
+element	Gravity28		3	3	3	0	0	0	0	0
+element	Gravity29		3	3	3	0	0	0	0	0
+element	Gravity30		3	3	3	0	0	0	0	0
+element	Gravity31		2	2	2	0	0	0	0	0
+element	Gravity32		2	2	2	0	0	0	0	0
+element	Gravity33		2	2	2	0	0	0	0	0
+element	Gravity34		2	2	2	0	0	0	0	0
+element	Gravity35		2	2	2	0	0	0	0	0
+element	Gravity36		2	2	2	0	0	0	0	0
+element	Gravity37		2	2	2	0	0	0	0	0
+element	Gravity38		2	2	2	0	0	0	0	0
+element	Gravity39		2	2	2	0	0	0	0	0
+element	Gravity40		2	2	2	0	0	0	0	0
+
+neighbor	1.0	Star10		Space	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		Space	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		Space	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		Space	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		Space	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		Space	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		Space	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		Space	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		Space	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		Space	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		Space	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		Space	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		Space	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		Space	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		Space	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		Space	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		Space	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		Space	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		Space	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		Space	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		Space	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		Space	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		Space	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		Space	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		Space	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		Space	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		Space	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		Space	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		Space	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		Space	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		Space	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		Space	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		Space	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		Space	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		Space	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		Space	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		Space	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		Space	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		Space	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		Space	1.0	Gravity39		Gravity40
+
+
+neighbor	1.0	Star10		ProtoStar1	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		ProtoStar1	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		ProtoStar1	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		ProtoStar1	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		ProtoStar1	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		ProtoStar1	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		ProtoStar1	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		ProtoStar1	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		ProtoStar1	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		ProtoStar1	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		ProtoStar1	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		ProtoStar1	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		ProtoStar1	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		ProtoStar1	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		ProtoStar1	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		ProtoStar1	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		ProtoStar1	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		ProtoStar1	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		ProtoStar1	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		ProtoStar1	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		ProtoStar1	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		ProtoStar1	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		ProtoStar1	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		ProtoStar1	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		ProtoStar1	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		ProtoStar1	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		ProtoStar1	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		ProtoStar1	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		ProtoStar1	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		ProtoStar1	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		ProtoStar1	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		ProtoStar1	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		ProtoStar1	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		ProtoStar1	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		ProtoStar1	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		ProtoStar1	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		ProtoStar1	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		ProtoStar1	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		ProtoStar1	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		ProtoStar1	1.0	Gravity39		Gravity40
+
+
+neighbor	1.0	Star10		ProtoStar2	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		ProtoStar2	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		ProtoStar2	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		ProtoStar2	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		ProtoStar2	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		ProtoStar2	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		ProtoStar2	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		ProtoStar2	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		ProtoStar2	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		ProtoStar2	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		ProtoStar2	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		ProtoStar2	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		ProtoStar2	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		ProtoStar2	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		ProtoStar2	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		ProtoStar2	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		ProtoStar2	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		ProtoStar2	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		ProtoStar2	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		ProtoStar2	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		ProtoStar2	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		ProtoStar2	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		ProtoStar2	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		ProtoStar2	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		ProtoStar2	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		ProtoStar2	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		ProtoStar2	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		ProtoStar2	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		ProtoStar2	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		ProtoStar2	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		ProtoStar2	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		ProtoStar2	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		ProtoStar2	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		ProtoStar2	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		ProtoStar2	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		ProtoStar2	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		ProtoStar2	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		ProtoStar2	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		ProtoStar2	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		ProtoStar2	1.0	Gravity39		Gravity40
+
+
+neighbor	1.0	Star10		ProtoStar3	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		ProtoStar3	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		ProtoStar3	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		ProtoStar3	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		ProtoStar3	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		ProtoStar3	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		ProtoStar3	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		ProtoStar3	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		ProtoStar3	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		ProtoStar3	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		ProtoStar3	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		ProtoStar3	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		ProtoStar3	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		ProtoStar3	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		ProtoStar3	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		ProtoStar3	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		ProtoStar3	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		ProtoStar3	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		ProtoStar3	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		ProtoStar3	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		ProtoStar3	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		ProtoStar3	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		ProtoStar3	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		ProtoStar3	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		ProtoStar3	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		ProtoStar3	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		ProtoStar3	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		ProtoStar3	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		ProtoStar3	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		ProtoStar3	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		ProtoStar3	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		ProtoStar3	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		ProtoStar3	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		ProtoStar3	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		ProtoStar3	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		ProtoStar3	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		ProtoStar3	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		ProtoStar3	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		ProtoStar3	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		ProtoStar3	1.0	Gravity39		Gravity40
+
+
+neighbor	1.0	Star10		ProtoStar4	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		ProtoStar4	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		ProtoStar4	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		ProtoStar4	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		ProtoStar4	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		ProtoStar4	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		ProtoStar4	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		ProtoStar4	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		ProtoStar4	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		ProtoStar4	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		ProtoStar4	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		ProtoStar4	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		ProtoStar4	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		ProtoStar4	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		ProtoStar4	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		ProtoStar4	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		ProtoStar4	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		ProtoStar4	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		ProtoStar4	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		ProtoStar4	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		ProtoStar4	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		ProtoStar4	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		ProtoStar4	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		ProtoStar4	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		ProtoStar4	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		ProtoStar4	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		ProtoStar4	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		ProtoStar4	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		ProtoStar4	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		ProtoStar4	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		ProtoStar4	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		ProtoStar4	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		ProtoStar4	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		ProtoStar4	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		ProtoStar4	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		ProtoStar4	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		ProtoStar4	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		ProtoStar4	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		ProtoStar4	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		ProtoStar4	1.0	Gravity39		Gravity40
+
+
+neighbor	1.0	Star10		ProtoStar5	1.0	Star10		Gravity1
+neighbor	1.0	Gravity1		ProtoStar5	1.0	Gravity1		Gravity2
+neighbor	1.0	Gravity2		ProtoStar5	1.0	Gravity2		Gravity3
+neighbor	1.0	Gravity3		ProtoStar5	1.0	Gravity3		Gravity4
+neighbor	1.0	Gravity4		ProtoStar5	1.0	Gravity4		Gravity5
+neighbor	1.0	Gravity5		ProtoStar5	1.0	Gravity5		Gravity6
+neighbor	1.0	Gravity6		ProtoStar5	1.0	Gravity6		Gravity7
+neighbor	1.0	Gravity7		ProtoStar5	1.0	Gravity7		Gravity8
+neighbor	1.0	Gravity8		ProtoStar5	1.0	Gravity8		Gravity9
+neighbor	1.0	Gravity9		ProtoStar5	1.0	Gravity9		Gravity10
+neighbor	1.0	Gravity10		ProtoStar5	1.0	Gravity10		Gravity11
+neighbor	1.0	Gravity11		ProtoStar5	1.0	Gravity11		Gravity12
+neighbor	1.0	Gravity12		ProtoStar5	1.0	Gravity12		Gravity13
+neighbor	1.0	Gravity13		ProtoStar5	1.0	Gravity13		Gravity14
+neighbor	1.0	Gravity14		ProtoStar5	1.0	Gravity14		Gravity15
+neighbor	1.0	Gravity15		ProtoStar5	1.0	Gravity15		Gravity16
+neighbor	1.0	Gravity16		ProtoStar5	1.0	Gravity16		Gravity17
+neighbor	1.0	Gravity17		ProtoStar5	1.0	Gravity17		Gravity18
+neighbor	1.0	Gravity18		ProtoStar5	1.0	Gravity18		Gravity19
+neighbor	1.0	Gravity19		ProtoStar5	1.0	Gravity19		Gravity20
+neighbor	1.0	Gravity20		ProtoStar5	1.0	Gravity20		Gravity21
+neighbor	1.0	Gravity21		ProtoStar5	1.0	Gravity21		Gravity22
+neighbor	1.0	Gravity22		ProtoStar5	1.0	Gravity22		Gravity23
+neighbor	1.0	Gravity23		ProtoStar5	1.0	Gravity23		Gravity24
+neighbor	1.0	Gravity24		ProtoStar5	1.0	Gravity24		Gravity25
+neighbor	1.0	Gravity25		ProtoStar5	1.0	Gravity25		Gravity26
+neighbor	1.0	Gravity26		ProtoStar5	1.0	Gravity26		Gravity27
+neighbor	1.0	Gravity27		ProtoStar5	1.0	Gravity27		Gravity28
+neighbor	1.0	Gravity28		ProtoStar5	1.0	Gravity28		Gravity29
+neighbor	1.0	Gravity29		ProtoStar5	1.0	Gravity29		Gravity30
+neighbor	1.0	Gravity30		ProtoStar5	1.0	Gravity30		Gravity31
+neighbor	1.0	Gravity31		ProtoStar5	1.0	Gravity31		Gravity32
+neighbor	1.0	Gravity32		ProtoStar5	1.0	Gravity32		Gravity33
+neighbor	1.0	Gravity33		ProtoStar5	1.0	Gravity33		Gravity34
+neighbor	1.0	Gravity34		ProtoStar5	1.0	Gravity34		Gravity35
+neighbor	1.0	Gravity35		ProtoStar5	1.0	Gravity35		Gravity36
+neighbor	1.0	Gravity36		ProtoStar5	1.0	Gravity36		Gravity37
+neighbor	1.0	Gravity37		ProtoStar5	1.0	Gravity37		Gravity38
+neighbor	1.0	Gravity38		ProtoStar5	1.0	Gravity38		Gravity39
+neighbor	1.0	Gravity39		ProtoStar5	1.0	Gravity39		Gravity40
+
+##########################################################################################
+
+element	Satellite1		255	5	5	0	0	0	0	0
+element	Satellite2		5	5	255	0	0	0	0	0
+element	Satellite3		255	5	5	0	0	0	0	0
+element	Satellite4		5	5	255	0	0	0	0	0
+element	Satellite5		255	5	5	0	0	0	0	0
+element	Satellite6		5	5	255	0	0	0	0	0
+element	Satellite7		255	5	5	0	0	0	0	0
+element	Satellite8		5	5	255	0	0	0	0	0
+element	Satellite9		255	5	5	0	0	0	0	0
+element	Satellite10		5	5	255	0	0	0	0	0
+element	Satellite11		255	5	5	0	0	0	0	0
+element	Satellite12		5	5	255	0	0	0	0	0
+element	Satellite13		255	5	5	0	0	0	0	0
+element	Satellite14		5	5	255	0	0	0	0	0
+element	Satellite15		255	5	5	0	0	0	0	0
+element	Satellite16		5	5	255	0	0	0	0	0
+element	Satellite17		255	5	5	0	0	0	0	0
+element	Satellite18		5	5	255	0	0	0	0	0
+element	Satellite19		255	5	5	0	0	0	0	0
+element	Satellite20		5	5	255	0	0	0	0	0
+element	Satellite21		255	5	5	0	0	0	0	0
+element	Satellite22		5	5	255	0	0	0	0	0
+element	Satellite23		255	5	5	0	0	0	0	0
+element	Satellite24		5	5	255	0	0	0	0	0
+element	Satellite25		255	5	5	0	0	0	0	0
+element	Satellite26		5	5	255	0	0	0	0	0
+element	Satellite27		255	5	5	0	0	0	0	0
+element	Satellite28		5	5	255	0	0	0	0	0
+element	Satellite29		255	5	5	0	0	0	0	0
+element	Satellite30		5	5	255	0	0	0	0	0
+element	Satellite31		255	5	5	0	0	0	0	0
+element	Satellite32		5	5	255	0	0	0	0	0
+element	Satellite33		255	5	5	0	0	0	0	0
+element	Satellite34		5	5	255	0	0	0	0	0
+element	Satellite35		255	5	5	0	0	0	0	0
+element	Satellite36		5	5	255	0	0	0	0	0
+element	Satellite37		255	5	5	0	0	0	0	0
+element	Satellite38		5	5	255	0	0	0	0	0
+element	Satellite39		255	5	5	0	0	0	0	0
+element	Satellite40		5	5	255	0	0	0	0	0
+
+
+element	OldGravity1		5	5	5	0	0	0	0	0
+element	OldGravity2		5	5	5	0	0	0	0	0
+element	OldGravity3		5	5	5	0	0	0	0	0
+element	OldGravity4		5	5	5	0	0	0	0	0
+element	OldGravity5		5	5	5	0	0	0	0	0
+element	OldGravity6		5	5	5	0	0	0	0	0
+element	OldGravity7		5	5	5	0	0	0	0	0
+element	OldGravity8		5	5	5	0	0	0	0	0
+element	OldGravity9		5	5	5	0	0	0	0	0
+element	OldGravity10		5	5	5	0	0	0	0	0
+element	OldGravity11		4	4	4	0	0	0	0	0
+element	OldGravity12		4	4	4	0	0	0	0	0
+element	OldGravity13		4	4	4	0	0	0	0	0
+element	OldGravity14		4	4	4	0	0	0	0	0
+element	OldGravity15		4	4	4	0	0	0	0	0
+element	OldGravity16		4	4	4	0	0	0	0	0
+element	OldGravity17		4	4	4	0	0	0	0	0
+element	OldGravity18		4	4	4	0	0	0	0	0
+element	OldGravity19		4	4	4	0	0	0	0	0
+element	OldGravity20		4	4	4	0	0	0	0	0
+element	OldGravity21		3	3	3	0	0	0	0	0
+element	OldGravity22		3	3	3	0	0	0	0	0
+element	OldGravity23		3	3	3	0	0	0	0	0
+element	OldGravity24		3	3	3	0	0	0	0	0
+element	OldGravity25		3	3	3	0	0	0	0	0
+element	OldGravity26		3	3	3	0	0	0	0	0
+element	OldGravity27		3	3	3	0	0	0	0	0
+element	OldGravity28		3	3	3	0	0	0	0	0
+element	OldGravity29		3	3	3	0	0	0	0	0
+element	OldGravity30		3	3	3	0	0	0	0	0
+element	OldGravity31		2	2	2	0	0	0	0	0
+element	OldGravity32		2	2	2	0	0	0	0	0
+element	OldGravity33		2	2	2	0	0	0	0	0
+element	OldGravity34		2	2	2	0	0	0	0	0
+element	OldGravity35		2	2	2	0	0	0	0	0
+element	OldGravity36		2	2	2	0	0	0	0	0
+element	OldGravity37		2	2	2	0	0	0	0	0
+element	OldGravity38		2	2	2	0	0	0	0	0
+element	OldGravity39		2	2	2	0	0	0	0	0
+element	OldGravity40		2	2	2	0	0	0	0	0
+
+
+neighbor	1.0	Gravity1		CosmicDust	1.0	Gravity1		Satellite2
+neighbor	1.0	Gravity2		CosmicDust	1.0	Gravity2		Satellite3
+neighbor	1.0	Gravity3		CosmicDust	1.0	Gravity3		Satellite4
+neighbor	1.0	Gravity4		CosmicDust	1.0	Gravity4		Satellite5
+neighbor	1.0	Gravity5		CosmicDust	1.0	Gravity5		Satellite6
+neighbor	1.0	Gravity6		CosmicDust	1.0	Gravity6		Satellite7
+neighbor	1.0	Gravity7		CosmicDust	1.0	Gravity7		Satellite8
+neighbor	1.0	Gravity8		CosmicDust	1.0	Gravity8		Satellite9
+neighbor	1.0	Gravity9		CosmicDust	1.0	Gravity9		Satellite10
+neighbor	1.0	Gravity10		CosmicDust	1.0	Gravity10		Satellite11
+neighbor	1.0	Gravity11		CosmicDust	1.0	Gravity11		Satellite12
+neighbor	1.0	Gravity12		CosmicDust	1.0	Gravity12		Satellite13
+neighbor	1.0	Gravity13		CosmicDust	1.0	Gravity13		Satellite14
+neighbor	1.0	Gravity14		CosmicDust	1.0	Gravity14		Satellite15
+neighbor	1.0	Gravity15		CosmicDust	1.0	Gravity15		Satellite16
+neighbor	1.0	Gravity16		CosmicDust	1.0	Gravity16		Satellite17
+neighbor	1.0	Gravity17		CosmicDust	1.0	Gravity17		Satellite18
+neighbor	1.0	Gravity18		CosmicDust	1.0	Gravity18		Satellite19
+neighbor	1.0	Gravity19		CosmicDust	1.0	Gravity19		Satellite20
+neighbor	1.0	Gravity20		CosmicDust	1.0	Gravity20		Satellite21
+neighbor	1.0	Gravity21		CosmicDust	1.0	Gravity21		Satellite22
+neighbor	1.0	Gravity22		CosmicDust	1.0	Gravity22		Satellite23
+neighbor	1.0	Gravity23		CosmicDust	1.0	Gravity23		Satellite24
+neighbor	1.0	Gravity24		CosmicDust	1.0	Gravity24		Satellite25
+neighbor	1.0	Gravity25		CosmicDust	1.0	Gravity25		Satellite26
+neighbor	1.0	Gravity26		CosmicDust	1.0	Gravity26		Satellite27
+neighbor	1.0	Gravity27		CosmicDust	1.0	Gravity27		Satellite28
+neighbor	1.0	Gravity28		CosmicDust	1.0	Gravity28		Satellite29
+neighbor	1.0	Gravity29		CosmicDust	1.0	Gravity29		Satellite30
+neighbor	1.0	Gravity30		CosmicDust	1.0	Gravity30		Satellite31
+neighbor	1.0	Gravity31		CosmicDust	1.0	Gravity31		Satellite32
+neighbor	1.0	Gravity32		CosmicDust	1.0	Gravity32		Satellite33
+neighbor	1.0	Gravity33		CosmicDust	1.0	Gravity33		Satellite34
+neighbor	1.0	Gravity34		CosmicDust	1.0	Gravity34		Satellite35
+neighbor	1.0	Gravity35		CosmicDust	1.0	Gravity35		Satellite36
+neighbor	1.0	Gravity36		CosmicDust	1.0	Gravity36		Satellite37
+neighbor	1.0	Gravity37		CosmicDust	1.0	Gravity37		Satellite38
+neighbor	1.0	Gravity38		CosmicDust	1.0	Gravity38		Satellite39
+neighbor	1.0	Gravity39		CosmicDust	1.0	Gravity39		Satellite40
+neighbor	1.0	Gravity40		CosmicDust	1.0	Satellite40		Space
+
+neighbor	1.0	Gravity1		Satellite1		1.0	Satellite1		OldGravity1
+neighbor	1.0	Gravity2		Satellite2		1.0	Satellite2		OldGravity2
+neighbor	1.0	Gravity3		Satellite3		1.0	Satellite3		OldGravity3
+neighbor	1.0	Gravity4		Satellite4		1.0	Satellite4		OldGravity4
+neighbor	1.0	Gravity5		Satellite5		1.0	Satellite5		OldGravity5
+neighbor	1.0	Gravity6		Satellite6		1.0	Satellite6		OldGravity6
+neighbor	1.0	Gravity7		Satellite7		1.0	Satellite7		OldGravity7
+neighbor	1.0	Gravity8		Satellite8		1.0	Satellite8		OldGravity8
+neighbor	1.0	Gravity9		Satellite9		1.0	Satellite9		OldGravity9
+neighbor	1.0	Gravity10		Satellite10		1.0	Satellite10		OldGravity10
+neighbor	1.0	Gravity11		Satellite11		1.0	Satellite11		OldGravity11
+neighbor	1.0	Gravity12		Satellite12		1.0	Satellite12		OldGravity12
+neighbor	1.0	Gravity13		Satellite13		1.0	Satellite13		OldGravity13
+neighbor	1.0	Gravity14		Satellite14		1.0	Satellite14		OldGravity14
+neighbor	1.0	Gravity15		Satellite15		1.0	Satellite15		OldGravity15
+neighbor	1.0	Gravity16		Satellite16		1.0	Satellite16		OldGravity16
+neighbor	1.0	Gravity17		Satellite17		1.0	Satellite17		OldGravity17
+neighbor	1.0	Gravity18		Satellite18		1.0	Satellite18		OldGravity18
+neighbor	1.0	Gravity19		Satellite19		1.0	Satellite19		OldGravity19
+neighbor	1.0	Gravity20		Satellite20		1.0	Satellite20		OldGravity20
+neighbor	1.0	Gravity21		Satellite21		1.0	Satellite21		OldGravity21
+neighbor	1.0	Gravity22		Satellite22		1.0	Satellite22		OldGravity22
+neighbor	1.0	Gravity23		Satellite23		1.0	Satellite23		OldGravity23
+neighbor	1.0	Gravity24		Satellite24		1.0	Satellite24		OldGravity24
+neighbor	1.0	Gravity25		Satellite25		1.0	Satellite25		OldGravity25
+neighbor	1.0	Gravity26		Satellite26		1.0	Satellite26		OldGravity26
+neighbor	1.0	Gravity27		Satellite27		1.0	Satellite27		OldGravity27
+neighbor	1.0	Gravity28		Satellite28		1.0	Satellite28		OldGravity28
+neighbor	1.0	Gravity29		Satellite29		1.0	Satellite29		OldGravity29
+neighbor	1.0	Gravity30		Satellite30		1.0	Satellite30		OldGravity30
+neighbor	1.0	Gravity31		Satellite31		1.0	Satellite31		OldGravity31
+neighbor	1.0	Gravity32		Satellite32		1.0	Satellite32		OldGravity32
+neighbor	1.0	Gravity33		Satellite33		1.0	Satellite33		OldGravity33
+neighbor	1.0	Gravity34		Satellite34		1.0	Satellite34		OldGravity34
+neighbor	1.0	Gravity35		Satellite35		1.0	Satellite35		OldGravity35
+neighbor	1.0	Gravity36		Satellite36		1.0	Satellite36		OldGravity36
+neighbor	1.0	Gravity37		Satellite37		1.0	Satellite37		OldGravity37
+neighbor	1.0	Gravity38		Satellite38		1.0	Satellite38		OldGravity38
+neighbor	1.0	Gravity39		Satellite39		1.0	Satellite39		OldGravity39
+neighbor	1.0	Gravity40		Satellite40		1.0	Satellite40		OldGravity40
+
+
+self	0.05	OldGravity1	1.0	Gravity1
+self	0.05	OldGravity2	1.0	Gravity2
+self	0.05	OldGravity3	1.0	Gravity3
+self	0.05	OldGravity4	1.0	Gravity4
+self	0.05	OldGravity5	1.0	Gravity5
+self	0.05	OldGravity6	1.0	Gravity6
+self	0.05	OldGravity7	1.0	Gravity7
+self	0.05	OldGravity8	1.0	Gravity8
+self	0.05	OldGravity9	1.0	Gravity9
+self	0.05	OldGravity10	1.0	Gravity10
+self	0.05	OldGravity11	1.0	Gravity11
+self	0.05	OldGravity12	1.0	Gravity12
+self	0.05	OldGravity13	1.0	Gravity13
+self	0.05	OldGravity14	1.0	Gravity14
+self	0.05	OldGravity15	1.0	Gravity15
+self	0.05	OldGravity16	1.0	Gravity16
+self	0.05	OldGravity17	1.0	Gravity17
+self	0.05	OldGravity18	1.0	Gravity18
+self	0.05	OldGravity19	1.0	Gravity19
+self	0.05	OldGravity20	1.0	Gravity20
+self	0.05	OldGravity21	1.0	Gravity21
+self	0.05	OldGravity22	1.0	Gravity22
+self	0.05	OldGravity23	1.0	Gravity23
+self	0.05	OldGravity24	1.0	Gravity24
+self	0.05	OldGravity25	1.0	Gravity25
+self	0.05	OldGravity26	1.0	Gravity26
+self	0.05	OldGravity27	1.0	Gravity27
+self	0.05	OldGravity28	1.0	Gravity28
+self	0.05	OldGravity29	1.0	Gravity29
+self	0.05	OldGravity30	1.0	Gravity30
+self	0.05	OldGravity31	1.0	Gravity31
+self	0.05	OldGravity32	1.0	Gravity32
+self	0.05	OldGravity33	1.0	Gravity33
+self	0.05	OldGravity34	1.0	Gravity34
+self	0.05	OldGravity35	1.0	Gravity35
+self	0.05	OldGravity36	1.0	Gravity36
+self	0.05	OldGravity37	1.0	Gravity37
+self	0.05	OldGravity38	1.0	Gravity38
+self	0.05	OldGravity39	1.0	Gravity39
+self	0.05	OldGravity40	1.0	Gravity40
+
+##########################################################################################
+
+element	SuperNova	255	0	0	0	0	0	0	0
+element	SuperNova2	250	0	0	0	0	0	0	0
+
+pexplosion SuperNova Star10	150 SuperNova2
+
+self	0.5	SuperNova2	0.969	Space	0.03	CosmicDust	0.001	BlackHole
+
+self	0.05	UnBigBang	1.0	Empty
+
+neighbor	1.0	Gravity1		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity2		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity3		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity4		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity5		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity6		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity7		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity8		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity9		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity10		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity11		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity12		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity13		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity14		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity15		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity16		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity17		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity18		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity19		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity20		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity21		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity22		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity23		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity24		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity25		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity26		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity27		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity28		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity29		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity30		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity31		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity32		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity33		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity34		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity35		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity36		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity37		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity38		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity39		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Gravity40		UnBigBang	1.0	UnBigBang	UnBigBang
+
+neighbor	1.0	Satellite1		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite2		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite3		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite4		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite5		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite6		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite7		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite8		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite9		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite10		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite11		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite12		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite13		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite14		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite15		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite16		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite17		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite18		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite19		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite20		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite21		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite22		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite23		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite24		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite25		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite26		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite27		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite28		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite29		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite30		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite31		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite32		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite33		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite34		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite35		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite36		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite37		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite38		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite39		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Satellite40		UnBigBang	1.0	UnBigBang	UnBigBang
+
+neighbor	1.0	Space		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	CosmicDust	UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	ProtoStar1		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	ProtoStar2		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	ProtoStar3		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	ProtoStar4		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	ProtoStar5		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star1		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star2		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star3		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star4		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star5		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star6		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star7		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star8		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star9		UnBigBang	1.0	UnBigBang	UnBigBang
+neighbor	1.0	Star10		UnBigBang	1.0	UnBigBang	UnBigBang
+
+##########################################################################################
+
+element	BlackHole	1	1	1	0	0	0	0	1
+element	BH1		1	1	1	0	0	0	0	0
+pexplosion BlackHole	Empty	50	BH1
+self	0.01	BH1	1.0	Space
+

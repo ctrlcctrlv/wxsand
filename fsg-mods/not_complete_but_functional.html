@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Bratska/not complete but functional" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Bratska/not complete but functional - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Bratska/not complete but functional</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4-20060322, File subversion 2
+
+#element element r g b gravity slip density conductivity visible
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group	Misc. empty smoke gnat
+group	Fires Pink_Fire Purple_Fire rainboworm Fire bombfire Fuse
+group	Bombs copybomb smokepellet megaton_bomb bomb
+group	solids	wall dust metal
+group	liquids moltenmetal hydrochloric_acid sheild_maker ameba sssheild_maker
+group 	cleanup hydro_acid_transformer sheild_remover megaton_bomb hydrochloric_acid bug_spray
+
+#Nothingness
+element empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#Lillian's Pink fire
+element Pink_Fire	494	914	697	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Pink_Fire	1.000000	smoke	
+
+
+#Lillian's Purple Fire
+element Purple_Fire	654	874	657	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Purple_Fire	1.000000	smoke	
+
+#Do 128 size and drag it around slowly
+element rainboworm	200	25	5	-0.7	0.1	0.000000	1.100000	1
+self	0.04000	rainboworm	1.0000	empty
+neighbor 0.002 rainboworm empty 1 rainboworm rainboworm	
+hotcolor rainboworm   287	354	987
+
+#The bomb explodes into whatever touches it out of the fire group.
+element copybomb	999	999	999	0.000000	0.000000	1.000000	0.300000	1	
+pexplosion	copybomb	Pink_Fire	300	Pink_Fire
+pexplosion	copybomb	Purple_Fire	300	Purple_Fire
+pexplosion	copybomb	Fire	300	Fire
+pexplosion	copybomb	rainboworm	300	rainboworm
+
+#Regular old fire
+element Fire 255 255 0  -1 1 1 1.1 1
+hotcolor Fire 255 0 0
+self 0.05 Fire 1.0 empty
+
+#poof...
+element	smokepellet	999	999	999	0.000000	0.000000	1.000000	0.300000	1
+pexplosion	smokepellet	Fire	30	smoke
+pexplosion	smokepellet	Pink_Fire	300	smoke
+pexplosion	smokepellet	Purple_Fire	300	smoke
+pexplosion	smokepellet	rainboworm	300	smoke
+
+#smoky
+element smoke	120	120	120	-1.000000	1.000000	0.000000	0.000000	1
+self	0.050000	smoke	1.000000	empty
+
+#cold, hard, wall...
+element wall   128     128     128     0.000000        0.000000        3.000000        0.500000        1
+neighbor	1.000000	wall	bombfire	1	dust	empty
+hotcolor  wall  255     0     0
+
+#(cough, cough, cough)
+element dust	60	60	60	1.000000	1.000000	1.000000	0.000000	1
+hotcolor	dust	100	25	0
+
+#turns walls to dust.. MHUUHUHUHAHAHAHA!!!!!
+element bombfire	847	663	663	-1.000000	1.000000	0.000000	0.000000	1
+self	0.050000	bombfire	1.000000	empty
+
+
+#bomb that turns walls to dust... MUUHAHAHAHAHAHAHA!!!!!
+element	bomb	128     128     128     0.000000        0.000000        3.000000        0.500000        1
+pexplosion	bomb	Fire	200	bombfire
+pexplosion	bomb	bombfire	200	bombfire
+
+
+#destroys everything
+element	megaton_bomb	999	`999	999	0.000000	0.000000	3.000000	0.500000	1
+pexplosion	megaton_bomb	Fire	999	Fire
+
+#melts at high tematures
+element	metal	170	170	170	0	0	100	0.2	1
+hotcolor	metal	255	70	70
+self	1	metal	1	moltenmetal
+hotself	85	metal
+
+#melted metal	
+element moltenmetal 249 0 0 1 0 1 0.7 1
+self 0.01 moltenmetal 1 metal
+neighbor 0.00000001 moltenmetal empty 1 metal Fire	
+	
+#heartburn
+element	hydrochloric_acid	12	100	32	1	0	1	0.7	1
+neighbor	1.000000	hydrochloric_acid	wall	1	empty	smoke
+neighbor 1 hydrochloric_acid metal 1 empty smoke
+neighbor 1 hydrochloric_acid dust 1 empty smoke
+
+element	Fuse	89	89	89	0.000000	0.000000	1.000000	0.00000	1
+#neighbor .1 Fuse Fire 1 LitFuse Fire
+neighbor 1 Fuse Fire 1 LitFuse Fire
+neighbor 1 Fuse hydrochloric_acid 1 Fuse Fuse
+neighbor 1 Fuse sheild_maker 1 sheild sheild
+
+element	LitFuse	255	214	78	0.000000	0.000000	1.000000	0.00000	0
+#neighbor 1 LitFuse Empty 1 LitFuse Fire
+neighbor 1 LitFuse Fuse 1 LitFuse LitFuse
+self .1 LitFuse 1 Fire
+
+#Turns hydrochloric_acid into a burnable material...
+element hydro_acid_transformer	65	32	955	1	0	1	0.7	1
+neighbor	1.000000	hydrochloric_acid	hydro_acid_transformer	1	Fuse	Fuse
+neighbor 1 hydro_acid_transformer Fire 1 Fire Fire
+
+#makes a sheild that only hydrochloric_acid can go through! (and explosions)
+element	sheild_maker	65	94	31	1	0	1	0.7	1
+neighbor 1 Fuse sheild_maker 1 sheild sheild
+neighbor 1 wall sheild_maker 1 sheildwall sheildwall
+neighbor 1 dust sheild_maker 1 sheild sheild
+neighbor 1 metal sheild_maker 1 sheild sheild
+neighbor 1 moltenmetal sheild_maker 1 sheild sheild
+neighbor 1 sheild sheild_maker 1 sheild sheild
+neighbor 1 hydrochloric_acid sheild_maker 1 sheild sheild
+neighbor 1 hydro_acid_transformer sheild_maker 1 sheild sheild
+
+element	sheild	30	30	30	0	0	1	0	0
+neighbor 1 sheild hydrochloric_acid 1 empty smoke
+neighbor 1 sheild Fire 1 empty empty
+
+#makes a sheild that only hydrochloric_acid can go through! (and explosions) (burnable)
+element	sssheild_maker	65	94	31	1	0	1	0.7	1
+neighbor 1 Fuse sssheild_maker 1 ssheild ssheild
+neighbor 1 wall sssheild_maker 1 ssheild ssheild
+neighbor 1 dust sssheild_maker 1 ssheild ssheild
+neighbor 1 metal sssheild_maker 1 ssheild ssheild
+neighbor 1 moltenmetal sssheild_maker 1 ssheild ssheild
+neighbor 1 ssheild sssheild_maker 1 ssheild ssheild
+neighbor 1 hydrochloric_acid sssheild_maker 1 ssheild ssheild
+neighbor 1 hydro_acid_transformer sssheild_maker 1 ssheild ssheild
+
+element ssheild 30 30 30 0 0 1 0 0
+neighbor 1 ssheild hydrochloric_acid 1 empty smoke
+neighbor 1 Fire ssheild 1 Fire Fire
+
+element sheild_remover 64 65 94 1 0 1 0.7 1
+neighbor 1 sheild sheild_remover 1 empty smoke
+neighbor 1 sheild_remover Fire 1 Fire Fire
+neighbor 1 ssheild sheild_remover 1 empty smoke
+
+#Bugs are annoying...
+element gnat 65 31 955 0.0005 0.5 1 0 1
+neighbor 1 gnat bug_spray 1 deadgnat deadgnat
+
+element deadgnat 65 3 1955 1 .6 .5 1.2 0
+neighbor 1 Fire deadgnat 1 Fire Fire
+
+element bug_spray 65 98 311 -5 0.5 1 0 1
+neighbor 1 bug_spray gnat 1 empty empty
+neighbor 1 bug_spray Fire 1 Fire Fire
+self 0.005 bug_spray 1.0 empty
+
+element sheildwall 128 128 128 0.000000 0.000000 3.000000 0.500000 0
+neighbor 1 sheildwall empty 1 sheild sheild
+
+#covers and eats stuff... multiplies when it does
+element ameba 20 100 20 1 1 1 1 1
+neighbor 1 ameba wall 1 mall mall
+neighbor 1 ameba dust 1 must must
+neighbor 1 ameba metal 1 mall mall
+neighbor 1 mall empty 1 mameba mameba
+neighbor 1 ameba Fire 1 smoke empty
+neighbor 1 ameba hydrochloric_acid 1 smoke empty
+self 0.0005 ameba 1 empty
+
+element	mempty	0	0	0	0.000000	1.000000	0.000000	0.000000	0
+self 1 mempty 1.0 empty
+
+element mall 128     128     128     0.000000        0.000000        3.000000        0.500000        0
+neighbor 1 mall empty 1 mameba mameba
+neighbor 1 mall wall 1 mall mall
+
+element mameba 20 100 10 0 0 1 0 0
+neighbor 1 mall mameba 1 ameba ameba
+neighbor 1  must mameba 1 ameba ameba
+self 1 mameba 1 empty
+
+element must 60	60	60	1.000000	1.000000	1.000000	0.000000	0
+neighbor 1 must empty 1 mameba mameba
+neighbor 1 must dust 1 ameba ameba
+
+element infection 131 139 131 0 0 1 0 1
+element bacteria 255 215 0 0 0 1 0 0
+element wire2 255 215 0 0 0 1 0 0  
+
+neighbor 1 bacteria infection 1 wire2 bacteria
+self 0.05 wire2 1 infection
+self 0.03 bacteria 1 infection
+neighbor 1 flesh infection 1 bacteria wire2
+
+element flesh 65 944 546 0 0 1 0 1
+
+element colorspout 250 250 250 0 0 1 0 1
+neighbor 1 colorspout empty 0.4 colorspout ohno 0.3 colorspout ohno2 0.3 colorspout ohno3
+
+element ohno 250 250 0 1 0 0 1 1 
+element ohno2 0 250 250 1 0 0 1 1
+element ohno3 250 0 250 1 0 0 1 1
+neighbor 0.2 ohno ohno2 1 ohno2 ohno2
+neighbor 0.2 ohno2 ohno3 1 ohno3 ohno3
+neighbor 0.2 ohno3 ohno 1 ohno ohno
+
+element RavageFire 255 255 255 0.0 0.0 0.0 0.0
+pexplosion RavageFire empty 1 Exp_RavageFire
+
+element Exp_RavageFire 255 255 255 0.0 0.0 0.0 0.0 0
+neighbor 1.0 Exp_RavageFire empty 0.5 Fire RavageReact 0.5 smoke Fire
+
+element RavageReact 255 0 0 -1.0 0.0 0.0 0.0 0
+#self 1.0 RavageReact 1.0 empty
+self 0.01 RavageReact 1.0 smoke
+pexplosion Exp_RavageFire RavageReact 9 Fire
+
+element explodingravage 250 250 250 1.000000	1.000000	1.000000	0.000000	0</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:2336-0!1!0!0!!en!2 and timestamp 20071027125310 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Bratska/not_complete_but_functional">http://www.fallingsandgame.com/wiki/index.php/User:Bratska/not_complete_but_functional</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Bratska/not_complete_but_functional">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Bratska/not_complete_but_functional&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Bratska/not_complete_but_functional&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Bratska/not_complete_but_functional&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Bratska/not_complete_but_functional">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Bratska/not_complete_but_functional">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Bratska/not_complete_but_functional">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Bratska/not_complete_but_functional&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Bratska/not_complete_but_functional&amp;oldid=5876">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 13:21, 15 July 2007.</li>
+				<li id="viewcount">This page has been accessed 1,711 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

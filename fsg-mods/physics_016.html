@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Sirking/physics" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Sirking/physics - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Sirking/physics</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4-20060322, File subversion 2
+
+#group groupName element [element] ...
+#element name red green blue gravity slip density conductivity visible
+#self deathprobability element fraction element [fraction element] ...
+#neighbor eventprobability element1 element2 fraction newelement1 newelement2 [fraction newelement1 newelement2] ... 
+#hotcolor [red] [green] [blue]
+#hotself [hotprobability] [element]
+#hotneighbor [[hotprobability] [element] [element] 
+
+group	Energy Heating Lava
+group	Pipes Spout Oilp Hydrogenp Oxygenp Sandp Steamp Saltwaterp Saltp Crawlp Rain Fertilizerp PeopleP CorpsesP
+group	Colors Red Green Blue Yellow Purple Cyan
+group	Life Fastbacteria Fertilizer Crawl WallDust People Corpses BurningCorpse WaterFiend WaterVirus WaterVirusActive
+group	Stuff Floats Mud LiqGlass Mineral StillFire StillWater Wood BurningWood BurntWood
+group	Gases Oxygen Hydrogen
+group	Electricity Battery
+group	Cold Ice Freezer Saltice Oilice Mudice Cooler LiquidCooler 
+group	Waters Water Steam Saltwater
+group	Filters WaterFilter WaterFiltersat FertilizerFilter FertilizerFiltersat
+sources	Sand	Water	Salt	Oil
+
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor	Wall	255	0	0
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	1.000000	Empty
+neighbor	0.900000	Fire	Water	1.000000	Empty	Steam
+neighbor	1.000000	Fire	Plant	1.000000	Fire	Fire
+neighbor	0.005000	Fire	Cera	1.000000	MoltenCera	Ember
+neighbor	0.750000	Fire	Oil	1.000000	Fire	Fire
+hotcolor	Fire	255	63	63
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+self	0.001000	Water	1.000000	Steam
+neighbor	0.004000	Water	Salt	1.000000	Saltwater	Saltwater
+hotcolor	Water	200	200	255
+hotself	50	Water
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000	1
+neighbor	0.200000	Plant	Water	1.000000	Plant	Plant
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.010000	1
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor	0.750000	Spout	Empty	1.000000	Spout	Water
+neighbor	0.500000	Spout	Sand	1.000000	Empty	Empty
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.200000	1
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.000000	Leftover???
+neighbor	1.000000	???	Empty	1.000000	???	???
+neighbor	1.000000	???	Wall	1.000000	???	???
+neighbor	1.000000	???	Fire	1.000000	???	???
+neighbor	1.000000	???	Water	1.000000	???	???
+neighbor	1.000000	???	Sand	1.000000	???	???
+neighbor	1.000000	???	Spout	1.000000	???	???
+neighbor	1.000000	???	Cera	1.000000	???	???
+neighbor	1.000000	???	Oil	1.000000	???	???
+neighbor	1.000000	???	Salt	1.000000	???	???
+neighbor	1.000000	???	Ember	1.000000	???	???
+neighbor	1.000000	???	MoltenCera	1.000000	???	???
+neighbor	1.000000	???	Steam	1.000000	???	???
+neighbor	1.000000	???	Saltwater	1.000000	???	???
+neighbor	1.000000	???	Torch	1.000000	???	???
+neighbor	0.200000	???	Leftover???	1.000000	Leftover???	Leftover???
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.4 	00000	1
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.000000	Fire
+neighbor	0.200000	Ember	Empty	1.000000	Ember	Fire
+neighbor	0.900000	Ember	Water	1.000000	Empty	Steam
+neighbor	1.000000	Ember	Plant	1.000000	Ember	Fire
+neighbor	0.005000	Ember	Cera	1.000000	MoltenCera	Ember
+neighbor	0.750000	Ember	Oil	1.000000	Ember	Fire
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	0
+neighbor	0.010000	MoltenCera	Wall	1.000000	Cera	Wall
+neighbor	0.010000	MoltenCera	Water	1.000000	Cera	Water
+neighbor	0.010000	MoltenCera	Sand	1.000000	Cera	Sand
+neighbor	0.010000	MoltenCera	Spout	1.000000	Cera	Spout
+neighbor	0.010000	MoltenCera	Cera	1.000000	Cera	Cera
+neighbor	0.010000	MoltenCera	Oil	1.000000	Cera	Oil
+neighbor	0.010000	MoltenCera	Salt	1.000000	Cera	Salt
+neighbor	0.010000	MoltenCera	Saltwater	1.000000	Cera	Saltwater
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.000000	Water
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self	0.000010	Saltwater	0.500000	Water	0.500000	Salt
+neighbor	0.900000	Saltwater	Fire	1.000000	Salt	Steam
+neighbor	0.040000	Saltwater	Water	1.000000	Water	Saltwater
+neighbor	0.001000	Saltwater	Saltwater	1.000000	Salt	Steam
+hotneighbor	50	Saltwater	Saltwater
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor	0.200000	Torch	Empty	1.000000	Torch	Fire
+neighbor	0.200000	Torch	Water	1.000000	Torch	Steam
+neighbor	0.200000	Torch	Plant	1.000000	Torch	Fire
+neighbor	0.200000	Torch	Cera	1.000000	Torch	MoltenCera
+neighbor	0.200000	Torch	Oil	1.000000	Torch	Fire
+neighbor	0.200000	Torch	Saltwater	1.000000	Torch	Salt
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.005000	Leftover???	1.000000	Empty
+
+#
+#
+#
+#Sirking's Elements
+#
+#
+#
+
+self	1.000000	Water	1.000000	Steam
+hotself 70 Water
+
+self .8 Cera 1 MoltenCera
+hotself 50 Cera
+
+self 1 Sand .5 LiqGlass .5 Mineral
+hotself 50 Sand
+
+self 1 Oil 1 Fire
+hotself 99 Oil
+
+element Wood 101 101 1 0 0 1 .4 1
+self .1 Wood 1 BurningWood
+hotself 80 Wood
+
+element BurningWood 61 61 61 0 0 1 1 1
+neighbor .03 BurningWood Empty .8 BurningWood Fire .2 Ember Fire
+neighbor .02 BurningWood Water 1 BurntWood Water
+
+element BurntWood 41 41 41 0 0 1 .4 1
+self .1 BurntWood 1 BurningWood
+hotself 80 BurntWood
+
+element PeopleP 156 48 23 0 0 1 0 1
+neighbor 1 PeopleP Empty 1 PeopleP People
+
+element CorpsesP 155 44 20 0 0 1 0 1
+neighbor 1 CorpsesP Empty 1 CorpsesP Corpses
+
+#COLORS
+#COLORS
+#COLORS
+element Red 255 0 0 .7 1 1 0 1
+neighbor	.7 Red Green 1 Yellow Yellow
+neighbor	.7 Red Blue 1 Purple Purple
+
+element Green 0 255 0 .7 1 1 0 1
+neighbor	.7 Green Blue 1 Cyan Cyan
+
+element Blue 0 0 255 .7 1 1 0 1
+
+element Yellow 255 255 0 .7 1 .8 0 1
+
+element Purple 102 0 153 .7 1 .8 0 1
+
+element Cyan 0 255 255 .7 1 .8 0 1
+
+#END_COLORS
+#END_COLORS
+#END_COLORS
+
+#PUMPS
+#PUMPS
+#PUMPS
+element Oilp	100 100 101 0 0 1 0 1
+neighbor	.75 Oilp Empty 1 Oilp Oil
+
+element Hydrogenp	101 100 100 0 0 1 0 1
+neighbor	.75 Hydrogenp Empty 1 Hydrogenp Hydrogen
+
+element Oxygenp	100 101 100 0 0 1 0 1
+neighbor	.75 Oxygenp Empty 1 Oxygenp Oxygen
+
+element Sandp	101 0 0 0 0 1 0 1
+neighbor	.75 Sandp Empty 1 Sandp Sand
+
+element Steamp 0 101 0 0 0 1 0 1
+neighbor	.75 Steamp Empty 1 Steamp Steam
+
+element Saltwaterp	0 0 101 0 0 1 0 1
+neighbor	.75 Saltwaterp Empty 1 Saltwaterp Saltwater
+
+element Saltp	0 101 101 0 0 1 0 1
+neighbor	.75 Saltp Empty 1 Saltp Salt
+
+element Crawlp	101 0 101 0 0 1 0 1
+neighbor	.75 Crawlp Empty 1 Crawlp Crawl
+
+element Rain	101 101 0 0 0 1 0 1
+neighbor	.02 Rain Empty 1 Rain Water
+
+element Fertilizerp	100 100 102 0 0 1 0 1
+neighbor	.75 Fertilizerp Empty 1 Fertilizerp Fertilizer
+#END_PUMPS
+#END_PUMPS
+#END_PUMPS
+
+element LiqGlass  205 205 205 1 0 1 .5 1
+
+element Mineral	163 163 56 1 1 .8 .5 1
+
+element Heating   140   160   180   0.00   0.00   1.00   1.1   1
+
+element Mud	138 104 28 .8 0. .7 0 1
+neighbor	.9 Water Sand 1 Mud Mud
+neighbor	.9 Mud Fire 1 Steam Sand
+
+element Ice	205	205	255	0.000000	0.000000	1.000000	0.900000	1
+neighbor	0.50000	Ice	Steam	1.000000	Ice		Water
+neighbor	1.00000 Ice	Fire	1.000000	Water		Empty
+neighbor	0.05000	Ice	Water	1.000000	Ice		Ice
+neighbor	0.00500	Ice	Salt	1.000000	Water		Salt
+neighbor	0.08000	Ice	Saltwater	1.000000	Water	Saltwater
+neighbor	.0005 Ice Empty 1 Water Empty
+self		.1 Ice 1 Water
+hotself 	90 Ice
+
+element Floats	255	150	201	0.800000	0.500000	0.000000	0.000000	1
+neighbor	.82 Floats Fire 1 Fire Fire
+
+element	Hydrogen	100	100	100	-0.800000	1.000000	0.000000	0.000000	1
+neighbor	0.005 Hydrogen Oxygen 1.0 Empty Steam
+self		.005 Hydrogen 1 Empty
+
+element	Oxygen	150	150	150	-0.700000	1.000000	0.000000	0.000000	1
+neighbor	1.00000	Oxygen	Fire	1.000000	Fire	Fire
+neighbor	1.00000	Oxygen	StillFire	1.000000	StillFire	StillFire
+self		.005 Oxygen 1 Empty
+
+element Battery	150 150	150 0.0 0.0 1.0 0.0 1
+neighbor	0.05000	Battery	Water 0.5 Battery Hydrogen 0.5 Battery Oxygen
+neighbor	0.10000	Battery	Saltwater 0.25 Battery Hydrogen 0.25 Battery Oxygen 0.5 Battery Salt
+neighbor	0.75000	Battery	Oil 1.0 Battery Fire
+
+element Fastbacteria	0 255 249 0 0 0 .5 1
+neighbor 	1 Fastbacteria Empty 0.998 Fastbacteria Fastbacteria 0.002 Fastbacteria Oxygen
+neighbor	1 Fastbacteria Fastbacteria 1 Empty Empty
+neighbor	1 Fastbacteria Fire 1 Fire Fire
+neighbor	0.04 Fastbacteria Water 0.5 Fertilizer Empty 0.5 Fertilizer Water
+neighbor	.5 Fastbacteria People .9 Fastbacteria Corpses .1 Fertilizer People
+hotcolor	Fastbacteria 0 200 200
+
+element Fertilizer	0 255 100 0.9 0.4 0.7 0 1
+neighbor	0.7 Fertilizer Plant 1 Plant Plant
+
+element   Freezer   130 130 170   0.000000   0.000000   1.000000   0.999999   1
+self   1.000000   Freezer   1.000000   Freezer2
+neighbor   0.050000   Freezer   Freezer   1.000000   Freezer2   Freezer2
+neighbor   0.050000   Freezer   Empty   1.000000   Freezer2   Empty
+hotself   20   Freezer
+neighbor	1 Freezer Water 1 Freezer Ice
+neighbor	1 Freezer Steam 1 Freezer Water
+neighbor	.9 Freezer Saltwater 1 Freezer Saltice
+neighbor	1 Freezer MoltenCera 1 Freezer Cera
+neighbor	1 Freezer Oil 1 Freezer Oilice
+neighbor	1 Freezer Mud 1 Freezer Mudice
+
+element   Freezer2   130 130 172   0.000000   0.000000   1.000000   0.000000   0
+self   1.000000   Freezer2   1.000000   Freezer3
+neighbor   0.050000   Freezer2   Freezer2   1.000000   Freezer3   Freezer3
+neighbor   0.050000   Freezer2   Empty   1.000000   Freezer3   Empty
+neighbor	1 Freezer2 Water 1 Freezer2 Ice
+neighbor	1 Freezer2 Steam 1 Freezer2 Water
+neighbor	.9 Freezer2 Saltwater 1 Freezer2 Saltice
+neighbor	1 Freezer2 MoltenCera 1 Freezer Cera
+neighbor	1 Freezer2 Oil 1 Freezer2 Oilice
+neighbor	1 Freezer2 Mud 1 Freezer2 Mudice
+
+element   Freezer3   130 132 170   0.000000   0.000000   1.000000   0.999999   0
+self   1.000000   Freezer3   1.000000   Freezer
+neighbor   0.050000   Freezer3   Freezer3   1.000000   Freezer   Freezer
+neighbor   0.050000   Freezer3   Empty   1.000000   Freezer   Empty
+hotcolor   Freezer3   0   80   170
+hotself   20   Freezer3
+neighbor	1 Freezer3 Water 1 Freezer3 Ice
+neighbor	1 Freezer3 Steam 1 Freezer3 Water
+neighbor	.9 Freezer3 Saltwater 1 Freezer3 Saltice
+neighbor	1 Freezer3 MoltenCera 1 Freezer3 Cera
+neighbor	1 Freezer3 Oil 1 Freezer3 Oilice
+neighbor	1 Freezer3 Mud 1 Freezer3 Mudice
+
+element Oilice	178 114 114 0 0 1 .9 1
+neighbor	.005 Oilice Empty 1 Oil Empty
+neighbor	.9 Oilice Fire 1 Fire Fire
+neighbor	.03 Oilice Oil 1 Oilice Oilice
+self		0 Oilice 1 Oil
+hotself 	1 Oilice
+
+element Mudice	188 154 78 0 0 1 .9 1
+neighbor	.0005 Mudice Empty 1 Mud Empty
+neighbor	0.50000	Mudice	Steam	1.000000	Mudice		Water
+neighbor	1.00000 Mudice	Fire	1.000000	Mud		Empty
+neighbor	0.05000	Mudice	Water	1.000000	Mudice		Ice
+neighbor	0.05000	Mudice	Mud	1.000000	Mudice		Mudice
+neighbor	0.00500	Mudice	Salt	1.000000	Mud		Salt
+neighbor	0.08000	Mudice	Saltwater	1.000000	Mud	Saltwater
+self		0 Mudice 1 Mud
+hotself 	.9 Mudice
+
+element Saltice	100 100 155 0 0 1 .9 1
+neighbor	0.50000	Saltice	Steam	1.000000	Saltice		Water
+neighbor	1.00000 Saltice	Fire	1.000000	Saltwater	Empty
+neighbor	0.00500	Saltice	Water	1.000000	Saltwater	Water
+neighbor	0.00050	Saltice	Saltwater	1.000000	Saltwater	Saltwater
+neighbor	.0008 Saltice Empty 1 Saltwater Empty
+self		0 Saltice 1 Saltwater
+hotself 	1 Saltice
+
+element People 255 255 200 1 0 1 .5 1
+self 1 People 1 Corpses
+hotself 50 People
+
+element	Corpses 150 255 4 1 0 .9 .1 1
+self	.01 Corpses 1 Empty
+self 1 Corpses 1 BurningCorpse
+hotself 75 Corpses
+
+element BurningCorpse 200 52 51 1 1 .5 1.1 1
+self	0.002000	BurningCorpse	1.000000	Fire
+neighbor	0.200000	BurningCorpse	Empty	1.000000	BurningCorpse	Fire
+neighbor	0.900000	BurningCorpse	Water	1.000000	Corpses	Steam
+neighbor	1.000000	BurningCorpse	Plant	1.000000	BurningCorpse	Fire
+neighbor	0.005000	BurningCorpse	Cera	1.000000	MoltenCera	Ember
+neighbor	0.750000	BurningCorpse	Oil	1.000000	BurningCorpse	Fire
+
+element          FertilizerFilter  100 255 255 0.0 0.0 1.0 0.5 1
+neighbor 1.00000 FertilizerFilter   Fertilizer   1  FertilizerFiltersat  Empty
+neighbor 1.00000 FertilizerFiltersat  FertilizerFilter 1  FertilizerFilter  FertilizerFiltersat
+neighbor 1.00000 FertilizerFiltersat  Empty  1  FertilizerFilter  Fertilizer
+element          FertilizerFiltersat 186 200 200 0.0 0.0 1.0 0.5 1 
+
+element StillFire 248 63 63 0 0 1 1.1 1
+neighbor	0.900000	StillFire	Water	1.000000	Empty	Steam
+neighbor	1.000000	StillFire	Plant	1.000000	StillFire	StillFire
+neighbor	0.005000	StillFire	Cera	1.000000	MoltenCera	Ember
+neighbor	0.750000	StillFire	Oil	1.000000	StillFire	StillFire
+neighbor	1		StillFire	Fastbacteria	1 StillFire StillFire
+
+element StillWater 31 32 255 0 0 1 -10 1
+neighbor 1 StillWater StillFire 1 StillWater StillWater
+neighbor 1 StillWater Plant 1 Plant Plant
+
+element WaterFiend 200 200 200 0 0 1 0 1
+neighbor .5 WaterFiend Water 1 Water WaterFiend
+
+element WaterVirus 225 225 225 0 0 1 .5 1
+neighbor	1 WaterVirus Water 1 WaterVirusActive Water
+
+element WaterVirusActive 226 226 226 0 0 1 .5 1
+neighbor 	1 WaterVirusActive Water 1 WaterVirusActive WaterVirusActive
+neighbor	1 WaterVirusActive WaterVirusActive 1 Water Water
+neighbor	1 WaterVirusActive Fire 1 Fire Fire
+
+element Lava 200 52 52 1 1 .53 1.1 1
+
+
+
+#
+#Not Sirking's
+#
+
+element   Cooler   0   170   170   0.000000   1.000000   0.000000   0.999999   1
+self   1.000000   Cooler   1.000000   CoolerStage2
+neighbor   0.050000   Cooler   Cooler   1.000000   CoolerStage2   CoolerStage2
+neighbor   0.050000   Cooler   Empty   1.000000   CoolerStage2   Empty
+hotcolor   Cooler   0   170   170
+hotself   20   Cooler
+
+element   CoolerStage2   0   170   80   0.000000   1.000000   0.000000   0.000000   0
+self   1.000000   CoolerStage2   1.000000   CoolerStage3
+neighbor   0.050000   CoolerStage2   CoolerStage2   1.000000   CoolerStage3   CoolerStage3
+neighbor   0.050000   CoolerStage2   Empty   1.000000   CoolerStage3   Empty
+
+element   CoolerStage3   0   80   170   0.000000   1.000000   0.000000   0.999999   0
+self   1.000000   CoolerStage3   1.000000   Cooler
+neighbor   0.050000   CoolerStage3   CoolerStage3   1.000000   Cooler   Cooler
+neighbor   0.050000   CoolerStage3   Empty   1.000000   Cooler   Empty
+hotcolor   CoolerStage3   0   80   170
+hotself   20   CoolerStage3
+
+element   LiquidCooler   60   170   170   1.000000   1.000000   0.000000   0.999999   1
+self   1.000000   LiquidCooler   1.000000   LiquidCoolerStage2
+neighbor   0.050000   LiquidCooler   LiquidCooler   1.000000   LiquidCoolerStage2   LiquidCoolerStage2
+neighbor   0.050000   LiquidCooler   Empty   1.000000   LiquidCoolerStage2   Empty
+hotcolor   LiquidCooler   60   170   170
+hotself   20   LiquidCooler
+
+element   LiquidCoolerStage2   60   170   80   1.000000   1.000000   0.000000   0.000000   0
+self   1.000000   LiquidCoolerStage2   1.000000   LiquidCoolerStage3
+neighbor   0.050000   LiquidCoolerStage2   LiquidCoolerStage2   1.000000   LiquidCoolerStage3   LiquidCoolerStage3
+neighbor   0.050000   LiquidCoolerStage2   Empty   1.000000   LiquidCoolerStage3   Empty
+
+element   LiquidCoolerStage3   60   80   170   1.000000   1.000000   0.000000   0.999999   0
+self   1.000000   LiquidCoolerStage3   1.000000   LiquidCooler
+neighbor   0.050000   LiquidCoolerStage3   LiquidCoolerStage3   1.000000   LiquidCooler   LiquidCooler
+neighbor   0.050000   LiquidCoolerStage3   Empty   1.000000   LiquidCooler   Empty
+hotcolor   LiquidCoolerStage3   60   80   170
+hotself   20   LiquidCoolerStage3 
+
+element   Crawl   255   63   255   0.100000   1.000000   0.900000   0.500000   1
+neighbor   1.000000   Wall   Crawl   1.00000   WallDust   Crawl
+neighbor   0.500000   Empty   Crawl   0.50000   Empty   Crawl   0.50000   Crawl   Empty
+neighbor   0.100000   Plant   Crawl   0.40000   Crawl   Crawl 0.30000   Crawl   Plant   0.30000   Crawl   Empty
+neighbor   1.000000   Crawl   Wall   1.000000   Wall   Crawl
+neighbor   1.000000   Crawl   Fire   0.500000   Fire   Fire   0.500000   Oil   Oil
+neighbor   1.000000   Crawl   Water   0.500000   Water   Crawl   0.500000   Crawl   Empty
+neighbor   1.000000   Crawl   Cera   0.500000   Crawl   Empty   0.500000   MoltenCera   Crawl
+neighbor   1.000000   Crawl  &nbsp;???   1.000000   Crawl   Crawl
+neighbor   1.000000   Crawl   Oil   0.500000   Empty   Crawl   0.500000   Crawl   Oil
+neighbor   0.010000   Crawl   Salt   0.700000   Crawl   Empty   0.300000   Salt   Crawl
+neighbor   1.000000   Crawl   MoltenCera   1.000000   Crawl   Crawl
+neighbor   1.000000   Crawl   Saltwater   1.000000   Crawl   Empty
+neighbor   1.000000   Crawl   Leftover???   0.500000   Empty   Crawl   0.500000   Crawl   Crawl
+
+element   WallDust   128   128   128   1.000000   0.000000   0.500000   1.000000   1
+hotcolor WallDust 255 0 0
+neighbor   0.001000   WallDust   Wall   0.500000   Wall   Wall   0.500000   WallDust   Wall
+neighbor   0.001000   WallDust   Water   0.250000   Wall   Water   0.250000   WallDust   Water   0.500000   Water   Water
+self    0 WallDust 1 Wall
+hotself .01 WallDust
+
+element          WaterFilter  100 100 255 0.0 0.0 1.0 0.5 1
+neighbor 1.00000 WaterFilter   Water   1  WaterFiltersat  Empty
+neighbor 1.00000 WaterFilter  Saltwater 1 WaterFiltersat Salt
+neighbor 1.00000 WaterFiltersat  WaterFilter 1  WaterFilter  WaterFiltersat
+neighbor 1.00000 WaterFiltersat  Empty  1  WaterFilter  Water
+element          WaterFiltersat 150 150 200 0.0 0.0 1.0 0.5 1 
+#
+#End Not Sirking's
+#</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:1324-0!1!0!0!!en!2 and timestamp 20071028032205 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Sirking/physics">http://www.fallingsandgame.com/wiki/index.php/User:Sirking/physics</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Sirking/physics">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Sirking/physics&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Sirking/physics&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Sirking/physics&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Sirking/physics">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Sirking/physics">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Sirking/physics">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Sirking/physics&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Sirking/physics&amp;oldid=3487">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 00:21, 8 January 2007.</li>
+				<li id="viewcount">This page has been accessed 6,829 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.14 secs. -->
+</body></html>

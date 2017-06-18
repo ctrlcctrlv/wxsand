@@ -1,0 +1,358 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+
+group Basic Empty Wire Wall
+group Creation Electricity Battery
+group Tools Push Button BOut OnewayIn OnewayOut End
+group Gates Oscillator Sixth SixthOut Tenth TenOut Count SixthStop Split SplitOut1 SplitOut2 SwitchOn SwitchOff SwitchOut
+group LCDs T C B TL TR BL BR
+group Sandy Sand SandSource SandConv SandGen
+
+#Like Empty, except...umm...ya...
+element Empty 0 0 0 0 0 0 0 1
+
+#What electricity flows on.
+element Wire 150 150 150 0 0 100 0 1
+
+#If you just need one pulse.
+element Electricity 0 0 255 0 0 100 0 1
+neighbor 1 Electricity Wire 1 E2 Electricity
+
+element E2 0 0 150 0 0 100 0 0
+self 0.1 E2 1 E3
+
+element E3 0 0 100 0 0 100 0 0
+self 0.1 E3 1 E4
+
+element E4 0 0 50 0 0 100 0 0
+self 0.1 E4 1 Wire
+
+#Generates electricity when touching wire.
+element Battery 150 170 0 0 0 100 0 1
+neighbor 0.01 Battery Wire 1 Battery Electricity
+
+#Neutralizes incoming charges.
+element End 255 0 0 0 0 100 0 1
+neighbor 1 End Electricity 1 End E2
+
+#Sends forth every second charge.
+element Oscillator 235 0 240 0 0 100 0 1
+neighbor 1 Oscillator Electricity 1 OS2 E2
+
+element OS2 255 100 255 0 0 100 0 0
+neighbor 1 OS2 Electricity 1 OS3 E2
+
+element OS3 255 0 255 0 0 100 0 0
+neighbor 1 OS3 Wire 1 Oscillator Electricity
+
+#Lets charges split 2-way.
+element Split 255 255 255 0 0 100 0 1
+neighbor 1 Split Electricity 1 Split2 E2
+
+element Split2 255 240 255 0 0 100 0 0
+neighbor 1 Split2 SplitOut1 1 Split3 SO1P
+
+element Split3 255 230 255 0 0 100 0 0
+neighbor 1 Split3 SplitOut2 1 Split SO2P
+
+#Output #1 of a splitter.
+element SplitOut1 255 220 255 0 0 100 0 1
+
+element SO1P  255 220 245 0 0 100 0 0
+neighbor 1 SO1P Wire 1 SplitOut1 Electricity
+
+#Output #2 of a splitter.
+element SplitOut2 255 225 235 0 0 100 0 1
+
+element SO2P  255 220 225 0 0 100 0 0
+neighbor 1 SO2P Wire 1 SplitOut2 Electricity
+
+#For making your contraptions look good. Touch with Push to...err...push.
+element Button 250 10 10 0 0 100 0 1
+neighbor 1 Button Push 1 Button2 Button2
+
+element Button2 200 10 10 0 0 100 0 0
+neighbor 1 Button2 Button 1 Button2 Button2
+self 0.1 Button2 1 Button3
+
+element Button3 195 10 10 0 0 100 0 0
+neighbor 1 Button3 BOut 1 Button BOut2
+self 0.004 Button3 1 Button
+
+#The part where the button touches to wire.
+element BOut 180 0 0 0 0 100 0 1
+
+element BOut2 170 0 0 0 0 100 0 0
+neighbor 1 BOut2 Wire 1 BOut3 Electricity
+
+element BOut3 160 0 0 0 0 100 0 0
+neighbor 1 BOut3 Button 1 BOut Button
+
+#To push buttons.
+element Push 123 123 123 0 0 100 0 1
+
+#The enterable side of a one-way gate.
+element OnewayIn 10 190 10 0 0 100 0 1
+neighbor 1 OnewayIn Electricity 1 OWI2 E2
+
+#The inenterable part of a one-way.
+element OnewayOut 20 190 20 0 0 100 0 1
+
+element OWI2 0 180 0 0 0 100 0 0
+neighbor 1 OWI2 OnewayOut 1 OnewayIn OWO2
+
+element OWO2 0 180 0 0 0 100 0 0
+neighbor 1 OWO2 Wire 1 OnewayOut Electricity
+
+#Counts the number of charges it's had, from 0-9 and over.
+element Count 0 200 210 0 0 100 0 1
+neighbor 1 Count Electricity 1 Count1 E2
+
+############
+
+element Count1 0 200 220 0 0 100 0 0
+neighbor 1 Count1 Electricity 1 Count2 E2
+element Count2 0 200 220 0 0 100 0 0
+neighbor 1 Count2 Electricity 1 Count3 E2
+element Count3 0 200 220 0 0 100 0 0
+neighbor 1 Count3 Electricity 1 Count4 E2
+element Count4 0 200 220 0 0 100 0 0
+neighbor 1 Count4 Electricity 1 Count5 E2
+element Count5 0 200 220 0 0 100 0 0
+neighbor 1 Count5 Electricity 1 Count6 E2
+element Count6 0 200 220 0 0 100 0 0
+neighbor 1 Count6 Electricity 1 Count7 E2
+element Count7 0 200 220 0 0 100 0 0
+neighbor 1 Count7 Electricity 1 Count8 E2
+element Count8 0 200 220 0 0 100 0 0
+neighbor 1 Count8 Electricity 1 Count9 E2
+element Count9 0 200 220 0 0 100 0 0
+neighbor 1 Count9 Electricity 1 Count E2
+
+###########
+
+#The top-left piece of an LCD.
+element TL 0 235 0 0 0 100 0 1
+neighbor 1 TL Count 1 TL1 Count
+neighbor 1 TL Count4 1 TL1 Count4
+neighbor 1 TL Count5 1 TL1 Count5
+neighbor 1 TL Count6 1 TL1 Count6
+neighbor 1 TL Count7 1 TL1 Count7
+neighbor 1 TL Count8 1 TL1 Count8
+neighbor 1 TL Count9 1 TL1 Count9
+
+#The top-right piece of an LCD.
+element TR 0 225 0 0 0 100 0 1
+neighbor 1 TR Count 1 TR1 Count
+neighbor 1 TR Count1 1 TR1 Count1
+neighbor 1 TR Count2 1 TR1 Count2
+neighbor 1 TR Count3 1 TR1 Count3
+neighbor 1 TR Count4 1 TR1 Count4
+neighbor 1 TR Count7 1 TR1 Count7
+neighbor 1 TR Count8 1 TR1 Count8
+neighbor 1 TR Count9 1 TR1 Count9
+
+#The top piece of an LCD.
+element T 0 220 0 0 0 100 0 1
+neighbor 1 T Count 1 T1 Count
+neighbor 1 T Count2 1 T1 Count2
+neighbor 1 T Count3 1 T1 Count3
+neighbor 1 T Count5 1 T1 Count5
+neighbor 1 T Count6 1 T1 Count6
+neighbor 1 T Count7 1 T1 Count7
+neighbor 1 T Count8 1 T1 Count8
+neighbor 1 T Count9 1 T1 Count9
+
+#The bottom-left piece of an LCD.
+element BL 0 215 0 0 0 100 0 1
+neighbor 1 BL Count 1 BL1 Count
+neighbor 1 BL Count2 1 BL1 Count2
+neighbor 1 BL Count6 1 BL1 Count6
+neighbor 1 BL Count8 1 BL1 Count8
+
+#The bottom-right piece of an LCD.
+element BR 0 210 0 0 0 100 0 1
+neighbor 1 BR Count 1 BR1 Count
+neighbor 1 BR Count1 1 BR1 Count1
+neighbor 1 BR Count3 1 BR1 Count3
+neighbor 1 BR Count4 1 BR1 Count4
+neighbor 1 BR Count5 1 BR1 Count5
+neighbor 1 BR Count6 1 BR1 Count6
+neighbor 1 BR Count7 1 BR1 Count7
+neighbor 1 BR Count8 1 BR1 Count8
+neighbor 1 BR Count9 1 BR1 Count9
+
+#The bottom piece of an LCD.
+element B 0 200 0 0 0 100 0 1
+neighbor 1 B Count 1 B1 Count
+neighbor 1 B Count2 1 B1 Count2
+neighbor 1 B Count3 1 B1 Count3
+neighbor 1 B Count5 1 B1 Count5
+neighbor 1 B Count6 1 B1 Count6
+neighbor 1 B Count8 1 B1 Count8
+neighbor 1 B Count9 1 B1 Count9
+
+#The center of the LCD.
+element C 0 195 0 0 0 100 0 1
+neighbor 1 C Count2 1 C1 Count2
+neighbor 1 C Count3 1 C1 Count3
+neighbor 1 C Count4 1 C1 Count4
+neighbor 1 C Count5 1 C1 Count5
+neighbor 1 C Count6 1 C1 Count6
+neighbor 1 C Count8 1 C1 Count8
+neighbor 1 C Count9 1 C1 Count9
+
+########
+
+element TL1 250 0 0 0 0 100 0 0
+neighbor 1 TL1 Count1 1 TL Count1
+neighbor 1 TL1 Count2 1 TL Count2
+neighbor 1 TL1 Count3 1 TL Count3
+
+element TR1 250 0 0 0 0 100 0 0
+neighbor 1 TR1 Count5 1 TR Count5
+neighbor 1 TR1 Count6 1 TR Count6
+
+element T1 250 0 0 0 0 100 0 0
+neighbor 1 T1 Count1 1 T Count1
+neighbor 1 T1 Count4 1 T Count4
+
+element BL1 250 0 0 0 0 100 0 0
+neighbor 1 BL1 Count1 1 BL Count1
+neighbor 1 BL1 Count3 1 BL Count3
+neighbor 1 BL1 Count4 1 BL Count4
+neighbor 1 BL1 Count5 1 BL Count5
+neighbor 1 BL1 Count7 1 BL Count7
+neighbor 1 BL1 Count9 1 BL Count9
+
+element BR1 250 0 0 0 0 100 0 0
+neighbor 1 BR1 Count2 1 BR Count2
+
+element B1 250 0 0 0 0 100 0 0
+neighbor 1 B1 Count1 1 B Count1
+neighbor 1 B1 Count4 1 B Count4
+neighbor 1 B1 Count7 1 B Count7
+
+element C1 250 0 0 0 0 100 0 0
+neighbor 1 C1 Count 1 C Count
+neighbor 1 C1 Count1 1 C Count1
+neighbor 1 C1 Count7 1 C Count7
+
+########
+
+#Lets through every tenth pulse. Very useful for LCD displays with more than one digit.
+element Tenth 255 255 0 0 0 100 0 1
+neighbor 1 Tenth Electricity 1 Ten1 E2
+
+element Ten1 255 255 50 0 0 100 0 0
+neighbor 1 Ten1 Electricity 1 Ten2 E2
+
+element Ten2 255 255 50 0 0 100 0 0
+neighbor 1 Ten2 Electricity 1 Ten3 E2
+
+element Ten3 255 255 50 0 0 100 0 0
+neighbor 1 Ten3 Electricity 1 Ten4 E2
+
+element Ten4 255 255 50 0 0 100 0 0
+neighbor 1 Ten4 Electricity 1 Ten5 E2
+
+element Ten5 255 255 50 0 0 100 0 0
+neighbor 1 Ten5 Electricity 1 Ten6 E2
+
+element Ten6 255 255 50 0 0 100 0 0
+neighbor 1 Ten6 Electricity 1 Ten7 E2
+
+element Ten7 255 255 50 0 0 100 0 0
+neighbor 1 Ten7 Electricity 1 Ten8 E2
+
+element Ten8 255 255 50 0 0 100 0 0
+neighbor 1 Ten8 Electricity 1 Ten9 E2
+
+element Ten9 255 255 50 0 0 100 0 0
+neighbor 1 Ten9 Electricity 1 Ten10 E2
+
+element Ten10 255 255 50 0 0 100 0 0
+neighbor 1 Ten10 TenOut 1 Tenth TenOut2
+
+#The output port of a Tenth.
+element TenOut 180 190 0 0 0 100 0 1
+
+element TenOut2 180 190 20 0 0 100 0 0
+neighbor 1 TenOut2 Wire 1 TenOut Electricity
+
+#Sandy.
+element Sand 255 255 128 0.8 0.2 100 0 1
+
+#20M6 i w0ndur wu7 d15 du2...
+element SandSource 128 128 64 0 0 100 0 1
+neighbor 1 SandSource Empty 1 SandSource Sand
+
+#Converts sand into electricity, 1 pulse per pixel.
+element SandConv 64 64 128 0 0 100 0 1
+neighbor 1 SandConv Sand 1 SandConv2 Empty
+
+element SandConv2 10 10 0 0 0 100 0 0
+neighbor 1 SandConv2 Wire 1 SandConv Electricity
+
+#Generates one pixel of sand for every pulse it recieves.
+element SandGen 128 64 128 0 0 100 0 1
+neighbor 1 SandGen Electricity 1 SandGen2 E2
+
+element SandGen2 10 10 0 0 0 100 0 0
+neighbor 1 SandGen2 Empty 1 SandGen Sand
+
+#Soluble in water.
+element Wall 128 128 128 0 0 100 0 1
+
+#Switches a switch on.
+element SwitchOn 0 0 230 0 0 100 0 1
+neighbor 1 SwitchOn Electricity 1 SwitchOn2 E2
+
+#Switches a switch off.
+element SwitchOff 0 0 215 0 0 100 0 1
+neighbor 1 SwitchOff Electricity 1 SwitchOff2 E2
+
+element SwitchOff2 0 0 10 0 0 100 0 0
+neighbor 1 SwitchOff2 SwitchOut 1 SwitchOff SwitchO
+neighbor 1 SwitchOff2 SwitchO 1 SwitchOff SwitchO
+
+element SwitchOn2 0 0 10 0 0 100 0 0
+neighbor 1 SwitchOn2 SwitchOut 1 SwitchOn SwitchOut
+neighbor 1 SwitchOn2 SwitchO 1 SwitchOn SwitchOut
+
+#The part of the switch that acts like wire.
+element SwitchOut 0 0 200 0 100 0 0 1
+neighbor 1 SwitchOut Electricity 1 SWOU2 E2
+
+element SWOU2 0 0 10 0 0 100 0 0
+neighbor 1 SWOU2 OnewayIn 1 SwitchOut OWI2
+
+element SwitchO 0 0 190 0 100 0 1
+neighbor 1 SwitchO Electricity 1 SwitchO E2
+
+#Send every sixth pulse.
+element Sixth 255 128 152 0 0 100 0 1
+neighbor 1 Sixth Electricity 1 Sixth1 E2
+element Sixth1 0 10 10 0 0 100 0 0
+neighbor 1 Sixth1 Electricity 1 Sixth2 E2
+element Sixth2 0 10 10 0 0 100 0 0
+neighbor 1 Sixth2 Electricity 1 Sixth3 E2
+element Sixth3 0 10 10 0 0 100 0 0
+neighbor 1 Sixth3 Electricity 1 Sixth4 E2
+element Sixth4 0 10 10 0 0 100 0 0
+neighbor 1 Sixth4 Electricity 1 Sixth5 E2
+element Sixth5 0 10 10 0 0 100 0 0
+neighbor 1 Sixth5 Electricity 1 Sixth6 E2
+element Sixth6 0 10 10 0 0 100 0 0
+neighbor 1 Sixth6 SixthOut 1 Sixth SixthOut2
+element SixthOut 190 10 10 0 0 100 0 1
+element SixthOut2 0 10 0 0 0 100 0 0
+neighbor 1 SixthOut2 Wire 1 SixthOut Electricity 
+
+#SixthStop
+element SixthStop 0 152 152 0 0 100 0 1
+element SixthStop2 0 0 0 0 0 100 0 1
+neighbor 1 SixthStop Count5 1 SixthStop2 Count5
+neighbor 1 SixthStop2 Count6 1 SixthStop Count
+

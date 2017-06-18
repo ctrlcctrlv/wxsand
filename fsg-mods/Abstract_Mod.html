@@ -1,0 +1,1741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Valter/Abstract Mod" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Valter/Abstract Mod - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Valter/Abstract Mod</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre> 
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group	Cool	AmnesiaDust  CancelOut	Acid StemCells Copy SpreadCopy   Catalyst  Fetus ShrinkWall 
+group   Removers Evaporator Wallaway Drain-o Weed-be-gone
+group 	Fireworks Confetti Launcher	Fireworks Fireworks2 Fireworks3	Fireworks4 Fireworks5 Fireworks6	
+group	Color	Color	ColorB	Blink 	Flash FlashBomb Blip BlipPowder
+group	Matter	DarkMatter CompressedHole	LightMatter	VacuumHole	
+group	Health	Poison	Antidote
+group   Waters  Water  Steam SteamPipe  Saltwater  Spout  Ice  Snow Blizzard
+group	Fires	Fire	Torch	TNT	Ember	FallingEmber AtomicB Bomb Napalm Meteor
+group	Growth	Soil  Seed Crop VineSeed Vine InstaGrow MiracleGrow
+group   Holy	HolyWater	Tabernacle	SpiritFlame Love
+group	Evil	Blood  BloodWell  HellFire	Sin
+sources Catalyst
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#Eraser element.
+element	Drain	30	20	50	0.000000	1.000000	10000000	0.000000	1
+neighbor 2.0	Drain	Water			1.0	Drain	Empty
+neighbor 2.0	Drain	Cement			1.0	Drain	Empty
+neighbor 2.0	Drain	Oil			1.0	Drain	Empty
+neighbor 2.0	Drain	Steam			1.0	Drain	Empty
+neighbor 2.0	Drain	Sand			1.0	Drain	Empty
+neighbor 2.0	Drain	Dust			1.0	Drain	Empty
+neighbor 2.0	Drain	Salt			1.0	Drain	Empty
+neighbor 2.0	Drain	Saltwater		1.0	Drain	Empty
+neighbor 2.0	Drain	MoltenCera		1.0	Drain	Empty
+neighbor 2.0	Drain	FallingEmber		1.0	Drain	Empty
+neighbor 2.0	Drain	ExplodingTNT		1.0	Drain	Empty
+neighbor 2.0	Drain	Blood 			1.0	Drain	Empty
+neighbor 2.0	Drain	HolyWater 		1.0	Drain	Empty
+neighbor 2.0	Drain	AmnesiaDust		1.0	Drain	Empty
+neighbor 2.0	Drain	Snow			1.0	Drain	Empty
+neighbor 2.0	Drain	Seed			1.0	Drain	Empty
+neighbor 2.0	Drain	Sin			1.0	Drain	Empty
+neighbor 2.0	Drain	Love			1.0	Drain	Empty
+neighbor 2.0	Drain	HellFire		1.0	Drain	Empty
+neighbor 2.0	Drain	SpiritFlame		1.0	Drain	Empty
+neighbor 2.0	Drain	DarkMatter		1.0	Drain	Empty
+neighbor 2.0	Drain	LightMatter		1.0	Drain	Empty
+neighbor 2.0	Drain	Poison			1.0	Drain	Empty
+neighbor 2.0	Drain	AtomicB			1.0	Drain	Empty
+neighbor 2.0	Drain	Antidote		1.0	Drain	Empty
+neighbor 2.0    Drain	Color			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid2			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid3			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid4			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid5			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid6			1.0	Drain	Empty
+neighbor 2.0    Drain	Acid7			1.0	Drain	Empty
+#Ground.
+element Soil	70	50	0	0.00000	1.000000	60.000	1.000000	1
+neighbor 1.0	Soil	Snow		1.0	Soil		Ice
+#A solid element which reacts with nothing.	
+element	Wall	125	125	125	0.000000	0.000000	100.000000	0.500000	1
+hotcolor  Wall  200	0	0
+#Cement
+element	Cement	100	100	100	1.00000	0.200000	55.00000	0.500000	1
+neighbor 0.01	Cement	Soil	1.0	Wall	Wall
+neighbor 0.01	Cement	Wall	1.0	Wall	Wall
+neighbor 0.01	Cement	Crop	1.0	Wall	Wall
+neighbor 0.01	Cement	Flash	1.0	Wall	Wall
+neighbor 0.01	Cement	L	1.0	Wall	Wall
+neighbor 0.01	Cement	S	1.0	Wall	Wall
+neighbor 0.01	Cement	D	1.0	Wall	Wall
+neighbor 0.01	Cement	White	1.0	Wall	Wall
+neighbor 0.01	Cement	Black	1.0	Wall	Wall
+neighbor 0.01	Cement	Green	1.0	Wall	Wall
+neighbor 0.01	Cement	Yellow	1.0	Wall	Wall
+neighbor 0.01	Cement	Red	1.0	Wall	Wall
+neighbor 0.01	Cement	Purple	1.0	Wall	Wall
+neighbor 0.01	Cement	Blue	1.0	Wall	Wall
+neighbor 0.01	Cement	Teal	1.0	Wall	Wall
+neighbor 0.01	Cement  Ice	1.0	Wall	Wall
+neighbor 0.01	Cement	Black	1.0	Wall	Wall
+neighbor 0.01	Cement	Green	1.0	Wall	Wall
+neighbor 0.01	Cement	Yellow	1.0	Wall	Wall
+neighbor 0.01	Cement	Red	1.0	Wall	Wall
+neighbor 0.01	Cement	Purple	1.0	Wall	Wall
+neighbor 0.01	Cement	Blue	1.0	Wall	Wall
+neighbor 0.01	Cement	Teal	1.0	Wall	Wall
+neighbor 0.01	Cement  Ice	1.0	Wall	Wall
+#Dust
+element	Dust	150	150	150	0.900000		0.200000	55.00000	0.500000	1
+#Burns other elements. Source of energy.
+element   Fire   247   100   20   -1.000000   0.000000   0.000500   1.100000   1
+self	0.050000	Fire	1.0000	Empty	
+hotcolor   Fire   160   0   0
+neighbor 0.9	Fire	Water			1.0	Empty		Steam
+neighbor 0.75	Fire	Oil			1.0	Fire		Fire
+neighbor 0.009	Fire	Cera			1.0	MoltenCera	Ember
+neighbor 0.9	Fire	TNT			1.0	ExplodingTNT	Fire
+explosion	Fire	Oil	10	10
+explosion	Fire	TNT	100	100
+#Explodes
+element	TNT	50	50	50	0.000000	0.000000	60.000000	0.000000	1
+#Explodes
+element	ExplodingTNT	100	50	50	0.900000	1.000000	1.000000	0.000000	0
+self	0.02000	ExplodingTNT	1.0000	Fire
+neighbor 0.9	ExplodingTNT	TNT		1.0	ExplodingTNT	ExplodingTNT
+neighbor 1.0	ExplodingTNT	Wall		1.0	ExplodingTNT	Dust
+explosion	ExplodingTNT	TNT	100	100
+#Dissolves other elements. Turns to steam when heated.
+element	Water	32	32	255	0.700000	1.000000	59.0000	0.400000	1
+neighbor 0.9	Water	Root	1.0	Crop	Root
+hotcolor Water  200     200     255
+self    0.009     Water   1.0     Steam
+hotself 50     Water
+#Frozen Water.
+element Ice	210	210	255	0.000000	0.000000	60.00000	0.100000	1
+neighbor 0.9	Ice	Fire		1.0	Empty		Empty	
+neighbor 1.3	Ice	Water		1.0	Ice		Ice
+neighbor 0.09	Ice	Saltwater	1.0	Saltwater	Saltwater
+neighbor 0.9	Ice	Salt		1.0	Water		Salt
+neighbor 0.1    Ice	Crop 			0.995	Ice	Crop	0.005 Ice	DeadCrop
+hotcolor Ice	32	32	255
+self	0.01	Ice	1.0	Water
+hotself 50	Ice
+#Falling Ice.
+element Snow	220	220	255	0.500000	1.500000	59.100000	0.500000	1
+neighbor 0.1	Snow	Water			0.25	Water	Water	0.75	Snow	Water
+neighbor 0.1	Snow	Fire			1.0	Empty	Fire
+neighbor 0.1	Snow	Wall			1.0	Ice	Wall
+neighbor 0.1	Snow	Sand			1.0	Ice	Sand
+neighbor 0.1	Snow	Spout			1.0	Ice	Spout
+neighbor 0.1	Snow	Cera			1.0	Ice	Cera
+neighbor 0.9	Snow	Oil			1.0	Water	Oil
+neighbor 0.1	Snow	Salt			1.0	Water	Salt
+neighbor 0.9	Snow	Saltwater		1.0	Water	Saltwater
+neighbor 0.1	Snow	Ice			1.0	Ice	Ice
+neighbor 0.1	Snow	FallingEmber		1.0	Empty	FallingEmber
+neighbor 0.1	Snow	Ember			1.0	Empty	Ember
+neighbor 0.1	Snow 	Torch			1.0	Empty	Torch
+neighbor 0.1    Snow	Crop 			0.999	Ice	Crop	0.001 Ice	DeadCrop
+#Grows in water.
+element	Crop		32	204	32	0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.5	Crop	Water			1.0	Crop	Crop
+neighbor  0.00001	Crop	Empty		1.0	Crop	GrowCrop
+element GrowCrop 	32	204	32	-0.000000	0.000000	60.000000	0.000000	0
+neighbor 1.0	 GrowCrop  Empty 	1.0 	Crop	GrowCrop  
+neighbor 1.0	 GrowCrop  Water	1.0	GrowCrop	GrowCrop	
+self 0.1   GrowCrop  		0.99	Crop	0.01 GrowCrop2
+neighbor 1.0	GrowCrop	Fire		1.0	Fire	Fire
+element GrowCrop2 	32	204	32	0.000000	0.000000	60.000000	0.000000	0
+pexplosion	GrowCrop2	Empty	8	Flower
+neighbor 0.01 GrowCrop2 Crop 1 Crop Crop
+neighbor 1 Fire Crop 1 Fire Fire
+#Inert.
+element	Sand	238	204	128	0.900000	0.500000	59.50	0.000000	1
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.75	Spout	Empty			1.0	Spout		Water
+neighbor 0.5	Spout	Sand			1.0	Empty		Empty
+neighbor 1.0	Spout	Ice			1.0	FrozenTap	Ice
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	60.000000	0.000000	1
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty			1.0	???	???
+neighbor 1.0	???	Wall			1.0	???	???
+neighbor 1.0	???	Fire			1.0	???	???
+neighbor 1.0	???	Water			1.0	???	???
+neighbor 1.0	???	Sand			1.0	???	???
+neighbor 1.0	???	Spout			1.0	???	???
+neighbor 1.0	???	Cera			1.0	???	???
+neighbor 1.0	???	Oil			1.0	???	???
+neighbor 1.0	???	Salt			1.0	???	???
+neighbor 1.0	???	Ember			1.0	???	???
+neighbor 1.0	???	MoltenCera		1.0	???	???
+neighbor 1.0	???	Steam			1.0	???	???
+neighbor 1.0	???	Saltwater		1.0	???	???
+neighbor 1.0	???	Torch			1.0	???	???
+neighbor 0.2	???	Leftover???		1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	35   35   35 	0.700000   1.000000   0.200000   0.900000   1
+self   1.000000   Oil   1.000000   Fire
+hotself   50   Oil
+#Soluable in water.
+element	Salt	255	255	255	0.900000	0.400000	59.4000	0.000000	1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	56.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty		1.0	Ember	Fire
+neighbor 0.9		Ember	Water		1.0	Empty	Steam
+neighbor 0.75		Ember	Oil		1.0	Ember	Fire
+neighbor 1.0		Ember	Crop		1.0	Ember	Fire
+neighbor 0.005		Ember	Cera		1.0	MoltenCera	Ember
+#Burns for a little while.
+element	FallingEmber	200	50	50	1.000000	0.200000	55.000000	1.100000	1
+self	0.002000	FallingEmber	1.0000	Fire
+neighbor 0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor 0.9		FallingEmber	Water	1.0	Empty	Steam
+neighbor 1.0		FallingEmber	Oil	1.0	FallingEmber	Fire
+neighbor 1.0		FallingEmber	Crop	1.0	FallingEmber	Fire
+neighbor 0.005		FallingEmber	Cera	1.0	MoltenCera	Ember
+neighbor 0.005		FallingEmber	Ice	1.0	FallingEmber	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	55.000000	0.000000	0
+neighbor 0.01	MoltenCera	Wall		1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water		1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand		1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout		1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera		1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil		1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt		1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	150	150	240	-1.000000	1.000000	0.010000	0.000000	1
+neighbor 0.1	Steam	Ice			0.5	Empty	Water	0.5	Steam Empty
+self	0.01	Steam	1.0	Empty
+#Leaks Steam
+element	SteamPipe	150	60	0	0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.01	SteamPipe	Empty	1.0	SteamPipe	Steam	
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	59.000000	0.600000	1
+self	0.00001	Saltwater	0.5	Water	0.5	Salt
+neighbor 0.01	Water	Salt			1.0	Saltwater	Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt	Steam
+neighbor 0.06	Saltwater	Water		1.0	Water	Saltwater
+neighbor 0.9	Saltwater	Fire		1.0	Salt	Steam
+neighbor 0.09   Saltwater	Ice		1.0	Saltwater	Water
+hotneighbor   50	Saltwater	Saltwater
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	60.0000000	1.000000	1
+neighbor 0.2	Torch	Empty			1.0	Torch	Fire
+neighbor 0.2	Torch	Water			1.0	Torch	Steam
+neighbor 0.2	Torch	Saltwater		0.5	Torch	Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil			1.0	Torch	Fire
+neighbor 0.2	Torch	Crop			1.0	Torch	Fire
+neighbor 0.2	Torch	Cera			1.0	Torch	MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	55.000000	0.000000	0
+self	0.005000	Leftover???	1.0000	Empty	
+#Life Seed.	
+element Seed	100	50	70	0.700000	1.000000	59.1000	0.400000	1
+neighbor 1.0	Seed	Soil			1.0	Root	Soil	
+neighbor 0.1	Seed	Fire			1.0	Burningseed	Fire
+#Burning seed
+element	Burningseed 	50	25	40	0.700000	1.000000	55.000000	0.400000	0
+self	0.009	Burningseed	09.0000	Fire	0.1	Empty
+neighbor 0.2		Burningseed	Empty		1.0	Burningseed	Fire
+neighbor 0.9		Burningseed	Water		1.0	Seed	Steam
+neighbor 0.75		Burningseed	Oil		1.0	Burningseed	Fire
+neighbor 1.0		Burningseed	Crop		1.0	Burningseed	Fire
+#Roots
+element Root	100	50	0	0.000000	1.000000	60.000000	1.000000	0
+neighbor 0.01	Root	  StemCells		1.0	Root	 	Root
+neighbor 0.9	Root	  Fire			1.0	Fire		Fire
+#Blood Vine
+element BloodVine	200	50	0	0.000000	0.000000	60.000000	0.000000	0
+neighbor 1.0	BloodVine Fire			1.0 	BloodVine	Empty
+neighbor 1.0	BloodVine Ember			1.0 	HellFire	HellFire
+neighbor 1.0	BloodVine FallingEmber		1.0 	BloodVine	Empty
+neighbor 1.0 	BloodVine HellFire		1.0 	BloodVine	BloodVine
+neighbor 1.0	BloodVine Love			1.0 	Empty		Love
+neighbor 1.0	BloodVine HolyWater		1.0 	SpiritFlame	HolyWater
+neighbor 1.0	BloodVine Tabernacle		1.0 	BloodVine	HellFire
+neighbor 1.0	BloodVine HolyIce		1.0 	HellFire	SpiritFlame
+neighbor 1.0	BloodVine Heart			1.0 	HellFire	HellFire
+neighbor 1.0 	BloodVine BloodWell		1.0	BloodVine	BloodFlower
+neighbor 1.0 	BloodVine Crop			1.0	BloodVine	BloodVine
+#Blooooooodddd
+element	Blood	 150	0	220	0.700000	1.000000	55.000000	0.400000	1
+neighbor 0.9	Blood	BloodVine		1.0	BloodVine	BloodVine
+neighbor 5.0	Blood	Root			1.0	BloodVine	Root
+neighbor 0.2	Blood	Empty			1.0	Blood		HellFire
+neighbor 1.0 	Blood	HolyWater		1.0	Fire		Fire
+neighbor 1.0	Blood	HolyIce			1.0	HellFire	HellFire
+neighbor 1.0	Blood	Torch			1.0	HellFire	HellFire
+neighbor 1.0	Blood	Ember			1.0	HellFire	HellFire
+neighbor 1.0	Blood	FallingEmber		1.0	Empty		Empty
+neighbor 1.0	Blood	Love			1.0	Empty		Love
+neighbor 1.0	Blood	HolyWater		1.0	Empty		Empty	
+neighbor 1.0	Blood	Heart			1.0 	Empty 		Heart	
+neighbor 1.0	Blood	Crop			1.0	BloodVine	BloodVine
+neighbor 0.1    Blood	Water			1.0	Blood		Blood		
+#Source of Blood
+element	BloodWell	80	30	0	0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.75	BloodWell	Empty		1.0	BloodWell	Blood
+neighbor 0.5	BloodWell	BloodVine	1.0		BloodFlower	BloodVine
+neighbor 0.5	BloodWell	BloodFlower	1.0	BloodFlower	BloodFlower
+#Bud
+element	BloodFlower	200	0	255	0.000000	0.000000	60.000000	0.000000	0
+neighbor 0.009	BloodFlower	HellFire	1.0	BloodFlower	BloodFlower
+neighbor 0.009	BloodFlower	Blood		1.0 	BloodFlower	BloodFlower
+neighbor 0.009	BloodFlower	Empty		1.0	BloodFlower	Sin	
+#Evil Flames
+element HellFire	 150	0	255		-1.000000	1.000000	0.000000	0.000000	1
+neighbor 2.0	HellFire	BloodVine	1.0	HellFire	BloodVine
+neighbor 1.0	HellFire	Blood		1.0	Empty		Blood
+neighbor 1.0	HellFire	Torch		1.0	Blood		Blood
+neighbor 1.0	HellFire	Ember		1.0	Blood		Blood
+neighbor 1.0	HellFire	FallingEmber	1.0	Empty		FallingEmber
+neighbor 1.0	HellFire	Tabernacle	1.0	Blood		Blood
+neighbor 0.01	HellFire	BloodFlower	1.0	BloodFlower	BloodFlower
+neighbor 0.01	HellFire	Crop		1.0	BloodVine	BloodVine
+neighbor 1.0	HellFire	HolyWater	1.0	Empty		HolyWater
+neighbor 1.0	HellFire	HolyIce		1.0	HellFire	HellFire
+neighbor 0.1	HellFire	TNT		1.0	Fire		TNT
+self	0.070000	HellFire	1.0000	Empty	
+hotcolor HellFire   200		0	255
+#Ghost Fire
+element SpiritFlame	0	150	200		-1.000000	1.000000	0.000000	0.000000	1
+neighbor 1.0	SpiritFlame	BloodVine	1.0	SpiritFlame	SpiritFlame
+neighbor 1.0	SpiritFlame	Blood		1.0	Empty		Blood
+neighbor 1.0	SpiritFlame	Torch		1.0	SpiritFlame	SpiritFlame
+neighbor 1.0	SpiritFlame	Ember		1.0	SpiritFlame	SpiritFlame
+neighbor 1.0	SpiritFlame	FallingEmber	1.0	Empty		FallingEmber
+neighbor 1.0	SpiritFlame	Water		1.0	Empty		Water
+neighbor 1.0	SpiritFlame	BloodWell	1.0	SpiritFlame	SpiritFlame
+neighbor 0.01	SpiritFlame	BloodFlower	1.0	Empty		BloodFlower
+neighbor 0.01	SpiritFlame	Ice		1.0	HolyIce		HolyIce	
+neighbor 0.1	SpiritFlame	TNT		1.0	Fire		TNT
+self	0.070000	SpiritFlame	1.0000	Empty	
+hotcolor SpiritFlame   0	200	255
+#Holy Water 
+element HolyWater 	0	120	255	0.700000	1.000000	55.00000	0.400000	1
+neighbor 1.0	HolyWater	BloodVine	1.0	HolyWater	SpiritFlame
+neighbor 1.0	HolyWater	Torch		1.0	SpiritFlame	SpiritFlame
+neighbor 1.0	HolyWater	Ember		1.0	SpiritFlame	SpiritFlame
+neighbor 1.0	HolyWater	FallingEmber	1.0	Empty		Empty
+neighbor 1.0	HolyWater	Blood		1.0	Fire		Fire
+neighbor 1.0	HolyWater	BloodFlower	1.0	Empty		BloodFlower
+neighbor 0.2	HolyWater	Empty		1.0	HolyWater	SpiritFlame
+neighbor 0.2	HolyWater	BloodWell	1.0	HolyWater	SpiritFlame
+neighbor 0.1	HolyWater	Sin		1.0	Empty		Sin
+neighbor 1.0	HolyWater	Ice		1.0	HolyIce		HolyIce
+neighbor 0.1 	HolyWater	Water		1.0	HolyWater	HolyWater
+#Source of All That is Good and Holy
+element Tabernacle	0	100	220	0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.1	Tabernacle	Empty		1.0	Tabernacle	HolyWater
+neighbor 0.1	Tabernacle	Sin    		1.0	Sin		Sin
+neighbor 0.1	Tabernacle	Blood		1.0	HellFire	HellFire
+neighbor 0.1	Tabernacle	HellFire	1.0	HellFire	HellFire
+#Frozen Spout
+element	FrozenTap	 220	180	255	0.000000	0.000000	60.000000	0.100000	0
+neighbor 0.1	FrozenTap	Fire		1.0	Spout	Empty	
+#Holy Ice
+element HolyIce	120	170	255		0.000000	0.000000	60.000000	0.100000	0
+neighbor 1.0	HolyIce	Fire			1.0 	SpiritFlame	Empty
+neighbor 1.0	HolyIce Ember			1.0 	SpiritFlame 	SpiritFlame
+neighbor 1.0	HolyIce FallingEmber		1.0 	SpiritFlame	SpiritFlame
+neighbor 0.9 	HolyIce HolyWater		1.0 	HolyIce		HolyIce
+neighbor 1.0	HolyIce Sin			1.0 	Empty		Sin
+neighbor 1.0	HolyIce	Blood			1.0 	HellFire	Blood
+neighbor 1.0	HolyIce BloodWell		1.0 	HolyIce		SpiritFlame
+neighbor 1.0	HolyIce BloodVine		1.0 	SpiritFlame	HellFire
+neighbor 1.0	HolyIce BloodFlower		1.0 	SpiritFlame	SpiritFlame
+neighbor 1.0 	HolyIce Tabernacle		1.0	HolyIce		Heart
+neighbor 2.0	HolyIce Ice			1.0 	HolyIce		HolyIce	
+neighbor 1.0	HolyIce HellFire		1.0	HellFire	HellFire
+neighbor 1.0	HolyIce Saltwater		1.0	Saltwater	Saltwater
+neighbor 1.0	HolyIce Salt			1.0	Saltwater	Salt	
+neighbor 1.0	HolyIce	Steam			1.0	Water		Empty
+neighbor 1.0	HolyIce	Snow			1.0	HolyIce		HolyIce
+neighbor 2.0	HolyIce	SpiritFlame		1.0	HolyIce		HolyIce
+#Root of Love
+element Heart 	255	10	20 	0.000000	0.000000	60.000000	0.000000	0
+neighbor 0.009	Heart	SpiritFlame		1.0	Heart	Heart
+neighbor 0.009	Heart	Water			1.0 	Heart 	Heart
+neighbor 0.009	Heart	Empty			1.0	Heart	Love
+neighbor 0.1	Heart	Tabernacle		1.0	Heart	Heart	
+#Love
+element Love 255	50	75	0.000000 	0.000000 	55.000000 0.500000 	1 
+neighbor 5.0 	Love 	Empty  			0.5 	Love		Empty	 0.5 	Empty	Love 
+neighbor 5.0 	Love	Empty			1.0 	EverlastingLove		Love
+neighbor 0.05	Love	BloodWell		1.0	Sin 			Sin
+neighbor 0.05	Love	Blood			1.0	Sin 			Sin
+neighbor 0.05	Love	Heart			1.0	Love			Love
+neighbor 1.0 	Love	Sin			1.0	HellFire		SpiritFlame
+#Everlasting Love
+element EverlastingLove	200	10	50	0.000000	1.000000	55.000000	1.100000	0
+self	0.1	EverlastingLove 	1.0	Empty	
+hotcolor EverlastingLove  0	0	0	
+#PURE EVIL
+element Sin	150	0 	250	0.000000 	0.000000 	55.000000 	0.500000 	1 
+neighbor 5.0 	Sin 	Empty  			0.5 	Sin 	Empty	 0.5 	Empty	 Sin 
+neighbor 5.0 	Sin 	Empty			1.0 	ResidualSin  Sin 
+neighbor 0.05	Sin	BloodWell		1.0	Sin 	Sin
+neighbor 0.05 	Sin	Blood			1.0	Sin 	Sin
+neighbor 0.05	Sin	BloodFlower		1.0	Sin 	Sin
+#oooooh
+element	ResidualSin 255	0	255	0.000000	1.000000	55.000000	1.100000	0
+self	0.1	ResidualSin 	1.0	Empty	
+hotcolor ResidualSin   0	0	0
+#Super dense
+element DarkMatter	35	35	35	 5.00000	0.000000	1500.000000	0.000000	1
+neighbor 1.0	DarkMatter	Flash		1.0	Flash		Flash
+neighbor 1.0	DarkMatter	D		1.0	Flash2		Flash2
+neighbor 1.0	DarkMatter	S		1.0	Flash2		Flash2
+neighbor 1.0	DarkMatter	L		1.0	Flash2		Flash2
+neighbor 1.0	DarkMatter	Flash2		1.0	Flash2		Flash2
+#Hardly dense at all
+element	LightMatter	200	200	200	-5.00000	0.000000	0.0000000001	1.000000	1
+neighbor 1.0	LightMatter	DarkMatter	1.0	Flash		Flash
+neighbor 1.0	LightMatter	Flash		1.0	Flash		Flash
+neighbor 1.0	LightMatter	L		1.0	Flash2		Flash2
+neighbor 1.0	LightMatter	S		1.0	Flash2		Flash2
+neighbor 1.0	LightMatter	D		1.0	Flash2		Flash2
+neighbor 1.0	LightMatter	Flash2		1.0	Flash2		Flash2
+#Flashy
+element Flash		110	110	110	0.000000	0.000000	10000.000000	0.000000	1
+neighbor 1.0	Flash	AmnesiaDust	1.0	Empty	AmnesiaDust
+self	 0.009		Flash	0.5	G	0.5	W	
+hotcolor Flash  0	0	0	
+#Grey
+element G		40	40	40	0.000000	0.000000	10000.000000	0.000000	0
+neighbor 1.0	G	W	0.45	W	W	0.45	G	G	0.1	Flash2	Flash2
+neighbor 1.0	G	LightMatter	1.0	G	G	
+neighbor 1.0	G	DarkMatter	1.0	G	G
+neighbor 1.0	G	AmnesiaDust	1.0	Empty	AmnesiaDust
+self	 0.1	G	1.0	Flash2
+#White
+element W		240	240	240	0.000000	0.000000	10000.000000	0.000000	0
+neighbor 1.0 	W	G	0.45	W	W	0.45	G	G	0.1	Flash2	Flash2
+neighbor 1.0	W	LightMatter	1.0	W	W
+neighbor 1.0	W	DarkMatter	1.0	W	W
+neighbor 1.0	W	AmnesiaDust	1.0	Empty	AmnesiaDust
+self	 0.1	W	1.0	Flash2
+#Second Flash
+element Flash2		90	90	90	0.000000	0.000000	10000.000000	0.000000	0
+neighbor 1.0	Flash2	AmnesiaDust	1.0	Empty	AmnesiaDust
+self	 0.009		Flash2	0.35	D	0.35	S	0.30 	L	
+hotcolor Flash2  0	0	0
+#Purple
+element S		200	0	255		0.0000	0.000000	10000.000000	0.000000	0
+neighbor 0.09	S	D	1.0	D	D
+neighbor 0.09	S	L	1.0	S	S
+neighbor 0.1	S	AmnesiaDust	1.0	Empty	AmnesiaDust
+#Grey-Black
+element D		25	25	25		0.0000	0.000000	10000.000000	0.000000	0
+neighbor 0.09	D	L	1.0	L	L
+neighbor 0.09	D	S	1.0	D	D
+neighbor 0.1	D	AmnesiaDust	1.0	Empty	AmnesiaDust
+#Teal
+element L		0	200	255		0.0000	0.000000	10000.000000	0.000000	0
+neighbor 0.09	L	S	1.0	S	S
+neighbor 0.09  	L	D	1.0	L	L
+neighbor 0.1	L	AmnesiaDust	1.0	Empty	AmnesiaDust
+#Source of LightMatter
+element	VacuumHole	255	255	255	0.0000	0.000000	10000.000000	0.000000	1
+neighbor 0.1	VacuumHole	Flash		1.0	Flash		Flash	
+neighbor 0.1	VacuumHole	Flash2		1.0	Flash2		Flash2	
+neighbor 0.1	VacuumHole	L		1.0	L		L
+neighbor 0.1	VacuumHole	S		1.0	S		S
+neighbor 0.1	VacuumHole	D		1.0	D		D
+neighbor 0.1	VacuumHole	W		1.0	W		W
+neighbor 0.1	VacuumHole	G		1.0	G		G
+neighbor 0.1	VacuumHole	Empty		1.0	VacuumHole	LightMatter
+#Source of DarkMatter
+element CompressedHole  0	0	0	0.0000	0.000000	10000.000000	0.000000	1
+neighbor 0.1	CompressedHole	Flash		1.0	Flash		Flash	
+neighbor 0.1	CompressedHole	Flash2		1.0	Flash2		Flash2	
+neighbor 0.1	CompressedHole	L		1.0	L		L
+neighbor 0.1	CompressedHole	S		1.0	S		S
+neighbor 0.1	CompressedHole	D		1.0	D		D
+neighbor 0.1	CompressedHole	W		1.0	W		W
+neighbor 0.1	CompressedHole	G		1.0	G		G
+neighbor 0.1	CompressedHole  Empty		1.0	CompressedHole  DarkMatter
+neighbor 0.1	CompressedHole	Wall		1.0	Wall		Empty
+neighbor 1.0	CompressedHole	Wall		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole  Fire		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Water		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Sand		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Spout		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Cement		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Cera		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Oil		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Salt		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Ember		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	MoltenCera	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Steam		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Saltwater	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Torch		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Leftover???	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	FallingEmber	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Ice		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Snow		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Crop		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	???		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	BloodVine	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Blood		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	BloodFlower	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	BloodWell	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Tabernacle	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	HolyWater	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	SpiritFlame	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Sin		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Soil		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	ResidualSin	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Love		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Heart		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	HolyIce		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	HellFire	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	SteamPipe	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Seed		1.0	CompressedHole	Empty
+neighbor 1.0    CompressedHole	StemCells	1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	FlashBomb	1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	DeadCrop	1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	Poison		1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	Antidote	1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	FrozenTap	1.0	CompressedHole  Empty
+neighbor 1.0	CompressedHole	Purple		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Blue		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Green		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Yellow		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Teal		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Red		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Copy		1.0	CompressedHole	Copy
+neighbor 1.0	CompressedHole	AtomicB		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Fetus		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Root		1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Napalm	1.0	CompressedHole	Empty
+neighbor 1.0	CompressedHole	Blizzard		1.0	CompressedHole	Empty
+#Trigger For flash
+element FlashBomb	255	100	200	0.0000	0.000000	1000.000000	0.000000	1
+pexplosion FlashBomb	Fire 	128.0	Flashplosion
+neighbor 1.0	FlashBomb	G	1.0	Flashplosion	G
+neighbor 1.0	FlashBomb	W	1.0	Flashplosion	W
+#Exploding Flash
+element Flashplosion	255 255 255	0.0	0.000000	1.000000	0.000000 0
+pexplosion	Flashplosion	Flashplosion	200.00 	Flash
+#Keep away from children
+element Poison	200	00	230	0.700000	1.000000	40.0000	0.400000	1
+neighbor 1.0	Poison		Crop		1.0	Empty	DeadCrop	
+neighbor 1.0	Poison		Love		1.0	Poison	Steam
+neighbor 1.0	Poison		Sin		1.0	Poison	Steam
+self 0.01	Poison		1.0	Empty
+#Dead Plant
+element	DeadCrop	200	150	100	0.000	0.0000	70.000 0.0000	0
+neighbor 1.0	DeadCrop	Fire		0.99	Fire	Fire	0.01 FallingEmber	Fire
+neighbor 0.1	DeadCrop	Crop		1.0	DeadCrop DeadCrop
+neighbor 1.0	DeadCrop	FallingEmber	1.0	Fire	FallingEmber
+neighbor 1.0	DeadCrop	Ember		1.0	Fire	Ember
+neighbor 1.0	DeadCrop	Torch		1.0	Fire	Torch
+#Cures stuff....
+element	Antidote	0	170	200	0.700000	1.000000	40.0000	0.400000	1
+neighbor 1.0	Antidote	Poison	1.0	Empty	Empty
+self 0.01	Antidote	1.0	Empty
+#Little Boy or Fat man?
+element	AtomicB		50	50	50	10.00000		0.000000	150.000000	0.000000	1
+pexplosion 	AtomicB		Wall		100	Radiation
+pexplosion  	AtomicB		Soil		100	Radiation
+pexplosion  	AtomicB		L		100	Radiation
+pexplosion  	AtomicB		S		100	Radiation
+pexplosion  	AtomicB		D		100	Radiation
+pexplosion  	AtomicB		Flash		100	Radiation
+pexplosion  	AtomicB		W		100	Radiation
+pexplosion  	AtomicB		G		100	Radiation
+pexplosion  	AtomicB		Flash2		100	Radiation
+pexplosion  	AtomicB		FlashBomb	100	Radiation
+pexplosion  	AtomicB		TNT		100	Radiation
+pexplosion  	AtomicB		DeadCrop	100	Radiation
+pexplosion  	AtomicB		Crop		100	Radiation
+pexplosion  	AtomicB		Cera		100	Radiation
+pexplosion  	AtomicB		Torch		100	Radiation
+pexplosion  	AtomicB		Ember		100	Radiation
+pexplosion  	AtomicB		Ice		100	Radiation
+pexplosion  	AtomicB		BloodVine	100	Radiation
+pexplosion  	AtomicB		TNT		100	Radiation
+pexplosion  	AtomicB		DeadCrop	100	Radiation
+pexplosion  	AtomicB		Root		100	Radiation
+pexplosion  	AtomicB		HolyIce		100	Radiation
+pexplosion	AtomicB		Radiation	100	Radiation		
+neighbor 1.0 	AtomicB		Tabernacle	1.0	AtomicB		Empty
+neighbor 1.0	AtomicB		BloodWell	1.0	AtomicB		Empty
+neighbor 1.0	AtomicB		Spout		1.0	AtomicB		Empty
+#RADIATION!!!!!
+element Radiation 	0 	255	 0 	0.000 	0.000 	0.000 	0.000 	0
+neighbor 1.0 	Radiation 	Empty 		0.9 	Radiation	Radiation 0.1 Empty	Empty
+neighbor 1.0	Radiation	Wall		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Fire		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Water		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Dust		1.0	Radiation	Radiation	
+neighbor 1.0	Radiation	Sand		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Spout		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Cement		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Cera		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Oil		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Salt		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Ember		1.0	Radiation	Empty
+neighbor 1.0	Radiation	MoltenCera	1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Steam		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Saltwater	1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Torch		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Leftover???	1.0	Radiation	Radiation
+neighbor 1.0	Radiation	TNT		1.0	Radiation	Empty
+neighbor 1.0	Radiation	FallingEmber	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Ice		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Snow		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Crop		1.0	Radiation	Empty
+neighbor 1.0	Radiation	???		1.0	Empty		???
+neighbor 1.0	Radiation	BloodVine	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Blood		1.0	Radiation	Radiation
+neighbor 1.0	Radiation	BloodFlower	1.0	Radiation	Empty
+neighbor 1.0	Radiation	BloodWell	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Tabernacle	1.0	Radiation	Empty
+neighbor 1.0	Radiation	HolyWater	1.0	Radiation	Radiation
+neighbor 1.0	Radiation	SpiritFlame	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Sin		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Soil		1.0	Radiation	Soil
+neighbor 1.0	Radiation	Drain		1.0	Empty		Drain
+neighbor 1.0    Radiation	ResidualSin	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Love		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Heart		1.0	Radiation	Empty
+neighbor 1.0	Radiation	HolyIce		1.0	Radiation	Empty
+neighbor 1.0	Radiation	HellFire	1.0	Radiation	Empty
+neighbor 1.0	Radiation	SteamPipe	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Seed		1.0	Radiation	Empty
+neighbor 1.0    Radiation	StemCells	1.0	Radiation	Empty
+neighbor 1.0	Radiation	DarkMatter	1.0	Radiation	Empty
+neighbor 1.0	Radiation	LightMatter	1.0	Radiation	Empty
+neighbor 1.0	Radiation	FlashBomb	1.0	Radiation	Empty
+neighbor 1.0	Radiation	DeadCrop	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Poison		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Antidote	1.0	Radiation	Empty
+neighbor 1.0	Radiation	FrozenTap	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Purple		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Blue		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Green		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Yellow		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Teal		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Red		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Copy		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Fetus		1.0	Radiation	Empty
+neighbor 1.0	Radiation	White		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Black		1.0	Radiation	Empty
+neighbor 1.0	Radiation	Blizzard	1.0	Radiation	Empty
+neighbor 1.0	Radiation	Napalm	1.0	Radiation	Empty
+self 0.3	Radiation 	1.0		Radiation2 
+element Radiation2 	0 	225	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation3 Radiation 1.0 Radiation3 Radiation3
+self 	 0.01	Radiation2		1.0 Radiation3 
+
+
+element Radiation3 	0 	200	 0 	0.000 	0.000 	0.000 	0.000 	0
+neighbor 0.1 	Radiation3 Radiation 	1.0 Radiation3 Radiation3
+neighbor 0.1	Radiation3 Radiation2   1.0 Radiation3 Radiation3
+self 0.01	Radiation3 		1.0 Radiation4 
+
+element Radiation4 	0 	175	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation4 Radiation 	1.0 Radiation4 Radiation4
+neighbor 0.1	Radiation4 Radiation2   1.0 Radiation4 Radiation4
+neighbor 0.1	Radiation4 Radiation3   1.0 Radiation4 Radiation4
+self 0.01	Radiation4 		1.0 Radiation5
+
+element Radiation5 	0 	150	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation5 Radiation 	1.0 Radiation5 Radiation5
+neighbor 0.1	Radiation5 Radiation2   1.0 Radiation5 Radiation5
+neighbor 0.1 	Radiation5 Radiation3	1.0 Radiation5 Radiation5
+neighbor 0.1	Radiation5 Radiation4   1.0 Radiation5 Radiation5
+self 0.01	Radiation5 		1.0 Empty 
+
+element Radiation6 	0 	125	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation6 Radiation 	1.0 Radiation6 Radiation6
+neighbor 0.1	Radiation6 Radiation2   1.0 Radiation6 Radiation6
+neighbor 0.1	Radiation6 Radiation3   1.0 Radiation6 Radiation6
+neighbor 0.1	Radiation6 Radiation4   1.0 Radiation6 Radiation6
+neighbor 0.1	Radiation6 Radiation5   1.0 Radiation6 Radiation6
+self 0.01	Radiation6 		1.0 Radiation7
+
+element Radiation7 	0 	100	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation7 Radiation 	1.0 Radiation7 Radiation7
+neighbor 0.1	Radiation7 Radiation2   1.0 Radiation7 Radiation7
+neighbor 0.1	Radiation7 Radiation3   1.0 Radiation7 Radiation7
+neighbor 0.1	Radiation7 Radiation4   1.0 Radiation7 Radiation7
+neighbor 0.1	Radiation7 Radiation5   1.0 Radiation7 Radiation7
+neighbor 0.1	Radiation7 Radiation6   1.0 Radiation7 Radiation7
+self 0.01	Radiation7 		1.0 Radiation8
+
+element Radiation8 	0 	75	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation8 Radiation 	1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation2   1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation3   1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation4   1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation5   1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation6   1.0 Radiation8 Radiation8
+neighbor 0.1	Radiation8 Radiation7   1.0 Radiation8 Radiation8
+self 0.01	Radiation8 		1.0 Radiation9
+
+element Radiation9 	0 	50	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation9 Radiation 	1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation2   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation3   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation4   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation5   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation6   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation7   1.0 Radiation9 Radiation9
+neighbor 0.1	Radiation9 Radiation8   1.0 Radiation9 Radiation9
+self 0.01	Radiation9 		1.0 Radiation10
+
+element Radiation10	0 	25	 0 	0.000 	0.000 	0.000 	0.000 	0 
+neighbor 0.1 	Radiation10 Radiation 	 1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation2   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation3   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation4   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation5   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation6   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation7   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation8   1.0 Radiation10 Radiation10
+neighbor 0.1	Radiation10 Radiation9   1.0 Radiation10 Radiation10
+self 0.01	Radiation10 		 1.0 Empty
+
+
+
+
+
+
+
+#Turns into Stuff	
+element	Copy	0	0	0	0	0.0	999.00		0.0	1	
+neighbor 0.1	Copy		Wall		1.0	Wall		Wall
+neighbor 1.0	Copy	Fire		1.0	Copy		Empty		
+neighbor 0.1	Copy	Water		1.0	Water		Water
+neighbor 1.0	Copy	Sand		1.0	Sand		Sand
+neighbor 0.1	Copy	Spout		1.0	Spout		Spout
+neighbor 0.1	Copy	Cement		1.0	Cement		Cement
+neighbor 0.1	Copy	Cera		1.0	Cera		Cera
+neighbor 1.0	Copy	Oil		1.0	Oil		Oil
+neighbor 0.1	Copy	Salt		1.0	Salt		Salt
+neighbor 1.0	Copy	Ember		1.0	Copy		Empty
+neighbor 0.1	Copy	MoltenCera	1.0	Cera		MoltenCera
+neighbor 0.1	Copy	Saltwater	1.0	Saltwater	Saltwater
+neighbor 0.1	Copy	Torch		1.0	Torch 		Torch
+neighbor 1.0	Copy	Leftover???	1.0	Copy		Empty
+neighbor 1.0	Copy	FallingEmber	1.0	Copy		Empty
+neighbor 0.1	Copy	Ice		1.0	Ice		Ice
+neighbor 0.1	Copy	Snow		1.0	Snow		Snow
+neighbor 0.1	Copy	Crop		1.0	Crop		Crop
+neighbor 0.1	Copy	???		1.0	???		???
+neighbor 1.0	Copy	BloodVine	1.0	Copy		BloodVine
+neighbor 1.0	Copy	Blood		1.0	Copy		Empty
+neighbor 1.0	Copy	BloodFlower	1.0	Copy		BloodFlower
+neighbor 0.1	Copy	BloodWell	1.0	Copy		BloodWell
+neighbor 0.1	Copy	Tabernacle	1.0	Copy		Tabernacle
+neighbor 1.0	Copy	SpiritFlame	1.0	Copy		SpiritFlame		
+neighbor 1.0	Copy	Sin		1.0	Copy		Empty
+neighbor 0.1	Copy	Soil		1.0	Soil		Soil
+neighbor 0.1	Copy	Drain		1.0	Empty		Drain
+neighbor 1.0	Copy	ResidualSin	1.0	Copy		Empty
+neighbor 0.1	Copy	Love		1.0	Copy		Empty
+neighbor 0.1	Copy	Heart		1.0	Copy		Heart
+neighbor 1.0	Copy	HolyIce		1.0	Copy		HolyIce
+neighbor 1.0	Copy	Seed		1.0	Seed		Seed
+neighbor 0.1	Copy	SteamPipe	1.0	SteamPipe	SteamPipe
+neighbor 0.1	Copy	Steam		1.0	StemCells	Steam
+neighbor 0.1	Copy	TNT		1.0	TNT		TNT
+neighbor 0.01	Copy	DarkMatter	1.0	DarkMatter	DarkMatter
+neighbor 0.01	Copy	LightMatter	1.0	LightMatter	LightMatter
+neighbor 0.1	Copy	Flash		1.0	Flash		Flash	
+neighbor 0.1	Copy	Flash2		1.0	Flash2		Flash2	
+neighbor 0.1	Copy	L		1.0	L		L
+neighbor 0.1	Copy	S		1.0	S		S
+neighbor 0.1	Copy	D		1.0	D		D
+neighbor 0.1	Copy	W		1.0	W		W
+neighbor 0.1	Copy	G		1.0	G		G
+neighbor 0.1	Copy	FlashBomb	1.0	FlashBomb	FlashBomb
+neighbor 0.1	Copy	DeadCrop	1.0	DeadCrop	DeadCrop
+neighbor 1.0	Copy	Poison		1.0	Copy		Empty
+neighbor 0.1	Copy	Blue		1.0	Blue		Blue	
+neighbor 0.1	Copy	Red		1.0	Red		Red
+neighbor 0.1	Copy	Teal		1.0	Teal		Teal
+neighbor 0.1	Copy	Green		1.0	Green		Green
+neighbor 0.1	Copy	Yellow		1.0	Yellow		Yellow
+neighbor 0.1	Copy	Purple		1.0	Purple		Purple
+neighbor 0.1	Copy	AtomicB		1.0	AtomicB		AtomicB
+neighbor 0.1	Copy	StemCells	1.0	StemCells	StemCells
+neighbor 0.1	Copy	Fetus		1.0	Fetus		Fetus
+#Clearly Talcum powder... Makes things forget they were there..
+element AmnesiaDust	0	200	200	0.800000	1.000000	0.900000	1.000000	1
+neighbor 1.0	AmnesiaDust	Empty		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Wall		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Fire		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Water		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Sand		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Spout		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Cement		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Cera		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Oil		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Salt		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Ember		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	MoltenCera	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Steam		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Saltwater	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Torch		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Leftover???	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	FallingEmber	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Ice		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Snow		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Crop		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	???		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	BloodVine	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Blood		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	BloodFlower	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	BloodWell	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Tabernacle	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	HolyWater	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	SpiritFlame	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Sin		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Soil		1.0	AmnesiaDust	Soil
+neighbor 1.0	AmnesiaDust	Drain		1.0	Empty		Drain
+neighbor 1.0	AmnesiaDust	ResidualSin	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Love		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Heart		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	HolyIce		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	HellFire	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	SteamPipe	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Seed		1.0	AmnesiaDust	Empty
+neighbor 1.0    AmnesiaDust	StemCells	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	DarkMatter	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	LightMatter	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	FlashBomb	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	DeadCrop	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Poison		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Antidote	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	FrozenTap	1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Purple		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Blue		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Green		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Yellow		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Teal		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Red		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Copy		1.0	AmnesiaDust	AmnesiaDust
+neighbor 1.0	AmnesiaDust	AtomicB		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Fetus		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	White		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Black		1.0	AmnesiaDust	Empty
+neighbor 1.0	AmnesiaDust	Blizzard	1.0	AmnesiaDust	Empty
+#Basic Cells
+element StemCells	220	230	242 	0.900000	0.500000	55.2000000	0.000000	1
+neighbor 0.1	StemCells	Wall		1.0	Wall		Wall
+neighbor 1.0	StemCells	Fire		1.0	Empty		Fire		
+neighbor 0.1	StemCells	Water		1.0	Water		Water
+neighbor 0.1	StemCells	Sand		1.0	Sand		Sand
+neighbor 0.1	StemCells	Spout		1.0	Spout		Spout
+neighbor 0.1	StemCells	Cement		1.0	Cement		Cement
+neighbor 0.1	StemCells	Cera		1.0	Cera		Cera
+neighbor 1.0	StemCells	Oil		1.0	Empty		Oil
+neighbor 1.0	StemCells	Salt		1.0	Empty		Salt
+neighbor 1.0	StemCells	Ember		1.0	Empty		Ember
+neighbor 0.1	StemCells	MoltenCera	1.0	Cera		MoltenCera
+neighbor 1.0	StemCells	Saltwater	1.0	Empty		Saltwater
+neighbor 0.1	StemCells	Torch		1.0	Torch 		Torch
+neighbor 1.0	StemCells	Leftover???	1.0	StemCells	Leftover???
+neighbor 1.0	StemCells	FallingEmber	1.0	Empty		FallingEmber
+neighbor 0.1	StemCells	Ice		1.0	Ice		Ice
+neighbor 0.1	StemCells	Snow		1.0	Snow		Snow
+neighbor 0.1	StemCells	Crop		1.0	Crop		Crop
+neighbor 0.1	StemCells	???		1.0	???		???
+neighbor 1.0	StemCells	BloodVine	1.0	Empty		BloodVine
+neighbor 1.0	StemCells	Blood		1.0	Empty		Blood
+neighbor 1.0	StemCells	BloodFlower	1.0	Empty		BloodFlower
+neighbor 0.1	StemCells	BloodWell	1.0	BloodWell	BloodWell
+neighbor 0.1	StemCells	Tabernacle	1.0	Tabernacle	Tabernacle
+neighbor 1.0	StemCells	SpiritFlame	1.0	Empty		SpiritFlame	
+neighbor 1.0	StemCells	Sin		1.0	Empty		Sin
+neighbor 0.1	StemCells	Soil		1.0	Soil		Soil
+neighbor 0.1	StemCells	Drain		1.0	Empty		Drain
+neighbor 1.0	StemCells	ResidualSin	1.0	Empty		ResidualSin
+neighbor 0.1	StemCells	Love		1.0	Love		Love
+neighbor 0.1	StemCells	Heart		1.0	StemCells	Heart
+neighbor 1.0	StemCells	HolyIce		1.0	Empty		HolyIce
+neighbor 0.1	StemCells	Seed		1.0	Seed		Seed
+neighbor 0.1	StemCells	SteamPipe	1.0	SteamPipe	SteamPipe
+neighbor 0.1	StemCells	Steam		1.0	StemCells	Steam
+neighbor 0.1	StemCells	TNT		1.0	TNT		TNT
+neighbor 0.1	StemCells	DarkMatter	1.0	DarkMatter	DarkMatter
+neighbor 0.1	StemCells	LightMatter	1.0	LightMatter	LightMatter
+neighbor 0.1	StemCells	Flash		1.0	Flash		Flash	
+neighbor 0.1	StemCells	Flash2		1.0	Flash2		Flash2	
+neighbor 0.1	StemCells	L		1.0	L		L
+neighbor 0.1	StemCells	S		1.0	S		S
+neighbor 0.1	StemCells	D		1.0	D		D
+neighbor 0.1	StemCells	W		1.0	W		W
+neighbor 0.1	StemCells	G		1.0	G		G
+neighbor 0.1	StemCells	FlashBomb	1.0	FlashBomb	FlashBomb
+neighbor 0.1	StemCells	DeadCrop	1.0	DeadCrop	DeadCrop
+neighbor 0.1	StemCells	Poison		1.0	Steam		Poison	
+neighbor 0.1	StemCells	Blue		1.0	Blue		Blue	
+neighbor 0.1	StemCells	Red		1.0	Red		Red
+neighbor 0.1	StemCells	Teal		1.0	Teal		Teal
+neighbor 0.1	StemCells	Green		1.0	Green		Green
+neighbor 0.1	StemCells	Yellow		1.0	Yellow		Yellow
+neighbor 0.1	StemCells	Purple		1.0	Purple		Purple
+neighbor 0.1	StemCells	AtomicB		1.0	AtomicB		AtomicB
+neighbor 0.1	StemCells	Copy		1.0	Copy		Copy
+#Its a tiny child... thing...
+element Fetus 255	145	140 0.000000	0.000000	60.000000	0.000000	1
+neighbor 0.09 Fetus	Empty		1.0	Fetus	StemCells
+#Color 1
+element Purple	200 	0	255	0.0		1.0	60.00	0	0
+neighbor 1.0	Purple	Green	1.0	Green Green
+self 0.0005	Purple	1.0	Green
+#Color 2
+element	Green	10	255	30	0.0		1.0	60.00	0	0
+neighbor 1.0	Green	Red	1.0	Red	Red
+self 0.0005	Green  1.0  	Red
+#Color 3
+element Red	255	0	0	0.0		1.0	60.00	0	0
+neighbor 1.0	Red	Yellow	1.0	Yellow	Yellow
+self 0.0005	Red	1.0  Yellow
+#Color 4
+element Yellow	240	255	0	0.0	1.0	60.00	0	0
+neighbor 1.0	Yellow	Teal	1.0	Teal	Teal
+self 0.0005	Yellow	1.0  Teal
+#Color 5
+element Teal	0	200	200	0.0		1.0	60.00	0	0
+neighbor 1.0	Teal	Blue	1.0	Blue	Blue
+self 0.0005	Teal 	1.0  Blue
+#Color 6
+element Blue	50	20	255 	0.0		1.0	60.00	0	0
+neighbor 1.0	Blue	Purple	1.0	Purple	Purple
+self 0.0005	Blue	1.0  Purple
+#Is water activated
+element	ColorB	255	255	255	0.0		1.0	60.00	0.1	1
+hotcolor ColorB  0     0     0		
+neighbor 0.1	ColorB	Color			1.0	Color 	Color
+neighbor 0.09   ColorB	Copy			1.0	ColorB	ColorB	
+neighbor 0.09   ColorB	StemCells		1.0	ColorB	ColorB
+neighbor 1.0	ColorB	AmnesiaDust		1.0	Empty	ColorB
+pexplosion	ColorB	Water 		2	Color
+explosion	ColorB	Color 	255	255
+#Random Colors
+element Color 	0	0	0	0.0		1.0	60.00	0.1	1
+self 0.01 Color 0.15 Purple	0.15 Blue	0.15 Green	0.15	Teal	0.20	Yellow	0.20	Red 
+neighbor 0.01	Color	Purple	 	1.0	Purple	Purple
+neighbor 0.01	Color	Blue		1.0	Blue	Blue
+neighbor 0.01	Color	Green		1.0	Green	Green
+neighbor 0.01	Color	Teal		1.0	Teal	Teal
+neighbor 0.01	Color	Yellow		1.0	Yellow	Yellow
+neighbor 0.01	Color	Red		1.0	Red	Red
+neighbor 0.09   Color	Copy			1.0	Color	Color	
+neighbor 0.09   Color	StemCells		1.0	Color	Color
+neighbor 1.0	Color	AmnesiaDust		1.0	Empty	AmnesiaDust
+#Blinky...
+element Blink	0	0	0	0.0		1.0	60.00	0.1	1
+self	1.0	Blink 1.0 Black 
+neighbor 1.0	Blink	AmnesiaDust		1.0	Empty	AmnesiaDust
+neighbor 0.9    Blink	Copy			1.0	Blink	Blink
+neighbor 0.9    Blink	StemCells		1.0	Blink	Blink
+#Black
+element Black	0	0	0	0.0		1.0	60.00	0.1	0
+neighbor 1.0	Black	AmnesiaDust		1.0	Empty	AmnesiaDust
+neighbor 0.9    Black	Copy			1.0	Black   Black
+neighbor 0.9    Black	StemCells		1.0	Black   Black
+self 	 1.0 	Black 1.0 White	
+#White
+element	White	255	255	255	0.0		1.0	60.00	0.1	0
+neighbor 1.0	White	AmnesiaDust		1.0	Empty	AmnesiaDust
+neighbor 1.9    White	Copy			1.0	White	White
+neighbor 1.9    White	StemCells		1.0	White	White
+self 	 1.0 	White 1.0 Black
+#Expanding Copy
+element SpreadCopy	 255	255	255	0	0.0	999.00		0.0	1
+neighbor 1.0	SpreadCopy	Empty		1.0	SpreadCopy	SpreadCopy
+self 0.09	SpreadCopy	1.0	Copy
+neighbor 1.0	SpreadCopy	Drain	1.0	Copy	Drain
+neighbor 1.0	SpreadCopy	AmnesiaDust	1.0	Empty	AmnesiaDust
+#Shoots out snow
+element	Blizzard	210	200	250	0.0001	1.00000	58.000000	0.000000	1
+neighbor 1.0	Blizzard	Empty		0.95	Blizzard	Snow	0.01	Blizzard	Blizzard 0.04 Empty	Blizzard
+neighbor 1.0	Blizzard	Fire		0.4	Water		Empty	0.6	 Empty	Empty
+neighbor 0.05	Blizzard	Water		1.0	Blizzard	Snow
+neighbor 1.0	Blizzard	Snow		0.5	Blizzard 	Empty	0.5	Empty	Blizzard
+neighbor	0.5	Blizzard	Ice		0.5	Ice	Ice		0.5 Blizzard	Ice
+#Liquid Flame
+element Napalm	90	50	50 	1.500000	0.200000	57.000000	50.00000	1
+neighbor 1.0	Napalm	Empty	1.0	Napalm	Fire
+neighbor 1.0	Napalm	Drain	1.0	Empty	Drain
+neighbor 1.0	Napalm	AmnesiaDust	1.0	Empty	AmnesiaDust
+neighbor 1.0	Napalm	Copy	1.0	Napalm		Napalm
+neighbor 1.0	Napalm	StemCells	1.0	Napalm	Empty
+neighbor 1.0	Napalm	Water		1.0	Napalm	Empty
+neighbor 1.0	Napalm	Steam		1.0	Napalm	Empty
+neighbor 1.0	Napalm	Snow		1.0	Napalm	Empty
+
+element  Flower	255	0	75	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flower	Empty	1.0	Flower	Flr2
+neighbor 1.0	Flower	Fire	1.0	Fire	Fire
+neighbor 1.0	Flower	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flower	Drain		1.0	Empty	Drain
+neighbor 1.0	Flower	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flower	Crop		1.0	Flower		Flr2
+element  Flr2 	255	0	100	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr2	Empty	1.0	Flr2 	Flr3
+neighbor 1.0	Flr2	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr2	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr2	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr2	Crop		1.0	Flr2		Flr3
+element  Flr3 	255	0	120	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr3	Empty	1.0	Flr3 	Flr4
+neighbor 1.0	Flr3	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr3	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flr3	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr3	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr3	Crop		1.0	Flr3		Flr4
+element  Flr4 	255	0	140	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr4	Empty	1.0	Flr4	Flr5
+neighbor 1.0	Flr4	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr4	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flr4	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr4	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr4	Crop		1.0	Flr4		Flr5
+element  Flr5 	255	0	160	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr5	Empty	1.0	Flr5 	Flr6
+neighbor 1.0	Flr5	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr5	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flr5	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr5	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr5	Crop		1.0	Flr5		Flr6
+element  Flr6 	255	0	180	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr6	Empty	1.0	Flr6	Flr7
+neighbor 1.0	Flr6	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr6	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flr6	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr6	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr6	Crop		1.0	Flr6		Flr7
+element  Flr7 	255	0	200	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Flr7	Empty	1.0	Flr7 	Empty
+neighbor 1.0	Flr7	Fire	1.0	Fire	Fire
+neighbor 1.0	Flr7	AmnesiaDust	1.0	AmnesiaDust	Empty
+neighbor 1.0	Flr7	Drain		1.0	Empty	Drain
+neighbor 1.0	Flr7	Radiation	1.0	Radiation	Radiation2
+neighbor 1.0	Flr7	Crop		1.0	Flr7		Crop
+
+#Fireworks, contributed by Travismick&nbsp;:)
+element Fireworks 255	255 	255 	 -0.7500 	0.00000 	0.00000 	1.50000 	1
+neighbor 1.0	 Fireworks 	Empty 	1.0 	Fireworks	 FWFire
+self 0.0005 	 Fireworks 	1.0	 FW2
+hotself 75 Fireworks
+hotcolor Fireworks 0 0 0
+
+element FW2 	255 255 255	 -0.5000	0.00000 	0.000000	0.000000	0
+pexplosion FW2 	Empty 10.0 	FWExplosion
+
+element FWExplosion  	255	255 	0 	0 0 0 0 0
+neighbor 0.9 FWExplosion Empty 1 FWExplosion1 FWExplosion2
+
+element FWExplosion1 	255 	0 	0 	-0.5000 	1.00000 	0.000000	 1.0000 	0
+neighbor 1.0 FWExplosion1 Empty 1 FWExp1 FWExp1
+
+element FWExplosion2 	255 	200 	0 	-0.5000 	1.00000 	0.000000	 1.00000	0
+neighbor 1.0 FWExplosion2 Empty 1 FWExp2 FWExp2
+element FWExp1 	255 	0 	0 	0.00000		0.00000 	1.00000		1.00000		0
+
+element FWExp2 255 200 0 0 0 1 1 0
+
+explosion FWExplosion1 Empty 100 0
+explosion FWExplosion2 Empty 0 100
+self .05 FWExp1 1 Empty
+self .05 FWExp2 1 Empty
+element FWFire 5 5 5 1 0 1 0 0
+self .1 FWFire 1 Empty
+
+#Fireworks2 ---- Travismick
+element Fireworks2 255 255 255 -0.75 0 0 1.5 1 
+neighbor 1 Fireworks2 Empty 1 Fireworks2 fFire 
+self .0005 Fireworks2 1 fwb2 
+hotself 75 Fireworks2 
+hotcolor Fireworks2 0 0 0 
+element fwb2 255 255 255 -0.5 0 0 0 0 
+pexplosion fwb2 Empty 10 fwbExplosion 
+neighbor .9 fwbExplosion Empty 1 fwbExplosion1 fwbExplosion2 
+element fwbExplosion  255 0 255 0 0 0 0 0 
+element fwbExplosion1 255 0 0 -0.5 1 0 1 0 
+element fwbExplosion2 255 200 0 -0.5 1 0 1 0 
+element fwbe1 0 255 0 0 0 1 1 0 
+element fwbe2 255 0 255 0 0 1 1 0 
+neighbor 1 fwbExplosion1 Empty 1 fwbe1 fwbe1 
+neighbor 1 fwbExplosion2 Empty 1 fwbe2 fwbe2 
+explosion fwbExplosion1 Empty 100 0 
+explosion fwbExplosion2 Empty 0 100 
+self .05 fwbe1 1 Empty 
+self .05 fwbe2 1 Empty 
+element fFire 5 5 5 1 0 1 0 0 
+self .1 fFire 1 Empty 
+
+#Fireworks3 ---- Travismick
+element Fireworks3 255 255 255 -0.75 0 0 1.5 1 
+neighbor 1 Fireworks3 Empty 1 Fireworks3 fFire 
+self .0005 Fireworks3 1 fwc2 
+hotself 75 Fireworks3 
+hotcolor Fireworks3 0 0 0 
+element fwc2 255 255 255 -0.5 0 0 0 0 
+pexplosion fwc2 Empty 10 fwcExplosion 
+neighbor .9 fwcExplosion Empty 1 fwcExplosion1 fwcExplosion2 
+element fwcExplosion  0 255 255 0 0 0 0 0 
+element fwcExplosion1 255 0 0 -0.5 1 0 1 0 
+element fwcExplosion2 255 200 0 -0.5 1 0 1 0 
+element fwce1 255 255 0 0 0 1 1 0 
+element fwce2 0 255 255 0 0 1 1 0 
+neighbor 1 fwcExplosion1 Empty 1 fwce1 fwce1 
+neighbor 1 fwcExplosion2 Empty 1 fwce2 fwce2 
+explosion fwcExplosion1 Empty 100 0 
+explosion fwcExplosion2 Empty 0 100 
+self .05 fwce1 1 Empty 
+self .05 fwce2 1 Empty 
+element fFire 5 5 5 1 0 1 0 0 
+self .1 fFire 1 Empty 
+#Fireworks4 
+element Fireworks4 255 255 255 -0.75 0 0 1.5 1 
+neighbor 1 Fireworks4 Empty 1 Fireworks4 fFire 
+self .0005 Fireworks4 1 fwd2 
+hotself 75 Fireworks4 
+hotcolor Fireworks4 0 0 0 
+element fwd2 10 10 10 -0.5 0 0 0 0 
+pexplosion fwd2 Empty 10 fwdExplosion 
+neighbor .9 fwdExplosion Empty 1 fwdExplosion1 fwdExplosion2 
+element fwdExplosion  0 0 0 0 0 0 0 0 
+element fwdExplosion1 255 0 0 -0.5 1 0 1 0 
+element fwdExplosion2 255 200 0 -0.5 1 0 1 0 
+element fwde1 0 104 139 0 0 1 1 0 
+element fwde2 0 0 255 0 0 1 1 0 
+neighbor 1 fwdExplosion1 Empty 1 fwde1 fwde1 
+neighbor 1 fwdExplosion2 Empty 1 fwde2 fwde2 
+explosion fwdExplosion1 Empty 100 0 
+explosion fwdExplosion2 Empty 0 100 
+self .05 fwde1 1 Empty 
+self .05 fwde2 1 Empty 
+element fFire 5 5 5 1 0 1 0 0 
+self .1 fFire 1 Empty
+#Fireworks5 
+element Fireworks5 255 255 255 -0.75 0 0 1.5 1 
+neighbor 1 Fireworks5 Empty 1 Fireworks5 fFire 
+self .0005 Fireworks5 1 fwe2 
+hotself 75 Fireworks5 
+hotcolor Fireworks5 0 0 0 
+element fwe2 10 10 10 -0.5 0 0 0 0 
+pexplosion fwe2 Empty 10 fweExplosion 
+neighbor .9 fweExplosion Empty 1 fweExplosion1 fweExplosion2 
+element fweExplosion  0 0 0 0 0 0 0 0 
+element fweExplosion1 255 0 0 -0.5 1 0 1 0 
+element fweExplosion2 255 200 0 -0.5 1 0 1 0 
+element fwee1 255 0 255 0 0 1 1 0 
+element fwee2 255 0 0 0 0 1 1 0 
+neighbor 1 fweExplosion1 Empty 1 fwee1 fwee1 
+neighbor 1 fweExplosion2 Empty 1 fwee2 fwee2 
+explosion fweExplosion1 Empty 100 0 
+explosion fweExplosion2 Empty 0 100 
+self .05 fwee1 1 Empty 
+self .05 fwee2 1 Empty 
+element fFire 5 5 5 1 0 1 0 0 
+self .1 fFire 1 Empty
+#Fireworks6 
+element Fireworks6 255 255 255 -0.75 0 0 1.5 1 
+neighbor 1 Fireworks6 Empty 1 Fireworks6 fFire 
+self .0005 Fireworks6 1 fwf2 
+hotself 75 Fireworks6 
+hotcolor Fireworks6 0 0 0 
+element fwf2 10 10 10 -0.5 0 0 0 0 
+pexplosion fwf2 Empty 10 fwfExplosion 
+neighbor .9 fwfExplosion Empty 1 fwfExplosion1 fwfExplosion2 
+element fwfExplosion  0 0 0 0 0 0 0 0 
+element fwfExplosion1 255 0 0 -0.5 1 0 1 0 
+element fwfExplosion2 255 200 0 -0.5 1 0 1 0 
+element fwfe1 255 255 0 0 0 1 1 0 
+element fwfe2 0 255 0 0 0 1 1 0 
+neighbor 1 fwfExplosion1 Empty 1 fwfe1 fwfe1 
+neighbor 1 fwfExplosion2 Empty 1 fwfe2 fwfe2 
+explosion fwfExplosion1 Empty 100 0 
+explosion fwfExplosion2 Empty 0 100 
+self .05 fwfe1 1 Empty 
+self .05 fwfe2 1 Empty 
+element fFire 5 5 5 1 0 1 0 0 
+self .1 fFire 1 Empty
+#Launches Fireworks. ONLY USE SIZE 1 OR 2 DOT! ONLY A DOT! NOT A LINE! ---- Travismick
+element Launcher 200 100 100 0 0 1 0 1 
+neighbor 0.001 Launcher Empty 0.16 Launcher Fireworks 0.16 Launcher Fireworks2 0.16 Launcher Fireworks3 0.16 Launcher Fireworks4 0.16 Launcher Fireworks5 0.16 Launcher Fireworks6 0.04 Launcher Empty   	
+neighbor 1.0 Launcher AmnesiaDust 1.0 Empty AmnesiaDust
+#Used in celebrations!!! Hurray!!
+element Confetti	200	200	200	0.500000	0.500000	10.00000	0.000000	1
+self 1.0	Confetti  0.4 ConfettiExp	0.4	ConfettiExp2 0.2 Empty
+element ConfettiExp	200	200	200	0.500000	0.500000	10.00000	0.000000	0
+pexplosion ConfettiExp Empty	12 ConfettiColor
+element ConfettiExp2	200	200	200	0.500000	0.500000	10.00000	0.000000	0
+pexplosion ConfettiExp2 Empty	12 ConfettiColor2
+element ConfettiColor	255	0	255	0.90000		0.000000	10.00000	0.000000	0
+self 0.1	ConfettiColor	1.0	Empty
+neighbor 1.0	ConfettiColor	Fire	1.0	Fire	Fire
+element ConfettiColor2	255	255	0	0.900000	0.500000	10.00000	0.000000	0
+self 0.1	ConfettiColor2	1.0	Empty
+neighbor 1.0	ConfettiColor2	Fire	1.0	Fire	Fire
+
+#Bombs, explode
+element Bomb	50	50	50	0.900000	0.000000	60.000000	0.000000	1
+neighbor 1.0  	Bomb		Drain		1.0  	Empty Drain
+pexplosion 	Bomb		Wall		20	Fire
+pexplosion  	Bomb		Soil		20	Fire
+pexplosion  	Bomb		L		20	Fire
+pexplosion  	Bomb		S		20	Fire
+pexplosion  	Bomb		D		20	Fire
+pexplosion  	Bomb		Flash		20	Fire
+pexplosion  	Bomb		W		20	Fire
+pexplosion  	Bomb		G		20	Fire
+pexplosion  	Bomb		Flash2		20	Fire
+pexplosion  	Bomb		FlashBomb	20	Fire
+pexplosion  	Bomb		TNT		20	Fire
+pexplosion  	Bomb		DeadCrop	20	Fire
+pexplosion  	Bomb		Crop		20	Fire
+pexplosion  	Bomb		Cera		20	Fire
+pexplosion  	Bomb		Torch		20	Fire
+pexplosion  	Bomb		Ice		20	Fire
+pexplosion  	Bomb		BloodVine	20	Fire
+pexplosion  	Bomb		TNT		20	Fire
+pexplosion  	Bomb		DeadCrop	20	Fire
+pexplosion  	Bomb		Root		20	Fire
+pexplosion  	Bomb		HolyIce		20	Fire
+pexplosion	Bomb		Radiation	20	Fire			
+neighbor 1.0 	Bomb		Tabernacle	1.0	Bomb		Empty
+neighbor 1.0	Bomb		BloodWell	1.0	Bomb		Empty
+neighbor 1.0	Bomb		Spout		1.0	Bomb		Empty
+neighbor 1.0	Bomb		AmnesiaDust	1.0	Empty		AmnesiaDust
+neighbor 1.0	Bomb		Copy		1.0	Bomb		Bomb	
+#Speeds up growth of plants and such.
+element InstaGrow	 0	215	255	0.800000	0.000000	60.000000	0.000000	1
+neighbor 1.0	InstaGrow  Crop		1.0	GrowCrop	GrowCrop
+neighbor 0.01	InstaGrow  Water	1.0	Water	Water
+neighbor 0.01	InstaGrow  Saltwater	1.0	Saltwater	Saltwater
+neighbor 1.0	InstaGrow  Flower	1.0	Crop Flower
+neighbor 1.0	InstaGrow  Flr2		1.0	Crop Flr2
+neighbor 1.0	InstaGrow  Flr3		1.0	Crop Flr3
+neighbor 1.0	InstaGrow  Flr4		1.0	Crop Flr4
+neighbor 1.0	InstaGrow  Flr5		1.0	Crop Flr5
+neighbor 1.0	InstaGrow  Flr6		1.0	Crop Flr6
+neighbor 1.0	InstaGrow  Flr7		1.0	Crop Flr7
+self 0.0005	InstaGrow	1.0 Empty
+neighbor 1.0 Drain	InstaGrow 1.0	Drain	Empty
+pexplosion InstaGrow	Seed 	10	GrowCrop
+#It eats through stuff
+element Acid 0	255 0 0.85 1.000  58.000   0.500    1 
+self 0.06  Acid  1.0  Acid2
+neighbor 0.1 Acid CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid Wall	1.0 Acid Empty
+neighbor 0.1 Acid Crop	1.0 Acid Empty
+neighbor 0.1 Acid Cera	1.0 Acid Empty
+neighbor 0.1 Acid Ice	1.0 Acid Empty
+neighbor 0.06 Acid Acid2   1.0 Acid2 Acid2
+element Acid2 0	225 0 0.85 1.000  58.000   1.00    0 
+self 0.06  Acid2 1.0 Acid3
+neighbor 0.1 Acid2 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid2 Wall	1.0 Acid Empty
+neighbor 0.1 Acid2 Crop	1.0 Acid Empty
+neighbor 0.1 Acid2 Cera	1.0 Acid Empty
+neighbor 0.1 Acid2 Ice	1.0 Acid Empty
+neighbor 0.06 Acid2 Acid3   1.0 Acid3 Acid3
+element Acid3 0 200 0 0.85 1.000  58.000   1.000    0 
+self 0.06  Acid3 1.0 Acid4
+neighbor 0.1 Acid3 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid3 Wall	1.0 Acid Empty
+neighbor 0.1 Acid3 Crop	1.0 Acid Empty
+neighbor 0.1 Acid3 Cera	1.0 Acid Empty
+neighbor 0.1 Acid3 Ice	1.0 Acid Empty
+neighbor 0.06 Acid3 Acid4   1.0 Acid4 Acid4
+element Acid4 0 175 0 0.85 1.000  58.000   1.00    0 
+self 0.06  Acid4 1.0 Acid5
+neighbor 0.1 Acid4 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid4 Wall	1.0 Acid Empty
+neighbor 0.1 Acid4 Crop	1.0 Acid Empty
+neighbor 0.1 Acid4 Cera	1.0 Acid Empty
+neighbor 0.1 Acid4 Ice	1.0 Acid Empty
+neighbor 0.06 Acid4 Acid5   1.0 Acid5 Acid5
+element Acid5 0 150 0 0.85 1.000  58.000   1.000    0 
+self 0.06  Acid5 1.0 Acid6
+neighbor 0.1 Acid5 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid5 Wall	1.0 Acid Empty
+neighbor 0.1 Acid5 Crop	1.0 Acid Empty
+neighbor 0.1 Acid5 Cera	1.0 Acid Empty
+neighbor 0.1 Acid5 Ice	1.0 Acid Empty
+neighbor 0.06 Acid5 Acid6   1.0 Acid6 Acid6
+element Acid6 0 125 0 0.85 1.000  58.000   1.00    0 
+self 0.06 Acid6 1.0 Acid7
+neighbor 0.1 Acid6 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid6 Wall	1.0 Acid Empty
+neighbor 0.1 Acid6 Crop	1.0 Acid Empty
+neighbor 0.1 Acid6 Cera	1.0 Acid Empty
+neighbor 0.1 Acid6 Ice	1.0 Acid Empty
+neighbor 0.06 Acid6 Acid7   1.0 Acid7 Acid7
+element Acid7 0 100 0 0.85 1.000  58.000   1.000    0 
+self 0.06 Acid7 1.0 Acid
+neighbor 0.1 Acid7 CancelOut 1.0 Empty Empty
+neighbor 0.1 Acid7 Wall	1.0 Acid Empty
+neighbor 0.1 Acid7 Crop	1.0 Acid Empty
+neighbor 0.1 Acid7 Cera	1.0 Acid Empty
+neighbor 0.1 Acid7 Ice	1.0 Acid Empty
+neighbor 0.6 Acid7 Water 1.0 Acid Steam
+neighbor 0.06 Acid7 Acid   1.0 Acid Acid
+neighbor 0.9 Acid Flower 1.0 Acid Empty
+neighbor 0.9 Acid Flr2 1.0 Acid Empty
+neighbor 0.9 Acid Flr3 1.0 Acid Empty
+neighbor 0.9 Acid Flr4 1.0 Acid Empty
+neighbor 0.9 Acid Flr5 1.0 Acid Empty
+neighbor 0.9 Acid Flr6 1.0 Acid Empty
+neighbor 0.9 Acid Flr7 1.0 Acid Empty
+
+#Removes the clogs... and the drain...
+element Drain-o 200 100 0 0.900 1.000  60.000   0.000    1  
+neighbor 0.9 Drain-o Drain 1.0 Drain-o Drain-o 
+self 0.05 Drain-o 1.0 Empty
+
+#Evaporates water
+element Evaporator 255 255 255 1.000 1.000  60.000   0.000    1  
+neighbor 0.9 Evaporator Water 1.0 Evaporator Evaporator 
+neighbor 1.0 Evaporator Drain 1.0 Empty Drain
+self 0.05 Evaporator 1.0 Empty
+
+#Gets rid of plants.
+element Weed-be-gone 0 255 75 0.900 1.000  60.000   0.000    1  
+neighbor 0.9 Weed-be-gone Crop 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone GrowCrop 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone GrowCrop2 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Vine 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone GrowVine 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flower 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr2 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr3 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr4 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr5 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr6 1.0 Weed-be-gone Weed-be-gone
+neighbor 0.9 Weed-be-gone Flr7 1.0 Weed-be-gone Weed-be-gone
+neighbor 1.0 Weed-be-gone Drain 1.0 Empty Drain
+self 0.05 Weed-be-gone 1.0 Empty
+
+#It makes walls go away
+element Wallaway 190	190	190	0.9		0.500000	0.50000000	0.0000		1
+neighbor 1.0	Wallaway	Wall		1.0	Wallaway	Wallaway
+neighbor 1.0 Wallaway Drain 1.0 Empty Drain
+self 0.04	Wallaway	1.0	Empty
+
+#Cement drips from this
+element CementTank 100 100 100 0.0 0.0 1000.0 0.0 1
+neighbor 1.0 CementTank Empty 1.0 CementTank Cement
+neighbor 0.1 CementTank Wall 1.0 Wall Wall
+
+#Transforms elements into others. Use only ONE pixel! ONE!!!
+element Catalyst 255 	0 	255 	0.700000	1.000000	59.00000	0.400000	1
+neighbor 1.0 Catalyst Wall  1.0 Empty IceWave
+neighbor 1.0 Catalyst Crop  1.0 Empty OilWave
+neighbor 1.0 Catalyst Cera  1.0 Empty TNTWave
+neighbor 1.0 Catalyst Soil  1.0 Empty WaterWave
+neighbor 1.0 Catalyst Sand  1.0 Empty CopyWave
+neighbor 1.0 Catalyst Ice   1.0 Empty CropWave
+neighbor 1.0 Catalyst Oil   1.0 Empty CeraWave
+neighbor 1.0 Catalyst TNT   1.0 Empty SoilWave
+neighbor 1.0 Catalyst Water 1.0 Empty SandWave
+
+element IceWave 150	150	255	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 IceWave  Wall 	1.0  IceWave	IceWave
+neighbor 0.09 IceWave Ice 1.0 Ice Ice
+self 0.05 IceWave 1.0 Ice
+
+element CropWave 30	255	30	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 CropWave   Ice	1.0  CropWave	CropWave
+neighbor 0.09 CropWave Crop 1.0 Crop Crop
+self 0.05 CropWave 1.0 Crop
+
+element OilWave 70  70   70	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 OilWave   Crop	1.0  OilWave	OilWave
+neighbor 0.09 OilWave Oil 1.0 Oil Oil
+self 0.05 OilWave 1.0 Oil
+
+element  CeraWave 255	255	255	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0  CeraWave  Oil	1.0  CeraWave	 CeraWave
+neighbor 0.09  CeraWave Cera 1.0 Cera Cera
+self 0.05  CeraWave 1.0 Cera
+
+element TNTWave 70  70   70	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 TNTWave   Cera	1.0  TNTWave	TNTWave
+neighbor 0.09 TNTWave TNT 1.0 TNT TNT
+self 0.05 TNTWave 1.0 TNT
+
+element SoilWave 100	80	0	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 SoilWave   TNT	1.0  SoilWave	SoilWave
+neighbor 0.09 SoilWave Soil 1.0 Soil Soil
+self 0.05 SoilWave 1.0 Soil
+
+element WaterWave 100 100	255 	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 WaterWave   Soil	1.0  WaterWave	WaterWave
+neighbor 0.09 WaterWave Water 1.0 Water Water
+self 0.05 WaterWave 1.0 Water
+
+element SandWave 255	230	130 	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 SandWave   Water	1.0  SandWave	SandWave
+neighbor 0.09 SandWave Sand 1.0 Sand Sand
+self 0.05 SandWave 1.0 Sand
+
+
+element CopyWave 255 0 255 	0.000000	0.000000	60.00000	0.100000	0
+neighbor 1.0 CopyWave   Sand	1.0  CopyWave CopyWave
+neighbor 0.09 CopyWave Color 1.0 Copy Copy
+self 0.05 CopyWave 1.0 Copy
+
+element Meteor 100	80	0  10.00000		0.000000	100.000000	0.00000	1
+neighbor 1.0 Meteor Empty 1.0 Meteor Fire
+pexplosion Meteor Wall 5 Meteor2
+pexplosion Meteor Soil 5 Meteor2
+pexplosion Meteor Crop 5 Meteor2
+pexplosion Meteor Cera 5 Meteor2
+pexplosion Meteor TNT  5 Meteor2
+pexplosion Meteor Ice  5 Meteor2
+neighbor 1.0 Meteor Water  1.0 Meteor2 Steam
+
+#Falls from the sky, burning, and then cools after it hits the ground.
+element Meteor2 90	70	0  0.00000		0.000000	100.000000	1.100000	0
+neighbor 0.9 Meteor2 Empty 1.0 Meteor2 Fire
+neighbor 0.09 Meteor2 Soil 1.0 Soil Soil
+neighbor 0.9 Meteor2 Water 1.0 Soil Water
+self 0.01 Meteor2 1.0 Soil
+neighbor 1.0 Meteor2 Meteor 1.0 Meteor2 Meteor2
+
+#It cancels out other elements.
+element CancelOut 200 50 100 10.000000	1.000000	59.00000	0.000000	1
+neighbor 1.0	CancelOut Wall		1.0	Empty           Empty
+neighbor 1.0	CancelOut Fire		1.0	Empty           Empty
+neighbor 1.0	CancelOut Water		1.0	Empty           Empty
+neighbor 1.0	CancelOut Sand		1.0	Empty           Empty
+neighbor 1.0	CancelOut Spout		1.0	Empty           Empty
+neighbor 1.0	CancelOut Cement	1.0	Empty           Empty
+neighbor 1.0	CancelOut Cera		1.0	Empty           Empty
+neighbor 1.0	CancelOut Oil		1.0	Empty           Empty
+neighbor 1.0	CancelOut Salt		1.0	Empty           Empty
+neighbor 1.0	CancelOut Ember		1.0	Empty           Empty
+neighbor 1.0	CancelOut MoltenCera	1.0	Empty           Empty
+neighbor 1.0	CancelOut Steam		1.0	Empty           Empty
+neighbor 1.0	CancelOut Saltwater	1.0	Empty           Empty
+neighbor 1.0	CancelOut Torch		1.0	Empty           Empty
+neighbor 1.0	CancelOut Leftover???	1.0	Empty           Empty
+neighbor 1.0	CancelOut FallingEmber	1.0	Empty           Empty
+neighbor 1.0	CancelOut Ice		1.0	Empty           Empty
+neighbor 1.0	CancelOut Snow		1.0	Empty           Empty
+neighbor 1.0	CancelOut Crop		1.0	Empty           Empty
+neighbor 1.0	CancelOut&nbsp;???		1.0	Empty           Empty
+neighbor 1.0	CancelOut BloodVine	1.0	Empty           Empty
+neighbor 1.0	CancelOut Blood		1.0	Empty           Empty
+neighbor 1.0	CancelOut BloodFlower	1.0	Empty           Empty
+neighbor 1.0	CancelOut BloodWell	1.0	Empty           Empty
+neighbor 1.0	CancelOut Tabernacle	1.0	Empty           Empty
+neighbor 1.0	CancelOut HolyWater	1.0	Empty           Empty
+neighbor 1.0	CancelOut TNT		1.0	Empty           Empty
+neighbor 1.0	CancelOut SpiritFlame	1.0	Empty           Empty
+neighbor 1.0	CancelOut Sin		1.0	Empty           Empty
+neighbor 1.0	CancelOut Soil		1.0	Empty           Empty           
+neighbor 1.0	CancelOut Drain		1.0	Empty		Drain          
+neighbor 1.0	CancelOut ResidualSin	1.0	Empty           Empty
+neighbor 1.0	CancelOut Love		1.0	Empty           Empty
+neighbor 1.0	CancelOut Heart		1.0	Empty           Empty
+neighbor 1.0	CancelOut HolyIce	1.0	Empty           Empty
+neighbor 1.0	CancelOut HellFire	1.0	Empty           Empty
+neighbor 1.0	CancelOut SteamPipe	1.0	Empty           Empty
+neighbor 1.0	CancelOut Seed		1.0	Empty           Empty
+neighbor 1.0    CancelOut StemCells	1.0	Empty           Empty
+neighbor 1.0	CancelOut DarkMatter	1.0	Empty           Empty
+neighbor 1.0	CancelOut LightMatter	1.0	Empty           Empty
+neighbor 1.0	CancelOut FlashBomb	1.0	Empty           Empty
+neighbor 1.0	CancelOut DeadCrop	1.0	Empty           Empty
+neighbor 1.0	CancelOut Poison	1.0	Empty           Empty
+neighbor 1.0	CancelOut Antidote	1.0	Empty           Empty
+neighbor 1.0	CancelOut FrozenTap	1.0	Empty           Empty
+neighbor 1.0	CancelOut Purple	1.0	Empty           Empty
+neighbor 1.0	CancelOut Blue		1.0	Empty           Empty
+neighbor 1.0	CancelOut Green		1.0	Empty           Empty
+neighbor 1.0	CancelOut Yellow	1.0	Empty           Empty
+neighbor 1.0	CancelOut Teal		1.0	Empty           Empty
+neighbor 1.0	CancelOut Red		1.0	Empty           Empty
+neighbor 1.0	CancelOut Copy		1.0	Empty           Empty           
+neighbor 1.0	CancelOut AtomicB	1.0	Empty           Empty
+neighbor 1.0	CancelOut Fetus		1.0	Empty           Empty
+neighbor 1.0	CancelOut White		1.0	Empty           Empty
+neighbor 1.0	CancelOut Black		1.0	Empty           Empty
+neighbor 1.0	CancelOut Blizzard	1.0	Empty           Empty
+neighbor 1.0	CancelOut AmnesiaDust	1.0	Empty           Empty
+
+element Vine		200 	0 0 0.000000	0.000000	60.00000	0.00000	 1
+neighbor 0.5	Vine  Fire		1.0	Vine  Vine  
+neighbor  0.0001	Vine Empty		1.0	Vine  GrowVine
+neighbor  0.0009	Vine Wall		1.0	Vine  GrowVine
+neighbor  0.0009	Vine ShrinkWall		1.0	Vine  GrowVine
+element GrowVine	200 	0 0	0.000000	0.000000	60.000000	0.000000	0
+neighbor 1.0	 GrowVine  Empty 	1.0 	Vine  GrowVine  
+neighbor 1.0	 GrowVine  Wall	1.0 	Vine  	GrowVine  
+neighbor 1.0	 GrowVine  Water	1.0	GrowVine  GrowVine  
+self 0.08   GrowVine    1.0   Vine  
+neighbor 1.0	GrowVine   Water		1.0	Water Water
+neighbor 1 Water Vine 1 Water Water
+neighbor 0.5 Napalm Vine 1 Vine Vine 
+neighbor 0.5 Meteor Vine 1 Vine Vine 
+neighbor 0.5 FallingEmber Vine 1 Vine Vine 
+neighbor 0.5 Meteor2 Vine 1 Vine Vine 
+neighbor 0.5 Ember Vine 1 Vine Vine 
+neighbor 0.5 Torch Vine 1 Vine Vine 
+neighbor 1.0 InstaGrow Vine 1 GrowVine  GrowVine  
+neighbor 1.0 MiracleGrow Vine 1 GrowVine  GrowVine  
+#Grows on walls.. its pretty weird
+element VineSeed 200 0 0 	0.700000	1.000000	59.0000		1.000000	1
+neighbor 1.0 VineSeed Wall 1.0 Vine Vine
+neighbor 1.0 VineSeed Fire 1.0 VineSeed VineSeed
+pexplosion VineSeed InstaGrow 10 GrowVine
+pexplosion Bomb Vine 16 Fire
+pexplosion AtomicB Vine 100 Radiation
+neighbor 1.0 Vine CancelOut 1.0 Empty Empty
+
+#Solid form of InstaGrow
+element MiracleGrow 200	0	200	0.000000	0.000000	70.000000	0.000000	1
+neighbor 1.0	MiracleGrow  Crop		1.0	GrowCrop	GrowCrop
+pexplosion MiracleGrow	Seed 	10	GrowCrop
+
+#Slowly goes away
+element ShrinkWall 125 125 125 0.000000	0.000000	100.000000	0.500000	1
+neighbor 0.05 ShrinkWall Empty  1.0 Empty Empty
+neighbor 0.01 ShrinkWall Cement	1.0 ShrinkWall	ShrinkWall
+hotcolor  ShrinkWall  50	50	50
+
+#Mix with water and...
+element BlipPowder 200 200 200 	0.700000	1.000000	700.0000		1.000000	1
+neighbor 0.1  BlipPowder Water 1.0 Blip Blip
+
+#Flashes many colors
+element Blip 255 0 0 		0.000000	0.000000	100.000000	0.500000	1
+self 1.0 Blip 1.0 Blip2
+
+element Blip2 0 255 0 		0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip2 1.0 Blip3
+
+element Blip3 0 0 255 		0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip3 1.0 Blip4
+
+element Blip4 255 255 		0 0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip4 1.0 Blip5
+
+element Blip5 255 0 255 	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip5 1.0 Blip6
+
+element Blip6  0 255 255  	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip6 1.0 Blip7
+
+element Blip7  255 255 255 	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip7 1.0 Blip8
+
+element Blip8 255 0 0 		0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip8 1.0 Blip9
+
+element Blip9 0 255 0 		0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip9 1.0 Blip10
+
+element Blip10 0 0 255 		0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip10 1.0 Blip11
+
+element Blip11 255 255 		0 0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip11 1.0 Blip12
+
+element Blip12 255 0 255 	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip12 1.0 Blip13
+
+element Blip13  0 255 255  	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip13 1.0 Blip14
+
+element Blip14  255 255 255 	0.000000	0.000000	100.000000	0.500000	0
+self 1.0 Blip14 1.0 Blip
+
+</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:2267-0!1!0!0!!en!2 and timestamp 20071027195544 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Valter/Abstract_Mod">http://www.fallingsandgame.com/wiki/index.php/User:Valter/Abstract_Mod</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Valter/Abstract_Mod">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Valter/Abstract_Mod&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Valter/Abstract_Mod&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Valter/Abstract_Mod&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Valter/Abstract_Mod">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Valter/Abstract_Mod">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Valter/Abstract_Mod">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Valter/Abstract_Mod&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Valter/Abstract_Mod&amp;oldid=6165">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 20:09, 27 August 2007.</li>
+				<li id="viewcount">This page has been accessed 5,051 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

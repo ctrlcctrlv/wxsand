@@ -1,0 +1,908 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+
+#----------------------------Primary Elements----------------------------
+#The great unknown.
+element	Empty	0	0	0	0.00	1.00	0.00	0.00	1
+
+#Hi. I'm a wall.
+element	Wall	128	128	128	0.00	0.00	1.00	0.50	1
+#------------------------------------------------------------------------
+
+
+#----------------------------Water Elements------------------------------
+group	Waters	Spout	Water	SteamVent	Steam	Saltwater	Ice	Freezer	BurnSpout	Geyser	Spray	Splasher	Splash
+
+#Water comes out of it, quickly.
+element	Spout	10	100	10	0.00	0.00	1.00	0.00	1
+self	0.00	Spout	1.00	Empty
+neighbor	0.75	Spout	Empty	1.00	Spout	Water
+
+#It's water. Uh.. it makes things grow.
+element	Water	32	32	255	0.70	0.95	0.50	0.60	1
+hotcolor	Water	32	170	255
+self	0.00	Water	1.00	Steam
+hotself	0.001	Water
+neighbor	0.004000	Water	Salt	1.00	Saltwater	Saltwater
+
+#SteamVent emits Steam. Hooray.
+element	SteamVent	160	160	195	0.00	0.00	1.00	0.00	1
+self	0.00	SteamVent	1.00	Empty
+neighbor	0.20	SteamVent	Empty	1.00	SteamVent	Steam
+
+#Steam is boiled Water.
+element	Steam	85	120	255	-1.00	1.00	0.01	0.20	1
+hotcolor	Steam	85	180	255
+self	0.001	Steam	1.00	Water
+neighbor	0.01	Steam	Water	1.00	Water	Water
+
+#Water with Salt in it! A revelation!
+element	Saltwater	0	0	150	0.75	1.00	0.55	0.00	1
+self	0.00002	Saltwater	0.50	Water	0.50	Salt
+neighbor	0.20	Saltwater	Torch	0.50	Salt	Torch	0.50	Steam	Torch
+neighbor	0.90	Saltwater	Fire	1.00	Salt	Steam
+neighbor	0.20	Saltwater	Volcano	0.30	Salt	Volcano	0.30	Steam	Volcano	0.40	Lava	Volcano
+neighbor	0.25	Saltwater	Lava	0.15	Salt	Magma	0.15	Steam	Magma	0.70	Salt	Steam
+neighbor	0.30	Saltwater	Magma	0.15	Salt	Magma	0.15	Steam	Magma	0.70	Salt	Steam
+
+#Ice is frozen water.
+element	Ice	157	197	251	0.00	0.00	1.00	0.40	1
+hotcolor	Ice	60	60	200
+neighbor	0.05	Ice	Salt	0.90	Water	Salt	0.10	Water	Empty
+neighbor	0.01	Ice	Water	1.00	Ice	Ice
+neighbor	0.05	Ice	Steam	1.00	Water	Water
+neighbor	0.0005	Ice	Empty	1.00	Water	Empty
+hotneighbor	0.005	Ice	Empty
+neighbor	1.00	Ice	Plant	1.00	Ice	Decay
+neighbor	0.50	Ice	Lava	1.00	Water	Magma
+neighbor	0.30	Ice	Magma	1.00	Water	Stone
+neighbor	0.30	Ice	Fire	1.00	Water	Empty
+
+#Freezer will turn Water to Ice.
+element	Freezer	187	215	255	0.00	0.00	1.00	0.00	1
+neighbor	0.50	Freezer	Water	1.00	Freezer	Ice
+
+#A special Spout that burns plants.
+element	BurnSpout	100	100	10	0.00	0.00	1.00	0.00	1
+neighbor	0.50	BurnSpout	Empty	1.00	BurnSpout	Water
+neighbor	0.01	BurnSpout	Plant	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Flower	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Petal	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Decay	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Tree	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Bud	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Leaf	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Foliage	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Weed	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Vine	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Vine3	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Climber	1.00	BurnSpout	Fire
+neighbor	0.01	BurnSpout	Ivy	1.00	BurnSpout	Fire
+
+#Geyser shoots up little water balloons.
+element	Geyser	110	10	255	0.00	0.00	1.00	0.00	1
+self	0.00	Geyser	1.00	Splasher
+neighbor	0.00002	Geyser	Empty	1.00	Geyser	Spray
+neighbor	0.00002	Geyser	Water	1.00	Geyser	Spray
+
+element	Spray	200	200	234	-1.00	1.00	0.01	0.00	0
+self	0.003	Spray	1.00	Splash
+
+#Splasher drops splashes of water.
+element	Splasher	125	25	234	0.00	0.00	1.00	0.00	1
+self	0.00	Splasher	1.00	Empty
+neighbor	0.00005	Splasher	Empty	1.00	Splasher	Splash
+
+element	Splash	25	25	234	0.00	0.00	1.00	0.00	0
+self	0.003	Splash	1.00	Water
+neighbor	0.15	Splash	Empty	1.00	Splash	Splash
+neighbor	1.00	Splash	Water	1.00	Water	Water
+#------------------------------------------------------------------------
+
+
+#----------------------------Plant Elements------------------------------
+group	Plants	Soil	Plant	FlowerPot	Seed	Flower	Petal	Decay
+
+#Water Soil to get a Plant.
+element	Soil	204	77	31	0.00	0.00	1.00	0.00	1
+neighbor	0.001000	Soil	Water	1.00	Soil	Plant
+
+#The simple Plant. It flowers.
+element	Plant	32	204	32	0.00	0.00	1.00	0.00	1
+neighbor	0.000100	Plant	Empty	1.00	Plant	Flower
+neighbor	0.20	Plant	Water	1.00	Plant	Plant
+
+#FlowerPot will grow flowers. Kinda boring.
+element	FlowerPot	100	50	20	0.00	0.00	1.00	0.00	1
+neighbor	0.000100	FlowerPot	Empty	1.00	FlowerPot	Flower
+
+#Seed will create flowers. Also boring.
+element	Seed	124	57	20	1.00	0.70	1.00	0.00	1
+self	0.00	Seed	1.00	Flower
+neighbor	1.00	Seed	Wall	1.00	Flower	Wall
+neighbor	1.00	Seed	Soil	1.00	Flower	Soil
+neighbor	1.00	Seed	Plant	1.00	Flower	Plant
+neighbor	1.00	Seed	Flower	1.00	Flower	Flower
+neighbor	1.00	Seed	Petal	1.00	Flower	Petal
+neighbor	1.00	Seed	Decay	1.00	Flower	Flower
+neighbor	1.00	Seed	Stump	1.00	Flower	Stump
+neighbor	1.00	Seed	Tree	1.00	Flower	Tree
+neighbor	1.00	Seed	Leaf	1.00	Flower	Leaf
+neighbor	1.00	Seed	Fire	1.00	Fire	Fire
+neighbor	1.00	Seed	Lava	1.00	Fire	Lava
+neighbor	1.00	Seed	Magma	1.00	Fire	Magma
+neighbor	1.00	Seed	Volcano	1.00	Fire	Volcano
+neighbor	1.00	Seed	Stone	1.00	Flower	Stone
+neighbor	1.00	Seed	Fissure	1.00	Flower	Fissure
+neighbor	1.00	Seed	Spark	1.00	Fire	Spark
+neighbor	1.00	Seed	Sparker	1.00	Fire	Sparker
+
+#I'm a pretty flower.
+element	Flower	204	0	241	0.00	0.00	1.00	0.00	1
+self	0.01	Flower	1.00	Petal
+neighbor	0.10	Flower	Empty	1.00	Flower	Flower
+neighbor	0.10	Flower	Water	1.00	Flower	Plant
+neighbor	1.00	Flower	Fire	1.00	Ash	Fire
+neighbor	1.00	Flower	Lava	1.00	Ash	Lava
+neighbor	1.00	Flower	Magma	1.00	Ash	Magma
+neighbor	1.00	Flower	Volcano	1.00	Ash	Volcano
+
+element	Petal	205	0	241	0.00	0.00	1.00	0.00	0
+self	0.00002	Petal	1.00	Decay
+neighbor	0.10	Petal	Water	1.00	Petal	Plant
+neighbor	1.00	Petal	Flower	1.00	Petal	Petal
+neighbor	0.25	Petal	Fire	0.05	Ash	Fire	0.95	Fire	Fire
+neighbor	0.25	Petal	Lava	0.10	Ash	Lava	0.90	Fire	Lava
+neighbor	0.25	Petal	Magma	0.10	Ash	Magma	0.90	Fire	Magma
+neighbor	0.25	Petal	Volcano	0.10	Ash	Volcano	0.90	Fire	Volcano
+neighbor	0.50	Petal	Ash	1.00	Ash	Ash
+
+element	Decay	135	85	0	0.00	0.00	1.00	0.00	0
+neighbor	0.001	Decay	Empty	1.00	Empty	Empty
+neighbor	1.00	Decay	Water	1.00	Empty	Water
+neighbor	0.50	Decay	Steam	1.00	Empty	Steam
+neighbor	1.00	Decay	Flower	1.00	Decay	Decay
+neighbor	0.002	Decay	Petal	1.00	Decay	Decay
+neighbor	1.00	Decay	Fire	1.00	Fire	Fire
+neighbor	1.00	Decay	Lava	1.00	Fire	Lava
+neighbor	1.00	Decay	Magma	1.00	Fire	Magma
+neighbor	1.00	Decay	Volcano	1.00	Fire	Volcano
+#------------------------------------------------------------------------
+
+
+#-----------------------------Tree Elements------------------------------
+group Trees	Stump	Tree	Bud	Leaf	Foliage
+
+#Trees grow from a stump.
+element	Stump	120	30	60	0.00	0.00	1.00	0.00	1
+neighbor	0.10	Stump	Water	1.00	Stump	Tree
+
+#A tree is made of wood. Grows leaves.
+element	Tree	130	41	71	0.00	0.00	1.00	0.00	1
+self	0.00	Tree	1.00	Empty
+neighbor	0.00005	Tree	Empty	1.00	Tree	Bud
+neighbor	0.10	Tree	Water	1.00	Tree	Tree
+
+element	Bud	84	185	48	0.00	0.00	1.00	0.00	0
+self	0.01	Bud	1.00	Leaf
+neighbor	0.20	Bud	Empty	1.00	Bud	Bud
+neighbor	1.00	Bud	Fire	1.00	Fire	Fire
+neighbor	1.00	Bud	Lava	1.00	Fire	Lava
+neighbor	1.00	Bud	Magma	1.00	Fire	Magma
+neighbor	1.00	Bud	Volcano	1.00	Fire	Volcano
+neighbor	1.00	Bud	Ash	1.00	Leaf	Ash
+
+#Leaves grow on Trees.
+element	Leaf	84	181	48	0.00	0.00	1.00	0.00	1
+self	0.00002	Leaf	1.00	Foliage
+neighbor	1.00	Leaf	Bud	1.00	Leaf	Leaf
+neighbor	1.00	Leaf	Fire	0.85	Fire	Fire	0.15	Ash	Fire
+neighbor	0.50	Leaf	Lava	0.75	Fire	Lava	0.25	Ash	Lava
+neighbor	0.50	Leaf	Magma	0.75	Fire	Magma	0.25	Ash	Magma
+neighbor	0.50	Leaf	Volcano	0.75	Fire	Volcano	0.25	Ash	Volcano
+
+element	Foliage	255	224	74	0.10	0.01	0.10	0.00	0
+self	0.05	Foliage	1.00	Empty
+neighbor	0.01	Foliage	Tree	1.00	Empty	Tree
+neighbor	1.00	Foliage	Bud	1.00	Foliage	Foliage
+neighbor	1.00	Foliage	Leaf	1.00	Foliage	Foliage
+neighbor	1.00	Foliage	Fire	1.00	Fire	Fire
+neighbor	1.00	Foliage	Lava	1.00	Fire	Lava
+neighbor	1.00	Foliage	Magma	1.00	Fire	Magma
+neighbor	1.00	Foliage	Volcano	1.00	Fire	Volcano
+#------------------------------------------------------------------------
+
+
+#------------------------Weed Elements-----------------------------------
+group	Weeds	Compost	Mulch	Weed	Ivy	Climber	Vine
+
+#Compost grows various plants.
+element	Compost	200	75	154	0.00	0.00	1.00	0.00	1
+neighbor	0.20	Compost	Water	0.45	Compost	Tree	0.32	Compost	Plant	0.23	Compost	Weed
+
+#Weeds grow out of Mulch.
+element Mulch	177	75	124	0.00	0.00	1.00	0.00	1
+neighbor	0.05	Mulch	Water	1.00	Mulch	Weed
+
+#A fast growing plant with vines.
+element	Weed	50	170	50	0.00	0.00	1.00	0.00	1
+neighbor	1.00	Water	Weed	1.00	Weed	Weed
+neighbor	0.0001	Weed	Empty	0.15	Weed	Ivy	0.15	Weed	Climber	0.70	Weed	Vine3
+neighbor	0.75	Weed	Fire	1.00	Fire	Fire
+neighbor	0.75	Weed	Magma	1.00	Fire	Magma
+neighbor	0.75	Weed	Lava	1.00	Fire	Lava
+
+#Wild vines of ivy.
+element Ivy	150	220	25	0.00	0.00	1.00	0.00	1
+self	0.005	Ivy	1.00	Vine
+neighbor	0.75	Ivy	Fire	1.00	Fire	Fire
+neighbor	0.75	Ivy	Magma	1.00	Fire	Magma
+neighbor	0.75	Ivy	Lava	1.00	Fire	Lava
+neighbor	1.00	Ivy	Ivy	0.50	Vine	Ivy	0.50	Ivy	Vine
+neighbor	1.00	Ivy	Empty	1.00	Vine	Ivy
+
+#Vertically growing vines.
+element	Climber	200	255	120	-0.50	0.00	1.00	0.00	1
+self	0.002	Climber	1.00	Vine
+neighbor	0.50	Climber	Water	1.00	Vine	Climber
+neighbor	0.10	Climber	Empty	1.00	Climber	Vine
+neighbor	0.10	Climber	Fire	1.00	Fire	Fire
+
+#Thick vines from weeds.
+element	Vine	78	151	0	0.00	0.00	1.00	0.00	1
+self	0.00	Vine	1.00	Plant
+neighbor	0.01	Vine	Empty	1.00	Vine	Vine1
+neighbor	0.75	Vine	Fire	1.00	Fire	Fire
+neighbor	0.75	Vine	Magma	1.00	Fire	Magma
+neighbor	0.75	Vine	Lava	1.00	Fire	Lava
+neighbor	0.001	Vine	Water	0.05	Vine	Ivy	0.95	Vine	Weed
+
+element Vine1	53	138	0	0.00	0.00	1.00	0.00	0
+neighbor	0.05	Vine1	Empty	1.00	Vine1	Vine2
+neighbor	1.00	Vine1	Fire	1.00	Fire	Fire
+element Vine2	38	125	0	0.00	0.00	1.00	0.00	0
+neighbor	0.10	Vine2	Empty	1.00	Vine2	Vine3
+neighbor	1.00	Vine2	Fire	1.00	Fire	Fire
+element Vine3	23	110	0	0.00	0.00	1.00	0.00	0
+neighbor	0.01	Vine3	Water	0.80	Vine3	Empty	0.20	Vine3	Weed
+neighbor	0.25	Vine3	Fire	1.00	Fire	Fire
+neighbor	0.25	Vine3	Lava	1.00	Fire	Lava
+neighbor	0.25	Vine3	Magma	1.00	Fire	Magma
+neighbor	0.25	Vine3	Volcano	1.00	Fire	Volcano
+
+
+#------------------------------------------------------------------------
+
+
+#-------------------------Bug Elements-----------------------------------
+group	Bugs	Bug	Leaper	FireFly	Fly	Wormer	Worm
+
+#A little bug that eats plants.
+element	Bug	50	200	200	0.50	0.50	0.50	0.00	1
+self	0.01	Bug	1.00	Leaper
+neighbor	1.00	Bug	Water	1.00	Water	Bug
+neighbor	0.005	Bug	Fire	1.00	Empty	Fire
+
+element	Leaper	55	200	200	0.05	0.50	0.50	0.00	0
+self	0.03	Leaper	1.00	Bug
+neighbor	1.00	Leaper	Empty	1.00	Empty	Leaper
+neighbor	0.005	Leaper	Fire	1.00	Empty	Fire
+
+#A Fly that sets fires sometimes.
+element	FireFly	255	200	200	0.20	0.10	0.01	0.00	1
+self	0.005	FireFly	1.00	Fly
+neighbor	0.01	FireFly	Empty	0.05	FireFly	Spark	0.95	Empty	FireFly
+
+element	Fly	254	200	200	-0.50	0.10	0.01	0.00	0
+self	0.005	Fly	1.00	FireFly
+neighbor	0.01	Fly	Empty	0.05	Fly	Spark	0.95	Empty	Fly
+
+#Worms come out of Wormer.
+element Wormer	255	140	190	0.00	0.00	1.00	0.00	1
+neighbor	0.001	Wormer	Empty	1.00	Wormer	Worm
+
+#Little wriggly worms that eat plants.
+element Worm	240	130	180	0.00	0.00	1.00	0.00	1
+neighbor	0.50	Worm	Empty	1.00	Worm1	Worm
+neighbor	0.75	Worm	Water	1.00	Worm1	Worm
+neighbor	0.25	Worm	Sand	1.00	Worm1	Worm
+
+neighbor	1.00	Worm	Plant	1.00	Worm1	Worm
+neighbor	1.00	Worm	Flower	1.00	Worm1	Worm
+neighbor	1.00	Worm	Petal	1.00	Worm1	Worm
+neighbor	1.00	Worm	Leaf	1.00	Worm1	Worm
+neighbor	1.00	Worm	Bud	1.00	Worm1	Worm
+neighbor	1.00	Worm	Weed	1.00	Worm1	Worm
+neighbor	1.00	Worm	Ivy	1.00	Worm1	Worm
+neighbor	1.00	Worm	Vine	1.00	Worm1	Worm
+neighbor	1.00	Worm	Vine1	1.00	Worm1	Worm
+neighbor	1.00	Worm	Vine2	1.00	Worm1	Worm
+neighbor	1.00	Worm	Vine3	1.00	Worm1	Worm
+neighbor	1.00	Worm	Climber	1.00	Worm1	Worm
+neighbor	0.50	Worm	Tree	1.00	Worm1	Worm
+#------------------------------------------------------------------------
+
+#------------------------Energy Elements----------------------------------
+group Energy	Battery	Stone	Metal Spark
+
+#Battery is a basic energy source.
+element Battery	140	160	180	0.00	0.00	1.00	1.10	1
+hotcolor	Battery	215	235	255
+
+#Stone is cooled Magma.
+element	Stone	75	75	75	0.00	0.00	1.00	0.00	1
+self	0.00	Stone	1.00	Empty
+neighbor	0.03	Stone	Spout	1.00	Water	Spout
+neighbor	0.10	Stone	SteamVent	1.00	Empty	SteamVent
+neighbor	0.02	Stone	Plant	1.00	Empty	Plant
+neighbor	0.1	Stone	Water	1.00	Empty	Empty
+neighbor	0.05	Stone	Steam	1.00	Empty	Empty
+
+#Metal is conductive. Hooray.
+element	Metal	108	128	148	0.00	0.00	1.00	0.80	1
+hotcolor	Metal	208	128	148
+neighbor	0.00	Metal	Tree	1.00	Metal	Fire
+hotneighbor	0.001	Metal	Tree
+neighbor	0.00	Metal	Water	1.00	Metal	Steam
+hotneighbor	0.001	Metal	Water	
+neighbor	0.1	Metal	Metal0	0.50	Metal0	Metal	0.50	Metal0	Metal
+neighbor	0.1	Metal	Metal1	1.00	Metal0	Metal0
+neighbor	0.1	Metal	Metal2	1.00	Metal0	Metal1
+neighbor	0.1	Metal	Metal3	1.00	Metal0	Metal2
+neighbor	0.1	Metal	Metal4	1.00	Metal0	Metal3
+neighbor	0.1	Metal	Metal5	1.00	Metal0	Metal4
+neighbor	0.1	Metal	Metal6	1.00	Metal0	Metal5
+neighbor	0.1	Metal	Metal7	1.00	Metal0	Metal6
+neighbor	0.1	Metal	Metal8	1.00	Metal0	Metal7
+neighbor	0.1	Metal	Metal9	1.00	Metal0	Metal9
+neighbor	1.0	Metal	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal	Torch	1.00	Metal5	Torch
+
+#A spark of energy.
+element	Spark	210	210	255	-0.50	1.00	0.00	1.10	1
+self	0.05	Spark	1.00	Fire
+#------------------------------------------------------------------------
+
+#------------------------Fire Elements-----------------------------------
+group	Fires	Torch	Ember	Fire	Lava	Magma	Volcano	Ash	Fissure	Sparker	Explosion	Boom	Fireworks	Rocket	Mortar	Shell	Flame
+
+#Burn it down! Torch burns eternal!
+element	Torch	100	0	0	0.00	0.00	1.00	1.10	1
+self	0.00	Torch	1.00	Empty
+neighbor	0.20	Torch	Empty	1.00	Torch	Fire
+neighbor	0.20	Torch	Water	1.00	Torch	Steam
+neighbor	0.20	Torch	Saltwater	1.00	Torch	Steam
+neighbor	0.20	Torch	Plant	1.00	Torch	Fire
+neighbor	0.20	Torch	Oil	1.00	Torch	Fire
+neighbor	0.005	Torch	Cera	1.00	Torch	MoltenCera
+
+#Flaming embers! They decay.
+element	Ember	200	50	50	0.00	0.00	1.00	0.00	1
+self	0.002000	Ember	1.00	Empty
+neighbor	0.20	Ember	Empty	1.00	Ember	Fire
+neighbor	0.90	Ember	Water	1.00	Empty	Steam
+neighbor	0.50	Ember	Tree	1.00	Ember	Fire
+neighbor	1.00	Ember	Plant	1.00	Ember	Fire
+neighbor	0.75	Ember	Oil	1.00	Ember	Fire
+neighbor	0.005	Ember	Cera	1.00	MoltenCera	Ember
+
+#It helps you to burn things, you sicko.
+element	Fire	247	63	63	-1.00	1.00	0.00	0.00	1
+self	0.05	Fire	1.00	Empty
+neighbor	0.90	Fire	Water	1.00	Empty	Steam
+neighbor	1.00	Fire	Plant	1.00	Fire	Fire
+neighbor	0.35	Fire	Tree	0.95	Fire	Fire	0.05	Fire	Ember
+neighbor	0.75	Fire	Oil	1.00	Fire	Fire
+neighbor	0.005	Fire	Cera	1.00	MoltenCera	Ember
+
+#Lava erupts from volcanos.
+element	Lava	253	57	67	-2.00	1.00	0.00	0.00	1
+self	0.01	Lava	0.99	Magma	0.01	Ash
+neighbor	0.001	Lava	Empty	1.00	Lava	Fire
+neighbor	0.75	Lava	Water	1.00	Magma	Steam
+neighbor	1.00	Lava	Plant	1.00	Lava	Fire
+neighbor	0.75	Lava	Stone	1.00	Lava	Magma
+neighbor	0.75	Lava	Oil	1.00	Lava	Fire
+
+#Lava cools to Magma which falls.
+element	Magma	96	15	15	0.90	0.75	1.00	0.00	1
+self	0.00	Magma	1.00	Empty
+neighbor	0.005	Magma	Wall	1.00	Stone	Wall
+neighbor	0.20	Magma	Water	1.00	Stone	Steam
+neighbor	0.25	Magma	SteamVent	1.00	Stone	SteamVent
+neighbor	1.00	Magma	Plant	1.00	Magma	Fire
+neighbor	0.05	Magma	Tree	1.00	Magma	Fire
+neighbor	0.01	Magma	Stone	1.00	Stone	Stone
+neighbor	0.75	Magma	Oil	1.00	Magma	Fire
+neighbor	0.001	Magma	Metal	1.00	Stone	Metal5
+neighbor	0.001	Magma	Metal5	1.00	Stone	Metal9
+neighbor	0.001	Magma	Metal9	1.00	Stone	Metal9
+
+#A volcano of power! Shoots lava up.
+element	Volcano	75	25	25	0.00	0.00	1.00	0.00	1
+self	0.00	Volcano	1.00	Empty
+neighbor	0.75	Volcano	Empty	1.00	Volcano	Lava
+neighbor	0.50	Volcano	Water	1.00	Volcano	Steam
+neighbor	1.00	Volcano	Plant	1.00	Volcano	Fire
+neighbor	0.05	Volcano	Tree	1.0	Volcano	Fire
+neighbor	0.50	Volcano	Magma	1.00	Volcano	Lava
+neighbor	0.01	Volcano	Stone	1.00	Volcano	Magma
+neighbor	0.75	Volcano	Oil	1.00	Volcano	Fire
+
+element	Ash	185	180	190	0.30	0.50	0.10	0.00	0
+self	0.05	Ash	1.00	Empty
+
+element	Fissure	180	180	180	0.00	0.00	1.00	0.00	0
+self	0.00	Fissure	1.00	Empty
+neighbor	0.001	Fissure	Wall	1.00	Empty	Wall
+neighbor	0.005	Fissure	Water	1.00	Empty	Water
+neighbor	0.01	Fissure	Fire	1.00	Empty	Fire
+neighbor	0.20	Fissure	Lava	1.00	Empty	Lava
+
+#It makes explosions. Don't use it.
+element	Sparker	168	0	255	0.00	0.00	1.00	0.00	1
+self	0.00	Sparker	1.00	Explosion	
+neighbor	0.001	Sparker	Empty	1.00	Sparker	Explosion
+neighbor	0.01	Sparker	Water	1.00	Sparker	Steam
+neighbor	0.01	Sparker	Plant	1.00	Sparker	Fire
+neighbor	0.01	Sparker	Flower	1.00	Sparker	Fire
+neighbor	0.01	Sparker	Petal	1.00	Sparker	Fire
+neighbor	0.01	Sparker	Magma	1.00	Sparker	Lava
+neighbor	1.00	Sparker	Acid	1.00	Sparker	Explosion
+
+#An explosion? Use at your own risk.
+element	Explosion	168	255	255	0.10	0.50	0.00	0.00	1
+self	0.40	Explosion	1.00	Boom
+neighbor	1.00	Explosion	Empty	1.00	Explosion	Explosion
+neighbor	1.00	Explosion	Water	1.00	Explosion	Steam
+neighbor	1.00	Explosion	Stone	1.00	Explosion	Explosion
+neighbor	1.00	Explosion	Acid	1.00	Explosion	Explosion
+
+element	Boom	255	255	0	0.00	0.50	0.00	0.00	0
+self	0.30	Boom	1.00	Fire
+neighbor	0.50	Boom	Empty	1.00	Boom	Boom
+neighbor	1.00	Boom	Fire	1.00	Fire	Fire
+neighbor	0.50	Boom	Stone	1.00	Boom	Boom
+neighbor	1.00	Boom	Explosion	1.00	Boom	Boom
+neighbor	1.00	Boom	Acid	1.00	Boom	Boom
+
+#Shoots out things to go boom.
+element	Fireworks	175	75	75	0.00	0.00	1.00	0.00	1
+self	0.00	Fireworks	0.00	Empty
+neighbor	0.0001	Fireworks	Empty	0.50	Fireworks	Rocket	0.50	Fireworks	Mortar
+neighbor	0.01	Fireworks	Rocket	1.00	Fireworks	Empty
+neighbor	0.01	Fireworks	Mortar	1.00	Fireworks	Empty
+
+#Upward projectile that goes boom.
+element	Rocket	175	175	175	-1.00	1.00	0.00	0.00	1
+self	0.004	Rocket	1.00	Shell
+neighbor	0.10	Rocket	Rocket	1.00	Rocket	Empty
+
+#Falling projectile that goes boom.
+element	Mortar	181	174	183	1.00	1.00	0.00	0.00	1
+self	0.004	Mortar	1.00	Shell
+neighbor	0.50	Mortar	Mortar	1.00	Mortar	Empty
+
+element	Shell	200	55	60	0.00	0.00	1.00	0.00	0
+self	0.001	Shell	1.00	Fire
+neighbor	0.20	Shell	Empty	1.00	Shell	Shell
+neighbor	1.00	Shell	Fire	1.00	Flame	Fire
+neighbor	1.00	Shell	Flame	1.00	Fire	Flame
+
+element	Flame	247	50	50	0.60	1.00	0.00	0.00	0
+self	0.08	Flame	1.00	Empty
+
+
+#------------------------------------------------------------------------
+
+
+#---------------------Destruction Elements-------------------------------
+group	Destruction	Purity	Purify	Void	LiquidVoid	AcidRain	Acid
+
+#Some weird thing to destroy stuff.
+element	Purity	220	220	25	1.00	0.50	0.00	0.00	1
+self	0.01	Purity	0.40	Empty	0.60	Purify
+neighbor	1.00	Purity	Plant	1.00	Empty	Purity
+neighbor	1.00	Purity	Flower	1.00	Empty	Purity
+neighbor	1.00	Purity	Petal	1.00	Empty	Purity
+neighbor	1.00	Purity	Tree	1.00	Empty	Purity
+neighbor	1.00	Purity	Bud	1.00	Empty	Purity
+neighbor	1.00	Purity	Leaf	1.00	Empty	Purity
+neighbor	1.00	Purity	Foliage	1.00	Empty	Purity
+neighbor	1.00	Purity	Ash	1.00	Empty	Purity
+neighbor	1.00	Purity	Fire	1.00	Empty	Purity
+neighbor	1.00	Purity	Lava	1.00	Empty	Purity
+neighbor	1.00	Purity	Magma	1.00	Empty	Purity
+neighbor	1.00	Purity	Stone	1.00	Empty	Purity
+neighbor	1.00	Purity	Water	1.00	Empty	Purity
+neighbor	1.00	Purity	Purify	0.50	Purity	Empty	0.50	Empty	Purify
+neighbor	0.05	Purity	Purity	0.50	Purity	Empty	0.50	Empty	Purity
+
+element	Purify	240	240	50	-1.00	0.50	0.00	0.00	0
+self	0.01	Purify	0.40	Empty	0.60	Purity
+neighbor	1.00	Purify	Plant	1.00	Empty	Purify
+neighbor	1.00	Purify	Flower	1.00	Empty	Purify
+neighbor	1.00	Purify	Petal	1.00	Empty	Purify
+neighbor	1.00	Purify	Tree	1.00	Empty	Purify
+neighbor	1.00	Purify	Bud	1.00	Empty	Purify
+neighbor	1.00	Purify	Leaf	1.00	Empty	Purify
+neighbor	1.00	Purify	Foliage	1.00	Empty	Purify
+neighbor	1.00	Purify	Ash	1.00	Empty	Purify
+neighbor	1.00	Purify	Fire	1.00	Empty	Purify
+neighbor	1.00	Purify	Lava	1.00	Empty	Purify
+neighbor	1.00	Purify	Magma	1.00	Empty	Purify
+neighbor	1.00	Purify	Stone	1.00	Empty	Purify
+neighbor	1.00	Purify	Water	1.00	Empty	Purify
+neighbor	0.05	Purify	Purify	0.50	Purify	Empty	0.50	Empty	Purify
+
+#It eats everything! When updated.
+element	Void	242	232	209	0.00	0.00	1.00	0.00	1
+self	0.00	Void	1.00	Empty
+neighbor	1.00	Void	Water	1.00	Void	Empty
+neighbor	1.00	Void	Steam	1.00	Void	Empty
+neighbor	1.00	Void	Lava	1.00	Void	Empty
+neighbor	1.00	Void	Magma	1.00	Void	Empty
+neighbor	1.00	Void	Fire	1.00	Void	Empty
+neighbor	1.00	Void	Worm	1.00	Void	Empty
+neighbor	1.00	Void	Purity	1.00	Void	Empty
+neighbor	1.00	Void	Purify	1.00	Void	Empty
+neighbor	1.00	Void	Acid	1.00	Void	Empty
+neighbor	1.00	Void	Sand	1.00	Void	Empty
+neighbor	1.00	Void	Salt	1.00	Void	Empty
+neighbor	1.00	Void	MoltenCera	1.00	Void	Empty
+neighbor	1.00	Void	LiquidVoid	1.00	Void	Empty
+neighbor	1.00	Void	???	1.00	Void	Empty
+neighbor	1.00	Void	Leftover???	1.00	Void	Empty
+neighbor	1.00	Void	Bug	1.00	Void	Empty
+neighbor	1.00	Void	Leaper	1.00	Void	Empty
+neighbor	1.00	Void	FireFly	1.00	Void	Empty
+neighbor	1.00	Void	Fly	1.00	Void	Empty
+neighbor	1.00	Void	Ash	1.00	Void	Empty
+
+#It eats everything and flows around.
+element	LiquidVoid	255	210	255	1.00	1.00	1.00	0.00	1
+self	0.00	LiquidVoid	1.00	Empty
+neighbor	1.00	LiquidVoid	Water	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Steam	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Lava	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Magma	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Fire	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Worm	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Purity	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Purify	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Acid	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Sand	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Salt	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	MoltenCera	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	???	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Leftover???	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Bug	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Leaper	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	FireFly	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Fly	1.00	LiquidVoid	Empty
+neighbor	1.00	LiquidVoid	Ash	1.00	LiquidVoid	Empty
+
+#Acid falls from this! Yay!
+element	AcidRain	90	122	3	0.00	0.00	1.00	0.00	1
+neighbor	0.10	AcidRain	Empty	1.00	AcidRain	Acid
+
+#It eats through most stuff!
+element	Acid	191	224	26	1.00	1.00	0.70	0.00	1
+self	0.001	Acid	1.00	Empty
+neighbor	0.10	Acid	Saltwater	1.00	Acid	Salt
+neighbor	0.10	Acid	Magma	1.00	Acid	Stone
+neighbor	0.01	Acid	Stone	1.00	Acid	Empty
+neighbor	0.50	Acid	Oil	1.00	Acid	Fire
+neighbor	0.50	Acid	Plant	1.00	Acid	Empty
+neighbor	0.50	Acid	Flower	1.00	Acid	Empty
+neighbor	0.10	Acid	Tree	1.00	Acid	Empty
+neighbor	0.10	Acid	Bud	1.00	Acid	Empty
+neighbor	0.10	Acid	Leaf	1.00	Acid	Empty
+neighbor	0.50	Acid	Petal	1.00	Acid	Empty
+neighbor	0.20	Acid	Fissure	1.00	Acid	Empty
+neighbor	0.20	Acid	Water	1.00	Acid	Empty
+neighbor	0.10	Acid	Ice	1.00	Acid	Water
+neighbor	0.50	Acid	Steam	1.00	Acid	Empty
+neighbor	0.30	Acid	Lava	1.00	Acid	Empty
+#------------------------------------------------------------------------
+
+
+#-------------------Miscellaneous Elements-------------------------------
+group	Other	OilRig	SaltShaker	SandStorm	Oil	Salt	Sand	Cera	MoltenCera	???	Leftover???
+
+#Oil falls from this! I'm rich!
+element	OilRig	58	54	54	0.00	0.00	1.00	0.00	1
+neighbor	0.10	OilRig	Empty	1.00	OilRig	Oil
+
+#Hmm... needs more salt. A lot more.
+element	SaltShaker	75	75	75	0.00	0.00	1.00	0.00	1
+neighbor	0.04	SaltShaker	Empty	1.00	SaltShaker	Salt
+
+#Take cover! Sand is falling!
+element	SandStorm	208	174	98	0.00	0.00	1.00	0.00	1
+neighbor	0.20	SandStorm	Empty	1.00	SandStorm	Sand
+
+#Black gold! It burns quickly.
+element	Oil	128	64	64	0.70	1.00	0.20	0.00	1
+
+#Mmm delicious! It's salt.
+element	Salt	255	255	255	0.90	0.40	0.90	0.00	1
+neighbor	0.001	Salt	Volcano	1.00	Lava	Volcano
+
+#I've got sand in my shoes!
+element	Sand	238	204	128	0.90	0.50	0.90	0.00	1
+self	0.0005	Sand	1.00	Empty
+
+#What is this stuff? Wax or something?
+element	Cera	238	221	204	0.00	0.00	1.00	0.00	1
+
+#Melted wax or something?
+element	MoltenCera	255	220	200	0.80	0.20	1.00	0.00	1
+neighbor	0.001	MoltenCera	Wall	1.00	Cera	Wall
+neighbor	0.001	MoltenCera	Spout	1.00	Cera	Spout
+neighbor	0.001	MoltenCera	Water	1.00	Cera	Water
+neighbor	0.001	MoltenCera	Plant	1.00	Cera	Plant
+neighbor	0.001	MoltenCera	Oil	1.00	Cera	Oil
+neighbor	0.001	MoltenCera	Sand	1.00	Cera	Sand
+neighbor	0.01	MoltenCera	Cera	1.00	Cera	Cera
+
+#Some weird element from the original.
+element	???	231	7	231	0.00	1.00	1.00	0.00	1
+self	0.10	???	1.00	Leftover???
+neighbor	0.33	???	Empty	1.00	???	???
+neighbor	0.20	???	Wall	1.00	???	???
+neighbor	0.20	???	Spout	1.00	???	???
+neighbor	0.20	???	Water	1.00	???	???
+neighbor	0.20	???	Oil	1.00	???	???
+neighbor	0.20	???	Salt	1.00	???	???
+neighbor	0.20	???	Sand	1.00	???	???
+neighbor	0.20	???	Cera	1.00	???	???
+neighbor	0.20	???	MoltenCera	1.00	???	???
+neighbor	0.01	???	Leftover???	1.00	Leftover???	Leftover???
+
+element	Leftover???	200	0	0	0.00	1.00	1.00	0.00	0
+self	0.003000	Leftover???	1.00	Empty
+#------------------------------------------------------------------------
+
+#---------------------------Worm Bits------------------------------------
+element Worm1	235	125	175	0.00	0.00	1.00	0.00	0
+self	1.00	Worm1	1.00	Worm2
+element Worm2	232	123	173	0.00	0.00	1.00	0.00	0
+self	1.00	Worm2	1.00	Worm3
+element Worm3	229	121	171	0.00	0.00	1.00	0.00	0
+self	1.00	Worm3	1.00	Worm4
+element Worm4	226	119	169	0.00	0.00	1.00	0.00	0
+self	1.00	Worm4	1.00	Worm5
+element Worm5	223	117	167	0.00	0.00	1.00	0.00	0
+self	1.00	Worm5	1.00	Worm6
+element Worm6	220	115	165	0.00	0.00	1.00	0.00	0
+self	1.00	Worm6	1.00	Worm7
+element Worm7	217	113	163	0.00	0.00	1.00	0.00	0
+self	1.00	Worm7	1.00	Worm8
+element Worm8	214	111	161	0.00	0.00	1.00	0.00	0
+self	1.00	Worm8	1.00	Worm9
+element Worm9	211	109	159	0.00	0.00	1.00	0.00	0
+self	1.00	Worm9	1.00	Worm10
+element Worm10	208	107	157	0.00	0.00	1.00	0.00	0
+self	1.00	Worm10	1.00	Worm11
+element Worm11	205	105	155	0.00	0.00	1.00	0.00	0
+self	1.00	Worm11	1.00	Worm12
+element Worm12	202	103	153	0.00	0.00	1.00	0.00	0
+self	1.00	Worm12	1.00	Worm13
+element Worm13	199	101	151	0.00	0.00	1.00	0.00	0
+self	1.00	Worm13	1.00	Worm14
+element Worm14	196	99	149	0.00	0.00	1.00	0.00	0
+self	1.00	Worm14	1.00	Worm15
+element Worm15	193	97	147	0.00	0.00	1.00	0.00	0
+self	1.00	Worm15	1.00	Worm16
+element Worm16	190	95	145	0.00	0.00	1.00	0.00	0
+self	1.00	Worm16	1.00	Worm17
+element Worm17	187	93	143	0.00	0.00	1.00	0.00	0
+self	1.00	Worm17	1.00	Worm18
+element Worm18	184	91	141	0.00	0.00	1.00	0.00	0
+self	1.00	Worm18	1.00	Worm19
+element Worm19	181	89	139	0.00	0.00	1.00	0.00	0
+self	1.00	Worm19	1.00	Worm20
+element Worm20	178	87	137	0.00	0.00	1.00	0.00	0
+self	1.00	Worm20	1.00	Worm21
+element Worm21	175	85	135	0.00	0.00	1.00	0.00	0
+self	1.00	Worm21	1.00	Worm22
+element Worm22	172	83	133	0.00	0.00	1.00	0.00	0
+self	1.00	Worm22	1.00	Worm23
+element Worm23	169	81	131	0.00	0.00	1.00	0.00	0
+self	1.00	Worm23	1.00	Worm24
+element Worm24	166	79	129	0.00	0.00	1.00	0.00	0
+self	1.00	Worm24	1.00	Worm25
+element Worm25	163	77	127	0.00	0.00	1.00	0.00	0
+self	1.00	Worm25	1.00	Worm26
+element Worm26	160	75	125	0.00	0.00	1.00	0.00	0
+self	1.00	Worm26	1.00	Worm27
+element Worm27	157	73	123	0.00	0.00	1.00	0.00	0
+self	1.00	Worm27	1.00	Worm28
+element Worm28	154	71	121	0.00	0.00	1.00	0.00	0
+self	1.00	Worm28	1.00	Worm29
+element Worm29	151	69	119	0.00	0.00	1.00	0.00	0
+self	1.00	Worm29	1.00	Worm30
+element Worm30	148	67	117	0.00	0.00	1.00	0.00	0
+self	1.00	Worm30	1.00	Worm31
+element Worm31	145	65	115	0.00	0.00	1.00	0.00	0
+self	1.00	Worm31	1.00	Worm32
+element Worm32	142	63	113	0.00	0.00	1.00	0.00	0
+self	1.00	Worm32	1.00	Worm33
+element Worm33	139	61	111	0.00	0.00	1.00	0.00	0
+self	1.00	Worm33	1.00	Worm34
+element Worm34	136	59	109	0.00	0.00	1.00	0.00	0
+self	1.00	Worm34	1.00	Worm35
+element Worm35	133	57	107	0.00	0.00	1.00	0.00	0
+self	1.00	Worm35	1.00	Worm36
+element Worm36	130	55	105	0.00	0.00	1.00	0.00	0
+self	1.00	Worm36	1.00	Worm37
+element Worm37	127	53	103	0.00	0.00	1.00	0.00	0
+self	1.00	Worm37	1.00	Worm38
+element Worm38	124	51	101	0.00	0.00	1.00	0.00	0
+self	1.00	Worm38	1.00	Worm39
+element Worm39	121	49	99	0.00	0.00	1.00	0.00	0
+self	1.00	Worm39	1.00	Worm40
+element Worm40	118	47	97	0.00	0.00	1.00	0.00	0
+self	1.00	Worm40	1.00	Empty
+#------------------------------------------------------------------------
+
+#---------------------------Metal Bits-----------------------------------
+element	Metal0	118	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal0	Empty	1.00	Metal	Empty
+neighbor	0.2	Metal0	Water	1.00	Metal	Water
+neighbor	0.1	Metal0	Stone	1.00	Metal	Stone
+neighbor	0.1	Metal0	Metal1	0.50	Metal0	Metal1	0.50	Metal0	Metal1
+neighbor	0.1	Metal0	Metal2	1.00	Metal1	Metal1
+neighbor	0.1	Metal0	Metal3	1.00	Metal1	Metal2
+neighbor	0.1	Metal0	Metal4	1.00	Metal1	Metal3
+neighbor	0.1	Metal0	Metal5	1.00	Metal1	Metal4
+neighbor	0.1	Metal0	Metal6	1.00	Metal1	Metal5
+neighbor	0.1	Metal0	Metal7	1.00	Metal1	Metal6
+neighbor	0.1	Metal0	Metal8	1.00	Metal1	Metal7
+neighbor	0.1	Metal0	Metal9	1.00	Metal1	Metal9
+neighbor	1.0	Metal0	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal0	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal0	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal0	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal0	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal0	Torch	1.00	Metal5	Torch
+
+element	Metal1	128	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal1	Empty	1.00	Metal0	Empty
+neighbor	0.2	Metal1	Water	1.00	Metal0	Water
+neighbor	0.1	Metal1	Stone	1.00	Metal0	Stone
+neighbor	0.1	Metal1	Metal2	0.50	Metal1	Metal2	0.50	Metal1	Metal2
+neighbor	0.1	Metal1	Metal3	1.00	Metal2	Metal2
+neighbor	0.1	Metal1	Metal4	1.00	Metal2	Metal3
+neighbor	0.1	Metal1	Metal5	1.00	Metal2	Metal4
+neighbor	0.1	Metal1	Metal6	1.00	Metal2	Metal5
+neighbor	0.1	Metal1	Metal7	1.00	Metal2	Metal6
+neighbor	0.1	Metal1	Metal8	1.00	Metal2	Metal7
+neighbor	0.1	Metal1	Metal9	1.00	Metal2	Metal8
+neighbor	1.0	Metal1	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal1	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal1	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal1	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal1	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal1	Torch	1.00	Metal5	Torch
+
+element	Metal2	138	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal2	Empty	1.00	Metal1	Empty
+neighbor	0.2	Metal2	Water	1.00	Metal1	Water
+neighbor	0.1	Metal2	Stone	1.00	Metal1	Stone
+neighbor	0.1	Metal2	Metal3	0.50	Metal3	Metal2	0.50	Metal3	Metal2
+neighbor	0.1	Metal2	Metal4	1.00	Metal3	Metal3
+neighbor	0.1	Metal2	Metal5	1.00	Metal3	Metal4
+neighbor	0.1	Metal2	Metal6	1.00	Metal3	Metal5
+neighbor	0.1	Metal2	Metal7	1.00	Metal3	Metal6
+neighbor	0.1	Metal2	Metal8	1.00	Metal3	Metal7
+neighbor	0.1	Metal2	Metal9	1.00	Metal3	Metal8
+neighbor	1.0	Metal2	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal2	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal2	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal2	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal2	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal2	Torch	1.00	Metal5	Torch
+
+element	Metal3	148	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal3	Empty	1.00	Metal2	Empty
+neighbor	0.2	Metal3	Water	1.00	Metal2	Water
+neighbor	0.1	Metal3	Stone	1.00	Metal2	Stone
+neighbor	0.1	Metal3	Metal4	0.50	Metal4	Metal3	0.50	Metal4	Metal3
+neighbor	0.1	Metal3	Metal5	1.00	Metal4	Metal4
+neighbor	0.1	Metal3	Metal6	1.00	Metal4	Metal5
+neighbor	0.1	Metal3	Metal7	1.00	Metal4	Metal6
+neighbor	0.1	Metal3	Metal8	1.00	Metal4	Metal7
+neighbor	0.1	Metal3	Metal9	1.00	Metal4	Metal8
+neighbor	1.0	Metal3	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal3	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal3	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal3	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal3	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal3	Torch	1.00	Metal5	Torch
+
+element	Metal4	158	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal4	Empty	1.00	Metal3	Empty
+neighbor	0.2	Metal4	Water	1.00	Metal3	Water
+neighbor	0.1	Metal4	Stone	1.00	Metal3	Stone
+neighbor	0.1	Metal4	Metal5	0.50	Metal5	Metal4	0.50	Metal5	Metal4
+neighbor	0.1	Metal4	Metal6	1.00	Metal5	Metal5
+neighbor	0.1	Metal4	Metal7	1.00	Metal5	Metal6
+neighbor	0.1	Metal4	Metal8	1.00	Metal5	Metal7
+neighbor	0.1	Metal4	Metal9	1.00	Metal5	Metal8
+neighbor	1.0	Metal4	Fire	1.00	Metal5	Fire
+neighbor	1.0	Metal4	Lava	1.00	Metal5	Lava
+neighbor	1.0	Metal4	Magma	1.00	Metal5	Magma
+neighbor	1.0	Metal4	Ember	1.00	Metal5	Ember
+neighbor	1.0	Metal4	Volcano	1.00	Metal5	Volcano
+neighbor	1.0	Metal4	Torch	1.00	Metal5	Torch
+
+element	Metal5	168	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal5	Empty	1.00	Metal4	Empty
+neighbor	0.2	Metal5	Water	1.00	Metal4	Water
+neighbor	0.1	Metal5	Stone	1.00	Metal4	Stone
+neighbor	0.1	Metal5	Metal6	0.50	Metal6	Metal5	0.50	Metal6	Metal5
+neighbor	0.1	Metal5	Metal7	1.00	Metal6	Metal6
+neighbor	0.1	Metal5	Metal8	1.00	Metal6	Metal7
+neighbor	0.1	Metal5	Metal9	1.00	Metal6	Metal8
+neighbor	1.0	Metal5	Fire	1.00	Metal9	Fire
+neighbor	1.0	Metal5	Lava	1.00	Metal9	Lava
+neighbor	1.0	Metal5	Magma	1.00	Metal9	Magma
+neighbor	1.0	Metal5	Ember	1.00	Metal9	Ember
+neighbor	1.0	Metal5	Volcano	1.00	Metal9	Volcano
+neighbor	1.0	Metal5	Torch	1.00	Metal9	Torch
+
+element	Metal6	178	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal6	Empty	1.00	Metal5	Empty
+neighbor	0.2	Metal6	Water	1.00	Metal5	Water
+neighbor	0.1	Metal6	Stone	1.00	Metal5	Stone
+neighbor	0.1	Metal6	Metal7	0.50	Metal7	Metal6	0.50	Metal7	Metal6
+neighbor	0.1	Metal6	Metal8	1.00	Metal7	Metal7
+neighbor	0.1	Metal6	Metal9	1.00	Metal7	Metal8
+neighbor	1.0	Metal6	Fire	1.00	Metal9	Fire
+neighbor	1.0	Metal6	Lava	1.00	Metal9	Lava
+neighbor	1.0	Metal6	Magma	1.00	Metal9	Magma
+neighbor	1.0	Metal6	Ember	1.00	Metal9	Ember
+neighbor	1.0	Metal6	Volcano	1.00	Metal9	Volcano
+neighbor	1.0	Metal6	Torch	1.00	Metal9	Torch
+
+element	Metal7	188	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal7	Empty	1.00	Metal6	Empty
+neighbor	0.2	Metal7	Water	1.00	Metal6	Water
+neighbor	0.1	Metal7	Stone	1.00	Metal8	Stone
+neighbor	0.1	Metal7	Metal8	0.50	Metal8	Metal7	0.50	Metal8	Metal7
+neighbor	0.1	Metal7	Metal9	1.00	Metal8	Metal8
+neighbor	1.0	Metal7	Fire	1.00	Metal9	Fire
+neighbor	1.0	Metal7	Lava	1.00	Metal9	Lava
+neighbor	1.0	Metal7	Magma	1.00	Metal9	Magma
+neighbor	1.0	Metal7	Ember	1.00	Metal9	Ember
+neighbor	1.0	Metal7	Volcano	1.00	Metal9	Volcano
+neighbor	1.0	Metal7	Torch	1.00	Metal9	Torch
+
+element	Metal8	198	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal8	Empty	1.00	Metal7	Empty
+neighbor	0.2	Metal8	Water	1.00	Metal7	Water
+neighbor	0.1	Metal8	Stone	1.00	Metal7	Stone
+neighbor	0.1	Metal8	Metal9	0.50	Metal9	Metal8	0.50	Metal9	Metal8
+neighbor	1.0	Metal8	Fire	1.00	Metal9	Fire
+neighbor	1.0	Metal8	Lava	1.00	Metal9	Lava
+neighbor	1.0	Metal8	Magma	1.00	Metal9	Magma
+neighbor	1.0	Metal8	Ember	1.00	Metal9	Ember
+neighbor	1.0	Metal8	Volcano	1.00	Metal9	Volcano
+neighbor	1.0	Metal8	Torch	1.00	Metal9	Torch
+
+element	Metal9	208	128	148	0.00	0.00	1.00	1.00	0
+neighbor	0.3	Metal9	Empty	1.00	Metal8	Empty
+neighbor	0.2	Metal9	Water	1.00	Metal8	Water
+neighbor	0.1	Metal9	Stone	1.00	Metal8	Stone
+neighbor	1.0	Metal9	Fire	1.00	Metal9	Fire
+neighbor	1.0	Metal9	Lava	1.00	Metal9	Lava
+neighbor	1.0	Metal9	Magma	1.00	Metal9	Magma
+neighbor	1.0	Metal9	Ember	1.00	Metal9	Ember
+neighbor	1.0	Metal9	Volcano	1.00	Metal9	Volcano
+neighbor	1.0	Metal9	Torch	1.00	Metal9	Torch

@@ -1,0 +1,126 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#Name:  Glider Mod
+#Author:  Purple100
+#Version:  1.1
+#Credits:  The creator of the BS glider, and Coolant - for starting the method
+#Ask permission before putting this in a mod!
+
+
+#Erases.
+element	Empty	0	0	0	0	0	0	0	1
+
+
+#Front center element of Glider
+element Center	23	81	255	0	0	1	0	0
+element Center1	23	81	255	0	0	1	0	0
+element Center2	23	81	255	0	0	1	0	0
+element Center3	23	81	255	0	0	1	0	0
+element Center4	23	81	255	0	0	1	0	0
+element Center5	23	81	255	0	0	1	0	0
+element Center6	23	81	255	0	0	1	0	0
+element Center7	23	81	255	0	0	1	0	0
+element Center8	23	81	255	0	0	1	0	0
+element Center9	23	81	255	0	0	1	0	0
+
+neighbor	1.0	Center	Empty	1.0	Center1	Front
+neighbor	1.0	Center1	Empty	1.0	Center2	Front
+neighbor	1.0	Center2	Empty	1.0	Center3	Front
+neighbor	1.0	Center3	Back	1.0	Center4	Back1
+
+element Front	255	69	63	0	0	1	0	0
+element Front1	255	69	63	0	0	1	0	0
+element Front2	255	69	63	0	0	1	0	0
+
+#Rear center element of Glider
+element Back	85	255	31	0	0	1	0	0
+element Back1	85	255	31	0	0	1	0	0
+element Back2	85	255	31	0	0	1	0	0
+element Back3	85	255	31	0	0	1	0	0
+
+#Rear corner element of Glider
+element	Corner	255	255	54	0	0	1	0	0
+#Front corner element of Glider
+element	Walls	255	0	243	0	0	1	0	0
+
+neighbor	1.0	Back1	Corner	1.0	Back2	Empty
+neighbor	1.0	Back2	Corner	1.0	Back3	Empty
+neighbor	1.0	Back3	Center4	1.0	Empty	Center5
+
+neighbor	1.0	Center5	Walls	1.0	Center6	Corner
+
+neighbor	1.0	Corner	Front	1.0	Corner	Front1
+neighbor	1.0	Front1	Walls	1.0	Center7	Corner
+neighbor	1.0	Center6	Center7	1.0	Center8	Center9
+neighbor	1.0	Center8	Front1	1.0	Back	Walls
+neighbor	1.0	Center9	Front1	1.0	Center	Walls
+
+#Put a single pixel of GliderBack touching this
+element	GliderFront	255	255	255	0	0	1	0	1
+#Put a single pixel of GliderFront touching this
+element	GliderBack	192	192	192	0	0	1	0	1
+element	C	128	128	128	0	0	1	0	0
+element	D	128	128	128	0	0	1	0	0
+element	E	128	128	128	0	0	1	0	0
+
+element	C1	128	128	128	0	0	1	0	0
+element	C2	128	128	128	0	0	1	0	0
+element	E1	128	128	128	0	0	1	0	0
+
+
+element	A1	255	255	255	0	0	1	0	0
+element	A2	255	255	255	0	0	1	0	0
+element	A3	255	255	255	0	0	1	0	0
+element	A4	255	255	255	0	0	1	0	0
+element	A5	255	255	255	0	0	1	0	0
+element	A6	255	255	255	0	0	1	0	0
+element	A7	255	255	255	0	0	1	0	0
+element	A8	255	255	255	0	0	1	0	0
+element	A9	255	255	255	0	0	1	0	0
+element	A10	255	255	255	0	0	1	0	0
+element	A11	255	255	255	0	0	1	0	0
+element	A12	255	255	255	0	0	1	0	0
+element	A13	255	255	255	0	0	1	0	0
+
+element	B1	255	255	255	0	0	1	0	0
+element	B2	255	255	255	0	0	1	0	0
+element	B3	255	255	255	0	0	1	0	0
+element	B4	255	255	255	0	0	1	0	0
+element	B5	255	255	255	0	0	1	0	0
+element	B6	255	255	255	0	0	1	0	0
+element	B7	255	255	255	0	0	1	0	0
+element	B8	255	255	255	0	0	1	0	0
+element	B9	255	255	255	0	0	1	0	0
+
+neighbor	1	GliderFront	Empty	1	A1	C
+neighbor	1	A1	Empty	1	A2	C
+neighbor	1	A2	Empty	1	A3	C
+neighbor	1	A3	Empty	1	A4	C
+neighbor	1	A4	Empty	1	A5	C
+neighbor	1	A5	Empty	1	A6	C
+neighbor	1	A6	Empty	1	A7	C
+
+neighbor	1	GliderBack	C	1	B1	D
+neighbor	1	B1	C	1	B2	D
+neighbor	1	B2	C	1	B3	D
+neighbor	1	B3	C	1	B4	D
+neighbor	1	B4	Empty	1	B5	E
+neighbor	1	B5	Empty	1	B6	E
+neighbor	1	B6	Empty	1	B7	E
+
+neighbor	1	E	D	1	E1	Corner
+neighbor	1	B7	E1	1	B8	Empty
+neighbor	1	B8	E1	1	B9	Empty
+neighbor	1	B9	E	1	Back	Empty
+
+neighbor	1	A8	C	1	A9	C1
+neighbor	1	A9	C	1	A10	C1
+neighbor	1	A10	C	1	A11	C1
+
+neighbor	1	C1	D	1	C2	Walls
+neighbor	1	A11	C2	1	A12	Empty
+neighbor	1	A12	C2	1	A13	Empty
+neighbor	1	A13	C1	1	Center	Empty
+
+neighbor	1	Back	A7	1	Back	A8
+

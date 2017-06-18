@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Valter/Color Wave Mod" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Valter/Color Wave Mod - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Valter/Color Wave Mod</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre> #wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group Waves-o-color SpectrumRed SpectrumBlue SpectrumGreen FPB
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#wall
+element Wall	155	155	200	0.000000	0.00000		1000.0000	0	1
+
+#wall away
+element Wallaway 255	255	255	0.9		0.500000	0.50000000	0.0000		1
+neighbor 1.0	Wallaway	Wall		1.0	Wallaway	Wallaway
+self 0.04	Wallaway	1.0	Empty
+
+#Growing wave of color, starts Red
+element  SpectrumRed 255	0	0	0.0000		0.00000		1000.00000		0.0000000	1
+neighbor 1.0	SpectrumRed	Empty	1.0	SpectrumRed	Odd2
+
+#Odd
+element  Odd2 	255	10	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd2	Empty	1.0	Odd2	Odd3
+
+#Odd
+element  Odd3 	255	20	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd3	Empty	1.0	Odd3	Odd4
+
+#Odd
+element  Odd4 	255	30	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd4	Empty	1.0	Odd4	Odd5
+
+#Odd
+element  Odd5 	255	40	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd5	Empty	1.0	Odd5	Odd6
+
+#Odd
+element  Odd6 	255	50	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd6	Empty	1.0	Odd6	Odd7
+
+#Odd
+element  Odd7	255	60	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd7	Empty	1.0	Odd7	Odd8
+
+#Odd
+element  Odd8 	255	70	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd8	Empty	1.0	Odd8	Odd9
+
+#Odd
+element  Odd9 	255	80	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd9	Empty	1.0	Odd9	Odd10
+
+#Odd
+element  Odd10 	255	90	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd10	Empty	1.0	Odd10	Odd11
+
+#Odd
+element  Odd11 	255	100	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd11	Empty	1.0	Odd11	Odd12
+
+#Odd
+element  Odd12 	255	110	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd12	Empty	1.0	Odd12	Odd13
+
+#Odd
+element  Odd13 	255	120	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd13	Empty	1.0	Odd13	Odd14
+
+#Odd
+element  Odd14 	255	130	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd14	Empty	1.0	Odd14	Odd15
+
+#Odd
+element  Odd15 	255	140	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd15	Empty	1.0	Odd15	Odd16
+
+#Odd
+element  Odd16 	255	150	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd16	Empty	1.0	Odd16	Odd17
+
+#Odd
+element  Odd17 	255	160	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd17	Empty	1.0	Odd17	Odd18
+
+#Odd
+element  Odd18 	255	170	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd18	Empty	1.0	Odd18	Odd19
+
+#Odd
+element  Odd19 	255	180	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd19	Empty	1.0	Odd19	Odd20
+
+#Odd
+element  Odd20 	255	190	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd20	Empty	1.0	Odd20	Odd21	
+
+#Odd
+element  Odd21 	255	200	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd21	Empty	1.0	Odd21	Odd22
+
+#Odd
+element  Odd22 	255	210	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd22	Empty	1.0	Odd22	Odd23
+
+#Odd
+element  Odd23 	255	220	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd23	Empty	1.0	Odd23	Odd24	
+
+#Odd
+element  Odd24 	255	230	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd24	Empty	1.0	Odd24	Odd25
+
+#Odd
+element  Odd25 	255	240	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd25	Empty	1.0	Odd25	Odd26
+
+#Odd
+element  Odd26 	255	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd26	Empty	1.0	Odd26	Odd27
+
+#Odd
+element  Odd27 	240	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd27	Empty	1.0	Odd27	Odd28
+
+#Odd
+element  Odd28 	230	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd28	Empty	1.0	Odd28	Odd29
+
+#Odd
+element  Odd29 	220	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd29	Empty	1.0	Odd29	Odd30	
+
+#Odd
+element  Odd30 	210	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd30	Empty	1.0	Odd30	Odd31	
+
+#Odd
+element  Odd31 	200	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd31	Empty	1.0	Odd31	Odd32
+
+#Odd
+element  Odd32 	190	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd32	Empty	1.0	Odd32	Odd33
+
+#Odd
+element  Odd33 	180	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd33	Empty	1.0	Odd33	Odd34		
+
+#Odd
+element  Odd34 	170	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd34	Empty	1.0	Odd34	Odd35
+
+#Odd
+element  Odd35 	160	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd35	Empty	1.0	Odd35	Odd36
+
+#Odd
+element  Odd36 	150	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd36	Empty	1.0	Odd36	Odd37		
+
+#Odd
+element  Odd37 	140	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd37	Empty	1.0	Odd37	Odd38
+
+#Odd
+element  Odd38 	130	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd38	Empty	1.0	Odd38	Odd39
+
+#Odd
+element  Odd39 	120	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd39	Empty	1.0	Odd39	Odd40		
+
+#Odd
+element  Odd40 	110	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd40	Empty	1.0	Odd40	Odd41
+
+#Odd
+element  Odd41 	100	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd41	Empty	1.0	Odd41	Odd42
+
+#Odd
+element  Odd42 	90	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd42	Empty	1.0	Odd42	Odd43		
+
+#Odd
+element  Odd43 	80	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd43	Empty	1.0	Odd43	Odd44
+
+#Odd
+element  Odd44 	70	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd44	Empty	1.0	Odd44	Odd45
+
+#Odd
+element  Odd45	60	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd45	Empty	1.0	Odd45	Odd46
+
+#Odd
+element  Odd46 	50	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd46	Empty	1.0	Odd46	Odd47
+
+#Odd
+element  Odd47 	40	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd47	Empty	1.0	Odd47	Odd48	
+
+#Odd
+element  Odd48 	30	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd48	Empty	1.0	Odd48	Odd49	
+
+#Odd
+element  Odd49 	20	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd49	Empty	1.0	Odd49	Odd50
+
+#Odd
+element  Odd50 	10	255	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd50	Empty	1.0	Odd50	SpectrumGreen
+
+#Growing wave of color, starts Green
+element  SpectrumGreen 	0	255	10	0.0000		0.00000		1000.00000		0.0000000	1
+neighbor 1.0	SpectrumGreen	Empty	1.0	SpectrumGreen	Odd52		
+
+#Odd
+element  Odd52 	0	250	20	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd52	Empty	1.0	Odd52	Odd53
+
+#Odd
+element  Odd53 	0	255	20	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd53	Empty	1.0	Odd53	Odd54
+
+#Odd
+element  Odd54 	0	255	30	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd54	Empty	1.0	Odd54	Odd55		
+
+#Odd
+element  Odd55 	0	255	40	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd55	Empty	1.0	Odd55	Odd56
+
+#Odd
+element  Odd56 	0	255	50	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd56	Empty	1.0	Odd56	Odd57
+
+#Odd
+element  Odd57 	0	255	60	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd57	Empty	1.0	Odd57	Odd58		
+
+#Odd
+element  Odd58 	0	255	70	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd58	Empty	1.0	Odd58	Odd59
+
+#Odd
+element  Odd59 	0	255	80	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd59	Empty	1.0	Odd59	Odd60
+
+#Odd
+element  Odd60 	0	255	90	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd60	Empty	1.0	Odd60	Odd61		
+
+#Odd
+element  Odd61 	0	255	70	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd61	Empty	1.0	Odd61	Odd62
+
+#Odd
+element  Odd62 	0	255	80	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd62	Empty	1.0	Odd62	Odd63
+
+#Odd
+element  Odd63 	0	255	90	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd63	Empty	1.0	Odd63	Odd64		
+
+#Odd
+element  Odd64 	0	255	100	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd64	Empty	1.0	Odd64	Odd65
+
+#Odd
+element  Odd65 	0	255	110	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd65	Empty	1.0	Odd65	Odd66
+
+#Odd
+element  Odd66 	0	255	120	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd66	Empty	1.0	Odd66	Odd67		
+
+#Odd
+element  Odd67 	0	255	130	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd67	Empty	1.0	Odd67	Odd68
+
+#Odd
+element  Odd68 	0	255	140	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd68	Empty	1.0	Odd68	Odd69
+
+#Odd
+element  Odd69 	0	255	180	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd69	Empty	1.0	Odd69	Odd70		
+
+#Odd
+element  Odd70 	0	255	190	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd70	Empty	1.0	Odd70	Odd71
+
+#Odd
+element  Odd71 	0	255	200	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd71	Empty	1.0	Odd71	Odd72
+
+#Odd
+element  Odd72	0	255	210	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd72	Empty	1.0	Odd72	Odd73		
+
+#Odd
+element  Odd73 	0	255	220	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd73	Empty	1.0	Odd73	Odd74
+
+#Odd
+element  Odd74 	0	255	230	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd74	Empty	1.0	Odd74	Odd75
+
+#Odd
+element  Odd75 	0	255	240	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd75	Empty	1.0	Odd75	Odd76
+
+#Odd
+element  Odd76 	0	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd76	Empty	1.0	Odd76	Odd77
+
+#Odd
+element  Odd77 	0	240	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd77	Empty	1.0	Odd77	Odd78		
+
+#Odd
+element  Odd78 	0	230	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd78	Empty	1.0	Odd78	Odd79
+
+#Odd
+element  Odd79 	0	220	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd79	Empty	1.0	Odd79	Odd80
+
+#Odd
+element  Odd80 	0	210	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd80	Empty	1.0	Odd80	Odd81		
+
+#Odd
+element  Odd81 	0	200	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd81	Empty	1.0	Odd81	Odd82
+
+#Odd
+element  Odd82	0	190	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd82	Empty	1.0	Odd82	Odd83
+
+#Odd
+element  Odd83 	0	180	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd83	Empty	1.0	Odd83	Odd84		
+
+#Odd
+element  Odd84 	0	170	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd84	Empty	1.0	Odd84	Odd85
+
+#Odd
+element  Odd85 	0	160	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd85	Empty	1.0	Odd85	Odd86
+
+#Odd
+element  Odd86	0	150	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd86	Empty	1.0	Odd86	Odd87		
+
+#Odd
+element  Odd87 	0	140	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd87	Empty	1.0	Odd87	Odd88
+
+#Odd
+element  Odd88 	0	130	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd88	Empty	1.0	Odd88	Odd89
+
+#Odd
+element  Odd89	0	120	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd89	Empty	1.0	Odd89	Odd90		
+
+#Odd
+element  Odd90 	0	110	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd90	Empty	1.0	Odd90	Odd91
+
+#Odd
+element  Odd91 	0	100	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd91	Empty	1.0	Odd91	Odd92
+
+#Odd
+element  Odd92 	0	90	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd92	Empty	1.0	Odd92	Odd93		
+
+#Odd
+element  Odd93 	0	80	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd93	Empty	1.0	Odd93	Odd94
+
+#Odd
+element  Odd94 	0	70	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd94	Empty	1.0	Odd94	Odd95
+
+#Odd
+element  Odd95	0	60	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd95	Empty	1.0	Odd95	Odd96		
+
+#Odd
+element  Odd96 	0	50	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd96	Empty	1.0	Odd96	Odd97
+
+#Odd
+element  Odd97 	0	40	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd97	Empty	1.0	Odd97	Odd98
+
+#Odd
+element  Odd98	0	30	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd98	Empty	1.0	Odd98	Odd99		
+
+#Odd
+element  Odd99 	0	20	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd99	Empty	1.0	Odd99	Odd100
+
+#Odd
+element  Odd100  0	10	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd100	Empty	1.0	Odd100	SpectrumBlue
+
+#Growing wave of color, starts Blue
+element  SpectrumBlue  0	10	255	0.0000		0.00000		1000.00000		0.0000000	1
+neighbor 1.0	SpectrumBlue	Empty	1.0	SpectrumBlue	Odd101
+
+#Odd
+element  Odd101	 10	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd101	Empty	1.0	Odd101	Odd102		
+
+#Odd
+element  Odd102  20	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd102	Empty	1.0	Odd102	Odd103
+
+#Odd
+element  Odd103  30	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd103	Empty	1.0	Odd103	Odd104
+
+#Odd
+element  Odd104	 40	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd104	Empty	1.0	Odd104	Odd105		
+
+#Odd
+element  Odd105  50	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd102	Empty	1.0	Odd105	Odd106
+
+#Odd
+element  Odd106  60	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd106	Empty	1.0	Odd106	Odd107
+
+#Odd
+element  Odd107	 70	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd107	Empty	1.0	Odd107	Odd108		
+
+#Odd
+element  Odd108  80	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd108	Empty	1.0	Odd108	Odd109
+
+#Odd
+element  Odd109  90	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd109	Empty	1.0	Odd109	Odd110
+
+#Odd
+element  Odd110	 100	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd110	Empty	1.0	Odd110	Odd111		
+
+#Odd
+element  Odd111  110	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd111	Empty	1.0	Odd111	Odd112
+
+#Odd
+element  Odd112  120	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd112	Empty	1.0	Odd112	Odd113
+
+#Odd
+element  Odd113	 130	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd113	Empty	1.0	Odd113	Odd114		
+
+#Odd
+element  Odd114  140	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd114	Empty	1.0	Odd114	Odd115
+
+#Odd
+element  Odd115  150	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd115	Empty	1.0	Odd115	Odd116
+
+#Odd
+element  Odd116	 160	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd116	Empty	1.0	Odd116	Odd117		
+
+#Odd
+element  Odd117  170	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd116	Empty	1.0	Odd116	Odd118
+
+#Odd
+element  Odd118  180	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd118	Empty	1.0	Odd118	Odd119
+
+#Odd
+element  Odd119	 160	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd119	Empty	1.0	Odd119	Odd120		
+
+#Odd
+element  Odd120  170	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd120	Empty	1.0	Odd120	Odd121
+
+#Odd
+element  Odd121  180	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd121	Empty	1.0	Odd121	Odd122
+
+#Odd
+element  Odd122	 190	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd122	Empty	1.0	Odd122	Odd123		
+
+#Odd
+element  Odd123  200	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd123	Empty	1.0	Odd123	Odd124
+
+#Odd
+element  Odd124  210	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd124	Empty	1.0	Odd124	Odd125
+
+#Odd
+element  Odd125	 220	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd125	Empty	1.0	Odd125	Odd126		
+
+#Odd
+element  Odd126  230	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd126	Empty	1.0	Odd126	Odd127
+
+#Odd
+element  Odd127  240	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd127	Empty	1.0	Odd127	Odd128
+
+#Odd
+element  Odd128  255	0	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd128	Empty	1.0	Odd128	Odd129
+
+#Odd
+element  Odd129  255	0	240	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd129	Empty	1.0	Odd129	Odd130
+
+#Odd
+element  Odd130	 255	0	230	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd130	Empty	1.0	Odd130	Odd131		
+
+#Odd
+element  Odd131  255	0	220	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd131	Empty	1.0	Odd131	Odd132
+
+#Odd
+element  Odd132  255	0	210	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd132	Empty	1.0	Odd132	Odd133
+
+#Odd
+element  Odd133	 255	0	200	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd133	Empty	1.0	Odd133	Odd134		
+
+#Odd
+element  Odd134  255	0	190	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd134	Empty	1.0	Odd134	Odd135
+
+#Odd
+element  Odd135  255	0	180	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd135	Empty	1.0	Odd135	Odd136
+
+#Odd
+element  Odd136  255	0	170	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd136	Empty	1.0	Odd136	Odd137
+
+#Odd
+element  Odd137  255	0	160	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd137	Empty	1.0	Odd137	Odd138
+
+#Odd
+element  Odd138	 255	0	150	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd138	Empty	1.0	Odd138	Odd139		
+
+#Odd
+element  Odd139  255	0	140	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd139	Empty	1.0	Odd139	Odd140
+
+#Odd
+element  Odd140  255	0	130	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd140	Empty	1.0	Odd140	Odd141
+
+#Odd
+element  Odd141  255	0	120	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd141	Empty	1.0	Odd141	Odd142
+
+#Odd
+element  Odd142  255	0	110	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd142	Empty	1.0	Odd142	Odd143
+
+#Odd
+element  Odd143	 255	0	100	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd143	Empty	1.0	Odd143	Odd144		
+
+#Odd
+element  Odd144  255	0	90	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd144	Empty	1.0	Odd144	Odd145
+
+#Odd
+element  Odd145  255	0	80	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd145	Empty	1.0	Odd145	Odd146
+
+#Odd
+element  Odd146  255	0	70	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd146	Empty	1.0	Odd146	Odd147
+
+#Odd
+element  Odd147  255	0	60	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd147	Empty	1.0	Odd147	Odd148
+
+#Odd
+element  Odd148	 255	0	50	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd148	Empty	1.0	Odd148	Odd149		
+
+#Odd
+element  Odd149  255	0	40	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd149	Empty	1.0	Odd149	Odd150
+
+#Odd
+element  Odd150  255	0	30	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd150	Empty	1.0	Odd150	Odd151
+
+#Odd
+element  Odd151	 255	0	20	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd151	Empty	1.0	Odd151	Odd152		
+
+#Odd
+element  Odd152  255	0	10	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	Odd152	Empty	1.0	Odd152	SpectrumRed
+
+
+
+#Fingerprint Healblock
+element  FPB 	0	0	0	0.0000		0.00000		1000.00000		0.0000000	1
+neighbor 1.0	FPB 	Empty	1.0	FPB 	FPB2 
+
+element  FPB2  	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB2 	Empty	1.0	FPB2 	FPB3 
+
+element  FPB3  	0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB3	Empty	1.0	FPB3 	FPB4 
+
+element  FPB4 	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB4	Empty	1.0	FPB4 	FPB5 
+
+element  FPB5  	0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB5	Empty	1.0	FPB5 	FPB6 
+
+element  FPB6	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB6	Empty	1.0	FPB6 	FPB7
+
+element  FPB7  0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB7	Empty	1.0	FPB7 	FPB8 
+
+element  FPB8 	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB8	Empty	1.0	FPB8 	FPB9 
+
+element  FPB9 	0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB9	Empty	1.0	FPB9 	FPB10 
+
+element  FPB10  255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB10	Empty	1.0	FPB10 	FPB11 
+
+element  FPB11 0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB11	Empty	1.0	FPB11 	FPB12
+
+element  FPB12 255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB12	Empty	1.0	FPB12 	FPB13 
+
+element  FPB13  0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB13	Empty	1.0	FPB13 	FPB14 
+
+element  FPB14 255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB14	Empty	1.0	FPB14 	FPB15 
+
+element  FPB15 	0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB15 	Empty	1.0	FPB15 	FPB16 
+
+element  FPB16 	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB16	Empty	1.0	FPB16	FPB17 
+
+element  FPB17 	0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB17	Empty	1.0	FPB17 	FPB18 
+
+element  FPB18 	255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB18	Empty	1.0	FPB18 	FPB19
+
+element  FPB19 0	0	0	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB19	Empty	1.0	FPB19 	FPB20 	
+
+element  FPB20  255	255	255	0.0000		0.00000		1000.00000		0.0000000	0
+neighbor 1.0	FPB20	Empty	1.0	FPB20 	Empty
+</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:2289-0!1!0!0!!en!2 and timestamp 20071027211102 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Valter/Color_Wave_Mod">http://www.fallingsandgame.com/wiki/index.php/User:Valter/Color_Wave_Mod</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Valter/Color_Wave_Mod">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Valter/Color_Wave_Mod&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Valter/Color_Wave_Mod&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Valter/Color_Wave_Mod&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Valter/Color_Wave_Mod">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Valter/Color_Wave_Mod">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Valter/Color_Wave_Mod">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Valter/Color_Wave_Mod&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Valter/Color_Wave_Mod&amp;oldid=5652">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:30, 18 June 2007.</li>
+				<li id="viewcount">This page has been accessed 2,671 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

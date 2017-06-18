@@ -1,0 +1,60 @@
+#Version 4.4, File subversion 2
+
+element Empty 0 0 0 0 0 0 0 1
+
+#Randomly Generates a Planet Like earth
+element Planet 0 0 0 0 0 0 0 1
+
+element Water 0 0 255 0 0 0 0 0
+element Water1 0 0 255 0 0 0 0 0
+
+element Jungle 0 200 0 0 0 0 0 0
+element Rock1 0 200 0 0 0 0 0 0
+
+element Forest 0 255 0 0 0 0 0 0
+element Forest1 0 240 0 0 0 0 0 0
+neighbor 0.05 Planet Water1 1 Water1 Water1
+neighbor 0.05 Planet Forest1 1 Forest1 Forest1
+neighbor 0.05 Planet Rock1 1 Rock1 Rock1
+neighbor 0.05 Forest Planet 1 Forest Forest
+neighbor 0.05 Water Planet 1 Water Water
+neighbor 0.05 Jungle Planet 1 Jungle Jungle
+self 0.05 Water1 1 Water
+self 0.05 Forest1 1 Forest
+self 0.05 Rock1 1 Jungle
+self 0.0001 Planet 0.4 Water1 0.4 Forest1 0.2 Rock1
+
+
+element Atmosphere 255 255 0 0 0 1 0 0
+neighbor 1 Jungle Empty 1 Atmosphere Atmosphere
+neighbor 1 Water Empty 1 Atmosphere Atmosphere
+neighbor 1 Forest Empty 1 Atmosphere Atmosphere 
+neighbor 1 ClearCut Empty 1 Atmosphere Atmosphere 
+
+
+#*Radio* Sir We are going Down! I reapeat MayDay! MayDay!
+element Pod 96 96 96 0.1 0 1 0 1
+element Flame 251 91 45 -1 0 1 0 0
+neighbor 1 Pod Empty 1 Pod Flame
+self 0.2 Flame 1 Empty
+
+element Crash 0 0 0 0 0 0 0 0
+
+element Fire 250 90 45 0 0 0 0 0
+self 0.1 Fire 1 Empty
+neighbor 0.001 Pod Forest 1 Crash Crash
+pexplosion Pod Forest 5 Crash
+neighbor 1 Pod Water 1 Water Planet
+neighbor 0.001 Pod Jungle 1 Crash Crash
+pexplosion Pod Jungle 5 Crash
+neighbor 1 Pod Atmosphere 1 Atmosphere Pod
+neighbor 0.05 Crash Crash 1 Crash Fire
+neighbor 0.05 Fire Fire 1 Fire Crash
+self 0.01 Crash 1 Empty
+neighbor 1 Crash Forest 1 Crash Human-Life
+neighbor 1 Crash Jungle 1 Crash Human-Life
+element ClearCut 113 113 0 0 0 0 1
+element Human-Life 255 128 192 0 0 0 0 1
+
+neighbor 1 Human-Life Forest 1 Human-Life ClearCut
+neighbor 0.01 Human-Life ClearCut 1 ClearCut Human-Life

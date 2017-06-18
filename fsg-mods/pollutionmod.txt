@@ -1,0 +1,171 @@
+#Version 4.4, File subversion 2 
+group factory furnace coal wall chimney chimneywall 
+group electricity wire rock drill 
+group human people toilet wall pipe landfill pipecover oxyrator weaponfactory conveyorbelt zombie 
+group nature lake trees flash rock 
+
+
+element empty 0 0 0 0 0 0 0 1 
+#Wall Hard 
+element wall 255 255 255 0 0 0 0 1 
+element atmosphere 123 123 0 -10 0 0 0 1 
+element coal 0 255 244 1 0 0 0 1 
+element fire 255 0 0 -1 0 0 0 1 
+self .01 fire 1 hotash 
+neighbor 1 fire coal 1 empty firecoal 
+element firecoal 0 255 244 1 0 0 0 0 
+neighbor 1 firecoal empty 1 firecoal fire 
+neighbor 1 firecoal coal 1 firecoal firecoal 
+self .0001 firecoal 1 empty 
+element furnace 0 255 0 0 0 0 0 1 
+neighbor 1 furnace fire 1 hotfurnace empty 
+element hotfurnace 255 0 0 0 0 0 0 0 
+self .0001 hotfurnace 1 empty 
+neighbor 1 hotfurnace empty 1 hotfurnace smoke 
+neighbor 1 hotfurnace furnace 1 hotfurnace hotfurnace 
+
+
+neighbor 1 smoke furnace 1 smoke hotfurnace 
+element sun 255 255 0 0 0 0 0 1 
+neighbor 1 sun empty 1 sun uvrays 
+element uvrays 0 0 255 1 0 0 0 0 
+self .001 uvrays 1 empty 
+neighbor 1 uvrays wall 1 uvrays empty 
+neighbor 1 uvrays furnace 1 uvrays empty 
+neighbor 1 uvrays hotfurnace 1 uvrays empty 
+neighbor 1 uvrays chimney 1 uvrays empty 
+neighbor 1 uvrays smoke 1 uvrays empty 
+neighbor 1 uvrays fire 1 uvrays empty 
+neighbor 1 uvrays scrubber 1 uvrays empty 
+neighbor 1 uvrays firecoal 1 uvrays empty 
+neighbor 1 uvrays oxygen 1 uvrays empty 
+neighbor 1 uvrays oxyrator 1 uvrays empty 
+neighbor 1 uvrays people 1 uvrays empty 
+neighbor 1 uvrays pperson 1 uvrays empty 
+neighbor 1 uvrays wirex 1 uvrays empty 
+element uvshielder 0 0 255 0 0 0 0 1 
+element scrubber 255 0 0 0 0 0 0 1 
+neighbor 1 scrubber smoke .9 scrubber empty .1 empty empty 
+#careful with this 
+element bomb 0 0 255 1 0 0 0 1 
+neighbor 1 bomb fire 1 smoke fire 
+pexplosion bomb fire 100 fire 
+element hotash 255 255 255 10 0 0 0 0 0 
+self .1 hotash 1 empty 
+neighbor 1 hotash empty .3 hotash smoke .1 hotash empty .3 hotash empty .3 hotash smoke 
+element smoke 255 255 233 -1 0 0 0 1 
+self .01 smoke .7 empty .1 smoke .2 empty 
+neighbor 1 smoke atmosphere 1 empty empty 
+neighbor 1 smoke chimney 1 empty fullchimney 
+element chimney 255 0 0 0 0 1 0 1 
+element fullchimney 255 0 233 0 0 0 1 0 0 
+neighbor 1 fullchimney chimney 1 fullchimney fullchimney 
+element FC 255 0 0 0 0 1 
+self .04 FC 1 chimney 
+neighbor .02 fullchimney fullchimney 1 fullchimney FC 
+neighbor .5 fullchimney FC 1 FC FC  
+neighbor 1 fullchimney empty 1 fullchimney smoke2 
+element chimneywall 104 104 104 0 0 1 0 1 
+element smoke2 255 255 233 -1 0 0 0 0 
+self .04 smoke2 1 smoke 
+neighbor .8 smoke2 chimney 1 empty chimney 
+element people 0 255 0 0 0 0 0 1 
+neighbor 1 people oxygen .999 oxygen people .001 people people 
+neighbor 1 people empty 1 empty empty 
+element wire 0 0 255 0 0 0 0 1 
+neighbor 1 wire hotfurnace 1 wirex hotfurnace 
+element wirex 1 0 255 0 0 0 0 0 
+neighbor 1 wirex wire 1 wirex wirex 
+element drill 0 0 123 0 0 0 0 1 
+neighbor 1 drill wirex 1 drillx wirex 
+element drillx 0 0 123 0 0 0 0 0 
+self .1 drillx 1 empty 
+neighbor 1 drillx drill 1 drillx drillx 
+neighbor 1 drillx rock 1 drillx rockx 
+element rock 255 244 255 0 0 0 0 1 
+neighbor 1 rock rockx 1 rockx rockx 
+element rockx 255 244 255 1 0 0 0 0 
+self .1 rockx .5 rockxx .5 smoke 
+element rockxx 255 244 255 1 0 0 0 0 
+self .001 rockxx 1 rock 
+neighbor 1 rockxx rock 1 rockxx rockx 
+element light 0 123 123 0 0 0 0 1 
+neighbor 1 light wirex 1 lightx wirex 
+element lightx 255 255 0 0 0 0 0 0 
+neighbor 1 lightx light 1 lightx lightx 
+element toilet 255 200 255 0 0 0 0 1 
+neighbor 1 toiletx pipe 1 toilet pipex 
+neighbor 1 toilet people 1 toiletx people 
+element toiletx 255 200 255 0 0 0 0 0 
+self .1 toiletx 1 toilet 
+neighbor 1 toiletx toilet 1 toiletx toiletx 
+element pipe 0 255 0 0 0 0 0 1 
+element pipex 123 255 0 0 0 0 0 0 
+self .01 pipex 1 pipexx 
+neighbor 1 pipe pipex 1 pipex pipex 
+neighbor 1 pipex empty .1 pipex crap .9 pipex empty 
+neighbor 1 pipex pipexx 1 pipex pipexx 
+element landfill 255 0 0 0 0 0 0 1 
+element crap 255 0 255 1 0 0 0 0 
+self .001 crap 1 empty 
+neighbor 1 crap empty .010 crap smoke .001 empty empty .989 crap empty 
+element pipecover 1 123 1 0 0 0 0 1 
+element pipexx 0 255 0 0 0 0 0 0 
+neighbor 1 pipexx toiletx 1 pipex toilet 
+neighbor 1 pipexx pipex 1 pipex pipex 
+element oxyrator 245 0 0 0 0 0 0 1 
+neighbor 1 oxyrator wirex 1 oxyratorx wirex 
+element oxyratorx 245 0 0 0 0 0 0 0 
+neighbor 1 oxyratorx oxyrator 1 oxyratorx oxyratorx 
+neighbor 1 oxyratorx empty 1 oxyratorx oxygen 
+element oxygen 255 245 255 0 0 1 0 0 
+neighbor 1 oxygen empty 1 empty oxygen 
+element weaponfactory 0 0 255 0 0 0 0 1 
+neighbor 1 weaponfactory fire 1 xfactory empty 
+element xfactory 0 0 255 0 0 0 0 0 
+neighbor 1 xfactory empty 1 xfactory smoke 
+neighbor 1 xfactory weaponfactory 1 xfactory xfactory 
+element weapons 255 0 0 1 0 0 0 0 0 
+neighbor 1 weapons people 1 pperson pperson 
+neighbor 1 weapons oxygen 1 oxygen pperson 
+element conveyorbelt 123 255 124 0 0 0 0 1 
+neighbor 1 conveyorbelt wirex 1 xbelt wirex 
+neighbor 1 conveyorbelt xbelt 1 xbelt xbelt 
+element xbelt 123 255 123 0 0 0 0 0 
+neighbor 1 xbelt xfactory 1 xxbelt xfactory 
+element pperson 0 0 255 0 0 0 0 0 
+neighbor 1 pperson oxygen 1 oxygen pperson 
+element xxbelt 123 255 123 0 0 0 0 0 
+neighbor 1 xxbelt xbelt 1 xxbelt xxbelt 
+neighbor 1 xxbelt conveyorbelt 1 xxbelt xxbelt 
+neighbor 1 xxbelt oxygen .001 xxbelt weapons .999 xxbelt oxygen 
+element zombie 255 123 44 0 0 0 0 1 
+neighbor 1 zombie oxygen 1 oxygen zombie 
+neighbor 1 zombie pperson 1 smoke pperson 
+neighbor 1 zombie people 1 zombie smoke 
+element trees 0 255 0 0 0 0 0 1 
+neighbor 1 trees fire 1 fire fire 
+neighbor 1 trees empty .01 trees atmosphere .01 trees oxygen .98 trees empty 
+element lake 0 0 255 0 0 0 0 
+neighbor 1 lake lake .001 fish lake .999 lake lake 
+element fish 255 124 23 0 0 0 0 0 
+neighbor 1 fish lake 1 lake fish 
+element flash 255 255 255 0 0 0 0 1 
+neighbor 1 flash empty 1 flash flash 
+self .1 flash 1 flash2 
+element flash2 255 0 0 0 0 0 0 0 
+self .001 flash2 1 empty 
+element rock 255 244 244 0 0 0 0 1 
+neighbor 1 rock lake 1 algae lake 
+element algae 0 255 0 0 0 0 0 0 
+neighbor 1 algae fire 1 fire fire 
+neighbor 1 algae lake .01 algae lake .99 algae bacteria 
+element bacteria 255 25 255 0 0 0 0 0 
+neighbor 1 bacteria lake 1 lake bacteria 
+neighbor 1 bacteria empty 1 empty bacteria 
+neighbor 1 bacteria oxygen 1 oxygen bacteria 
+neighbor 1 bacteria empty .001 bacteria carbondioxide .999 empty bacteria 
+element carbondioxide 0 0 0 1 0 0 0 0 
+self .0001 carbondioxide 1 empty 
+neighbor 1 carbondioxide empty .001 carbondioxide fire .999 carbondioxide empty 
+

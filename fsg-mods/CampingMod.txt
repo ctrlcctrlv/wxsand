@@ -1,0 +1,262 @@
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element 
+
+
+
+
+
+group Camping  Tent Wood  Camper Backpack     SleepingBag   Bug-spray
+group Food&Cooking cold-dog  Marshmellow  Port-a-grill  Coals grill-cage  Gasoline  Metal-Stick  Cup  Dirty-water
+
+
+
+
+
+
+
+
+
+element Empty 0 0 0 0 0 0 0 1
+
+#PM Late runner on falling sand game 2 give me ideas
+element need-ideas 0 0 0 0 0 0 0 1
+neighbor 1 need-ideas Empty 1 Empty Empty
+
+#What? Wanna sleep on nothing?
+element Ground 189 183 107  0 0 1 0 1
+
+#Don't lite a fire in here
+element Tent 70 130 180  0 0 1 0 1
+neighbor 0.5 Tent Fire 1 Fire Fire
+
+
+#From the apple tree
+element Wood 184 134 11  0 0 1 0 1
+
+
+#As they always say: Be a happy camper
+element Camper  255 218 185 0 0 1 0 1
+
+
+#Whats inside?
+element Backpack 255 0 0 0 0 1 0 1
+
+#Lites your everyday needs! including your tent
+element Fire 245 0 0 -1 0 0 1.5 1
+self 0.1 Fire 1 Empty
+
+
+#Well, only use is for holding Marshmellow
+element Metal-Stick  184 134 11  0 0 1 1 1
+
+
+
+#This is how i eat my Marshmellow: i take it and i eat it (QUOTE FROM ELMO)
+element Marshmellow 255 255 255  0 0 1 0 1
+neighbor 0.1 Marshmellow Fire 1 Cooked-Marsh  Cooked-Marsh
+
+
+
+element BurningWood 235 5 0 0 0 1 1.5 0
+neighbor 1 Wood Fire 1 BurningWood  BurningWood
+neighbor 0.001 Wood BurningWood 1 BurningWood BurningWood
+neighbor 1 BurningWood Empty 1 BurningWood Fire
+
+#Keeps me warm at night.What did i just feel??
+element SleepingBag 0 0 240 0 0 1 0 1
+
+
+element Cooked-Marsh 205 175 149  0 0 1 0 0
+neighbor 1 Cooked-Marsh  Marshmellow 1 Marshmellow Cooked-Marsh
+
+
+element Gfire 0 0 255 -1 0 0 1.5 0
+self 0.1  Gfire 1 Empty
+
+#Port-a-potty?PORT-A-GRILL!!!!
+element Port-a-grill 139 139 131 0 0 1 1 1
+
+#Put on top of Port-a-grill when Coals are in
+element grill-cage  176 226 255 0 0 1 1 1
+neighbor 1 grill-cage Gfire 1 Hot-cage  Hot-cage
+neighbor 0.1 grill-cage Hot-cage 1 Hot-cage Hot-cage
+
+element Coals 205 205 180 1 0 0 1 1
+neighbor 1 Coals Fire 1 B-coals  B-coals
+neighbor 1 B-coals Coals 1 B-coals B-coals
+
+#For lazy campers
+element Gasoline 139 69 19 1 0 0 1 1
+neighbor 1 Gasoline Fire 1 B-G B-G
+
+
+element B-G 139 69 19 1 0 0 1 0
+neighbor 1 B-G Gasoline 1 B-G B-G
+neighbor 1 B-G Empty 1 B-G Fire
+
+
+
+
+element B-coals 255 215 0  1 0 0 1 0
+neighbor 1 B-coals Empty 1 B-coals Gfire
+self 0.8 B-coals 1 B-coals2
+
+element B-coals2 255 0 0 1 0 0 1 0
+neighbor 1  B-coals2 Empty 1 B-coals Gfire
+self 0.9 B-coals2 1 B-coals
+
+
+element Hot-cage 179 229 260 0 0 1 1 0
+
+#Cook it for hot-dog
+element cold-dog 255 228 225 0 0 1 1 1
+neighbor 1 cold-dog Hot-cage 1 hot-dog hot-dog
+neighbor 1 cold-dog Fire 1 hot-dog hot-dog
+
+
+
+element hot-dog 205 183 181 0 0 1 1.5 0
+neighbor 1 hot-dog cold-dog 1 cold-dog hot-dog
+
+
+element fire-pit 108 123 139  0 0 1 1 1
+
+
+#Put in ground
+element  Ant	139  134  78	0	0	1	0	1
+element	Ant-trail	139  134  78	0	0	1	1.1	0
+neighbor	1.0	Ant	Ground	1.0	Ant-trail   Ant
+self	1.0	Ant-trail	1.0	Ground
+hotself	90	Ant-trail
+neighbor 1 Ant Camper 1 Ant Ant-bite
+element Ant-bite 255 0 0 0 0 1 0 0
+
+
+
+element  Water 0 0 255 1 0 0 1 1
+
+element  Water1 0 0 255 1 0 0 1 0
+
+
+
+element Cup 255 255 255 0 0 1 0 1
+neighbor 1 Fire Cup 1 Cup Heated-cup
+neighbor 1 Cup Heated-cup 1 Heated-cup  Heated-cup
+
+
+#Heat up for clean water
+element Dirty-water  60 179 113 1 0 0 1 1
+neighbor 0.3 Dirty-water Heated-cup 1 Water1 Water1
+neighbor 1 Dirty-water Water1 1 Water1  Water1
+
+
+
+element Heated-cup 253 245 230  0 0 0 1 0
+
+
+
+#Protects from Ants and later other insects
+element Bug-spray 102 205 170 -1 0 0 1 1
+neighbor 1 Bug-spray Camper 1 sprayed-camper  sprayed-camper
+neighbor 1 Camper sprayed-camper 1 sprayed-camper sprayed-camper
+
+
+
+
+
+
+
+element sprayed-camper 255 218 185 0 0 1 0 0
+
+
+
+#-------------&gt;BEACH&lt;-------------#
+
+
+#Sand is really dust and very small pebbles on a laying down dragon
+element Sand  255 255 224 1 1 0 0 1
+
+
+
+
+element Wet-Sand 238 232 170 1 1 0 0 1
+
+#PRETTY COLORS!
+element Sunbrella 255 0 0  0 0 1 0 1
+neighbor 1 Sunbrella Empty 1 Sunbrella Sunbrella-rim
+neighbor 1 Sunbrella Sand 1 Sunbrella Sunbrella-rim
+
+
+element Sunbrella-rim 0 255 0 0 0 1 0 0
+neighbor 1 Sunbrella-rim Empty 1 Sunbrella-rim Sunbrella-rim2
+neighbor 1 Sunbrella-rim Sand 1 Sunbrella-rim Sunbrella-rim2
+
+
+element Sunbrella-rim2 0 0 255 0 0 1 0 0
+neighbor 1 Sunbrella-rim2 Empty 1 Sunbrella-rim2 Sunbrella-rim3
+neighbor 1 Sunbrella-rim2 Sand 1 Sunbrella-rim2 Sunbrella-rim3
+
+
+
+
+element Sunbrella-rim3 255 0 0 0 0 1 0 0
+
+
+
+#Vroom!! VVVRRR---OOOOOOOOOOOMMMMM!!!!!
+element  Boat	255 0 0		1 0 0 0 1
+element	Boat-trail	255 255 255	0	0	1	1.1	0
+neighbor	1.0	Boat	Water	1.0	Boat-trail   Boat
+self 1 Boat-trail 1.0 Water
+hotself	90	Boat-trail
+
+
+#Don't go to far!
+element swimmer 255 0 0  1 0 0 0 1
+neighbor	1.0	swimmer 	Sand	1.0	Sand   swimmer
+neighbor	1.0	swimmer 	Water	1.0	Water   swimmer
+neighbor	1.0	swimmer 	Wet-Sand	1.0	Wet-Sand   swimmer
+neighbor 1 swimmer Drowning-waters 1 Drowning-waters swimmer
+
+
+
+#AHHHHHHHHH
+element    Drowning-waters  0 0 139 1 0 0 1 1
+neighbor 1 Drowning-waters swimmer 1 Drowning-waters Drowned-person
+
+
+
+element Drowned-person 255 4  0  1 0 0 0 0
+neighbor 1 Drowned-person Water 1 Water Drowned-person
+neighbor 1 Drowned-person Drowning-waters 1 Drowning-waters Drowned-person
+neighbor 1 Drowned-person Sand 1 Sand washed-up-body
+
+
+element washed-up-body 255 4  0  1 0 0 0 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

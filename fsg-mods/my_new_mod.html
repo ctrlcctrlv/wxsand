@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Jja/my new mod" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Jja/my new mod - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Jja/my new mod</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 1.791314e-307lement
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+
+group   Waters  Water  Steam  Saltwater  Spout
+group	Fires	Fire	Torch	TNT	Ember	FallingEmber
+group	New	cold	astroid	coat	destroyer	lol	grow		destroyer2	HWall	acid	life	subzero	magma	earthscore	google sheild	
+group	cheater	splant	Gsplant	elgoog	dark	darkwater	darkwall	evil	syco	Eplant
+group	CAUTION	note	waterx	waterx2
+group	Bombs	Cbomb	Lbomb	firebomb	waterbomb	!bomb
+group	Electricity	Electricity	wire	Pwire		
+group	ok?	Heat
+group	destroying	Clearer
+
+sources Sand    Water  Salt   acid
+
+#Erases.
+element	Empty	0	0	0	0.000000	0.000000	0.000000	000	1
+#Eraser element.
+element	Drain	10	36	10	0.000000	1.000000	12.000000	0.000000	1
+neighbor 1.0	Drain	Water	1.0	Drain	Empty
+neighbor 1.0	Drain	Dust	1.0	Drain	Empty
+neighbor 1.0	Drain	Oil	1.0	Drain	Empty
+neighbor 1.0	Drain	Steam	1.0	Drain	Empty
+neighbor 1.0	Drain	Sand	1.0	Drain	Empty
+neighbor 1.0	Drain	Salt	1.0	Drain	Empty
+neighbor 1.0	Drain	Saltwater	1.0	Drain	Empty
+neighbor 1.0	Drain	MoltenCera	1.0	Drain	Empty
+neighbor 1.0	Drain	FallingEmber	1.0	Drain	Empty
+neighbor 1.0	Drain	ExplodingTNT	1.0	Drain	Empty
+neighbor 1.0	Drain	magma	1.0	Drain	Empty
+#A solid element which reacts with nothing.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall	255     0     0
+#a wall tuns into magma.
+element walls	0	128	127	0.000000	0.000000	1.000000	0.500000	1
+hotcolor walls	250	10	10
+neighbor 0.75	walls	Water	1.0	Water		magma
+neighbor 0.75	walls	magma	1.0	magma		magma		
+#Does nothing. Useful for explosion aftermaths
+element	Dust	128	128	128	0.900000	0.000000	1.000000	0.500000	1
+#heats other elements. Source of energy.
+element	Fire	246	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	1.0000	Empty	
+hotcolor Fire   255    63     63
+neighbor 0.9	Fire	Water	1.0	Empty		Steam
+neighbor 0.75	Fire	Oil	1.0	Fire		Fire
+neighbor 1.0	Fire	Plant	1.0	Fire		Fire
+neighbor 0.005	Fire	Cera	1.0	MoltenCera	Ember
+neighbor 0.9	Fire	TNT	1.0	ExplodingTNT	Fire	
+explosion	Fire	Oil	10	10
+explosion	Fire	TNT	100	100
+#Explodes
+element	TNT	50	50	50	0.000000	0.000000	1.000000	0.000000	1
+#Explodes
+element	ExplodingTNT	100	50	50	0.900000	1.000000	1.000000	0.000000	1
+self	0.02000	ExplodingTNT	1.0000	Fire
+neighbor 0.9	ExplodingTNT	TNT	1.0	ExplodingTNT	ExplodingTNT
+neighbor 1.0	ExplodingTNT	Wall	1.0	ExplodingTNT	Dust
+explosion	ExplodingTNT	TNT	100	100
+#Dissolves other elements. Turns to steam when heated.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+#magma
+element	magma	255	35	32	0.700000	0.000000	1.000000	12.100000	1
+neighbor 1.0	magma	Wall	1.0	magma		Steam
+neighbor 0.75	magma	Empty	1.0	magma		Fire
+neighbor 0.75	magma	Water	1.0	magma		Steam
+#earths core
+element earthscore	200	200	100	0.000000	0.000000	1.000000	0.400000	1
+neighbor 1.0	earthscore	Empty	1.0	earthscore		magma
+neighbor 1.0	earthscore	Fire	1.0	earthscore		magma
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant
+neighbor 1.0	Plant	acid	1.0	Empty	acid
+#Inert.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.0900000	1
+neighbor	0.002	Sand	magma	1.0	glass		Empty
+neighbor 0.01	Sand	Fire	1.0	glass	Empty
+neighbor 0.001	Sand	glass	1.0	glass	glass	  	
+hotcolor Sand	250	250	250
+#glass
+element	glass	200	200	200	0.000000	0.000000	1.000000	1.000999		1
+neighbor 0.002	glass	Sand	1.0	glass		glass
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Spout	Empty	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Empty		Empty
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000	1
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty	1.0	???	???
+neighbor 1.0	???	Wall	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.000000	1
+#Soluable in water.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+neighbor 0.9		Ember	Water	1.0	Empty	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+#Burns for a little while.
+element	FallingEmber	200	50	50	1.000000	0.200000	1.000000	0.000000	1
+self	0.002000	FallingEmber	1.0000	Fire
+neighbor 0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor 0.9		FallingEmber	Water	1.0	Empty	Steam
+neighbor 1.0		FallingEmber	Oil	1.0	FallingEmber	FallingEmber
+neighbor 1.0		FallingEmber	Plant	1.0	FallingEmber	Fire
+neighbor 0.005		FallingEmber	Cera	1.0	MoltenCera	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	1
+neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self	0.00001	Saltwater	0.5	Water	0.5	Salt
+neighbor 0.004	Water	Salt	1.0	Saltwater	Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt	Steam
+neighbor 0.04	Saltwater	Water	1.0	Water	Saltwater
+neighbor 0.9	Saltwater	Fire	1.0	Salt	Steam
+hotneighbor   50	Saltwater	Saltwater
+#Continuous fire.
+element	Torch	10	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2	Torch	Empty	1.0	Torch	Fire
+neighbor 0.2	Torch	Water	1.0	Torch	Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch	Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch	Fire
+neighbor 0.2	Torch	Plant	1.0	Torch	Fire
+neighbor 0.2	Torch	Cera	1.0	Torch	MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	1
+self	0.005000	Leftover???	1.0000	Empty
+#Stops everything dead.
+element Wallv2 255 255 255 0 0 10 -99 1
+#Orange Fire!
+element Fire2   255     153     0       -1      1       0       1.5     1
+self	0.005	Fire2	1.0000	Empty
+hotcolor Fire2  255     153     0
+neighbor 0.9	Fire2	Water	1.0	Empty		Steam
+#-----new-----#
+
+#destroys magma
+element subzero 0	250	20	1.000000	0.000000	-12.00000	-5.000000	1
+neighbor 1.0	subzero	magma	1.0	Empty		Empty
+#liquid nitrogen creates subzero
+element cold	250	250	350	0.000000	0.000000	122.00000	0.000000	1
+neighbor 1.0	cold	Empty	1.0	cold		subzero
+#doom
+element	astroid	954	234	567	3	0	0	999	1
+neighbor 1.0	astroid	subzero	1.0	destroyer		Empty
+#makes wormy patterns
+element destroyer	999	0	1	1	0	0	0	1
+neighbor 1.0 destroyer	Empty	1.0	destroyer	coat
+#hardens around destroyer
+element coat	0	250	250	0	0	0	0	1
+neighbor 1.0	coat	Water	1.0	coat	Wallv2	
+neighbor 1.0	coat	Fire	1.0	destroyer	destroyer
+neighbor 1.0	coat	Fire2	1.0	life		Empty
+#do not combine with coat
+element	lol	234	200	244	1	0	1	99	1
+neighbor 1.0	lol	coat	1.0	destroyer2	Empty
+#...
+element	destroyer2	200	250	200	1	0	999	999	1
+neighbor 1.0	destroyer2 Empty	1.0	destroyer2	???
+
+#Self-Healing Wall. Upgraded by Water_and_Wind. Thanks!
+element HWall 32 32 255 0 0 4 0 1 
+neighbor 1 HWall Empty 1 HWall H 
+neighbor 0.5 HWall H 1 HWall HWall 
+neighbor 0.01 HWall H1 1 HWall HWall 
+element H 32 32 200 0 0 4 0 0 
+neighbor 1 H Empty 1 H H1 
+neighbor 0.5 H H1 1 H H
+neighbor 0.5 H H2 1 H H
+element H1 32 32 200 0 0 4 0 0 
+neighbor 1 H1 Empty 1 H1 H2 
+neighbor 0.5 H1 H2 1 H1 H1 
+element H2 32 32 145 0 0 4 0 0 
+neighbor 1 H2 Empty 1 H2 H3 
+neighbor 0.5 H2 H3 1 H2 H2 
+element H3 32 32 95 0 0 4 0 0 
+neighbor 1 H3 Empty 1 H3 H4 
+neighbor 0.5 H3 H4 1 H3 H3 
+element H4 160 160 160 0 0 4 0 0 
+neighbor 1 H4 Empty 1 H4 H5 
+element H5 160 160 160 0 0 4 0 0 
+neighbor 1 H5 Empty 1 H5 H6 
+element H6 160 160 160 0 0 4 0 0 
+neighbor 1 H6 Empty 1 H6 H7 
+element H7 160 160 160 0 0 4 0 0 
+neighbor 1 H7 Empty 1 H7 H8 
+element H8 160 160 160 0 0 4 0 0 
+neighbor 1 H8 Empty 1 H8 H9 
+element H9 160 160 160 0 0 4 0 0 
+neighbor 1 H9 Empty 1 H9 H10 
+element H10 160 160 160 0 0 4 0 0 
+neighbor 1 H10 Empty 1 H10 H11 
+element H11 160 160 160 0 0 4 0 0 
+neighbor 1 H11 Empty 1 H11 H12 
+neighbor 1 H12 HWall 1 H5 H4 
+element H12 160 160 160 0 0 4 0 0 
+neighbor 1 H12 HWall 1 H4 H3
+#barf. destroys like acid
+element acid	120	220	20	1	0	0	-99	1
+neighbor 0.02	acid	Wall	1.0	Empty	acid
+neighbor 0.02	acid	walls	1.0	Empty	acid
+neighbor 0.02	acid	HWall	1.0	Empty	acid
+neighbor 0.02	acid	Torch	1.0	Empty	acid
+neighbor 0.02	acid	coat	1.0	Empty	acid
+neighbor 0.02	acid	destroyer	1.0	Empty	acid
+neighbor 0.02	acid	darkwall	1.0	Empty	acid
+#living
+element life	0	250	150	1	0	0	0	1
+neighbor 1.0	life	destroyer	1.0	life	life
+neighbor 0.01	life	Empty	1.0	Empty	Empty
+neighbor 1.0	life	coat	1.0	life	life
+neighbor 0.01	life	life	1.0	Empty	Empty
+neighbor 1.0	life	Plant	1.0	Plant	Plant
+neighbor 1.0	life	Water	1.0	Water	Water
+neighbor 1.0	life	Fire	1.0	Drain	Drain
+#makes things grow
+element grow	222	250	43	1	1	0	0	1
+neighbor 1.0	grow	Wall	1.0	Wall	Wall
+neighbor 1.0	grow	walls	1.0	walls	walls
+neighbor 1.0	grow	H12	1.0	HWall	HWall
+neighbor 1.0	grow	coat	1.0	coat	coat
+neighbor 1.0	grow	Plant	1.0	splant	splant
+neighbor 1.0	grow	Fire	1.0	Empty	Empty
+#super plant.
+element splant	0	490	190	0	0	1	-1	1
+neighbor 1.0	splant	Water	1.0	splant	splant
+neighbor 1.0	splant	Fire	1.0	splant	splant
+neighbor 1.0	splant	acid	1.0	splant	splant
+neighbor 1.0	splant	Plant	1.0	splant	splant
+neighbor 0.1	splant	Fire2	1.0	Fire2	Fire2
+neighbor 1.0	splant	grow	1.0	splant	splant
+neighbor 1.0	splant	lol	1.0	splant	Empty
+neighbor 1.0	splant	life	1.0	Gsplant	Empty
+#like super plant olny growing
+element Gsplant	120	490	190	0	0	1	-1	1
+neighbor 0.002	Gsplant	Empty	1.0	Gsplant	Gsplant	
+neighbor 1.0	Gsplant	splant	1.0	Gsplant	Gsplant
+neighbor 0.09	Gsplant	Water	1.0	Gsplant	Gsplant	
+neighbor 1.0	Gsplant	Plant	1.0	Gsplant	Gsplant	
+neighbor 1.0	Gsplant	Fire2	1.0	Gsplant	Gsplant	
+neighbor 1.0	Gsplant	grow	1.0	Gsplant	Gsplant
+#Clears the entire screen. Works quicker than Reset (on my computer, at least).
+element Clearer 250 0 0 0 0 100 0 1
+pexplosion Clearer Clearer 1024 Empty
+pexplosion Clearer Empty 1024 Empty
+#google
+element	google	223	122	200	-1	0	1	0	1
+neighbor 1.0	google	Gsplant	1.0	elgoog	Empty
+neighbor 1.0	google	Water	1.0	Water	Water
+neighbor 0.01	google	Empty	1.0	google	grow
+#oppiste of google
+element	elgoog	000	211	100	1	0	0	0	1
+neighbor 1.0	elgoog	google	1.0	elgoog	elgoog
+neighbor 1.0	elgoog	Water	1.0	Water	Water
+neighbor 1.0	elgoog	Fire	1.0	Water	Water
+neighbor 0.001	elgoog	Empty	1.0	elgoog	dark
+#crepy
+element	dark	250	000	200	-1	0	0	0	1
+neighbor 0.009	dark	Empty	1.0	Empty	Empty
+neighbor 1.0	dark	Water	1.0	darkwater	darkwater
+neighbor 1.0	dark	Wall	1.0	darkwall	darkwall
+neighbor 0.009	dark	dark	1.0	Empty	Empty
+neighbor 1.0	dark	grow	1.0	acid	acid
+#darkwater (slower dark creation)
+element	darkwater	92	92	0	1	0.700000	0	1
+neighbor 1.0	darkwater	Water	1.0	darkwater	darkwater
+neighbor 0.0001	darkwater	Empty	0.9	darkwater	dark	0.000001	darkwater	Empty	0.1	darkwater	evil
+#darkwall (faster dark creation)
+element	darkwall	228	228	0	0	0	99	1
+neighbor 1.0	darkwall	Wall	1.0	darkwall	darkwall
+neighbor 0.009	darkwall	Empty	1.0	darkwall	dark
+neighbor 1.0	darkwall	Water	1.0	darkwall	darkwater
+neighbor 1.0	darkwall	life	1.0	Fire2	Fire2
+neighbor 1.0	darkwall	grow	1.0	Empty	Empty
+#evil
+element	evil	200	000	200	0	0	0	0	1
+neighbor 1.0	evil	Empty	1.0	Empty	evil
+neighbor 1.0	evil	Wall	1.0	Empty	evil
+neighbor 1.0	evil	walls	1.0	Empty	evil
+neighbor 1.0	evil	dark	1.0	syco	syco
+#produces evil
+element	syco	100	000	100	0	0	99	0	1
+neighbor 1.0	syco	Empty	1.0	syco	evil
+#ok then...
+element	Eplant	240	235	95	0	0	99	0	1
+neighbor 0.09	Eplant	darkwater	1.0	Eplant	Eplant
+neighbor 0.09	Eplant	Fire	1.0	Eplant	Eplant
+neighbor 1.0	Eplant	Plant	1.0	Eplant	Eplant
+pexplosion	Eplant	Water	50	Fire
+#add more water duh
+element	waterbomb	000	000	250	0	99	99	0	1
+pexplosion	waterbomb	Water	50	Water
+#add more fire duh
+element	firebomb	250	000	000	0	99	99	0	1
+pexplosion	firebomb	Fire	50	Fire
+#blows up into the first liquid or gas element it tuches(does not work with evil)
+element	Cbomb	000	090	22	0	0	00	99	1	
+pexplosion	Cbomb	Water	90	Water
+pexplosion	Cbomb	Fire	90	Fire
+pexplosion	Cbomb	Fire2	90	Fire2
+pexplosion	Cbomb	acid	90	acid
+pexplosion	Cbomb	grow	90	grow
+pexplosion	Cbomb	dark	90	dark
+pexplosion	Cbomb	life	90	life
+pexplosion	Cbomb	darkwater	90	darkwater
+pexplosion	Cbomb	astroid	90	astroid
+pexplosion	Cbomb	google	90	google
+pexplosion	Cbomb	elgoog	90	elgoog
+pexplosion	Cbomb	Sand	90	Sand
+pexplosion	Cbomb	destroyer2	90	destroyer2	
+pexplosion	Cbomb	lol	90	lol
+pexplosion	Cbomb	magma	90	magma
+pexplosion	Cbomb	subzero	90	subzero
+pexplosion	Cbomb	Dust	90	Dust
+pexplosion	Cbomb	Saltwater	90	Saltwater
+pexplosion	Cbomb	Salt	90	Salt
+pexplosion	Cbomb	Oil	90	Oil
+pexplosion	Cbomb	Steam	90	Steam
+pexplosion	Cbomb	MoltenCera	90	MoltenCera
+pexplosion	Cbomb	waterx	90	waterx
+pexplosion	Cbomb	waterx2	90	waterx2
+pexplosion	Cbomb	Lbomb	90	Lbomb
+#blows up into the first solid it tuches
+element	Lbomb	000	090	22	1	0.000002	00	99	1
+pexplosion	Lbomb	Wall	90	Wall
+pexplosion	Lbomb	walls	90	walls
+pexplosion	Lbomb	H12	90	HWall
+pexplosion	Lbomb	earthscore	90	earthscore
+pexplosion	Lbomb	darkwall	90	darkwall
+pexplosion	Lbomb	splant	90	splant
+pexplosion	Lbomb	Gsplant	90	Gsplant
+pexplosion	Lbomb	Cbomb	90	Cbomb
+pexplosion	Lbomb	subzero	90	subzero
+pexplosion	Lbomb	wire	90	wire
+pexplosion	Lbomb	Pwire	90	Pwire
+pexplosion	Lbomb	Rainbow-effect	90	Rainbow-effect
+pexplosion	Lbomb	Rainbow	90	Rainbow
+pexplosion	Lbomb	Rainbow	90	Rainbow2
+pexplosion	Lbomb	Rainbow	90	Rainbow3
+pexplosion	Lbomb	Rainbow	90	Rainbow4
+pexplosion	Lbomb	Rainbow	90	Rainbow5
+pexplosion	Lbomb	!bomb	90	!bomb
+pexplosion	Lbomb	sheild	90	sheild
+pexplosion	Lbomb	coat	90	coat	
+#indestructable
+element	sheild	250	000	000	0	0	99	0	1
+#!!!!CAUTION DO NOT USE IF YOU HAVE  PHOTO SENSITIVE SEIZURE'S!!!! ow
+element  Rainbow-effect   0 255 0 2.000000 0.000000 1.000000 0.000000 1 
+self  1.050000  Rainbow-effect  1.000000  Rainbow 
+
+
+element  Rainbow  255 0 0  1.000000 0.000000 1.000000 1.500000  0 
+self  1.050000  Rainbow  1.000000  Rainbow2 
+
+
+
+element  Rainbow2  255 165 0  -2.000000 0.000000 2.000000 0.000000  0 
+self  1.050000  Rainbow2  1.000000  Rainbow3 
+
+
+element	 Rainbow3  0 0 255  1.000000  0.000000 1.000000 1.500000  0 
+self  1.050000  Rainbow3  1.000000  Rainbow4 
+
+
+
+
+element  Rainbow4  238  130  238   -1.000000   0.000000 2.000000 0.000000  0 
+self  1.050000  Rainbow4  1.000000  Rainbow5
+
+element	 Rainbow5  238	000	000	0	0	2	0	0
+self  1.050000	Rainbow5  1.000000  Rainbow-effect
+#dont care what you do with it just do not let tuch water.  water=?
+element	!bomb	000	000	150	0	0	0	0	1
+pexplosion	!bomb	Water	10000	Empty
+pexplosion	!bomb	Fire	10000	Fire
+#note	totaly random	thinngs here	
+element	note	000	000	000	0	0	0	99	1
+self	1.0	note	1.0	Empty	
+#waterx	!!!!caution do not use if you have photo sensitive seizures
+element	waterx	000	000	250	1	0.00001	1.001	2	1
+self  1.050000	waterx	1.0	waterx2
+hotself	40	waterx2
+#waterx2	
+element	waterx2	000	250	000	1	0.00001	1.002	99	0
+self  1.050000	waterx2	1.0	waterx
+hotself	5	waterx	
+element	Electricity	255	255	0	1	1	0	0	1
+self	0.02	Electricity	1	Empty
+neighbor 0.1	Electricity	Empty	1	Electricity	Electricity
+neighbor	0.455	Electricity	Electricity	1	Empty	Empty
+neighbor 1.0	Electricity	wire	1.0	Pwire	Empty	
+element	trail	954	210	567	0	0	0	0	0
+neighbor 0.1	trail	Empty	1.0	Empty	Empty
+neighbor 0.1	trail	trail	1.0	Empty	Empty
+#cunducts Electricity
+element	wire	128	127	125	0	0	99	0	1
+neighbor 1.0	wire	Pwire	1.0	Pwire	Pwire
+neighbor 0.001	Pwire	Empty	1.0	Pwire	Electricity
+element	Pwire	954	234	567	0	0	99	0	1
+neighbor 0.01	Pwire	Water	1.0	Fire	Fire
+neighbor 1.0	Pwire	?spout	1.0	Pwire	Pspout
+#produces&nbsp;???
+element&nbsp;?spout	000	000	22	0	0	99	0	1
+neighbor 1.0	?spout	Pspout	1.0	Pspout	Pspout
+#pow version of&nbsp;?spout
+element	Pspout	250	000	22	0	0	99	0	1
+neighbor 1.0	Pspout	Empty	0.9	Pspout	sheild	0.1	Pspout	???	 
+#An X-treme heat!!!!!!!!111111111 
+element   Heat   2550   0   2550   1   0   1   1.1   1 
+neighbor   1.0   Heat   Empty   .5   Heat   Empty .5 Empty Heat 
+hotneighbor   -9000   Heat   Empty 
+self   1.0   Heat   1.0   Heat 
+hotself   -9000   Heat 
+hotcolor Heat 0 2550 0	
+#okokokokokok??
+element	ok	240	250	250	0	0	2	0	1
+neighbor 1.0	ok	Fire	1.0	ok	Water
+neighbor 1.0	ok	elgoog	1.0	ok	google
+neighbor 1.0	ok	Water	1.0	ok	Fire	
+pexplosion	ok	acid	2	Empty
+#lives in water
+element	fishy	250	250	220	0	0	0.500000	0	1
+neighbor 1.0	fishy	Water 1.0	Water fishy
+neighbor 1.0	fishy	Empty	1.0	Water	Empty
+neighbor 0.01	fishy	Oil	1.0	Wah	Oil
+#dead fishy WAH
+element Wah	000	250	000	0	0	0	0	1
+#empty bomb
+element	!!!	000	000	000	0	0	0	0	1
+neighbor 1.0	!!!	Empty	0.25	B!!! Empty	0.25	R!!!	Empty	0.50	G!!!	Empty
+element	B!!!	000	000	250	0	0	0	0	0
+pexplosion	B!!!	Empty	1	B
+element	R!!!	250	000	000	0	0	0	0	0
+pexplosion	R!!!	Empty	1	R
+element	G!!!	000	250	000	0	0	0	0	0
+pexplosion	G!!!	Empty	1	G
+element	B	000	000	250	0	0	0	0	0
+neighbor 0.3	B	Empty	1.0	Empty	Empty	
+element	G	000	250	000	0	0	0	0	0
+neighbor 0.3	G	Empty	1.0	Empty	Empty	
+element	R	250	000	000	0	0	0	0	0
+neighbor 0.3	R	Empty	1.0	Empty	Empty	
+element	G		
+#clouds of water
+element	Cloud	200	200	200	0.000000000000000000000000000000000000000001	999	0	0	1
+neighbor 0.01	Cloud	Empty	1.0	Cloud	Water
+#clouds of fire
+element	Fcloud	250	200	200	0.000000000000000000000000000000000000000001	9999	0	0	1
+neighbor 0.01	Fcloud	Empty	1.0	Fcloud	Lfire
+#Luquid fire
+element	Lfire	250	000	000	9	2	0	9	1
+#thunder cloud 
+element	Ecloud	200	255	200	0.000000000000000000000000000000000000000001	999	0	0	1
+neighbor 0.001	Ecloud	Empty	0.5	Ecloud	Electricity	0.5	Ecloud	Water
+</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:2193-0!1!0!0!!en!2 and timestamp 20071027171615 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Jja/my_new_mod">http://www.fallingsandgame.com/wiki/index.php/User:Jja/my_new_mod</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Jja/my_new_mod">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Jja/my_new_mod&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Jja/my_new_mod&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Jja/my_new_mod&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Jja/my_new_mod">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Jja/my_new_mod">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Jja/my_new_mod">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Jja/my_new_mod&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Jja/my_new_mod&amp;oldid=5261">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 23:31, 23 May 2007.</li>
+				<li id="viewcount">This page has been accessed 1,687 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

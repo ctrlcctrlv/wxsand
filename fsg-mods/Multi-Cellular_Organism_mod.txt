@@ -1,0 +1,301 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4-20060322, File subversion 2  
+group   Normal  Empty   Wall    Fire    
+group   Organism        Cell    cellwall         LymphCell      LymphNode       Enzyme  
+group   Disease         Decay   Death   Petrify
+group Medecine  Anti-Biotic HormoneA    HormoneB
+#Buds into many Cells
+sources Cell    Decay   Death
+element Empty   0       0       0       0.000000        1.000000        0.000000        0.000000        1
+element Wall    128     128     128     0.000000        0.000000        1.000000        0.500000        1
+hotcolor        Wall    255     0       0
+#Buds an Organism
+element Cell    50      50      250     0.000000        1.00000         1.00000         1.01000         1
+neighbor 1      Cell     Empty  1       Cell cell1
+
+element cell1   35      0       35      0.000000        1.00000         1.00000         1.0100          0
+self 0.01       cell1   1       cell2
+
+element cell2   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell2    Empty  1       cellwall        cell3
+hotcolor        cell2   155     16      16
+hotself 50      cell2
+element cell3   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+self 0.005      cell3   1       cell4   
+
+element cell4   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell4    Empty  1       cell4   cell5
+hotcolor        cell4   227     56      22
+hotself 50      cell4
+element cell5   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell5   1       cell6   
+element cell6   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell6    Empty  1       cell6 cell7
+hotcolor        cell6   155     16      16
+hotself 50      cell6
+element cell7   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell7   1       cell8
+
+element cell8   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell8    Empty  1       cell8   cell9
+hotcolor        cell8   227     56      2
+hotself 350     cell8
+element cell9   35      0       35      0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell9   1       cell10  
+
+element cell11  35      0       35      0.000000        1.00000         1.00000         1.0000          0
+self 1 cell11   1       cellwall        
+
+element cell10  35      0       35      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell10   Empty  0.930   cell10  cell11           0.06000         cell10 cell12          0.010   cell10  cell12A
+hotcolor        cell10  155     16      16
+hotself 50      cell10
+
+#Hard outer wall of cell, can decay
+element cellwall        250     250     250     0.000000        1.00000         1.00000         0.0000          1
+
+element cell12  250     250     250     0.000000        1.00000         1.00000         0.0000          0
+neighbor 1 cell12 Empty 1       cellwall        Cell
+
+# Buds a Lymph Node cell
+element LymphCell       189     29      187     0.000000        1.00000         1.00000         1.01000         1
+neighbor 0.1    LymphCell        Empty  1       LymphCell cell1A
+
+element CellB   189     29      187     0.000000        1.00000         1.00000         1.01000         0
+self    0.009   CellB   1       LymphCell
+
+element cell1A  0       0       0       0.000000        1.00000         1.00000         1.0100          0
+self 0.01       cell1A  1       cell2A
+
+element cell2A  250     50      50      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell2A   Empty  1       cell2B  cell3A
+
+element cell2B  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell2B   Empty  1       cell2B  cell3A
+self    0.01    cell2B  1       LymphNode
+element cell3A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+self 0.005      cell3A  1       cell4A  
+
+element cell4A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell4A   Empty  1       cell4B  cell5A
+neighbor 0.001  cell4A   LymphNode      1       LymphNode       LymphNode
+element cell4B  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell4B   Empty  1       cell4B  cell5A
+self    0.01    cell4B  1       LymphNode
+element cell5A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell5A  1       cell6A  
+
+element cell6A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell6A   Empty  1       cell6B cell7A
+neighbor 0.001  cell6A   LymphNode      1       LymphNode       LymphNode
+element cell6B  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell6B   Empty  1       cell6B  cell7A
+self    0.01    cell6B  1       LymphNode
+
+element cell7A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell7A  1       cell8A
+
+element cell8A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell8A   Empty  1       cell8B  cell9A
+neighbor 0.001  cell8A   LymphNode      1       LymphNode       LymphNode
+element cell8B  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell8B   Empty  1       cell8B  cell9A
+self    0.01    cell8B  1       LymphNode
+element cell9A  0       0       0       0.000000        1.00000         1.00000         1.0000          0
+self 0.01       cell9A  1       cell10A
+
+element cell10A 0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell10A  Empty  0.930   cell10B cell11 0.06 cell10B cell12      0.01    cell10B cell12A
+neighbor 0.001  cell10A  Anti-Biotic    1       LymphNode       Anti-Biotic
+element cell10B 0       0       0       0.000000        1.00000         1.00000         1.0000          0
+neighbor 1      cell10A  Empty  0.93    cell10B cell11 0.060 cell10B cell12     0.01    cell10B cell12A
+self    0.01    cell10B 1       LymphNode
+
+element cell12A 250     250     250     0.000000        1.00000         1.00000         0.0000          0
+neighbor 1 cell12A Empty 1      cellwall        LymphCell
+        
+#Sack of Enzymes
+element LymphNode       0       250     0       0.000000        1.00000         1.00000         0.0000          1       
+neighbor 0.5    LymphNode       Decay   1       Enzyme  Enzyme1 
+#Reacts violently with Decay, killing both the Decay and Cells around it
+element Enzyme  26      93      13      1.000000        1.00000         1.00000         1.0000          1
+neighbor 0.5    Enzyme  decaywall 1     Enzyme1 Enzyme1
+neighbor 1  LymphNode Enzyme    1       Enzyme  Enzyme  
+neighbor 0.099  Enzyme  Decay   0.05    Enzyme1 Enzyme1 0.95    Enzyme Decay
+self    0.5     Enzyme  0.1     Empty   0.9     Enzyme
+neighbor 1      Enzyme  LymphCell       0.65    Empty   CellB   0.35    Enzyme  Enzyme
+neighbor 1      Enzyme  Cell    0.65    Empty   Cell    0.35    Empty   LymphCell
+element Enzyme1 26      93      13      1.000000        1.00000         1.00000         1.0000          0
+pexplosion Enzyme1 Enzyme1  3 Enzyme
+#A bacteria that rots out the Organism
+element Decay   242     246     143     1.000000        1.00000         1.00000         1.0000          1
+neighbor 0.02 Decay Cell        1       Decay Decay
+neighbor 0.02 Decay cell2       1       Decay Decay
+neighbor 0.02 Decay cell4       1       Decay Decay
+neighbor 0.02 Decay cell6       1       Decay Decay
+neighbor 0.02 Decay cell8       1       Decay Decay
+neighbor 0.02 Decay cell10      1       Decay Decay
+neighbor 0.02 Decay cellwall    1       Decay decaywall
+neighbor 0.02 Decay cell1       1       Decay Decay
+neighbor 0.02 Decay cell3       1       Decay Decay
+neighbor 0.02 Decay cell5       1       Decay Decay
+neighbor 0.02 Decay cell7       1       Decay Decay
+neighbor 0.02 Decay cell9       1       Decay Decay
+
+element decaywall       114     79      44      0.000000        1.00000         1.00000         1.0000          0
+neighbor 0.005  decaywall Empty 1       Decay   Empty
+neighbor 0.0005 decaywall Cell  1       decaywall decaywall
+neighbor 0.0005 decaywall cell2 1       decaywall Decay
+neighbor 0.005  decaywall cellwall 1 decaywall decaywall
+neighbor 0.05   decaywall Anti-Biotic 1 Empty Anti-Biotic
+
+#spreads rapidly through organism leaving it in Dust
+element Death   0       0       0       0.000000        1.00000         1.00000         1.0000          1
+neighbor 1 Death Cell   1       Death Death
+neighbor 1 Death cell2  1       Death Death
+neighbor 1 Death cell4  1       Death Death
+neighbor 1 Death cell6  1       Death Death
+neighbor 1 Death cell8  1       Death Death
+neighbor 1 Death cell10 1       Death Death
+neighbor 1 Death cell1  1       Death Death
+neighbor 1 Death cell3  1       Death Death
+neighbor 1 Death cell5  1       Death Death
+neighbor 1 Death cell7  1       Death Death
+neighbor 1 Death cell9  1       Death Death
+neighbor 1 Death cellwall       1       Death deadwall
+
+neighbor 1 Death LymphNode      1       Death Death
+neighbor 1 Death LymphCell      1       Death Death
+neighbor 1 Death cell2A 1       Death Death
+neighbor 1 Death cell4A 1       Death Death
+neighbor 1 Death cell6A 1       Death Death
+neighbor 1 Death cell8A 1       Death Death
+neighbor 1 Death cell10A        1       Death Death
+neighbor 1 Death cell1A 1       Death Death
+neighbor 1 Death cell3A 1       Death Death
+neighbor 1 Death cell5A 1       Death Death
+neighbor 1 Death cell7A 1       Death Death
+neighbor 1 Death cell9A 1       Death Death
+neighbor 1 Death CellB  1       Death Death
+neighbor 1 Death cell2B 1       Death Death
+neighbor 1 Death cell4B 1       Death Death
+neighbor 1 Death cell6B 1       Death Death
+neighbor 1 Death cell8B 1       Death Death
+neighbor 1 Death cell10B        1       Death Death
+neighbor 1 Death Enzyme 1       Death Death
+
+
+self 0.05 Death 1 Empty
+neighbor 1 Death Decay  1       Death Death
+neighbor 1 Death decaywall      1       Death Death
+element deadwall        114     79      44      0.000000        1.00000         1.00000         1.0000          0
+neighbor 0.01   deadwall Empty  1       crackle Empty
+neighbor 1 deadwall Cell        1       deadwall Death
+neighbor 1 deadwall cell2       1       deadwall Death
+neighbor 1      deadwall cellwall 1 deadwall deadwall
+neighbor 1 deadwall cell2       1       deadwall Death
+neighbor 1 deadwall cell4       1       deadwall Death
+neighbor 1 deadwall cell6       1       deadwall Death
+neighbor 1 deadwall cell8       1       deadwall Death
+neighbor 1 deadwall cell10      1       deadwall Death
+neighbor 1 deadwall cell1       1       deadwall Death
+neighbor 1 deadwall cell3       1       deadwall Death
+neighbor 1 deadwall cell5       1       deadwall Death
+neighbor 1 deadwall cell7       1       deadwall Death
+neighbor 1 deadwall cell9       1       deadwall Death
+element crackle 114     79      44      -0.700000       1.000000        0.500000        0.400000        0
+self 0.05 crackle 1 Empty
+#Kills any Decay which comes in contact
+element Anti-Biotic     100     100     250     0.90000 1.000000        1.00000 1.000000                1
+neighbor 1 Anti-Biotic  Decay   1       Empty Anti-Biotic
+neighbor 1 Anti-Biotic  decaywall       1       Anti-Biotic     crackle
+#turns the cells into Wood
+element Petrify 0       0       0       0.000000        1.00000         1.00000         1.0000          1
+neighbor 1 Petrify Cell 1       Petrify Petrify
+neighbor 1 Petrify cell2        1       Petrify Petrify
+neighbor 1 Petrify cell4        1       Petrify Petrify
+neighbor 1 Petrify cell6        1       Petrify Petrify
+neighbor 1 Petrify cell8        1       Petrify Petrify
+neighbor 1 Petrify cell10       1       Petrify Petrify
+neighbor 1 Petrify cell1        1       Petrify Petrify
+neighbor 1 Petrify cell3        1       Petrify Petrify
+neighbor 1 Petrify cell5        1       Petrify Petrify
+neighbor 1 Petrify cell7        1       Petrify Petrify
+neighbor 1 Petrify cell9        1       Petrify Petrify
+neighbor 1 Petrify cellwall     1       Petrify Wood
+
+neighbor 1 Petrify LymphNode    1       Petrify Petrify
+neighbor 1 Petrify LymphCell    1       Petrify Petrify
+neighbor 1 Petrify cell2A       1       Petrify Petrify
+neighbor 1 Petrify cell4A       1       Petrify Petrify
+neighbor 1 Petrify cell6A       1       Petrify Petrify
+neighbor 1 Petrify cell8A       1       Petrify Petrify
+neighbor 1 Petrify cell10A      1       Petrify Petrify
+neighbor 1 Petrify cell1A       1       Petrify Petrify
+neighbor 1 Petrify cell3A       1       Petrify Petrify
+neighbor 1 Petrify cell5A       1       Petrify Petrify
+neighbor 1 Petrify cell7A       1       Petrify Petrify
+neighbor 1 Petrify cell9A       1       Petrify Petrify
+neighbor 1 Petrify CellB        1       Petrify Petrify
+neighbor 1 Petrify cell2B       1       Petrify Petrify
+neighbor 1 Petrify cell4B       1       Petrify Petrify
+neighbor 1 Petrify cell6B       1       Petrify Petrify
+neighbor 1 Petrify cell8B       1       Petrify Petrify
+neighbor 1 Petrify cell10B      1       Petrify Petrify
+neighbor 1 Petrify Enzyme       1       Petrify Petrify
+self 0.05 Petrify 1 Empty
+neighbor 1 Petrify Decay        1       Petrify Petrify
+neighbor 1 Petrify decaywall    1       Petrify Petrify
+
+element Wood    101     69      14      0.000000        1.00000         1.00000         1.0000          0
+neighbor 1 Wood Cell    1       Wood Petrify
+neighbor 1 Wood cell2   1       Wood Petrify
+neighbor 1 Wood cell4   1       Wood Petrify
+neighbor 1 Wood cell6   1       Wood Petrify
+neighbor 1 Wood cell8   1       Wood Petrify
+neighbor 1 Wood cell10  1       Wood Petrify
+neighbor 1 Wood cell1   1       Wood Petrify
+neighbor 1 Wood cell3   1       Wood Petrify
+neighbor 1 Wood cell5   1       Wood Petrify
+neighbor 1 Wood cell7   1       Wood Petrify
+neighbor 1 Wood cell9   1       Wood Petrify
+neighbor 1 Wood cellwall        1       Wood Wood
+
+neighbor 1 Wood LymphNode       1       Wood Petrify
+neighbor 1 Wood LymphCell       1       Wood Petrify
+neighbor 1 Wood cell2A  1       Wood Petrify
+neighbor 1 Wood cell4A  1       Wood Petrify
+neighbor 1 Wood cell6A  1       Wood Petrify
+neighbor 1 Wood cell8A  1       Wood Petrify
+neighbor 1 Wood cell10A 1       Wood Petrify
+neighbor 1 Wood cell1A  1       Wood Petrify
+neighbor 1 Wood cell3A  1       Wood Petrify
+neighbor 1 Wood cell5A  1       Wood Petrify
+neighbor 1 Wood cell7A  1       Wood Petrify
+neighbor 1 Wood cell9A  1       Wood Petrify
+neighbor 1 Wood CellB   1       Wood Petrify
+neighbor 1 Wood cell2B  1       Wood Petrify
+neighbor 1 Wood cell4B  1       Wood Petrify
+neighbor 1 Wood cell6B  1       Wood Petrify
+neighbor 1 Wood cell8B  1       Wood Petrify
+neighbor 1 Wood cell10B 1       Wood Petrify
+neighbor 1 Wood Enzyme  1       Wood Petrify
+neighbor 1 Wood Decay   1       Wood Petrify
+neighbor 1 Wood decaywall       1       Wood Petrify
+
+element Fire    247     63      63      -1.000000       1.000000        0.000000        1.100000        1
+self    0.050000        Fire    1.000000        Empty
+
+neighbor        0.05000 Fire    Wood    1.000000        Fire    Ember
+
+element Ember   70      70      70      0.000000        0.200000        1.000000        0.000000        0
+self    0.008000        Ember   1.000000        Ash
+neighbor        0.200000        Ember   Empty   1.000000        Ember   Fire
+element Ash     70      70      70      0.10000         0.5             0.5             1.0             0
+#Stimulates Red Cell growth
+element HormoneA        100     100     250     0.90000 1.000000        1.00000 1.000000                1
+neighbor 1      cellwall        HormoneA        0.05    cellwall        Cell    0.95    cellwall        Empty
+#Stimulates Lymph Cell Growth
+element HormoneB        100     100     250     0.90000 1.000000        1.00000 1.000000                1
+neighbor 1      cellwall        HormoneB        0.05    cellwall        LymphCell       0.95    cellwall        Empty
+

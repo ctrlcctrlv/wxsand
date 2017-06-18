@@ -1,0 +1,124 @@
+#subversion 2
+
+group Fire fire
+group Gasses oxygen
+group Wood wood burningwood smoke ash
+group Water water steam
+group ElementMakers cloud
+group Sand sand
+group Mud mud
+group Ashpaste/Ashrock ashpaste ashrock
+
+sources water sand mud ash
+
+#Erases.    
+element void 0 0 0 0 1 999 1 1
+
+#|=====================================|
+#|Fire                                 |
+#|=====================================|
+
+#Fire.
+element fire 255 0 0 -1 0 1 2 1
+hotcolor fire 255 128 0
+self 0.1 fire 1 void
+neighbor 1 fire mud 1 sand steam
+neighbor 1 fire water 1 void steam
+neighbor 1 fire oxygen 1 burningwood fire 
+
+#|====================================|
+#|Gasses                              |
+#|====================================|
+
+#Oxygen, plants make this and fire loves it.
+element oxygen 200 200 255 -1 1 0 0.5 1
+self 1 oxygen 1 fire
+hotself 50 oxygen
+
+#|====================================|
+#|Wood                                |
+#|====================================|
+
+#Wood for creating fire. (Stays lit.)
+element wood 82 38 21 0 0 999 0.5 1
+self 0.01 wood 1 burningwood
+hotself 50 wood
+hotcolor wood 255 0 0
+
+#Wood when it's hot enough to make fire.
+element burningwood 255 0 0 0 0 999 2 1
+self 0.01 burningwood 0.7 ash 0.3 smoke
+hotcolor burningwood 255 128 0
+neighbor 1 burningwood void 1 burningwood fire
+neighbor 1 burningwood oxygen 1 burningwood fire
+
+#The product of burning something.
+element smoke 40 40 40 -1 0 0.1 0.5 1
+self 0.01 smoke 1 void
+
+#The remains of something burnt.
+element ash 100 100 100 0.5 1 498 0.5 1
+
+#|====================================|
+#|Water                               |
+#|====================================|
+
+#Water, when heated it turns to steam.
+element water 0 0 255 0.9 1 500 0.5 1
+hotcolor water 100 100 255
+self 1 water 1 steam
+hotself 50 water
+
+#Steam, it's just heated water.
+element steam 100 100 255 -1 1 0 0.5 1
+self 0.001 steam 1 water
+
+
+#|====================================|
+#|Element Makers                      |
+#|====================================|
+
+#NOT steam, cloud generates water.
+element cloud 255 255 255 0 0 999 0 1
+neighbor 0.01 cloud void 1 cloud water
+
+#|====================================|
+#|Sand                                |
+#|====================================|
+
+#Just sand, mix it with water to get mud.
+element sand 238 204 128 0.9 0.5 502 0.5 1
+hotcolor sand 237 213 161
+
+#|====================================|
+#|Mud                                 |
+#|====================================|
+
+#A mixture of sand and water.
+element mud 128 64 0 0.9 1 501 0.5 1
+neighbor 0.05 water sand 1 mud void
+self 0.1 mud 0.5 sand 0.5 water
+hotself 50 mud
+neighbor 0.05 mud sand 1 water mud
+hotcolor mud 178 89 0
+
+#|====================================|
+#|Ashpaste/Ashrock                    |
+#|====================================|
+
+#Ashpaste, similar to wet cement.
+element ashpaste 30 30 30 1 0 499 0.5 1
+neighbor 0.1 ash water 1 ashpaste void
+self 0.01 ashpaste 1 ashrock
+
+#ashrock, which is basically cement. Resists heat very well!
+element ashrock 150 150 150 0 0 999 0.5 1
+
+#|====================================|
+#|Misc.                               |
+#|====================================|
+
+#Wall, a static element, it's completely unaffected by other elements except for explosions, and has no properties.
+element wall 50 50 50 0 0 999 0.5 1
+hotcolor wall 255 255 255
+

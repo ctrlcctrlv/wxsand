@@ -1,0 +1,205 @@
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+
+group	Ships	Woodship	Steelship	Titanship	Alienship Submarine Engine SubEngine  SubHelper Protector 
+group   Weapons  TorpedoU  TorpedoD  CannonballU  CannonballD  AlienrayU AlienrayD FireballU FireballD Fireship Radar
+group	Flags	FlagO	FlagR  FlagB
+group   Launchers  CannonU  CannonD  TorpedoLauncherU  TorpedoLauncherD  FirethrowerU FirethrowerD AlienraygunU AlienraygunD 
+
+#The thing the ships float on. 
+element	Water	0	0	255	0.000000	1.000000	0.000000	0.000000	1
+
+#A ship made out of steel.
+element	Steelship	192	192	192	0.000000	0.000000	1.000000	0.000000	1
+neighbor 1.0	Steelship	SubEngine	1.0	Steelship	Engine
+
+#invisable.
+element	Submarine	0	0	255	0.000000	0.000000	1.000000	0.000000	1
+neighbor 1.0	Submarine	Steelship	1.0	Steelship	Steelship
+
+#Put in center of ship. will explode if exposed to water.
+element	Engine	128	128	128	0.000000	0.000000	1.000000	0.000000	1
+pexplosion Engine Fire 55 Fire
+pexplosion Engine Water 55 Fire
+
+#Put in center of submarine. will explode if exposed to water.
+element	SubEngine	0	0	255	0.000000	0.000000	1.000000	0.000000	1
+pexplosion SubEngine Fire 55 Fire
+pexplosion SubEngine Water 55 Fire
+neighbor 1.0	SubEngine	Steelship	1.0	Engine	Steelship
+neighbor 1.0	SubEngine	Engine	1.0	Engine	Engine
+
+#Use to help make submarine. put around submarine for outline. Set on fire when done.
+element	SubHelper	0	0	0	0.000000	0.000000	1.000000	0.000000	1
+neighbor 1.0	SubHelper	Fire	1.0	Fire	Fire
+
+#Finds submarines and turns them into ships.
+element	Radar	0	255	0	0.000000	0.000000	1.000000	0.000000	1
+self	0.100000	Radar	1.0000	radar2
+neighbor 0.2	Radar	radar2	1.0	radar2	radar2
+neighbor 1.0	Radar	Submarine	1.0	Water	Steelship
+neighbor 1.0	Radar	Water	1.0	Radar	Radar
+
+#A helper element.
+element	radar2	0	250	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.005000	radar2	1.0000	Water
+
+
+#a ship made of wood.
+element	Woodship	128	0	0	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	Fire	Woodship	1.0	Fire		Fire
+
+#a ship made of Titanium.
+element	Titanship	80	80	80	0.000000	0.000000	1.000000	0.000000	1
+
+#A ship from an Alien planet.
+element	Alienship	255	0	255	0.000000	0.000000	1.000000	0.000000	1
+
+#Ship designed to explode if hit.
+element	Fireship	255	0	0	0.000000	0.000000	1.000000	0.000000	1
+pexplosion Fireship CannonballD 100 Fire
+pexplosion Fireship CannonballU 100 Fire
+pexplosion Fireship TorpedoU 100 Fire
+pexplosion Fireship TorpedoD 100 Fire
+pexplosion Fireship AlienrayD 100 Fire
+pexplosion Fireship AlienrayU 100 Fire
+
+
+#cannonball shoots south.
+element	CannonballD	0	0	0	1.000000	1.000000	1.000000	0.000000	1
+pexplosion CannonballD Steelship 5 Water
+pexplosion CannonballD Woodship 5 Water
+pexplosion CannonballD Titanship 2 Water
+pexplosion CannonballD Submarine 5 Water
+pexplosion CannonballD FlagR 5 Water
+
+#cannonball shoots North.
+element	CannonballU	0	0	0	-1.000000	1.000000	1.000000	0.000000	1
+pexplosion CannonballU Steelship 5 Water
+pexplosion CannonballU Woodship 5 Water
+pexplosion CannonballU Titanship 2 Water
+pexplosion CannonballU Submarine 5 Water
+pexplosion CannonballU FlagR 5 Water
+
+#fireball shoots south.
+element	FireballD	255	0	0	1.000000	1.000000	1.000000	0.000000	1
+neighbor 0.9	FireballD	Woodship	1.0	Fire		Fire
+
+
+#fireball shoots North.
+element	FireballU	255	0	0	-1.000000	1.000000	1.000000	0.000000	1
+neighbor 0.9	FireballU	Woodship	1.0	Fire		Fire
+
+#Torpedo shoots North.
+element	TorpedoU	100	100	100	-1.000000	1.000000	1.000000	0.000000	1
+pexplosion TorpedoU Woodship 15 Fire
+pexplosion TorpedoU Steelship 15 Fire
+pexplosion TorpedoU Titanship 10 Fire
+pexplosion TorpedoU Alienship 2 Fire
+pexplosion TorpedoU Submarine 15 Fire
+pexplosion TorpedoU FlagR 15 Fire
+pexplosion TorpedoU FlagB 15 Fire
+pexplosion TorpedoU FlagO 15 Fire
+
+#Torpedo shoots South.
+element	TorpedoD	100	100	100	1.000000	1.000000	1.000000	0.000000	1
+pexplosion TorpedoD Woodship 15 Fire
+pexplosion TorpedoD Steelship 15 Fire
+pexplosion TorpedoD Titanship 10 Fire
+pexplosion TorpedoD Alienship 2 Fire
+pexplosion TorpedoD Submarine 15 Fire
+pexplosion TorpedoD FlagR 15 Fire
+pexplosion TorpedoD FlagB 15 Fire
+pexplosion TorpedoD FlagO 15 Fire
+
+#Alienray shoots South.
+element	AlienrayD	255	0	255	1.000000	1.000000	1.000000	0.000000	1
+pexplosion AlienrayD Woodship 30 Fire
+pexplosion AlienrayD Steelship 30 Fire
+pexplosion AlienrayD Titanship 20 Fire
+pexplosion AlienrayD Alienship 10 Fire
+pexplosion AlienrayD Submarine 30 Fire
+pexplosion AlienrayD FlagR 30 Fire
+pexplosion AlienrayD FlagB 30 Fire
+pexplosion AlienrayD FlagO 30 Fire
+
+
+#Alienray shoots North.
+element	AlienrayU	255	0	255	-1.000000	1.000000	1.000000	0.000000	1
+pexplosion AlienrayU Woodship 30 Fire
+pexplosion AlienrayU Steelship 30 Fire
+pexplosion AlienrayU Titanship 20 Fire
+pexplosion AlienrayU Alienship 10 Fire
+pexplosion AlienrayU Submarine 30 Fire
+pexplosion AlienrayU FlagR 30 Fire
+pexplosion AlienrayU FlagB 30 Fire
+pexplosion AlienrayU FlagO 30 Fire
+
+
+#Burns other elements. Source of energy.
+element	Fire	255	0	0	0.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	1.0000	Water
+
+#Red flag.
+element	FlagR	255	0	0	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	Fire	FlagR	1.0	Fire		Fire
+
+#Black flag.
+element	FlagB	0	0	0	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	Fire	FlagB	1.0	Fire		Fire
+
+#Orange flag.
+element	FlagO	255	128	64	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	Fire	FlagO	1.0	Fire		Fire
+
+#Shoot out Cannonballs north.
+element	CannonU	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	CannonU	Water	1.0	CannonU	CannonballU
+
+#Shoot out Cannonballs south.
+element	CannonD	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	CannonD	Water	1.0	CannonD	CannonballD
+
+#Shoot out Torpedos north.
+element	TorpedoLauncherU	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	TorpedoLauncherU	Water	1.0	TorpedoLauncherU	TorpedoU
+
+#Shoot out Torpedos south.
+element	TorpedoLauncherD	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	TorpedoLauncherD	Water	1.0	TorpedoLauncherD	TorpedoD
+
+#Shoot out Alienray north.
+element	AlienraygunU	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	AlienraygunU	Water	1.0	AlienraygunU	AlienrayU
+
+
+#Shoot out Alienray south.
+element	AlienraygunD	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	AlienraygunD	Water	1.0	AlienraygunD	AlienrayD
+
+#Shoot out Fireball north.
+element	FirethrowerU	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	FirethrowerU	Water	1.0	FirethrowerU	FireballU
+
+#Shoot out Fireball south.
+element	FirethrowerD	100	100	100	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	FirethrowerD	Water	1.0	FirethrowerD	FireballD
+
+#Projects your ship from its own weapons. warning: flamable.
+element	Protector	70	70	70	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.7	Protector	Fire	1.0	Fire	Fire
+
+#A landmass.
+element	Land	0	255	0	0.000000	0.000000	1.000000	0.000000	1
+
+#Coral reef. like land except bluish.
+element	reef	79	79	255	0.000000	0.000000	1.000000	0.000000	1
+

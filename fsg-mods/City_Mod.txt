@@ -1,0 +1,972 @@
+#wxSand: Owen Piette's Falling Sand Game 
+#Version 4.4, File subversion 2 
+
+group Solids         Steel Concrete Wood Plants Ground TreeTop 
+group Dangerous      Fire NuclearWaste Lava 
+group Nuclear        NuclearFission Uranium ContainmentLiner Cleaner
+group Solar          SolarPanels Sun
+group BioPower       FuelTank BioFilter Tube Converter LeaveColector
+group Battery        BatteryCore Recharger Case Transmiter
+group Water          Spout Turbine Drain Toxofilter Water Steam RainCloud
+group AlienPower     Core MainCore PowerConverter PowerVault EnergyOutput AlienWire PowerTuner SuperMetal Activater WhipOut
+group Alien          Alien LaserCannon PlasmaCannon AlienShip PlasmaBomb MoonRock HellBomb HellCompleter
+group Vespene        VespeneGeyser GreenCleaner Charger
+group Power          Wire Power
+group City/People    Shingles Brick Siding BlackTop Carpet Glass Lamp DryWall Fabric Stove Porcalin Person Life
+group Bombs          Abomb Bomb ICB Stickyseed NeedleLauncher MOAB DirtyBomb ThermonuclearMissle H-Bomb TimeBomb LandMine Foot
+group Jets           BomberJet NukeJet AAS FireJet SepticJet
+
+#To clean up
+element Empty   0       0       0       0.000000        1.000000        0.000000        0.000000        1
+#To melt and burn
+element Fire   234      34      34      -2.000000        1.000000        0.000000        1.100000        1
+self  0.023000   Fire   0.5 Empty 0.5 F2
+neighbor 0.9	Fire	Water	1.0	Empty	Steam
+element F2  238 171 111 -2.000000   1.000000        0.000000        1.100000        0
+self 0.023000 F2 0.5 Empty 0.5 F3
+neighbor 0.9	F2	Water	1.0	Empty	Steam
+element  F3  255 255 0   -2.000000   1.000000        0.000000        1.100000        0
+self 0.023000 F3 0.5 Empty 0.5 Fire
+neighbor 0.9	F3	Water	1.0	Empty	Steam
+#The earth's crust.
+element Ground  200     100     100      0.000000        0.000000        2.000000        1.000000        1
+#From trees... yea
+element Wood   100     50     50      0.000000        0.000000        1.000000        0.900000        1 
+neighbor 1 Wood Fire 1 Fire Fire
+neighbor 0.3 Wood NuclearWaste 1 NuclearWaste NuclearWaste
+neighbor  1  Wood Rottingwood 1 Rottingwood Rottingwood
+neighbor  1  Wood Fire  1 Fire Fire  
+neighbor  1  Wood F2  1 F2 F2 
+neighbor  1  Wood F3  1 F3 F3
+#Leftover fire
+element Ash   50      50      50       1.000000        7.000000        0.100000        0.500000        0
+self   0.001000        Ash   1.0000  Empty
+#Strong as steel... obviously
+element Steel   100     100     100        0.000000        0.000000        2.500000        0.900000        1
+hotcolor Steel 255      62      62
+neighbor 0.1 Steel NuclearWaste 1 NuclearWaste NuclearWaste
+#Realy Realy REALY strong
+element Concrete   190         190     190     0       0      2.000000     1.000000     1
+hotcolor Concrete   255     100     100   
+neighbor 0.1 Concrete NuclearWaste 1 NuclearWaste NuclearWaste
+#Water
+element Water  58      82      247       0.700000          1.000000        1.000000         0.100000       1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+neighbor 0.1 Water Steam 1 Water Water
+neighbor 0.1 Water NuclearWaste 1 ToxicWater ToxicWater
+neighbor  1  Water ToxicWater  1 ToxicWater ToxicWater 
+element ToxicWater 1 255 200   0.700000    1.000000   0.600000  1.000000  0
+neighbor 1.0  ToxicWater Plants 1.0  ToxicWater DeadPlant
+neighbor 1.0  ToxicWater Wood   1.0  ToxicWater Rottingwood
+element DeadPlant 114 111 54 0.000000 0.000000 1.000000 0.500000 0
+self 0.0020 DeadPlant  1.0  Empty    
+element Rottingwood 3 57 51 0.000000 0.000000 1.000000 0.500000 0
+self 0.0020 Rottingwood  1.0  Empty
+#Steam
+element Steam  45      54      255       -1.000000       2.000000       1.000000       0.000000       1
+self	0.0001	Steam	1.0000	Water
+#Leafy 
+element Plants 54      245      23      0.000000      0.000000      1.000000      0.000000      1
+neighbor 1 Plants Fire 1 Fire Fire
+neighbor 0.2   Plants   Water   1   Plants   Plants
+neighbor 0.3 Plants NuclearWaste 1 NuclearWaste NuclearWaste
+neighbor  1  Plants DeadPlant 1 DeadPlant DeadPlant
+#Permanantantat fire and lifegiver..and taker
+element	Sun	220	167	33	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2    Sun   Water   1.0     Sun   Steam
+neighbor 1 Sun NuclearWaste 1 ToxicSun Empty
+neighbor 1 Sun ToxicSun 1 ToxicSun ToxicSun
+neighbor 0.1 Sun Empty 0.01 Sun SolarWaves 0.99 Sun Fire
+#Starts A River Or Fills A Tank
+element Spout 67  67  200     0.000000        1.000000          1.000000         1.000000        1 
+neighbor 0.2    Spout  Empty   1.0   Spout    Water
+#Very bad
+element NuclearWaste 50 200 150 0.700000      1.000000    1.000000      1.000000      2.000000       1
+neighbor 0.200  NuclearWaste   Empty  1.0   NuclearWaste ToxicFlames
+element ToxicFlames  10  220 10  -1.000000  1.000000   0.000000    1.1000000      0
+hotcolor ToxicFlames  10 255 10
+self 0.023 ToxicFlames  1.0  Empty
+#Keep away from children...
+element Uranium 84  107 78 1.000000 0.800000 0.600000 0.000000 1
+neighbor 0.01 Uranium Radiation 1 NuclearWaste NuclearWaste
+neighbor 0.01 Uranium NuclearWaste 1 NuclearWaste NuclearWaste
+element ToxicSun 1  255 1  0.000000 0.000000 100.000000 10.000000 0
+neighbor 0.1  ToxicSun Empty 1.0 ToxicSun ToxicFlames
+neighbor 1  ToxicSun Sun 1 ToxicSun ToxicSun
+#Don't want to use this without protection.
+element NuclearFission 233 233 233 0.700000 1.000000 0.300000 0.000000 1
+self 0.09  NuclearFission 1.0 Empty
+neighbor 0.01 NuclearFission  Uranium 1.0  Radiation        Radiation
+element	Radiation	1	200	200	0.000000	1.000000	1.000000	0.000000	0
+self    0.2             Radiation       1.0000  Leftover
+neighbor 1.0	Radiation	Empty	        1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Steel	        1.0	Radiation	MoltenMetal
+neighbor 1.0	Radiation	Ground	        1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	Concrete	1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	SolarPanels	1.0	Radiation	MoltenMetal
+neighbor 1.0	Radiation	Wood	        1.0	Radiation	Rottingwood
+neighbor 1.0	Radiation	Plants	        1.0	Radiation	DeadPlant
+neighbor 1.0	Radiation	Wire 	        1.0	Radiation	BrokenWire
+neighbor 1.0	Radiation	FuelTank	1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	BioFilter	1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	Tube 	        1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	Converter	1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	Case	        1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	LeaveColector	1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	TreeTop 	1.0	Radiation	Radiation
+neighbor 1.0	Radiation	Recharger 	1.0	Radiation	BrokenWire
+neighbor 1.0	Radiation	Shingles 	1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	Brick 	        1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	Siding 	        1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	BlackTop 	1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	Carpet  	1.0	Radiation	Fire
+neighbor 1.0	Radiation	Glass 	        1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	Fabric 	        1.0	Radiation	Fire
+neighbor 1.0	Radiation	DryWall 	1.0	Radiation	BurntBlack
+neighbor 1.0	Radiation	Lamp    	1.0	Radiation	MoltenMetal2
+neighbor 1.0	Radiation	Person    	1.0	Radiation	Mutant
+neighbor 1.0	Radiation	Metal    	1.0	Radiation	MoltenMetal
+neighbor 1.0	Radiation	Plastic    	1.0	Radiation	MoltenMetal2
+neighbor 1.0    Radiation   BrokenWire  1.0 Radiation   MoltenMetal
+neighbor 1.0	Radiation	Water	1.0	Radiation	ToxicWater
+element Plastic 200 200 200  0   0     1     0     0
+element Metal 100 100 100  0     0     1     0     0
+element MoltenMetal 255 100  100     1   1   1   1.2   0
+neighbor 0.2  MoltenMetal Empty 1 MoltenMetal Fire
+neighbor 0.001  MoltenMetal Steel 1 MoltenMetal MoltenMetal
+neighbor 0.001  MoltenMetal SolarPanels         1 MoltenMetal MoltenMetal
+neighbor 0.001  MoltenMetal Metal    1 MoltenMetal MoltenMetal
+neighbor 0.001  MoltenMetal BrokenWire    1 MoltenMetal MoltenMetal
+self 0.001  MoltenMetal 1 Metal
+element MoltenMetal2 255 255 255  1    1   1   1.2   0
+neighbor 0.2    MoltenMetal2 Empty           1 MoltenMetal2 Fire
+neighbor 0.001  MoltenMetal2 BioFilter     1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 FuelTank      1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Tube          1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Converter     1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 LeaveColector 1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Siding        1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Glass         1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Lamp          1 MoltenMetal2 MoltenMetal2
+neighbor 0.001  MoltenMetal2 Plastic       1 MoltenMetal2 MoltenMetal2
+self 0.001 MoltenMetal2 1 Plastic
+element Smoke 100 100 100   -1    0    0    1      0
+self 0.2  Smoke 1 Empty
+element BurntBlack 163 5 33 0  0   1    0   0
+neighbor 0.2  BurntBlack Empty 1 BurntBlack Smoke
+self 0.001 BurntBlack 1 BurntBlack2
+element BurntBlack2 163 5 33 0   0    1   0   0
+element BrokenWire 100 100 100 0  0   1    0    0
+neighbor 1 BrokenWire Wire 1 BrokenWire BrokenWire 
+element	Leftover	2	100	2	0.000000	0.000000	1.000000	0.000000	0
+self	0.00500	Leftover	1	Empty
+#Line your Nuclear Chamber With this, Only thing that can withstand Radiation,and Gathers Power
+element ContainmentLiner    10       170     200    0       0      10.000000     1.100000     1
+neighbor 1 ContainmentLiner Fire  1  CL2 Empty
+neighbor 1 ContainmentLiner Radiation  1  CL2 Empty
+neighbor 1 ContainmentLiner ToxicFlames  1  CL2 Empty
+element CL2 10 255 84 0 0 100 0 0
+neighbor 1 CL2 ContainmentLiner 1 ContainmentLiner CL2
+self 0.05 CL2 1 ContainmentLiner
+element	SolarWaves	0	0	0	0.000000	1.000000	1.000000	0.000000	0
+self    0.2             SolarWaves      1.0000  LeftoverS
+neighbor 1.0	SolarWaves	Empty	1.0	SolarWaves	SolarWaves
+element	LeftoverS	0	0	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.00500	LeftoverS	1.0000	Empty
+# Colect Solar energy with this
+element SolarPanels    255       255    255    0       0      10.000000     1.000000     1
+neighbor 1  SolarPanels SolarWaves 1 SP2 Empty
+element SP2 255 255 255 0 0 100 0 0
+neighbor 1 SP2 SolarPanels 1 SolarPanels SP2
+self 0.05 SP2 1 SolarPanels
+#Mantle
+element Lava  255 100 100  0.9 1  1.000000  1.100000 1
+neighbor 0.2 Lava Empty 1 Lava Fire
+#The First Thing Powerable
+element Lamp 130 130 0 0 0 100 0.5 1
+neighbor 1 Lamp Power 1 L2 W3
+element L2 230 230 0 0 0 100 0 0
+neighbor 1 L2 Lamp 1 L2 L2
+self 0.3 L2 1 L3
+element L3 230 230 0 0 0 100 0.5 0
+self 0.001 L3 1 Lamp
+#Power Transport
+element Wire 121 122 132 0 0 10 0.1 1
+neighbor 1 Wire     CL2 1 Power     ContainmentLiner
+neighbor 1 Wire     SP2 1 Power     SolarPanels
+neighbor 1 Wire BioFuel 1 Power     Empty
+neighbor 1 Wire   Tran2 1 Power   Transmiter
+neighbor 1 Wire  ToxF   1 Power   Toxofilter
+neighbor 1 Wire  OnPowerTuner 1 Power OnPowerTuner
+neighbor 1 Wire   CH2  1  Power   Charger
+#This IS a Cheater Element
+element Power 0 0 255 0 0 100 0.15 1
+neighbor    1 Power Wire     1 Wire Power
+neighbor    1 Power Wire     1 Power Power
+self 0.055    Power 1 W3
+element W3 21 22 155 0 0 100 0.1 0
+neighbor    0.15 W3    Power 1 W3 W3
+neighbor     0.05 W3    Wire 1 Wire Wire
+self       0.015 W3 1 Wire
+#Put on top of wood to make Trees
+element TreeTop   60 170 15 0 0 1 1 1
+neighbor 0.0019 TreeTop Empty 1.0 TreeTop Leaves
+neighbor 1  TreeTop  Fire 1 Fire Fire
+element Leaves 0 170 0 0.9 1 0 0 0
+neighbor 1 Leaves Converter 1 Leaves2 Converter
+element Leaves2 0 180 0 1 1 0 0 0
+neighbor 1 Leaves2 Leaves 1 Leaves2 Leaves2
+#Put this under Trees
+element LeaveColector  190 190 190 0 0 2 0 1
+#Have Leaves Run over this
+element Converter  0 0 150 0 0 2 0 1
+#Put Leaves Into Filter With this
+element Tube 255 255 255 0 0 2 0 1
+#Hold Bio Fuel In this
+element FuelTank 117 102 79 0 0 2 0 1
+element BioFilter 145 200 145 0 0 2 0 1
+neighbor .4 BioFilter Leaves2 1 BioF Empty
+element BioF 145 200 145 0 0 1 0 0
+neighbor .9 BioF Empty 1 BioFilter BioFuel
+neighbor .65 BioF BioFilter 1 BioFilter BioF
+neighbor .4 BioFilter BioFuel 1 BioF Empty
+element BioFuel 162 187 83 1 1 0 0 0
+neighbor 1  BioFuel Fire 1 Fire Fire
+#Place Inside of Case
+element BatteryCore 150 150 150    0.9    1    0.1  0   1
+#Case!
+element Case 244 200 150  0 0 1 0 1
+neighbor 0.01 Case NuclearWaste 1 NuclearWaste NuclearWaste
+#Makes Core into Power
+element Transmiter 200 200 200 0 0 1 0 1
+neighbor 1  Transmiter BatteryCore 1 Tran2 Empty
+element Tran2  200 200 255  0  0  1  0  0
+neighbor 1 Tran2 Transmiter 1 Transmiter Tran2
+self 0.05 Tran2 1 Transmiter
+#Put at top of battery
+element Recharger 200 255 150 0 0 100 1 1
+neighbor 1 Recharger Power 0.25 R2 Power 0.75 R2 Wire
+element R2 200 255 150 0 0 100 1 0
+neighbor 1 R2 Empty 0.7 R2 BatteryCore 0.3 Recharger BatteryCore
+neighbor 0.5 R2 Recharger 1 Recharger R2
+#Dun DUn DUnnnnnnnnnnnnnnnnnnnnnnn
+element Bomb  255 10  10  1  1   0   2   1
+pexplosion Bomb   Steel          80 Fire
+pexplosion Bomb   Ground         80 Fire
+pexplosion Bomb   Concrete       80 Fire
+pexplosion Bomb   SolarPanels    80 Fire
+pexplosion Bomb   Wood           80 Fire
+pexplosion Bomb   Plants         80 Fire
+pexplosion Bomb   Wire           80 Fire
+pexplosion Bomb   FuelTank       80 Fire
+pexplosion Bomb   BioFilter      80 Fire
+pexplosion Bomb   Tube           80 Fire
+pexplosion Bomb   Converter      80 Fire
+pexplosion Bomb   LeaveColector  80 Fire
+pexplosion Bomb   Case           80 Fire
+pexplosion Bomb   TreeTop        80 Fire
+pexplosion Bomb   BurntBlack     80 Fire
+pexplosion Bomb   Shingles       80 Fire
+pexplosion Bomb   Brick          80 Fire
+pexplosion Bomb   Siding         80 Fire
+pexplosion Bomb   BlackTop       80 Fire
+pexplosion Bomb   Carpet         80 Fire
+pexplosion Bomb   Glass          80 Fire
+pexplosion Bomb   Lamp           80 Fire
+pexplosion Bomb   DryWall        80 Fire
+pexplosion Bomb   Fabric         80 Fire
+pexplosion Bomb   Person         80 Fire
+pexplosion Bomb   Metal          80 Fire
+pexplosion Bomb   Plastic        80 Fire
+pexplosion Bomb   Spout          80 Fire 
+pexplosion Bomb   Drain          80 Fire 
+pexplosion Bomb   Turbine        80 Fire 
+pexplosion Bomb   Toxofilter     80 Fire 
+pexplosion Bomb   Stove          80 Fire 
+pexplosion Bomb   OnStove        80 Fire 
+pexplosion Bomb   MoonRock       80 Fire
+#Dun DUn DUnnnnnnnnnnnnnnnnnnnnnnn huhuuhnnnnnnnnnn *cough* *cough* uuuuuuuuuuuuuunnnnn!
+element Abomb 255 50  10  1  1   0   2   1
+pexplosion Abomb  Steel          200 Radiation
+pexplosion Abomb  Ground         200 Radiation
+pexplosion Abomb  Concrete       200 Radiation
+pexplosion Abomb  SolarPanels    200 Radiation
+pexplosion Abomb  Wood           200 Radiation
+pexplosion Abomb  Plants         200 Radiation
+pexplosion Abomb  Wire           200 Radiation
+pexplosion Abomb  FuelTank       200 Radiation
+pexplosion Abomb  BioFilter      200 Radiation
+pexplosion Abomb  Tube           200 Radiation
+pexplosion Abomb  Converter      200 Radiation
+pexplosion Abomb  LeaveColector  200 Radiation
+pexplosion Abomb  Case           200 Radiation
+pexplosion Abomb  TreeTop        200 Radiation
+pexplosion Abomb  Shingles       200 Radiation
+pexplosion Abomb  Brick          200 Radiation
+pexplosion Abomb  Siding         200 Radiation
+pexplosion Abomb  BlackTop       200 Radiation
+pexplosion Abomb  Carpet         200 Radiation
+pexplosion Abomb  Glass          200 Radiation
+pexplosion Abomb  Lamp           200 Radiation
+pexplosion Abomb  DryWall        200 Radiation
+pexplosion Abomb  Fabric         200 Radiation
+pexplosion Abomb  Person         200 Radiation
+pexplosion Abomb  Metal          200 Radiation
+pexplosion Abomb  Plastic        200 Radiation
+pexplosion Abomb       Spout       200 Radiation
+pexplosion Abomb   Drain       200 Radiation
+pexplosion Abomb   Turbine     200 Radiation
+pexplosion Abomb   Toxofilter  200 Radiation
+pexplosion Abomb   Stove       200 Radiation
+pexplosion Abomb   OnStove     200 Radiation 
+pexplosion Abomb   MoonRock    200 Radiation
+#Windows
+element Glass 183 219 233 0  0 1  0  1
+#Fuzzyyy
+element Carpet 186 189 45 0  0 1  0  1
+neighbor 1 Carpet Fire 1 Fire Fire
+#It is what streets are made of
+element BlackTop 82 61 75 0  0 1  0  1
+#Outside of house
+element Siding  237 241 158 0 0 1 0 1
+#Wall
+element Brick  186 61 24 0  0  1  0  1
+#Roof Top
+element Shingles 98 32 13 0   0  1 0 1
+#Off Stove
+element Stove 255 0  0  0  0  1  0   1
+neighbor 1 Stove Power  1  OnStove W3
+neighbor 1 Stove OnStove 1 OnStove OnStove
+element OnStove 255 100 100  0  0  1  0  0
+neighbor 0.1 OnStove  Empty 1 OnStove Burner
+element Burner 0 0 255 -1  1  0   1.2 0 
+self 0.3 Burner 1 Empty
+#Fabricsssszz
+element Fabric 0  50 255  0   0   1   0   1
+neighbor 1 Fabric Fire 1 Fire Fire
+#Walls on insides
+element DryWall 126 214 114 0  0   1   0   1
+#Makes Water Into Power
+element Turbine 80 60 80 0 0 100 0 1
+neighbor 0.5 Turbine Water 1 Tfilled Empty
+neighbor 0.5 Turbine Steam 1 Tfilled Empty
+element Tfilled 80 70 80 0 0 100 0 0
+neighbor 1 Tfilled Turbine 1 Turbine Tfilled
+neighbor 1 Tfilled Empty 0.1 Tcharged Water 0.9 Turbine Water
+element Tcharged 80 60 80 0 0 100 0 0
+neighbor 0.5 Tcharged Water 1 Tfilled Empty
+neighbor 1 Tcharged Turbine 1 Turbine Tcharged
+neighbor 1 Tcharged Tfilled 1 Tfilled Tcharged
+neighbor 1 Tcharged Wire 1 Turbine Power 
+self 0.01 Tcharged 1 Turbine
+#Gets Rid of Water
+element Drain 20   100  255 0   0    1  0   1
+neighbor 0.1 Drain Water 1 Drain Empty 
+#Use this to make water clean again.
+element Toxofilter 255 200 255 0 0 2 0 1
+neighbor .4 Toxofilter ToxicWater 1 ToxF Empty
+element ToxF 145 200 145 0 0 1 0 0
+neighbor .9 ToxF Empty 1 Toxofilter Water
+neighbor .65 ToxF Toxofilter 1 Toxofilter ToxF
+#They Do nothing...Exept Die
+element Person  190  169 120  0   0   1   0   1
+neighbor 1 Person  Fire  1  Fire Fire
+neighbor 0.01   Person  ToxicWater 1 DeadGuy  Empty
+neighbor 0.001  Person  Water    1  DeadGuy  Empty
+neighbor 1 Person Mutant 1 Mutant Mutant
+neighbor 1 Person M2 1 M2 M2
+element Mutant 0 255 0  0  0   1   0    0
+self 0.001  Mutant 0.5 M2 0.5 NuclearWaste
+neighbor 1 Mutant Plants 1 Mutant Mutant
+neighbor 1 Mutant Wood  1 Mutant Mutant
+neighbor 1 Mutant TreeTop 1 Mutant Mutant
+neighbor 0.01 Mutant Ground 1 Mutant Mutant
+element M2 0 200  0  0  0 1  0   0
+self 0.001 M2 0.5  Mutant 0.5 NuclearWaste
+neighbor 1 M2 Plants 1 M2 M2
+neighbor 1 M2 Wood  1 M2 M2
+neighbor 1 M2 TreeTop 1 M2 M2
+neighbor 0.01 M2 Ground 1 M2 M2
+element DeadGuy 190  169 90  0    0   1   0    0
+neighbor 1 DeadGuy Person 1 DeadGuy DeadGuy
+neighbor 1 DeadGuy Fire   1 Fire    Fire
+neighbor 1 DeadGuy Life   1 Healing  Empty
+neighbor 1 DeadGuy Healing 1 Healing Healing 
+element Healing  255 255 255  0    0   0   0  0
+self  0.03  Healing 1 Person
+element Life   190   169  120  1   1    0    0   1
+self 0.2 Life 1 Empty 
+element	Cleaner	255	200	255	0.700000	1.000000	0.100000	1.000000	1
+neighbor 1.0    Cleaner NuclearWaste 1.0 Cleaner Cleaner
+self 0.0300 Cleaner 1.0 Empty
+#For BathTubs, Sinks, or Toilets
+element Porcalin   136 131 117    0      0     1     0      1
+element HyperBomb  255 0 255   1    1     1     0      0
+pexplosion HyperBomb Empty  50  Fire
+#Place In Core
+element MainCore       0  255 0   0    0    1    0     1
+pexplosion MainCore Empty  100 HyperBomb
+neighbor 1 OnMainCore MainCore 1 OnMainCore OnMainCore
+element OnMainCore     0  0 255   0    0    1    0     0
+neighbor 1 OnMainCore Core 1 OnMainCore OnCore
+pexplosion OnMainCore Empty  100 HyperBomb
+element Activater 255  0 0    1    1     1    0    1
+self 0.1  Activater 1 OnMainCore
+#Place MainCore In this
+element Core           0  150 0   0    0    1    0     1
+pexplosion Core Empty  100 HyperBomb
+element OnCore  0  0 255   0    0    1    0     0
+neighbor 1 OnCore Core 1 OnCore OnCore 
+neighbor 1 OnCore PowerConverter 1 OnCore  OnPowerConverter
+self 0.0001 OnCore    1  OverLoad
+pexplosion OnCore Empty  100 HyperBomb
+#Put This Around All Alien Machines
+element SuperMetal     200 1 200  0    0    1    0     1
+# Place Conected To Core
+element PowerConverter 100 255 100 0   0    1    0     1
+neighbor 1 PowerConverter OnPowerConverter 1 OnPowerConverter OnPowerConverter
+pexplosion PowerConverter Empty  100 HyperBomb
+element OnPowerConverter 0 0 255 0  0   1   0     0
+pexplosion OnPowerConverter Empty  100 HyperBomb
+#Conect To PowerConverter
+element PowerVault     100 100 255  0   0    1    0     1
+neighbor 1 PowerVault OnPowerConverter 1 OnPowerVault OnPowerConverter
+neighbor 1 PowerVault OnPowerVault 1 OnPowerVault  OnPowerVault
+pexplosion PowerVault Empty  100 HyperBomb
+element OnPowerVault   0 0 255 0    0    1    0     0
+pexplosion OnPowerVault  Empty  100 HyperBomb
+#Conect to PowerVault
+element EnergyOutput   0   255 100     0   0    1    0     1
+neighbor 1 EnergyOutput OnPowerVault 1 OnEnergyOutput OnPowerVault
+pexplosion OnPowerConverter Empty  100 HyperBomb
+element OnEnergyOutput   0   0 255     0   0    1    0     0
+neighbor 1 OnEnergyOutput EnergyOutput 1 OnEnergyOutput OnEnergyOutput
+pexplosion OnEnergyOutput Empty  100 HyperBomb
+#Conect To OutPut and to PowerTuner
+element AlienWire      100 100 200 0   0    1    0     1
+neighbor 1 AlienWire OnEnergyOutput 1 OnAlienWire OnEnergyOutput 
+element OnAlienWire    0 0 255 0   0    1    0     0
+neighbor 1 OnAlienWire AlienWire 1 OnAlienWire OnAlienWire
+#Conect PowerTuner to Wire 
+element PowerTuner     100 255 0       0   0    1    0     1
+neighbor 1 PowerTuner OnAlienWire 1 OnPowerTuner OnAlienWire
+element OnPowerTuner   0 0 255       0    0   1     0    0
+neighbor 1 OnPowerTuner PowerTuner 1 OnPowerTuner OnPowerTuner 
+element OverLoad 255 0  0   0    0    1   0   0
+self 0.0001 OverLoad 1 OverLoad2
+element OverLoad2 255 0  0   0   0    1   0    0
+self 0.0001 OverLoad2 1 OverLoad3
+element OverLoad3 255 0  0   0   0    1   0    0
+self 0.0001 OverLoad3 1 MELTDOWN
+element MELTDOWN 0   0   255  0   0   1    0    0
+neighbor 1 MELTDOWN   OnCore           1    MELTDOWN MELTDOWN 
+neighbor 1 MELTDOWN   OnMainCore       1    MELTDOWN MELTDOWN 
+neighbor 1 MELTDOWN   OnPowerConverter 1    MELTDOWN MELTDOWN 
+neighbor 1 MELTDOWN   OnPowerVault     1    MELTDOWN MELTDOWN 
+neighbor 1 MELTDOWN   OnEnergyOutput   1    MELTDOWN MELTDOWN 
+neighbor 1 MELTDOWN   OnAlienWire      1    MELTDOWN MELTDOWN
+neighbor 1 MELTDOWN   OnPowerTuner     1    MELTDOWN MELTDOWN 
+pexplosion MELTDOWN   Empty            300  HyperBomb
+#Made By Nikolai
+element ICB 148 128 147 1 0 5 1.02 1 
+self 1 ICB 1 C1 
+hotself 10 ICB 
+element C1 128 128 147 0.5 -1 5 0.5 0 
+self 0.1 C1 1 Bomblet 
+neighbor 0.5 C1 Empty 1 C1 C2 
+explosion   C1 Empty 255 -255 
+element C2 128 128 147 0.5 -1 5 0.5 0 
+self 0.1 C2 1 Bomblet 
+neighbor 1 C2 Empty 1 C2 Bomblet 
+explosion   C2 Empty 255 -255 
+element Bomblet 250 200 150 1 -1 5 0.05 0 
+pexplosion Bomblet   Steel          10 Fire 
+pexplosion Bomblet   Ground         10 Fire 
+pexplosion Bomblet   Concrete       10 Fire 
+pexplosion Bomblet   SolarPanels    10 Fire 
+pexplosion Bomblet   Wood           10 Fire 
+pexplosion Bomblet   Plants         10 Fire 
+pexplosion Bomblet   Wire           10 Fire 
+pexplosion Bomblet   FuelTank       10 Fire 
+pexplosion Bomblet   BioFilter      10 Fire 
+pexplosion Bomblet   Tube           10 Fire 
+pexplosion Bomblet   Converter      10 Fire 
+pexplosion Bomblet   LeaveColector  10 Fire 
+pexplosion Bomblet   Case           10 Fire 
+pexplosion Bomblet   TreeTop        10 Fire 
+pexplosion Bomblet   BurntBlack     10 Fire 
+pexplosion Bomblet   Shingles       10 Fire 
+pexplosion Bomblet   Brick          10 Fire 
+pexplosion Bomblet   Siding         10 Fire 
+pexplosion Bomblet   BlackTop       10 Fire 
+pexplosion Bomblet   Carpet         10 Fire 
+pexplosion Bomblet   Glass          10 Fire 
+pexplosion Bomblet   Lamp           10 Fire 
+pexplosion Bomblet   DryWall        10 Fire 
+pexplosion Bomblet   Fabric         10 Fire 
+pexplosion Bomblet   Person         10 Fire
+pexplosion Bomblet   Spout          10 Fire 
+pexplosion Bomblet   Drain          10 Fire 
+pexplosion Bomblet   Turbine        10 Fire 
+pexplosion Bomblet   Toxofilter     10 Fire 
+pexplosion Bomblet   Stove          10 Fire 
+pexplosion Bomblet   OnStove        10 Fire 
+pexplosion Bomblet   MoonRock       10 Fire
+element StickyBomb 255 100 100 0 0 1 0 0 
+neighbor 1 StickyBomb Empty 1 StickyBomb StickyBomb1 
+neighbor 1 StickyBomb StickyBomb2 1 StickyBomb StickyBomb1 
+neighbor 1 StickyBomb StickyBomb3 1 StickyBomb StickyBomb1 
+neighbor 1 StickyBomb StickyBomb4 1 StickyBomb StickyBomb1 
+pexplosion StickyBomb Fire 400 Fire 
+element StickyBomb1 204 80 131 0 0 1 0 0 
+neighbor 1 StickyBomb1 Empty 1 StickyBomb1 StickyBomb2 
+neighbor 1 StickyBomb1 StickyBomb2 1 StickyBomb1 StickyBomb2 
+neighbor 1 StickyBomb1 StickyBomb3 1 StickyBomb1 StickyBomb2 
+neighbor 1 StickyBomb1 StickyBomb4 1 StickyBomb1 StickyBomb2 
+pexplosion StickyBomb2 Fire 25 Stickyseed 
+element StickyBomb2 153 60 162 0 0 1 0 0 
+neighbor 1 StickyBomb2 Empty 1 StickyBomb2 StickyBomb3 
+neighbor 1 StickyBomb2 StickyBomb3 1 StickyBomb2 StickyBomb3 
+neighbor 1 StickyBomb2 StickyBomb4 1 StickyBomb2 StickyBomb3 
+pexplosion StickyBomb2 Fire 25 Fire 
+element StickyBomb3 102 40 193 0 0 1 0 0 
+neighbor 1 StickyBomb3 Empty 1 StickyBomb3 StickyBomb4 
+neighbor 1 StickyBomb3 StickyBomb4 1 StickyBomb3 StickyBomb4 
+pexplosion StickyBomb3 Fire 50 Fire 
+element StickyBomb4 51 20 224 0 0 1 0 0 
+pexplosion StickyBomb4 Fire 100 Fire 
+
+#Bombs away!! (Code By Doc)
+element Stickyseed 255 255 255 1 1 1 1 1  
+neighbor 1 Steel Stickyseed 1 Steel StickyBomb
+neighbor 1 Ground Stickyseed 1 Ground StickyBomb
+neighbor 1 Concrete Stickyseed 1 Concrete StickyBomb 
+neighbor 1 SolarPanels Stickyseed 1 SolarPanels StickyBomb
+neighbor 1 Wood Stickyseed 1 Wood StickyBomb
+neighbor 1 Plants Stickyseed 1 Plants StickyBomb 
+neighbor 1 Wire Stickyseed 1 Wire StickyBomb
+neighbor 1 FuelTank Stickyseed 1 FuelTank  StickyBomb
+neighbor 1 BioFilter Stickyseed 1 BioFilter StickyBomb
+neighbor 1 Tube Stickyseed 1 Tube StickyBomb
+neighbor 1 Converter Stickyseed 1 Converter StickyBomb
+neighbor 1 LeaveColector Stickyseed 1 LeaveColector StickyBomb
+neighbor 1 Case  Stickyseed 1 Case StickyBomb
+neighbor 1 TreeTop Stickyseed 1 TreeTop  StickyBomb
+neighbor 1 BurntBlack Stickyseed 1 BurntBlack StickyBomb
+neighbor 1 Shingles Stickyseed 1 Shingles StickyBomb
+neighbor 1 Brick Stickyseed 1 Brick StickyBomb
+neighbor 1 Siding Stickyseed 1 Siding StickyBomb
+neighbor 1 BlackTop Stickyseed 1 BlackTop StickyBomb
+neighbor 1 Carpet Stickyseed 1 Carpet  StickyBomb
+neighbor 1 Glass Stickyseed 1 Glass StickyBomb
+neighbor 1 Lamp Stickyseed 1 Lamp StickyBomb
+neighbor 1 DryWall Stickyseed 1 DryWall StickyBomb
+neighbor 1 Fabric Stickyseed 1 Fabric StickyBomb
+neighbor 1 Person Stickyseed 1 Person StickyBomb
+neighbor 1 Spout Stickyseed 1 Spout StickyBomb
+neighbor 1 Drain Stickyseed 1 Drain StickyBomb
+neighbor 1 Turbine Stickyseed 1 Turbine StickyBomb
+neighbor 1 Toxofilter Stickyseed 1 Toxofilter StickyBomb
+neighbor 1 Stove Stickyseed 1 Stove StickyBomb
+neighbor 1 OnStove Stickyseed 1 OnStove StickyBomb
+neighbor 1 MoonRock Stickyseed 1 MoonRock StickyBomb
+#Needly Light On Fire To Explode(Code By Doc)
+element NeedleLauncher 100 100 100 0 0 0 0 1 
+pexplosion Fire NeedleLauncher 32 Needle 
+element Needle 255 255 0 0.9 0.5 0.9 0.5 0 
+neighbor 1 Needle Steel 1 Needle2 Steel   
+neighbor 1 Needle Ground 1 Needle2 Ground  
+neighbor 1 Needle Concrete 1 Needle2 Concrete 
+neighbor 1 Needle SolarPanels 1 Needle2 SolarPanels  
+neighbor 1 Needle Wood 1 Needle2 Wood
+neighbor 1 Needle Plants 1 Needle2 Plants 
+neighbor 1 Needle Wire 1 Needle2 Wire  
+neighbor 1 Needle FuelTank 1 Needle2 FuelTank 
+neighbor 1 Needle BioFilter 1 Needle2 BioFilter  
+neighbor 1 Needle Tube  1 Needle2 Tube
+neighbor 1 Needle Converter 1 Needle2  Converter
+neighbor 1 Needle LeaveColector 1 Needle2 LeaveColector  
+neighbor 1 Needle Case 1 Needle2 Case 
+neighbor 1 Needle TreeTop 1 Needle2 BurntBlack
+neighbor 1 Needle Shingles 1 Needle2 Shingles  
+neighbor 1 Needle Brick 1 Needle2 Brick 
+neighbor 1 Needle Siding 1 Needle2 Siding  
+neighbor 1 Needle BlackTop 1 Needle2  BlackTop
+neighbor 1 Needle Carpet 1 Needle2 Carpet  
+neighbor 1 Needle Glass 1 Needle2 Glass
+neighbor 1 Needle Lamp 1 Needle2 Lamp  
+neighbor 1 Needle DryWall 1 Needle2 DryWall
+neighbor 1 Needle Fabric 1 Needle2 Fabric  
+neighbor 1 Needle Person 1 Needle2 Person
+neighbor 1 Needle Spout 1 Needle2 Spout  
+neighbor 1 Needle Drain 1 Needle2 Drain 
+neighbor 1 Needle Turbine 1 Needle2 Turbine  
+neighbor 1 Needle Toxofilter 1 Needle2 Toxofilter 
+neighbor 1 Needle Stove 1 Needle2 Stove 
+neighbor 1 Needle OnStove 1 Needle2 OnStove  
+neighbor 1 Needle MoonRock 1 Needle2 MoonRock
+element Needle2 0 255 0 0.9 0.5 0.9 1.006 0 
+self 1 Needle2 1 Needle3 
+hotself 60 Needle2 
+neighbor 1 Needle2 Needle 1 Needle2 Needle2 
+element Needle3 0 0 0 0 0 0 0 0 
+pexplosion Needle3 Empty 20 Fire 
+pexplosion Needle3 Fire 20 Fire  
+# A burst of extreme preasure making gas that explodes (Massive Ordanance Air Burst) I love The Outcome (Use In 2-4 Size or it will just blow up)
+element MOAB 100 100 100 1  1   1   1.2   1
+neighbor 0.001 MOAB Empty 1 MOAB2 Empty
+element MOAB2  100 100 100 1 1 1 1.2 0
+neighbor 0.001 MOAB2 Empty 1 MOAD Empty
+element MOAD 100 100 100 1  1   1   1.2   0
+pexplosion   MOAD    Empty   20  MOAD2
+element MOAD2 100 100 100 0  0    0    1    0
+pexplosion   MOAD2   Empty   150    Gas45
+element Gas45 0 0 0  -0.001  0.7   100    0       0
+pexplosion Gas45    Fire      300   Fire
+#Radiating Bomb (Small Explode..Massive Dammage) (Use In 2-4 Size or it will just blow up)
+element DirtyBomb 255 255 255 1   1   1   1     1
+neighbor 0.001  DirtyBomb Empty 1 Dirt Empty
+element Dirt 255 255 255 1 1 1 1 0
+neighbor 0.001 Dirt Empty 1 Dirt2 Empty 
+element Dirt2  255 255 255 1 1 1 1 0
+neighbor 0.001 Dirt2 Empty 1 Dirt3 Empty 
+element Dirt3  255 255 255 1 1 1 1 0
+pexplosion  Dirt3 Empty  10  Radiation
+#A huge Exoplosion of heat
+element ThermonuclearMissle 255 255 255  1  1   1   1    1
+neighbor 0.001 ThermonuclearMissle Empty  1  Ther Empty
+element Ther  255 255 255 1  1  1  1 0
+neighbor 0.001 Ther Empty  1  Therm Empty
+element Therm 255 255 255 1 1 1 1  0
+pexplosion Therm  Empty  400   Fire
+#A extremly powerful version of the Thermonuclear Missle
+element H-Bomb 255 200 200  1  1  1   1   1
+neighbor 0.001 H-Bomb Empty 1 H-B  Empty
+element H-B 255 200  200  1   1    1   1   0
+neighbor 0.001 H-B  Empty  1  Bomb2 Empty
+element Bomb2  255 200 200   1   1    1   1   0
+pexplosion  Bomb2  Empty  700 Fire
+#Spawns Vespene And BlueVespene, Blue Vespene Can Be used as Fuel
+element VespeneGeyser 255 255 255   0   0    10     0      1
+neighbor   0.1    VespeneGeyser Empty  1   VespeneGeyser Fumes
+element Fumes 255 255 255  -1     0     1     0   0
+self 0.001 Fumes 0.9 Vespene 0.1 BlueVespene
+element Vespene 0  255 0   1     1     1      1      0
+neighbor 0.001 Vespene Empty 0.5 Vespene Fumes 0.5 Vespene Empty
+pexplosion Vespene  Fire  100  Fire
+element BlueVespene 0  0 255   1   1   2    1     0
+neighbor 0.023 BlueVespene Empty 1 BlueVespene  Fusma
+pexplosion  BlueVespene  Fire  10   Fire
+element Fusma   0  0  255  -1    1     0    1     0
+self 0.023 Fusma 1 Empty
+element GreenCleaner 0  0  255   1   1   2   1    1
+neighbor 1 GreenCleaner Vespene 1 GreenCleaner GreenCleaner 
+self 0.1 GreenCleaner 1 Empty
+#Turnes Flames Into Fuel
+element Charger 255 255 255  0    0    1    0     1
+neighbor 1 Charger Fusma 1 CH2 Empty 
+element CH2 255 255 255 0 0 100 0 0
+neighbor 1 CH2 Charger 1 Charger CH2
+self 0.05 CH2 1 Charger
+# A little Bomber Yay! (By Kurisu)
+element NukeJet 200 30 150 .000001 1 0 0 1 
+neighbor .001 NukeJet Empty 1 NukeJet Abomb
+# A Little Bomber Yay! (By Kurisu)
+element BomberJet 200 30 150 .000001 1 0 0 1 
+neighbor .001 BomberJet Empty 1 BomberJet Bomb
+#Charging...Targeting...Aww Forget it just FIRE!!!
+element LaserCannon 200 0  200    0   0     2     1     1
+neighbor 1 LaserCannon Empty 1 LaserCannon LaserBeam 
+element LaserBeam  100 100 255    1   0.9     1     1     0
+neighbor 1 LaserBeam  Steel  1 LaserBeam  Empty
+neighbor 1 LaserBeam  Ground       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Concrete       1 LaserBeam  Empty
+neighbor 1 LaserBeam  SolarPanels       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Wood       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Plants       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Wire       1 LaserBeam  Empty
+neighbor 1 LaserBeam  FuelTank   1 LaserBeam  Empty
+neighbor 1 LaserBeam  BioFilter       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Tube       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Converter       1 LaserBeam  Empty
+neighbor 1 LaserBeam  LeaveColector       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Case       1 LaserBeam  Empty
+neighbor 1 LaserBeam  TreeTop     1 LaserBeam  Empty
+neighbor 1 LaserBeam  BurntBlack       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Shingles       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Brick       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Siding       1 LaserBeam  Empty
+neighbor 1 LaserBeam  BlackTop       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Carpet       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Glass       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Lamp       1 LaserBeam  Empty
+neighbor 1 LaserBeam  DryWall       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Fabric       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Person       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Spout       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Drain       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Turbine       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Toxofilter       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Stove       1 LaserBeam  Empty
+neighbor 1 LaserBeam  OnStove       1 LaserBeam  Empty
+neighbor 1 LaserBeam  Porcalin       1 LaserBeam  Empty
+neighbor 1 LaserBeam  MoonRock     1   LaserBeam Empty
+#Send In The Advanced Air Squad This Towns going Down
+element AAS 255 255 255  0.000001   1.0     0.0   0.0     1    
+neighbor 0.001 AAS Empty  1 AAS ICB
+#Wild Fire!!! SEND OUT THE JETS
+element FireJet 255 0 0  0.000001  1    1      0      1  
+neighbor 0.01  FireJet  Empty  1 FireJet Extingish
+element Extingish 200 200  200   3      1      1     1    0
+self 0.001 Extingish  1 Empty
+neighbor 1 Extingish Fire 1  Extingish  Extingish
+neighbor 1 Extingish F2   1  Extingish  Extingish
+neighbor 1 Extingish F3   1  Extingish  Extingish
+neighbor 1 Extingish Lava 1  Extingish  Extingish
+#What is that thing!!
+element AlienShip 255 255 255  0.000001   1.0     0.0   0.0     1    
+self 0.001 AlienShip 1  LaserCannon
+#Drop Some Foot on me!
+element LandMine 200 200 255 0  0  2   0   1
+#Drop Me!!!
+element Foot     200 255 200 1  1  1   1   1
+neighbor 1 Foot LandMine 1 Foot LandMine1 
+element LandMine1  0 0 200   0   0  2 0    0
+pexplosion LandMine1  Empty  200   Fire
+pexplosion LandMine1  Foot   200   Fire
+#Use this to fix alien power
+element WhipOut  0 255 0 1  1   1   1    1
+neighbor 1 WhipOut OnCore 1 Whiping Whiping
+self 0.01  WhipOut  1  OnCore 
+element Whiping  0 200 100 0  0   1   0   0
+neighbor 1 Whiping OnCore 1 Whiping Whiping
+neighbor 1 Whiping OverLoad 1 Whiping Whiping
+neighbor 1 Whiping OverLoad2 1 Whiping Whiping
+neighbor 1 Whiping OverLoad3 1 Whiping Whiping
+self 0.001  Whiping 1  Whiping2
+element Whiping2 0 0 255  0   0   1   0    0
+self 0.001  Whiping2 1 OnCore
+#Tic Toc Tic Toc the mouse is blown off the clock
+element TimeBomb 255 255 255 0  0   1  0    1
+self 0.001  TimeBomb 1 TimeB2
+element TimeB2   255 255 255 0  0   1  0    0
+self 0.001  TimeB2 1  TimeB3
+element TimeB3   255 255 255 0  0   1  0    0
+self 0.001  TimeB3 1  TimeB4
+element TimeB4   255 255 255 0  0   1  0    0
+self 0.001  TimeB4 1  TimeB5
+element TimeB5   255 255 255 0  0   1  0    0
+pexplosion TimeB5 TimeB5  500  HyperBomb
+# The Surface Of The MOON! (Cheese!!)
+element MoonRock  150 150 150   0   0   10    0   1
+self 0.2  MoonRock  0.5 MoonRocky 0.5 MoonRoker 
+element MoonRocky 150  150 150  0   0   10    0   0
+element MoonRoker 100  100 100  0   0   10    0   0
+#Alien People Are Cool Cause They Eat Cheese Off the MOON!!! The TV TOLD ME SO
+element Alien 200 255 0   0   0   1   1
+neighbor 1 Alien LaserBeam 1 Alien Plasma 
+#Shoots down jets and stuff
+element PlasmaCannon 200 200 200 0  0   1   0    1
+neighbor 0.2 PlasmaCannon Empty 1 PlasmaCannon Plasma 
+element Plasma  255 200 200  -1   0    0    1    0
+neighbor 1 Plasma  Steel  1 Plasma  Empty
+neighbor 1 Plasma  Ground       1 Plasma  Empty
+neighbor 1 Plasma  Concrete       1 Plasma  Empty
+neighbor 1 Plasma  SolarPanels       1 Plasma  Empty
+neighbor 1 Plasma  Wood       1 Plasma  Empty
+neighbor 1 Plasma  Plants       1 Plasma  Empty
+neighbor 1 Plasma  Wire       1 Plasma  Empty
+neighbor 1 Plasma  FuelTank   1 Plasma  Empty
+neighbor 1 Plasma  BioFilter       1 Plasma  Empty
+neighbor 1 Plasma  Tube       1 Plasma  Empty
+neighbor 1 Plasma  Converter       1 Plasma  Empty
+neighbor 1 Plasma  LeaveColector       1 Plasma  Empty
+neighbor 1 Plasma  Case       1 Plasma  Empty
+neighbor 1 Plasma  TreeTop     1 Plasma  Empty
+neighbor 1 Plasma  BurntBlack       1 Plasma  Empty
+neighbor 1 Plasma  Shingles       1 Plasma  Empty
+neighbor 1 Plasma  Brick       1 Plasma  Empty
+neighbor 1 Plasma  Siding       1 Plasma  Empty
+neighbor 1 Plasma  BlackTop       1 Plasma  Empty
+neighbor 1 Plasma  Carpet       1 Plasma  Empty
+neighbor 1 Plasma  Glass       1 Plasma  Empty
+neighbor 1 Plasma  Lamp       1 Plasma  Empty
+neighbor 1 Plasma  DryWall       1 Plasma  Empty
+neighbor 1 Plasma  Fabric       1 Plasma  Empty
+neighbor 1 Plasma  Person       1 Plasma  Empty
+neighbor 1 Plasma  Spout       1 Plasma  Empty
+neighbor 1 Plasma  Drain       1 Plasma  Empty
+neighbor 1 Plasma  Turbine       1 Plasma  Empty
+neighbor 1 Plasma  Toxofilter       1 Plasma  Empty
+neighbor 1 Plasma  Stove       1 Plasma  Empty
+neighbor 1 Plasma  OnStove       1 Plasma  Empty
+neighbor 1 Plasma  Porcalin       1 Plasma  Empty
+neighbor 1 Plasma  MoonRock     1   Plasma Empty
+#Cool
+element PlasmaBomb 0 255 0  1  1   1   1     1
+pexplosion PlasmaBomb   Steel          300 Plasma 
+pexplosion PlasmaBomb   Ground         300 Plasma 
+pexplosion PlasmaBomb   Concrete       300 Plasma 
+pexplosion PlasmaBomb   SolarPanels    300 Plasma 
+pexplosion PlasmaBomb   Wood           300 Plasma 
+pexplosion PlasmaBomb   Plants         300 Plasma 
+pexplosion PlasmaBomb   Wire           300 Plasma 
+pexplosion PlasmaBomb   FuelTank       300 Plasma 
+pexplosion PlasmaBomb   BioFilter      300 Plasma 
+pexplosion PlasmaBomb   Tube           300 Plasma 
+pexplosion PlasmaBomb   Converter      300 Plasma 
+pexplosion PlasmaBomb   LeaveColector  300 Plasma 
+pexplosion PlasmaBomb   Case           300 Plasma 
+pexplosion PlasmaBomb   TreeTop        300 Plasma 
+pexplosion PlasmaBomb   BurntBlack     300 Plasma 
+pexplosion PlasmaBomb   Shingles       300 Plasma 
+pexplosion PlasmaBomb   Brick          300 Plasma 
+pexplosion PlasmaBomb   Siding         300 Plasma 
+pexplosion PlasmaBomb   BlackTop       300 Plasma 
+pexplosion PlasmaBomb   Carpet         300 Plasma 
+pexplosion PlasmaBomb   Glass          300 Plasma 
+pexplosion PlasmaBomb   Lamp           300 Plasma 
+pexplosion PlasmaBomb   DryWall        300 Plasma 
+pexplosion PlasmaBomb   Fabric         300 Plasma 
+pexplosion PlasmaBomb   Person         300 Plasma
+pexplosion PlasmaBomb   Spout          300 Plasma 
+pexplosion PlasmaBomb   Drain          300 Plasma 
+pexplosion PlasmaBomb   Turbine        300 Plasma 
+pexplosion PlasmaBomb   Toxofilter     300 Plasma 
+pexplosion PlasmaBomb   Stove          300 Plasma 
+pexplosion PlasmaBomb   OnStove        300 Plasma 
+pexplosion PlasmaBomb   MoonRock       300 Plasma
+#The Waste Department
+element SepticJet  100 100 0   0.000001  1    0    1    1
+neighbor 0.2 SepticJet  Empty 0.5 SepticJet  Pee 0.5 SepticJet Poop
+element Poop  94 64  65    1    0    1     0      0 
+element Pee 255 255 10   1     0    0.5    0      0
+#Rainy
+element RainCloud  200 200 200  0.000001   1      1     1      1
+neighbor 0.001 RainCloud Empty 1 RainCloud Water
+self 0.001  RainCloud 1 Lightn
+element Lightn 200 200  200     0    0   0   2    0     
+neighbor 0.001 Lightn Empty  1  Lightn  Water 
+self 0.001  Lightn  0.1 LightningBolt  0.9 RainCloud 
+element LightningBolt 255 255 0    0   0   2    1      0
+neighbor 1  LightningBolt Empty 1 LightningBolt  Lightning
+self 0.001 LightningBolt 1  RainCloud
+element Lightning 255 255   0    9 0   1 0    0
+self 0.1  Lightning 1 Empty 
+element RWater  58      82      247       0.700000          1.000000        1.000000         0.100000       0
+self 0.01 RWater 1  Empty
+element	HellWaves	1	200	200	0.000000	1.000000	1.000000	0.000000	0
+self    0.2             HellWaves       1.0000  LeftoverF
+neighbor 1.0	HellWaves	Empty	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Steel	        1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	Ground	        1.0	HellWaves	Chan
+neighbor 1.0	HellWaves	Concrete	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	SolarPanels	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Wood	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Plants	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Wire 	        1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	FuelTank	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	BioFilter	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Tube 	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Converter	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Case	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	LeaveColector	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	TreeTop 	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Recharger 	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Shingles 	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Brick 	        1.0	HellWaves      Changing
+neighbor 1.0	HellWaves	Siding 	        1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	BlackTop 	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Carpet  	1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	Glass 	        1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	Fabric 	        1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	DryWall 	1.0	HellWaves	HellWaves
+neighbor 1.0	HellWaves	Lamp    	1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	Person    	1.0	HellWaves	Mutant
+neighbor 1.0	HellWaves	Metal    	1.0	HellWaves	Changing
+neighbor 1.0	HellWaves	Plastic    	1.0	HellWaves	Changing
+neighbor 1.0    HellWaves   BrokenWire  1.0 HellWaves   Changing
+element	LeftoverF	255	0	2	0.000000	0.000000	1.000000	0.000000	0
+self	0.00500	LeftoverF	1	Empty
+#USE WITH CAUTION Constructed By Aliens To End The Human Race And Turn It Into A Moon Like Planet
+element HellBomb  255 255 255   1    0     1     1     1
+pexplosion HellBomb   Steel          300 HellWaves 
+pexplosion HellBomb   Ground         300 HellWaves 
+pexplosion HellBomb   Concrete       300 HellWaves 
+pexplosion HellBomb   SolarPanels    300 HellWaves 
+pexplosion HellBomb   Wood           300 HellWaves 
+pexplosion HellBomb   Plants         300 HellWaves 
+pexplosion HellBomb   Wire           300 HellWaves 
+pexplosion HellBomb   FuelTank       300 HellWaves 
+pexplosion HellBomb   BioFilter      300 HellWaves 
+pexplosion HellBomb   Tube           300 HellWaves 
+pexplosion HellBomb   Converter      300 HellWaves 
+pexplosion HellBomb   LeaveColector  300 HellWaves 
+pexplosion HellBomb   Case           300 HellWaves 
+pexplosion HellBomb   TreeTop        300 HellWaves 
+pexplosion HellBomb   BurntBlack     300 HellWaves 
+pexplosion HellBomb   Shingles       300 HellWaves 
+pexplosion HellBomb   Brick          300 HellWaves 
+pexplosion HellBomb   Siding         300 HellWaves 
+pexplosion HellBomb   BlackTop       300 HellWaves 
+pexplosion HellBomb   Carpet         300 HellWaves 
+pexplosion HellBomb   Glass          300 HellWaves 
+pexplosion HellBomb   Lamp           300 HellWaves 
+pexplosion HellBomb   DryWall        300 HellWaves 
+pexplosion HellBomb   Fabric         300 HellWaves 
+pexplosion HellBomb   Person         300 HellWaves
+pexplosion HellBomb   Spout          300 HellWaves 
+pexplosion HellBomb   Drain          300 HellWaves 
+pexplosion HellBomb   Turbine        300 HellWaves 
+pexplosion HellBomb   Toxofilter     300 HellWaves 
+pexplosion HellBomb   Stove          300 HellWaves 
+pexplosion HellBomb   OnStove        300 HellWaves 
+pexplosion HellBomb   MoonRock       300 HellWaves
+element Chan  255 255 255 0  0   10   0     0
+neighbor 1 Chan Ground 1 Chan Chan
+self 0.2 Chan 1 MoonRock
+element Changing 255 255 255 0   0    10   0      0
+neighbor 1 Changing Steel 1  Changing Changing
+neighbor 1 Changing Wire 1  Changing Changing
+neighbor 1 Changing Brick 1  Changing Changing
+neighbor 1 Changing Siding 1  Changing Changing
+neighbor 1 Changing BlackTop 1  Changing Changing
+neighbor 1 Changing Carpet 1  Changing Changing
+neighbor 1 Changing Glass 1 Changing Changing
+neighbor 1 Changing Fabric 1  Changing Changing
+neighbor 1 Changing DryWall 1  Changing Changing
+neighbor 1 Changing Lamp 1  Changing Changing
+neighbor 1 Changing Metal 1  Changing Changing
+neighbor 1 Changing Plastic 1  Changing Changing
+neighbor 1 Changing BrokenWire 1  Changing Changing
+self 0.2 Changing 1 SuperMetal
+element HellCompleter 255 255 255  1   1    1    1    1
+pexplosion HellCompleter Lava   20  Done 
+pexplosion HellCompleter MoonRocky 20 Done
+pexplosion HellCompleter SuperMetal 20 Done
+pexplosion HellCompleter MoonRoker 20 Done
+element	Done	200	200	200	0.000000	1.000000	1.000000	0.000000	0
+self    0.2             Done      1.0000  LeftoverDone
+neighbor 1.0	Done	Empty	        1.0	Done	Done
+neighbor 1.0    Done    Lava       1     Done Done
+neighbor 1.0    Done    NuclearWaste 1   Done Done
+neighbor 1.0    Done    Mutant      1     Done Done
+neighbor 1.0    Done     M2      1     Done Done
+neighbor 1.0    Done    SuperMetal            1     Done Done
+neighbor 1.0    Done    Steel            1     Done Done
+neighbor 1.0    Done     Wood           1     Done Done
+neighbor 1.0    Done     Fabric           1     Done Done
+neighbor 1.0    Done     Stove           1     Done Done
+neighbor 1.0    Done     OnStove           1     Done Done
+neighbor 1.0    Done     Person           1     Done Done
+neighbor 1.0    Done     Wire           1     Done Done
+neighbor 1.0    Done     Lamp           1     Done Done
+neighbor 1.0    Done     Porcalin      1    Done Done
+neighbor 1.0    Done     Drain         1    Done Done
+neighbor 1.0    Done     Spout         1    Done Done
+element	LeftoverDone	200	200	200	0.000000	0.000000	1.000000	0.000000	0
+self	0.002	LeftoverDone	0.9	Empty  0.1   Extingish
+neighbor 1 LeftoverDone SuperMetal 1 LeftoverDone LeftoverDone
+

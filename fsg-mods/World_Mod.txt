@@ -1,0 +1,1046 @@
+#Version 4, File subversion 2
+
+#Credit for kayuio
+
+group Terraforming Vacuum Land Canyon Water Moon Basin Highlands Lowlands Plains Lava Mountains Abyss SnowPack FrozenSea
+group Celestial_Bodies Star StarExcellerator Nova Asteroid
+group Generators PlanetBuilder TerragenEarth TerragenMoon TerragenMars TerragenJovian TerragenDark TerragenIce
+group Technologies OrbitalMine SpaceStation ShieldGenerator Corrupter EMP Seed Nuke Hive MissleBattery
+group Humans Human Soldier City Boat Rover SpaceShuttle SpaceCenter
+group Jovians Jovian Hunter Fortress FreightShip PlanetaryDestroyer SpaceLauncher
+group Ruukan Ruukan Ruukan-Akt Nest Akt Raam SpacePort
+group Acrid Acrid Acrid-Ai  Monument Anrik Azcor SpaceElevator
+group Shadowlings Shadowling ShadowInitiate Cave WarShip OrbitalDock
+group Non-Sentients Araknius ArakniusHive
+
+#The vast empty reaches of space...
+element Vacuum 0 0 0 0 0 0 0 1
+#Surface of earth.
+element Land 0 180 0 0 0 1 0 1
+#The Ruukan's domain.
+element Basin 40 40 40 0 0 1 0 1
+#Can only be traversed by boats.
+element Water 0 0 255 0 0 1 0 1
+#The ground of a planets satelite.
+element Moon 128 128 128 0 0 1 0 1
+#Carbon based bipedal lifeform. A relatively young race. They build massive cities, and they revolutionized ballistic weapon technologies.
+element Human 200 200 180 0 0 1 0 1
+#Produces humans and Soldiers.
+element City 255 255 0 0 0 1 0 1
+#Produces Shuttles.
+#Human vehicle that can travel through vacuum. Also colonizes planets and moons.
+element SpaceShuttle 255 255 255 0 1 1 0 1
+#Travels over water. Colonizes landmasses.
+element Boat 255 200 200 0 0 1 0 1 
+#Silicon based insectoid lifeform. They carve out hives in the side of cliffs and canyons, and have mastered biological weaponry.
+element Ruukan 100 80 0 0 0 1 0 1
+#Produces Ruukans and Ruukan-Akt.
+element Nest 200 255 255 0 0 1 0 1
+#Produces Shadowlings.
+element Cave 250 0 250 0 0 0 0 1
+#Ruukan Space vehicle.
+element Raam 255 0 255 0 1 1 0 1
+#Deep chasms on Earthlike planets.
+element Canyon 0 140 0 0 0 0 0 1
+#Can traverse basins and lowlands.
+element Rover 129 128 128 0 0 0 0 1
+#The tall plateaus and plains of a martian world.
+element Highlands 220 120 70 0 0 0 0 1
+#The once oceans and canals of the martian landscape.
+element Lowlands 180 80 30 0 0 0 0 1
+#Carbon based bipedal lifeform. A relatively old race, they have mastered the art of monument building and they populate the galaxy with the artistic monuments and memorials.
+element Acrid 0 255 0 0 0 0 0 1
+#Produces Acrid and Acrid-Ai.
+element Monument 160 0 255 0 0 0 0 1
+#Allows Ruukans to travel over normal terrain.
+element Akt 210 200 200 0 0 0 0 1
+#Allows Acrid to travel through lower terrain.
+element Anrik 127 128 128 0 0 0 0 1
+#The Hellish surface of a molten world.
+element Plains 40 20 20 0 0 0 0 1
+#Impassable, uncrossable, intraversable, must I say more?
+element Lava 255 0 0 0 0 0 0 1
+element L 255 255 0 0 0 0 0 0
+element L2 255 160 0 0 0 0 0 0
+#Carbon based semi-quadrapedal lifeform. A race hidden amongst mystery. They live in a world equivalent to hell, and have revolutionized nuclear weaponry. 
+element Jovian 0 0 255 0 0 0 0 1
+#Acrid spaceship.
+element Azcor 254 0 0 0 0 0 0 1
+#Produces Jovians and Hunters.
+element Fortress 200 200 200 0 0 0 0 1
+#Produces Spaceships.
+element SpacePort 200 254 255 0 0 0 0 1
+element SpaceCenter 255 254 255 0 0 0 0 1
+element SpaceElevator 254 200 255 0 0 0 0 1
+element SpaceLauncher 255 255 254 0 0 0 0 1
+element W 200 199 255 0 0 0 0 0
+#Jovian Transport ship.
+element FreightShip 255 254 0 0 0 0 0 1
+#Human Supersoldier.
+element Soldier 200 200 90 0 0 0 0 1
+#Breed for combat in wide open areas.
+element Ruukan-Akt 100 90 0 0 0 0 1
+#Soldiers enhanced with biomechanical extremities.
+element Acrid-Ai 0 200 0 0 0 0 0 1
+#Renown for their skill and resourcefulness.
+element Hunter 0 0 200 0 0 0 0 1
+element S 200 200 90 0 0 0 0 0
+element R 100 90 0 0 0 0 0
+element A 0 200 0 0 0 0 0 0
+element H 0 0 200 0 0 0 0 0
+element Body 100 20 20 0 0 0 0 0
+element Shield 235 165 33 0 0 0 0 0
+element SuperWeapon 255 0 128 0 0 0 0 0
+element Boom 255 0 0 0 0 0 0 0
+element Wire 128 128 0 0 0 0 0
+element Launcher 255 0 127 0 0 0 0 0
+element power 128 0 255 0 0 0 0 0
+element Missile 20 20 20 1 0 0 0 0
+element Explosion 100 200 0 0 0 0 0 0
+element E 150 250 0 0 0 0 0 0
+element Wireon 0 128 150 0 0 0 0 0
+element Launcheron 244 0 244 0 0 0 0 0
+#The large mountain chains and mesas of a shadow world.
+element Mountains 50 0 100 0 0 0 0 1
+#Bottemless pits in a shadow world's surface.
+element Abyss 25 0 50 0 0 0 0 1
+#Carbon Based semi quadrapedal lifeform. Bretherend of the Jovians, they're relatively peaceful, compared to their siblings, but they are easily frightened and will raise an army if alarmed.
+element Shadowling 200 0 255 0 0 0 0 1
+#Stealthy and clever, they are trained in the art of assasination.
+element ShadowInitiate 200 0 200 0 0 0 0 1
+element SH 200 0 200 0 0 0 0 0
+#Produces Warships.
+element OrbitalDock 255 200 255 0 0 0 0 1
+#Shadowling space Vehicle.
+element WarShip 0 255 0 0 0 0 0 1 
+element Water1 0 0 0 0 0 0 0 0 
+element Land1 0 0 0 0 0 0 0 0
+element Canyon1 0 0 0 0 0 0 0 0
+#Generates an Earth-like planet
+element TerragenEarth 0 0 0 0 0 0 0 1
+element Basin1 0 0 0 0 0 0 0 0 
+element Moon1 0 0 0 0 0 0 0 0
+#Generates a Moon-like planet.
+element TerragenMoon 0 0 0 0 0 0 0 1
+element Lowlands1 0 0 0 0 0 0 0 0 
+element Highlands1 0 0 0 0 0 0 0 0
+#Generates a Martian planet.
+element TerragenMars 0 0 0 0 0 0 0 1
+element Lava1 0 0 0 0 0 0 0 0 
+element Plains1 0 0 0 0 0 0 0 0
+#Generates a Lava planet.
+element TerragenJovian 0 0 0 0 0 0 0 1
+element Abyss1 0 0 0 0 0 0 0 0 
+element Mountains1 0 0 0 0 0 0 0 0
+#Generates a Shadow planet.
+element TerragenDark 0 0 0 0 0 0 0 1
+#Large chunks of space rock. Form Planets.
+element Asteroid 120 120 120 0 0 0 0 1
+#Ball of Hydrogen. Will eventually go nova and destroy all life and planets. Crank the Sandbox temp up to 100 to start aging process.
+element Star 255 253 0 0 0 0 0.99999 1
+element Flare 255 0 0 0 0 0 0 0
+#Instant System creation!
+element Nova 255 255 0 0 0 0 0 1
+element ex 255 0 0 0 0 0 0 0
+#Spray on star, speeds up aging process.
+element StarExcellerator 255 255 255 0.5 0 0 1.1 1
+element Nebula 255 0 0 99999 1 0 0 0
+element PBoom 255 0 0 0 0 0 0 0
+element SBoom 255 0 0 0 0 0 0 0 
+element SBoom2 255 0 0 0 0 0 0 0
+element SBoom3 255 0 0 0 0 0 0 0
+#Forms a size 60 Earth.
+element EBoom 255 0 0 0 0 0 0 0
+#Forms a size 50 Lava world.
+element JBoom 255 0 0 0 0 0 0 0
+#Forms a size 50 Mars
+element MBoom 255 0 0 0 0 0 0 0
+#Forms a size 45 Moon
+element MOBoom 255 0 0 0 0 0 0 0
+#Forms a size 60 Dark world
+element SHBoom 255 0 0 0 0 0 0 0
+#Forms a size 50 Ice World
+element IBoom 255 0 0 0 0 0 0 0
+element ClumpedAsteroid 128 128 128 0 0 0 0 0
+#Starts life according to terrain type.
+element Seed 0 255 160 0 0 0 0 1 
+element Fire 0 0 0 0 0 0 0 0
+element SolarStorm 255 0 0 0 0 0 0 0
+element SS 255 0 0 0 0 0 0 0
+element Star2 255 0 0 0 0 0 0.99999 0
+#The cold surface of a frozen world.
+element SnowPack 230 230 255 0 0 0 0 1
+#The chilly Semi frozen waters of an ice world
+element FrozenSea 0 0 255 0 0 0 0 1
+#Generates an Ice world
+element TerragenIce 0 0 0 0 0 0 0 1
+element SnowPack1 0 0 0 0 0 0 0 0
+element FrozenSea1 0 0 0 0 0 0 0 0 
+#Giant Insects that build elaborate hives made of ices.
+element Araknius 255 0 0 0 0 0 0 1
+#The Araknius' homes.
+element ArakniusHive 100 200 255 0 0 0 0 1
+#A Jovian born weapon, these mines travel through space and destroy any ships (that aren't Jovian) they come in contact with.
+element OrbitalMine 150 128 128 0 0 0 0 1
+element Shipboom 255 0 0 0 0 0 0 0
+element StationPod 255 0 0 0 0 0 0 0
+#A human colony in space that produces more shuttles.
+element SpaceStation 200 200 255 0 0 0 0 1
+#Generates a shield around a planet that can't be penetrated. Place on edge of planet.
+element ShieldGenerator 128 128 128 0 0 0 0 1
+element ShieldGeneratoron 128 128 128 0 0 0 0 0
+element StasisShield 0 255 255 0 0 0 0 0
+element SS1 0 255 255 0 0 0 0 0
+element SS2 0 0 255 0 0 0 0 0
+#Terraforms planet into a shadow world.
+element Corrupter 160 0 255 0 0 0 0 1
+element ShieldBoom 255 0 0 0 0 0 0 0
+#Electro-Magnetic Pulse. Destroys space craft, Technologies, and ship producers.
+element EMP 0 255 255 0 0 0 0 1
+element EMP2 0 0 0 0 0 0 0 0
+#Large, slow, Jovian ships that rlease Nukes.
+element PlanetaryDestroyer 255 160 160 0 0 0 0 1
+#Large explosive used for destroying worlds, releases EMP.
+element Nuke 255 160 0 0 0 0 0 1
+element SSD 255 0 0 0 0 0 0 0
+#Ruukan super structure Often used for planet seige. They provide extra room for Ruukan inhabitation and are garrisoned with missle batteries
+element Hive 100 100 120 0 0 0 0 1
+element HiveWall 100 150 150 0 0 0 0 0
+element Builder 0 255 255 0 0 0 0 0
+element HIVE 255 0 0 0 0 0 0 0 
+element HiveShield 0 255 0 0 0 0 0 0
+element HiveBoom 255 0 0 0 0 0 0 0 
+#Ruukan ballistics launcher.
+element MissleBattery 128 128 128 0 0 0 0 1
+element Rocket 255 255 0 0 0 0 0 0 
+element RocketTail 0 255 0 0 0 0 0 0
+#Generates a random size 50 planet.
+element PlanetBuilder 0 0 0 0 0 0 0 1
+
+neighbor 1 SpaceShuttle MissleBattery 1 Vacuum Vacuum
+neighbor 1 Azcor MissleBattery 1 Vacuum Vacuum
+neighbor 1 FreightShip MissleBattery 1 Vacuum Vacuum
+neighbor 1 WarShip MissleBattery 1 Vacuum Vacuum
+neighbor 0.0005 MissleBattery Vacuum 1 MissleBattery Rocket
+neighbor 1 Rocket Vacuum 1 RocketTail Rocket
+neighbor 1 EMP HiveShield 1 EMP EMP
+neighbor 1 Akt HiveShield 1 Akt SpacePort
+neighbor 1 Raam HiveShield 1 HiveShield Raam
+neighbor 1 HiveBoom Nest 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom Ruukan 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom R 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom Akt 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom Ruukan-Akt 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom SpacePort 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom Hive 1 HiveBoom HiveBoom
+neighbor 1 HiveBoom HiveWall 1 HiveBoom HiveBoom
+neighbor 1 FreightShip HiveWall 1 FreightShip HiveBoom
+neighbor 1 Azcor HiveWall 1 Azcor HiveBoom
+neighbor 1 WarShip HiveWall 1 WarShip HiveBoom
+neighbor 1 SpaceShuttle HiveWall 1 SpaceShuttle HiveBoom
+neighbor 1 FreightShip HiveShield 1 FreightShip Vacuum
+neighbor 1 Azcor HiveShield 1 Azcor Vacuum
+neighbor 1 WarShip HiveShield 1 WarShip Vacuum
+neighbor 1 SpaceShuttle HiveShield 1 SpaceShuttle Vacuum
+neighbor 0.05 HiveWall Vacuum 0.7 HiveWall HiveShield 0.3 HiveWall MissleBattery
+neighbor 1 EMP PlanetaryDestroyer 1 EMP EMP
+neighbor 1 Raam HiveWall 1 Vacuum Akt
+neighbor 1 Builder Vacuum 1 Vacuum Builder
+neighbor 1 Akt Hive 1 HiveWall Ruukan
+neighbor 1 Akt HiveWall 1 HiveWall Akt
+neighbor 0.05 Ruukan HiveWall 1 Hive Akt
+neighbor 1 Ruukan-Akt Hive 1 HiveWall R
+neighbor 1 Ruukan-Akt HiveWall 1 HiveWall Ruukan-Akt
+neighbor 1 R Hive 1 Hive R
+neighbor 0.5 R HiveWall 1 Hive Ruukan-Akt
+neighbor 0.0005 Nest Hive 0.5 Nest Ruukan 0.5 Nest R 
+neighbor 1 Hive Ruukan 1 Ruukan Hive
+neighbor 1 Hive Vacuum 0.3 Hive Hive 0.7 Hive HiveWall
+neighbor 1 SSD SpaceCenter 1 SSD SSD
+neighbor 1 SSD SpaceStation 1 SSD SSD
+neighbor 1 Nuke Vacuum 1 Vacuum Nuke
+neighbor 1 Nuke Land 1 EMP Fire
+neighbor 1 Nuke Canyon 1 EMP Fire
+neighbor 1 Nuke Water 1 EMP Fire
+neighbor 1 Nuke Mountains 1 EMP Fire
+neighbor 1 Nuke Abyss 1 EMP Fire
+neighbor 1 Nuke Highlands 1 EMP Fire
+neighbor 1 Nuke Lowlands 1 EMP Fire
+neighbor 1 Nuke Moon 1 EMP Fire
+neighbor 1 Nuke Basin 1 EMP Fire
+neighbor 1 Nuke SnowPack 1 EMP Fire
+neighbor 1 Nuke FrozenSea 1 EMP Fire
+neighbor 0.05 PlanetaryDestroyer Vacuum 0.99 Vacuum PlanetaryDestroyer 0.01 Nuke PlanetaryDestroyer
+neighbor 1 Shipboom SpaceCenter 1 Shipboom  Shipboom
+neighbor 1 Shipboom SpaceStation 1 Shipboom  Shipboom
+neighbor 1 EMP Asteroid 1 EMP EMP
+neighbor 1 EMP Seed 1 EMP EMP
+neighbor 0.2 EMP EMP2 1 EMP2 EMP2
+neighbor 1 EMP ShieldGenerator 1 EMP EMP
+neighbor 1 EMP ShieldGeneratoron 1 EMP EMP
+neighbor 1 EMP MissleBattery 1 EMP EMP
+neighbor 1 EMP Rocket 1 EMP EMP
+neighbor 1 EMP Vacuum 1 EMP EMP
+neighbor 1 EMP StationPod 1 EMP EMP
+neighbor 1 EMP Flare 1 EMP EMP
+neighbor 1 EMP Raam 1 EMP EMP
+neighbor 1 EMP SpaceStation 1 EMP EMP
+neighbor 1 EMP SpaceShuttle 1 EMP EMP
+neighbor 1 EMP Azcor 1 EMP EMP
+neighbor 1 EMP FreightShip 1 EMP EMP
+neighbor 1 EMP WarShip 1 EMP EMP
+neighbor 1 EMP Corrupter 1 EMP EMP
+neighbor 1 EMP StasisShield 1 EMP EMP
+neighbor 1 EMP OrbitalMine 1 EMP EMP
+neighbor 1 EMP SpaceCenter 1 EMP EMP
+neighbor 1 EMP OrbitalDock 1 EMP EMP
+neighbor 1 EMP SpaceElevator 1 EMP EMP
+neighbor 1 EMP SpacePort 1 EMP EMP
+neighbor 1 EMP SpaceLauncher 1 EMP EMP
+neighbor 1 EMP Nuke 1 EMP EMP
+neighbor 1 Corrupter Land 1 Vacuum Mountains
+neighbor 1 Corrupter Water 1 Vacuum Abyss
+neighbor 1 Corrupter Canyon 1 Vacuum Mountains
+neighbor 1 Corrupter Moon 1 Vacuum Mountains
+neighbor 1 Corrupter Basin 1 Vacuum Abyss
+neighbor 1 Corrupter Highlands 1 Vacuum Mountains
+neighbor 1 Corrupter Lowlands 1 Vacuum Abyss
+neighbor 1 Corrupter Lava 1 Vacuum Abyss
+neighbor 1 Corrupter Plains 1 Vacuum Mountains
+neighbor 1 Corrupter FrozenSea 1 Vacuum Abyss
+neighbor 1 Corrupter SnowPack 1 Vacuum Mountains
+neighbor 1 Raam ShieldGeneratoron 1 Raam ShieldBoom
+neighbor 1 WarShip ShieldGeneratoron 1 WarShip ShieldBoom
+neighbor 1 SpaceShuttle ShieldGeneratoron 1 SpaceShuttle ShieldBoom
+neighbor 1 FreightShip ShieldGeneratoron 1 FreightShip ShieldBoom
+neighbor 1 ShieldBoom StasisShield 1 ShieldBoom ShieldBoom
+neighbor 1 Corrupter Vacuum 1 Vacuum Corrupter
+neighbor 0.05 Mountains Land 1 Mountains Mountains
+neighbor 0.05 Mountains Canyon 1 Mountains Mountains
+neighbor 0.05 Mountains Moon 1 Mountains Mountains
+neighbor 0.05 Mountains Highlands 1 Mountains Mountains
+neighbor 0.05 Mountains Plains 1 Mountains Mountains
+neighbor 0.05 Mountains SnowPack 1 Mountains Mountains
+neighbor 0.05 Abyss Water 1 Abyss Abyss
+neighbor 0.05 Abyss FrozenSea 1 Abyss Abyss
+neighbor 0.05 Abyss Basin 1 Abyss Abyss
+neighbor 0.05 Abyss Lowlands 1 Abyss Abyss
+neighbor 0.05 Abyss Lava 1 Abyss Abyss
+neighbor 0.05 Abyss L 1 Abyss Abyss
+neighbor 0.05 Abyss L2 1 Abyss Abyss
+neighbor 1 Mountains Lava 1 Abyss Abyss
+neighbor 1 Mountains Basin 1 Abyss Abyss
+neighbor 1 Mountains Lowlands 1 Abyss Abyss
+neighbor 1 Mountains Water 1 Abyss Abyss
+neighbor 1 Mountains FrozenSea 1 Abyss Abyss
+neighbor 1 Abyss Land 1 Mountains Mountains
+neighbor 1 Abyss Canyon 1 Mountains Mountains
+neighbor 1 Abyss Moon 1 Mountains Mountains
+neighbor 1 Abyss SnowPack 1 Mountains Mountains
+neighbor 1 Abyss Highlands 1 Mountains Mountains
+neighbor 1 Abyss Plains 1 Mountains Mountains
+neighbor 1 Fire TerragenEarth 1 Fire Fire
+neighbor 1 Fire TerragenMars 1 Fire Fire
+neighbor 1 Fire TerragenMoon 1 Fire Fire
+neighbor 1 Fire TerragenDark 1 Fire Fire
+neighbor 1 Fire TerragenJovian 1 Fire Fire
+neighbor 1 Fire Land1 1 Fire Fire
+neighbor 1 Fire Canyon1 1 Fire Fire
+neighbor 1 Fire Water1 1 Fire Fire
+neighbor 1 Fire Highlands1 1 Fire Fire
+neighbor 1 Fire Lowlands1 1 Fire Fire
+neighbor 1 Fire Moon1 1 Fire Fire
+neighbor 1 Fire Basin1 1 Fire Fire
+neighbor 1 Fire Mountains1 1 Fire Fire
+neighbor 1 Fire Abyss1 1 Fire Fire
+neighbor 1 Fire Lava1 1 Fire Fire
+neighbor 1 Fire Plains1 1 Fire Fire
+neighbor 1 Fire FrozenSea1 1 Fire Fire
+neighbor 1 Fire SnowPack1 1 Fire Fire
+neighbor 1 ShieldGenerator StasisShield 1 ShieldGeneratoron StasisShield
+neighbor 1 SS1 Vacuum 1 SS1 StasisShield
+neighbor 1 ShieldGenerator Highlands 1 ShieldGeneratoron SS1
+neighbor 1 SS1 Highlands 1 SS1 SS1
+neighbor 1 SS2 SS1 1 SS2 SS2
+neighbor 0.005 Highlands SS2 1 Highlands Highlands
+neighbor 1 Flare SpaceCenter 1 Flare Flare
+neighbor 1 Flare SpacePort 1 Flare Flare
+neighbor 1 Flare SpaceElevator 1 Flare Flare
+neighbor 1 Flare SpaceLauncher 1 Flare Flare
+neighbor 1 Flare OrbitalDock 1 Flare Flare
+neighbor 1 Flare SpaceStation 1 Flare Flare
+neighbor 1 Raam SpaceStation 1 Raam Vacuum
+neighbor 1 WarShip SpaceStation 1 WarShip Vacuum
+neighbor 1 FreightShip SpaceStation 1 FreightShip Vacuum
+neighbor 1 Azcor SpaceStation 1 Azcor Vacuum
+neighbor 1 SpaceStation Vacuum 1 SpaceStation SpaceCenter 
+neighbor 1 StationPod Vacuum 0.99 Vacuum StationPod 0.01 Vacuum SpaceStation 
+neighbor 0.05 OrbitalMine Vacuum 1 Vacuum OrbitalMine
+neighbor 1 Seed Canyon 1 Vacuum Ruukan
+neighbor 1 Seed Lowlands 1 Vacuum Ruukan
+neighbor 1 Soldier ArakniusHive 1 Soldier SnowPack
+neighbor 1 Acrid-Ai ArakniusHive 1 Acrid-Ai SnowPack
+neighbor 1 Hunter ArakniusHive 1 Hunter SnowPack
+neighbor 1 ShadowInitiate ArakniusHive 1 ShadowInitiate SnowPack
+neighbor 1 Araknius Human 1 Araknius SnowPack
+neighbor 1 Araknius Shadowling 1 Araknius SnowPack
+neighbor 1 Araknius Jovian 1 Araknius SnowPack
+neighbor 1 Araknius Acrid 1 Araknius SnowPack
+neighbor 1 Araknius Soldier 0.5 Araknius SnowPack 0.5 SnowPack Soldier
+neighbor 1 Araknius Hunter 0.5 Araknius SnowPack 0.5 SnowPack Hunter
+neighbor 1 Araknius ShadowInitiate 0.5 Araknius SnowPack 0.5 SnowPack ShadowInitiate
+neighbor 1 Araknius Acrid-Ai 0.5 Araknius SnowPack 0.5 SnowPack Acrid-Ai
+neighbor 1 Human SnowPack 0.999 SnowPack Human 0.001 SnowPack SnowPack
+neighbor 1 Acrid SnowPack 0.999 SnowPack Acrid 0.001 SnowPack SnowPack
+neighbor 1 Shadowling SnowPack 0.999 SnowPack Shadowling 0.001 SnowPack SnowPack
+neighbor 1 Jovian SnowPack 0.999 SnowPack Jovian 0.001 SnowPack SnowPack
+neighbor 0.0005 City SnowPack 0.5 City Human 0.5 City Soldier
+neighbor 0.0005 Monument SnowPack 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 0.0005 Fortress SnowPack 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 0.0005 Cave SnowPack 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 1 WarShip SnowPack 1 Vacuum Shadowling
+neighbor 1 Azcor SnowPack 1 Vacuum Acrid
+neighbor 1 FreightShip SnowPack 1 Vacuum Jovian
+neighbor 1 SpaceShuttle SnowPack 1 Vacuum Human
+neighbor 0.05 Human FrozenSea 1 SnowPack Boat 
+neighbor 1 Boat FrozenSea 1 FrozenSea Boat
+neighbor 1 Boat SnowPack 1 FrozenSea Human
+neighbor 1 Seed SnowPack 1 Vacuum Araknius
+neighbor 0.0005 ArakniusHive SnowPack 1 ArakniusHive Araknius
+neighbor 0.005 Araknius FrozenSea 1 Araknius SnowPack
+neighbor 1 Araknius SnowPack 1 SnowPack Araknius
+neighbor 0.05 FrozenSea1 TerragenIce 1 FrozenSea1 FrozenSea1
+neighbor 0.05 SnowPack1 TerragenIce 1 SnowPack1 SnowPack1
+neighbor 0.05 FrozenSea TerragenIce 1 FrozenSea FrozenSea
+neighbor 0.05 SnowPack TerragenIce 1 SnowPack SnowPack
+neighbor 1 StarExcellerator Star2 1 Vacuum Star2
+neighbor 1 StarExcellerator Star 1 Vacuum Star
+neighbor 1 Star2 Vacuum 0.99 Star2 Flare 0.01 Star2 SolarStorm
+neighbor 1 SolarStorm Land 1 Fire Fire
+neighbor 1 SolarStorm Water 1 Fire Fire
+neighbor 1 SolarStorm Lava 1 Fire Fire
+neighbor 1 SolarStorm L 1 Fire Fire
+neighbor 1 SolarStorm L2 1 Fire Fire
+
+neighbor 1 SolarStorm Canyon 1 Fire Fire
+neighbor 1 SolarStorm Moon 1 Fire Fire
+neighbor 1 SolarStorm Basin 1 Fire Fire
+neighbor 1 SolarStorm Highlands 1 Fire Fire
+neighbor 1 SolarStorm Lowlands 1 Fire Fire
+neighbor 1 SolarStorm Mountains 1 Fire Fire
+neighbor 1 SolarStorm Abyss 1 Fire Fire
+neighbor 1 SolarStorm Plains 1 Fire Fire
+neighbor 1 SolarStorm SnowPack 1 Fire Fire
+neighbor 1 SolarStorm FrozenSea 1 Fire Fire
+neighbor 1 SolarStorm Vacuum 1 SS SolarStorm
+neighbor 1 Fire SnowPack 1 Fire Fire
+neighbor 1 Fire FrozenSea 1 Fire Fire
+neighbor 1 Fire Body 1 Fire Fire
+neighbor 1 Fire R 1 Fire Fire
+neighbor 1 Fire S 1 Fire Fire
+neighbor 1 Fire H 1 Fire Fire
+neighbor 1 Fire A 1 Fire Fire
+neighbor 1 Fire SH 1 Fire Fire
+neighbor 1 Fire Monument 1 Fire Fire
+neighbor 1 Fire City 1 Fire Fire
+neighbor 1 Fire Fortress 1 Fire Fire
+neighbor 1 Fire Cave 1 Fire Fire
+neighbor 1 Fire Nest 1 Fire Fire
+neighbor 1 Fire Human 1 Fire Fire
+neighbor 1 Fire Acrid 1 Fire Fire
+neighbor 1 Fire Ruukan 1 Fire Fire
+neighbor 1 Fire Jovian 1 Fire Fire
+neighbor 1 Fire Shadowling 1 Fire Fire
+neighbor 1 Fire Soldier 1 Fire Fire
+neighbor 1 Fire Ruukan-Akt 1 Fire Fire
+neighbor 1 Fire ShadowInitiate 1 Fire Fire
+neighbor 1 Fire Hunter 1 Fire Fire
+neighbor 1 Fire Acrid-Ai 1 Fire Fire
+neighbor 1 Fire Akt 1 Fire Fire
+neighbor 1 Fire Anrik 1 Fire Fire
+neighbor 1 Fire Boat 1 Fire Fire
+neighbor 1 Fire W 1 Fire Fire
+neighbor 1 Fire Rover 1 Fire Fire
+neighbor 1 Fire SpaceCenter 1 Fire Fire
+neighbor 1 Fire SpacePort 1 Fire Fire
+neighbor 1 Fire SpaceLauncher 1 Fire Fire
+neighbor 1 Fire OrbitalDock 1 Fire Fire
+neighbor 1 Fire SpaceElevator 1 Fire Fire
+neighbor 1 Fire Land 1 Fire Fire
+neighbor 1 Fire Water 1 Fire Fire
+neighbor 1 Fire Lava 1 Fire Fire
+neighbor 1 Fire L 1 Fire Fire
+neighbor 1 Fire L2 1 Fire Fire
+
+neighbor 1 Fire Canyon 1 Fire Fire
+neighbor 1 Fire Moon 1 Fire Fire
+neighbor 1 Fire Basin 1 Fire Fire
+neighbor 1 Fire Highlands 1 Fire Fire
+neighbor 1 Fire Lowlands 1 Fire Fire
+neighbor 1 Fire Mountains 1 Fire Fire
+neighbor 1 Fire Abyss 1 Fire Fire
+neighbor 1 Fire Plains 1 Fire Fire
+neighbor 1 Fire SnowPack 1 Fire Fire
+neighbor 1 Fire FrozenSea 1 Fire Fire
+neighbor 1 Star2 Land 1 Star2 Fire
+neighbor 1 Star2 Water 1 Star2 Fire
+neighbor 1 Star2 Lava 1 Star2 Fire
+neighbor 1 Star2 L 1 Star2 Fire
+neighbor 1 Star2 L2 1 Star2 Fire
+
+neighbor 1 Star2 Canyon 1 Star2 Fire
+neighbor 1 Star2 Moon 1 Star2 Fire
+neighbor 1 Star2 Basin 1 Star2 Fire
+neighbor 1 Star2 Highlands 1 Star2 Fire
+neighbor 1 Star2 Lowlands 1 Star2 Fire
+neighbor 1 Star2 Mountains 1 Star2 Fire
+neighbor 1 Star2 Abyss 1 Star2 Fire
+neighbor 1 Star2 Plains 1 Star2 Fire
+neighbor 1 Star Land 1 Star Fire
+neighbor 1 Star Water 1 Star Fire
+neighbor 1 Star Lava 1 Star Fire
+neighbor 1 Star L 1 Star Fire
+neighbor 1 Star L2 1 Star Fire
+
+neighbor 1 Star Canyon 1 Star Fire
+neighbor 1 Star Moon 1 Star Fire
+neighbor 1 Star Basin 1 Star Fire
+neighbor 1 Star FrozenSea 1 Star Fire
+neighbor 1 Star SnowPack 1 Star Fire
+neighbor 1 Star Highlands 1 Star Fire
+neighbor 1 Star Lowlands 1 Star Fire
+neighbor 1 Star Mountains 1 Star Fire
+neighbor 1 Star Abyss 1 Star Fire
+neighbor 1 Star Plains 1 Star Fire
+neighbor 1 Seed Vacuum 1 Vacuum Seed
+neighbor 1 Seed Land 1 Vacuum Human
+neighbor 1 Seed Basin 1 Vacuum Ruukan
+neighbor 1 Seed Mountains 1 Vacuum Shadowling
+neighbor 1 Seed Highlands 1 Vacuum Acrid
+neighbor 1 Seed Plains 1 Vacuum Jovian
+neighbor 1 Asteroid ClumpedAsteroid 0.9 ClumpedAsteroid ClumpedAsteroid 0.07 PBoom ClumpedAsteroid 0.01 SBoom ClumpedAsteroid 0.01 SBoom2 ClumpedAsteroid  0.01 SBoom3 ClumpedAsteroid 
+neighbor 0.05 Asteroid Asteroid 1 ClumpedAsteroid ClumpedAsteroid
+neighbor 1 SpaceShuttle Mountains 1 Vacuum Human
+neighbor 1 Azcor Mountains 1 Vacuum Acrid
+neighbor 1 FreightShip Mountains 1 Vacuum Hunter
+neighbor 1 WarShip Mountains 1 Vacuum Shadowling
+neighbor 1 Star Vacuum 0.99 Star Flare 0.01 Star SolarStorm
+neighbor 1 Flare Vacuum 1 Vacuum Flare
+neighbor 0.09 Asteroid Vacuum 1 Vacuum Asteroid
+neighbor 0.05 Abyss1 TerragenDark 1 Abyss1 Abyss1
+neighbor 0.05 Mountains1 TerragenDark 1 Mountains1 Mountains1
+neighbor 0.05 Abyss TerragenDark 1 Abyss Abyss
+neighbor 0.05 Mountains TerragenDark 1 Mountains Mountains
+neighbor 0.05 Lava1 TerragenJovian 1 Lava1 Lava1
+neighbor 0.05 Plains1 TerragenJovian 1 Plains1 Plains1
+neighbor 0.05 Lava TerragenJovian 1 Lava Lava
+neighbor 0.05 Plains TerragenJovian 1 Plains Plains
+neighbor 0.05 Lowlands1 TerragenMars 1 Lowlands1 Lowlands1
+neighbor 0.05 Highlands1 TerragenMars 1 Highlands1 Highlands1
+neighbor 0.05 Lowlands TerragenMars 1 Lowlands Lowlands
+neighbor 0.05 Highlands TerragenMars 1 Highlands Highlands
+neighbor 0.05 Basin1 TerragenMoon 1 Basin1 Basin1
+neighbor 0.05 Moon1 TerragenMoon 1 Moon1 Moon1
+neighbor 0.05 Basin TerragenMoon 1 Basin Basin
+neighbor 0.05 Moon TerragenMoon 1 Moon Moon
+neighbor 0.05 Water1 TerragenEarth 1 Water1 Water1
+neighbor 0.05 Land1 TerragenEarth 1 Land1 Land1
+neighbor 0.05 Water TerragenEarth 1 Water Water
+neighbor 0.05 Land TerragenEarth 1 Land Land
+neighbor 0.05 Canyon1 TerragenEarth 1 Canyon1 Canyon1
+neighbor 0.05 Canyon TerragenEarth 1 Canyon Canyon
+neighbor 1 WarShip Nest 1 Vacuum SH
+neighbor 1 WarShip City 1 Vacuum ShadowInitiate
+neighbor 1 WarShip Fortress 1 Vacuum ShadowInitiate
+neighbor 1 WarShip Monument 1 Vacuum ShadowInitiate
+neighbor 1 SpaceShuttle Cave 1 Vacuum Soldier
+neighbor 1 Raam Cave 1 Vacuum Ruukan-Akt
+neighbor 1 Azcor Cave 1 Vacuum Acrid-Ai
+neighbor 1 FreightShip Cave 1 Vacuum Hunter
+neighbor 1 Cave City 0.5 Cave ShadowInitiate 0.5 Soldier City 
+neighbor 1 Cave Nest 0.5 Cave SH 0.5 Ruukan-Akt Nest 
+neighbor 1 Cave Fortress 0.5 Cave ShadowInitiate 0.5 Hunter Fortress
+neighbor 1 Cave Monument 0.5 Cave ShadowInitiate 0.5 Acrid-Ai Monument
+neighbor 1 ShadowInitiate City 1 ShadowInitiate Human
+neighbor 1 ShadowInitiate Fortress 1 ShadowInitiate Jovian
+neighbor 1 ShadowInitiate Monument 1 ShadowInitiate Acrid
+neighbor 1 ShadowInitiate Nest 1 ShadowInitiate Ruukan
+neighbor 1 Soldier Cave 1 Soldier Shadowling
+neighbor 1 Hunter Cave 1 Hunter Shadowling
+neighbor 1 Ruukan-Akt Cave 1 Ruukan-Akt Shadowling
+neighbor 1 Acrid-Ai Cave 1 Acrid-Ai Shadowling
+neighbor 1 SpaceShuttle OrbitalDock 1 SpaceShuttle Vacuum
+neighbor 1 Raam OrbitalDock 1 Raam Vacuum
+neighbor 1 FreightShip OrbitalDock 1 FreightShip Vacuum
+neighbor 1 Azcor OrbitalDock 1 Azcor Vacuum
+neighbor 1 WarShip SpaceCenter 1 WarShip Vacuum
+neighbor 1 WarShip SpaceElevator 1 WarShip Vacuum
+neighbor 1 WarShip SpacePort 1 WarShip Vacuum
+neighbor 1 WarShip SpaceLauncher 1 WarShip Vacuum
+neighbor 1 ShadowInitiate Hunter 0.5 ShadowInitiate Body 0.5 Body Hunter
+neighbor 1 ShadowInitiate Soldier 0.5 ShadowInitiate Body 0.5 Body Soldier
+neighbor 1 ShadowInitiate Acrid-Ai 0.5 ShadowInitiate Body 0.5 Body Acrid-Ai
+neighbor 1 ShadowInitiate Ruukan-Akt 0.5 ShadowInitiate Body 0.5 Body Ruukan-Akt
+neighbor 1 ShadowInitiate Human 1 ShadowInitiate ShadowInitiate
+neighbor 1 ShadowInitiate Acrid 1 ShadowInitiate ShadowInitiate
+neighbor 1 ShadowInitiate Jovian 1 ShadowInitiate ShadowInitiate
+neighbor 1 SH Ruukan 1 SH SH
+neighbor 1 WarShip Mountains 1 Vacuum Shadowling
+neighbor 1 WarShip Land 1 Vacuum Shadowling
+neighbor 1 WarShip Highlands 1 Vacuum Shadowling
+neighbor 1 WarShip Plains 1 Vacuum Shadowling
+neighbor 1 WarShip Moon 1 Vacuum Shadowling
+neighbor 0.05 Shadowling Vacuum 0.5 Shadowling Vacuum 0.5 Shadowling OrbitalDock
+neighbor 0.0005 City Mountains 0.5 City Human 0.5 City Soldier
+neighbor 0.0005 Monument Mountains 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 0.0005 Fortress Mountains 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 1 Human Mountains 0.990 Mountains Human 0.004 Mountains Mountains 0.006 Mountains Shadowling
+neighbor 1 Jovian Mountains 0.990 Mountains Jovian 0.004 Mountains Mountains 0.006 Mountains Shadowling
+neighbor 1 Acrid Mountains 0.990 Mountains Acrid 0.004 Mountains Mountains 0.006 Mountains Shadowling
+neighbor 1 Soldier Mountains 0.9999 Mountains Soldier 0.0001 Mountains ShadowInitiate
+neighbor 1 Acrid-Ai Mountains 0.9999 Mountains Acrid-Ai 0.0001 Mountains ShadowInitiate
+neighbor 1 Ruukan-Akt Mountains 0.9999 Mountains Ruukan-Akt 0.0001 Mountains ShadowInitiate
+neighbor 1 ShadowInitiate Canyon 1 Land SH
+neighbor 1 ShadowInitiate Basin 1 Moon SH
+neighbor 1 ShadowInitiate Lowlands 1 Highlands SH
+neighbor 1 SH Land 1 Canyon ShadowInitiate
+neighbor 1 SH Moon 1 Basin ShadowInitiate
+neighbor 1 SH Highlands 1 Lowlands ShadowInitiate
+neighbor 1 ShadowInitiate Land 1 Land ShadowInitiate
+neighbor 1 ShadowInitiate Highlands 1 Highlands ShadowInitiate
+neighbor 1 ShadowInitiate Moon 1 Moon ShadowInitiate
+neighbor 1 ShadowInitiate Plains 1 Plains ShadowInitiate
+neighbor 1 ShadowInitiate Canyon 1 Canyon ShadowInitiate
+neighbor 1 ShadowInitiate Lowlands 1 Lowlands ShadowInitiate
+neighbor 1 ShadowInitiate Basin 1 Basin ShadowInitiate
+neighbor 1 Shadowling Land 0.999 Land Shadowling 0.001 Land Land
+neighbor 1 Shadowling Moon 0.999 Moon Shadowling 0.001 Moon Moon
+neighbor 1 Shadowling Highlands 0.999 Highlands Shadowling 0.001 Highlands Highlands
+neighbor 1 Shadowling Plains 0.999 Plains Shadowling 0.001 Plains Plains
+neighbor 0.0005 Cave Moon 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 0.0005 Cave Land 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 0.0005 Cave Highlands 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 0.0005 Cave Plains 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 1 Azcor WarShip 0.5 Azcor Vacuum 0.5 Vacuum WarShip
+neighbor 1 Raam WarShip 0.5 Raam Vacuum 0.5 Vacuum WarShip
+neighbor 1 WarShip FreightShip 0.5 WarShip Vacuum 0.5 Vacuum FreightShip
+neighbor 1 SpaceShuttle WarShip 0.5 SpaceShuttle Vacuum 0.5 Vacuum WarShip
+neighbor 0.009 OrbitalDock Vacuum 0.011 OrbitalDock WarShip 0.98 OrbitalDock Vacuum 0.009 OrbitalDock Corrupter
+neighbor 1 WarShip Vacuum 1 Vacuum WarShip
+neighbor 1 ShadowInitiate Mountains 1 Mountains ShadowInitiate
+neighbor 0.0005 Cave Mountains 0.5 Cave Shadowling 0.5 Cave ShadowInitiate
+neighbor 1 Shadowling Mountains 0.999 Mountains Shadowling 0.001 Mountains Mountains
+neighbor 1 Launcheron Launcher 1 Launcheron Launcheron
+neighbor 1 Missile Plains 1 Explosion Explosion
+neighbor 1 power Wire 1 power Wireon
+neighbor 1 Wireon Wire 1 Wireon Wireon
+neighbor 1 Wireon Launcher 1 Wireon Launcheron
+neighbor 0.00005 Launcheron Vacuum 1 Launcheron Missile
+neighbor 1 Human Wire 1 Wire Wire
+neighbor 1 Explosion Plains 1 Explosion Explosion
+neighbor 1 Explosion Lava 1 Explosion Explosion
+neighbor 1 Explosion L 1 Explosion Explosion
+neighbor 1 Explosion L2 1 Explosion Explosion
+neighbor 1 Explosion Fortress 1 Explosion Explosion
+neighbor 1 Explosion Jovian 1 Explosion Explosion
+neighbor 1 Explosion Hunter 1 Explosion Explosion
+neighbor 1 Explosion City 1 Explosion Explosion
+neighbor 1 Explosion Human 1 Explosion Explosion
+neighbor 1 Explosion Soldier 1 Explosion Explosion
+neighbor 1 SpaceShuttle SpacePort 1 SpaceShuttle Vacuum
+neighbor 1 SpaceShuttle SpaceLauncher 1 SpaceShuttle Vacuum
+neighbor 1 SpaceShuttle SpaceElevator 1 SpaceShuttle Vacuum
+neighbor 1 Raam SpaceCenter 1 Raam Vacuum
+neighbor 1 Raam SpaceLauncher 1 Raam Vacuum
+neighbor 1 Raam SpaceElevator 1 Raam Vacuum
+neighbor 1 Azcor SpacePort 1 Azcor Vacuum
+neighbor 1 Azcor SpaceLauncher 1 Azcor Vacuum
+neighbor 1 Azcor SpaceCenter 1 Azcor Vacuum
+neighbor 1 FreightShip SpacePort 1 FreightShip Vacuum
+neighbor 1 FreightShip SpaceElevator 1 FreightShip Vacuum
+neighbor 1 FreightShip SpaceCenter 1 FreightShip Vacuum
+neighbor 1 SpaceShuttle Monument 1 Vacuum Soldier
+neighbor 1 SpaceShuttle Fortress 1 Vacuum Soldier
+neighbor 1 SpaceShuttle Nest 1 Vacuum S
+neighbor 1 FreightShip City 1 Vacuum Hunter
+neighbor 1 FreightShip Monument 1 Vacuum Hunter
+neighbor 1 FreightShip Nest 1 Vacuum H
+neighbor 1 Azcor City 1 Vacuum Acrid-Ai
+neighbor 1 Azcor Fortress 1 Vacuum Acrid-Ai
+neighbor 1 Azcor Nest 1 Vacuum A
+neighbor 1 Raam City 1 Vacuum Ruukan-Akt
+neighbor 1 Raam Monument 1 Vacuum Ruukan-Akt
+neighbor 1 Raam Fortress 1 Vacuum Ruukan-Akt
+neighbor 1 Azcor Highlands 1 Vacuum Acrid
+neighbor 1 City Fortress 0.5 City Soldier 0.5 Hunter Fortress
+neighbor 1 City Nest 0.5 City S 0.5 Ruukan-Akt Nest
+neighbor 1 City Monument 0.5 City Soldier 0.5 Acrid-Ai Monument
+neighbor 1 Nest Fortress 0.5 Nest Ruukan-Akt 0.5 Hunter Fortress
+neighbor 1 Nest Fortress 0.5 Nest Ruukan-Akt 0.5 Acrid-Ai Monument
+neighbor 1 Monument Fortress 0.5 Monument Acrid-Ai 0.5 Hunter Fortress
+neighbor 1 FreightShip Plains 1 Vacuum Jovian
+neighbor 0.5 S Nest 1 S Ruukan
+neighbor 0.5 H Nest 1 H Ruukan
+neighbor 0.5 A Nest 1 A Ruukan
+neighbor 0.5 Soldier Fortress 1 Soldier Jovian
+neighbor 0.5 Ruukan-Akt Fortress 1 Ruukan-Akt Jovian
+neighbor 0.5 Acrid-Ai Fortress 1 Acrid-Ai Jovian
+neighbor 0.5 Ruukan-Akt City 1 Ruukan-Akt Human
+neighbor 0.5 Hunter City 1 Hunter Human
+neighbor 0.5 Acrid-Ai City 1 Acrid-Ai Human
+neighbor 0.5 Soldier Monument 1 Soldier Acrid
+neighbor 0.5 Ruukan-Akt Monument 1 Ruukan-Akt Acrid
+neighbor 0.5 Hunter Monument 1 Hunter Acrid
+neighbor 1 Hunter Plains 1 Plains Hunter
+neighbor 1 Soldier Land 1 Land Soldier
+neighbor 1 Acrid-Ai Highlands 1 Highlands Acrid-Ai
+neighbor 1 Ruukan-Akt Moon 1 Moon Ruukan-Akt
+neighbor 1 Hunter Moon 1 Moon Hunter
+neighbor 1 Soldier Plains 1 Plains Soldier
+neighbor 1 Acrid-Ai Land 1 Land Acrid-Ai
+neighbor 1 Ruukan-Akt Highlands 1 Highlands Ruukan-Akt
+neighbor 1 Hunter Highlands 1 Highlands Hunter
+neighbor 1 Soldier Moon 1 Moon Soldier
+neighbor 1 Acrid-Ai Plains 1 Plains Acrid-Ai
+neighbor 1 Ruukan-Akt Land 1 Land Ruukan-Akt
+neighbor 1 Hunter Land 1 Land Hunter
+neighbor 1 Soldier Highlands 1 Highlands Soldier
+neighbor 1 Acrid-Ai Moon 1 Moon Acrid-Ai
+neighbor 1 Ruukan-Akt Plains 1 Plains Ruukan-Akt
+neighbor 1 S Canyon 1 Canyon S
+neighbor 1 S Basin 1 Basin S
+neighbor 1 S Lowlands 1 Lowlands S
+neighbor 1 R Basin 1 Basin R
+neighbor 1 R Canyon 1 Canyon R
+neighbor 1 R Lowlands 1 Lowlands R
+neighbor 1 A Lowlands 1 Lowlands A
+neighbor 1 A Basin 1 Basin A
+neighbor 1 A Canyon 1 Canyon A
+neighbor 1 H Basin 1 Basin H
+neighbor 1 H Canyon 1 Canyon H
+neighbor 1 H Lowlands 1 Lowlands H
+neighbor 1 Soldier Canyon 1 Land S
+neighbor 1 Soldier Basin 1 Moon S
+neighbor 1 Soldier Lowlands 1 Highlands S
+neighbor 1 Ruukan-Akt Basin 1 Moon R
+neighbor 1 Ruukan-Akt Canyon 1 Land R
+neighbor 1 Ruukan-Akt Lowlands 1 Highlands R
+neighbor 1 Acrid-Ai Lowlands 1 Highlands A
+neighbor 1 Acrid-Ai Canyon 1 Land A
+neighbor 1 Acrid-Ai Basin 1 Moon A
+neighbor 1 Hunter Lowlands 1 Highlands H
+neighbor 1 Hunter Canyon 1 Land H
+neighbor 1 Hunter Basin 1 Moon H
+neighbor 1 S Land 1 Canyon Soldier
+neighbor 1 S Moon 1 Basin Soldier
+neighbor 1 S Highlands 1 Lowlands Soldier
+neighbor 1 R Moon 1 Basin Ruukan-Akt
+neighbor 1 R Land 1 Canyon Ruukan-Akt
+neighbor 1 R Highlands 1 Lowlands Ruukan-Akt
+neighbor 1 A Highlands 1 Lowlands Acrid-Ai
+neighbor 1 A Land 1 Canyon Acrid-Ai
+neighbor 1 A Moon 1 Basin Acrid-Ai
+neighbor 1 H Highlands 1 Lowlands Hunter
+neighbor 1 H Land 1 Canyon Hunter
+neighbor 1 H Moon 1 Basin Hunter
+neighbor 1 Soldier Ruukan-Akt 0.5 Soldier Body 0.5 Body Ruukan-Akt
+neighbor 1 Soldier Acrid-Ai 0.5 Soldier Body 0.5 Body Acrid-Ai
+neighbor 1 Soldier Hunter 0.5 Soldier Body 0.5 Body Hunter
+neighbor 1 Hunter Acrid-Ai 0.5 Hunter Body 0.5 Body Acrid-Ai
+neighbor 1 Hunter Ruukan-Akt 0.5 Hunter Body 0.5 Body Ruukan-Akt
+neighbor 1 Ruukan-Akt Acrid-Ai 0.5  Ruukan-Akt Body 0.5 Body Acrid-Ai
+neighbor 1 Soldier Jovian 1 Soldier Soldier
+neighbor 1 Soldier Acrid 1 Soldier Soldier
+neighbor 1 S Ruukan 1 S S
+neighbor 1 Hunter Human 1 Hunter Hunter
+neighbor 1 Hunter Acrid 1 Hunter Hunter
+neighbor 1 H Ruukan 1 H H
+neighbor 1 Ruukan-Akt Jovian 1 Ruukan-Akt Ruukan-Akt
+neighbor 1 Ruukan-Akt Acrid 1 Ruukan-Akt Ruukan-Akt
+neighbor 1 Ruukan-Akt Human 1 Ruukan-Akt Ruukan-Akt
+neighbor 1 Acrid-Ai Jovian 1 Acrid-Ai Acrid-Ai
+neighbor 1 Acrid-Ai Human 1 Acrid-Ai Acrid-Ai
+neighbor 1 A Ruukan 1 A A
+neighbor 1 S R 0.5 S Body 0.5 Body R
+neighbor 1 S A 0.5 S Body 0.5 Body A
+neighbor 1 S H 0.5 S Body 0.5 Body H
+neighbor 1 H A 0.5 H Body 0.5 Body A
+neighbor 1 H R 0.5 H Body 0.5 Body R
+neighbor 1 R A 0.5  R Body 0.5 Body A
+neighbor 1 FreightShip Land 1 Vacuum Jovian
+neighbor 1 FreightShip Moon 1 Vacuum Jovian
+neighbor 1 FreightShip Highlands 1 Vacuum Jovian
+neighbor 0.05 Jovian Vacuum 0.5 Jovian SpaceLauncher 0.5 Jovian Vacuum 
+neighbor 0.009 SpaceLauncher Vacuum 0.01 SpaceLauncher FreightShip 0.98 SpaceLauncher Vacuum 0.01 SpaceLauncher PlanetaryDestroyer
+neighbor 1 FreightShip Vacuum 0.994 Vacuum FreightShip 0.006 OrbitalMine FreightShip 
+neighbor 0.0005 City Plains 0.5 City Human 0.5 City Soldier
+neighbor 0.0005 Monument Plains 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 1 SpaceShuttle Plains 1 Vacuum Human
+neighbor 1 Azcor Plains 1 Vacuum Acrid 
+neighbor 1 Acrid Plains 0.999 Plains Acrid 0.001 Plains Plains
+neighbor 1 Human Plains 0.999 Plains Human 0.001 Plains Plains
+neighbor 0.0005 Fortress Land 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 0.0005 Fortress Moon 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 0.0005 Fortress Highlands 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 1 Jovian Land 0.999 Land Jovian 0.001 Land Land
+neighbor 1 Jovian Moon 0.999 Moon Jovian 0.001 Moon Moon
+neighbor 1 Jovian Highlands 0.99 Highlands Jovian 0.01 Highlands Highlands
+neighbor 0.0005 Fortress Plains 0.5 Fortress Jovian 0.5 Fortress Hunter
+neighbor 1 Jovian Plains 0.999 Plains Jovian 0.001 Plains Plains
+neighbor 1 Raam Basin 1 Vacuum Ruukan 
+neighbor 0.0005 Nest Canyon 0.5 Nest Ruukan 0.5 Nest R
+neighbor 1 Rover Land 1 Canyon Human
+neighbor 0.0005 Human Canyon 1 Land Rover
+neighbor 1 Rover Canyon 0.99 Canyon Rover 0.01 Canyon Canyon
+neighbor 1 Akt Land 0.99 Land Akt 0.01 Land Land
+neighbor 1 Akt Canyon 1 Land Ruukan
+neighbor 0.0005 Ruukan Land 1 Canyon Akt
+neighbor 1 Akt Moon 0.99 Moon Akt 0.01 Moon Moon
+neighbor 1 Akt Basin 1 Moon Ruukan
+neighbor 0.0005 Ruukan Moon 1 Basin Akt
+neighbor 1 Akt Highlands 0.99 Highlands Akt 0.01 Highlands Highlands
+neighbor 1 Akt Lowlands 1 Highlands Ruukan
+neighbor 0.0005 Ruukan Highlands 1 Lowlands Akt
+neighbor 1 Anrik Canyon 0.99 Canyon Anrik 0.01 Canyon Canyon
+neighbor 1 Anrik Land 1 Canyon Acrid
+neighbor 0.0005 Acrid Canyon 1 Land Anrik
+neighbor 1 Anrik Basin 0.99 Basin Anrik 0.01 Basin Basin
+neighbor 1 Anrik Moon 1 Basin Acrid
+neighbor 0.0005 Acrid Basin 1 Moon Anrik
+neighbor 1 Anrik Lowlands 0.99 Lowlands Anrik 0.01 Lowlands Lowlands
+neighbor 1 Anrik Highlands 1 Lowlands Acrid
+neighbor 0.0005 Acrid Lowlands 1 Highlands Anrik
+neighbor 0.0005 Monument Moon 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 0.0005 Monument Land 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 1 Azcor Vacuum 1 Vacuum Azcor
+neighbor 1 Azcor Land 1 Vacuum Acrid 
+neighbor 1 Azcor Moon 1 Vacuum Acrid
+neighbor 1 Acrid Moon 0.999 Moon Acrid 0.001 Moon Moon
+neighbor 1 Acrid Land 0.999 Land Acrid 0.001 Land Land
+neighbor 1 SpaceShuttle Highlands 1 Vacuum Human
+neighbor 0.0005 Monument Highlands 0.5 Monument Acrid 0.5 Monument Acrid-Ai
+neighbor 1 Acrid Highlands 0.999 Highlands Acrid 0.001 Highlands Highlands
+neighbor 1 Human Highlands 0.999 Highlands Human 0.001 Highlands Highlands
+neighbor 0.0005 Human Lowlands 1 Highlands Rover
+neighbor 0.0005 City Highlands 0.5 City Human 0.5 City Soldier
+neighbor 1 Rover Lowlands 0.99 Lowlands Rover 0.01 Lowlands Lowlands
+neighbor 1 Ruukan Lowlands 0.999 Lowlands Ruukan 0.001 Lowlands Lowlands
+neighbor 0.0005 Nest Lowlands 0.5 Nest Ruukan 0.5 Nest R 
+neighbor 1 Rover Basin 0.99 Basin Rover 0.01 Basin Basin
+neighbor 0.0005 Human Basin 1 Moon Rover
+neighbor 1 Rover Moon 1 Basin Human
+neighbor 1 Raam Canyon 1 Vacuum Ruukan
+neighbor 1 Raam Lowlands 1 Vacuum Ruukan
+neighbor 1 Ruukan Canyon 0.999 Canyon Ruukan 0.001 Canyon Canyon
+neighbor 1 Ruukan Basin 0.999 Basin Ruukan 0.001 Basin Basin 
+neighbor 1 Raam Vacuum 1 Vacuum Raam
+neighbor 0.0005 Nest Basin 0.5 Nest Ruukan 0.5 Nest R
+neighbor 1 Boat Water 1 Water Boat
+neighbor 0.5 Boat Land 1 Water Human
+neighbor 1 SpaceShuttle Moon 1 Vacuum Human
+neighbor 1 SpaceShuttle Vacuum 1 Vacuum SpaceShuttle
+neighbor 0.0005 City Land 0.5 City Human 0.5 City Soldier
+neighbor 1 Human Land 0.999 Land Human 0.001 Land Land
+neighbor 0.0005 City Moon 0.5 City Human 0.5 City Soldier
+neighbor 1 Human Moon 0.999 Moon Human 0.001 Moon Moon
+neighbor 0.005 Human Water 1 Land Boat
+neighbor 1 SpaceShuttle Land 1 Vacuum Human
+neighbor 0.0009 SpaceCenter Vacuum 0.04 SpaceCenter SpaceShuttle 0.9 SpaceCenter Vacuum 0.06 SpaceCenter StationPod
+neighbor 0.05 Human Vacuum 0.5 Human SpaceCenter 0.5 Human Vacuum
+neighbor 0.05 Ruukan Vacuum 0.5 Ruukan SpacePort 0.5 Ruukan Vacuum
+neighbor 0.009 SpacePort Vacuum 0.01 SpacePort Raam 0.98 SpacePort Vacuum 0.01 SpacePort Builder
+neighbor 0.009 SpaceElevator Vacuum 0.01 SpaceElevator Azcor 0.99 SpaceElevator Vacuum
+neighbor 0.05 Acrid Vacuum 0.5 Acrid SpaceElevator 0.4 Acrid Vacuum 0.1 Acrid ShieldGenerator
+neighbor 1 Body Land 1 Land Land
+neighbor 1 Body Canyon 1 Canyon Canyon
+neighbor 1 Body Moon 1 Moon Moon
+neighbor 1 Body Plains 1 Plains Plains
+neighbor 1 Body Basin 1 Basin Basin
+neighbor 1 Body Highlands 1 Highlands Highlands
+neighbor 1 Body Lowlands 1 Lowlands Lowlands
+neighbor 1 Body Mountains 1 Mountains Mountains
+neighbor 1 Body Abyss 1 Abyss Abyss
+neighbor 1 Body SnowPack 1 SnowPack SnowPack
+neighbor 1 Asteroid SpaceCenter 1 Asteroid Vacuum
+neighbor 1 Asteroid SpacePort 1 Asteroid Vacuum
+neighbor 1 Asteroid SpaceElevator 1 Asteroid Vacuum
+neighbor 1 Asteroid SpaceLauncher 1 Asteroid Vacuum
+neighbor 1 Asteroid OrbitalDock 1 Asteroid Vacuum
+neighbor 0.005 City Vacuum 1 City SpaceCenter
+neighbor 0.005 Nest Vacuum 1 Nest SpacePort
+neighbor 0.005 Cave Vacuum 1 Cave OrbitalDock
+neighbor 0.005 Monument Vacuum 1 Monument SpaceElevator
+neighbor 0.005 Fortress Vacuum 1 Fortress SpaceLauncher
+neighbor 1 StarExcellerator Flare 1 StarExcellerator Vacuum
+neighbor 1 Star Nebula 1 Star Vacuum
+neighbor 1 Star SBoom 1 Star Vacuum 
+neighbor 1 TerragenEarth Nebula 1 TerragenEarth Vacuum
+neighbor 1 TerragenMars Nebula 1 TerragenMars Vacuum
+neighbor 1 TerragenMoon Nebula 1 TerragenMoon Vacuum
+neighbor 1 TerragenJovian Nebula 1 TerragenJovian Vacuum
+neighbor 1 TerragenDark Nebula 1 TerragenDark Vacuum
+neighbor 1 StarExcellerator Star 1 Vacuum Star
+neighbor 1 Star2 Star 1 Star2 Star2
+neighbor 1 Body City 1 City City
+neighbor 1 Body Fortress 1 Fortress Fortress
+neighbor 1 Body Monument 1 Monument Monument
+neighbor 1 Body Cave 1 Cave Cave
+neighbor 1 Body Nest 1 Nest Nest
+
+pexplosion Rocket Rocket 4 Shipboom
+pexplosion Rocket Azcor 4 Shipboom
+pexplosion Rocket SpaceShuttle 4 Shipboom
+pexplosion Rocket WarShip 4 Shipboom
+pexplosion Rocket FreightShip 4 Shipboom
+pexplosion Flare Raam 2 Flare
+pexplosion Flare SpaceShuttle 2 Flare
+pexplosion Flare WarShip 2 Flare
+pexplosion Flare FreightShip 2 Flare
+pexplosion Flare Azcor 2 Flare
+pexplosion Flare Asteroid 2 Flare
+pexplosion Soldier SuperWeapon 1500 Boom
+pexplosion Asteroid Raam 2 Asteroid
+pexplosion Asteroid SpaceShuttle 2 Asteroid
+pexplosion Asteroid Azcor 2 Asteroid
+pexplosion Asteroid WarShip 2 Asteroid
+pexplosion Asteroid FreightShip 2 Asteroid
+pexplosion Nova Vacuum 3000 Nebula
+pexplosion Nova Star2 3000 Nebula
+pexplosion SBoom Vacuum 100 Star
+pexplosion SBoom2 Vacuum 70 Star
+pexplosion SBoom3 Vacuum 140 Star
+pexplosion EBoom Vacuum 60 TerragenEarth 
+pexplosion MOBoom Vacuum 45 TerragenMoon 
+pexplosion IBoom Vacuum 50 TerragenIce
+pexplosion MBoom Vacuum 40 TerragenMars
+pexplosion JBoom Vacuum 50 TerragenJovian
+pexplosion SHBoom Vacuum 60 TerragenDark
+pexplosion OrbitalMine SpaceShuttle 4 Shipboom
+pexplosion OrbitalMine WarShip 4 Shipboom
+pexplosion OrbitalMine Raam 4 Shipboom
+pexplosion OrbitalMine Azcor 4 Shipboom
+pexplosion Shipboom OrbitalMine 2 Shipboom
+pexplosion Flare OrbitalMine 2 Flare
+pexplosion Raam SpaceShuttle 4 Shipboom
+pexplosion Raam FreightShip 4 Shipboom
+pexplosion Raam WarShip 4 Shipboom
+pexplosion Raam Azcor 4 Shipboom
+pexplosion Azcor SpaceShuttle 4 Shipboom
+pexplosion Azcor FreightShip 4 Shipboom
+pexplosion Azcor WarShip 4 Shipboom
+pexplosion Azcor Raam 4 Shipboom
+pexplosion FreightShip SpaceShuttle 4 Shipboom
+pexplosion FreightShip Azcor 4 Shipboom
+pexplosion FreightShip WarShip 4 Shipboom
+pexplosion FreightShip Raam 4 Shipboom
+pexplosion SpaceShuttle FreightShip 4 Shipboom
+pexplosion SpaceShuttle Azcor 4 Shipboom
+pexplosion SpaceShuttle WarShip 4 Shipboom
+pexplosion SpaceShuttle Raam 4 Shipboom
+pexplosion SpaceShuttle Corrupter 4 Shipboom
+pexplosion Raam Corrupter 4 Shipboom
+pexplosion Azcor Corrupter 4 Shipboom
+pexplosion FreightShip Corrupter 4 Shipboom
+pexplosion WarShip FreightShip 4 Shipboom
+pexplosion WarShip Azcor 4 Shipboom
+pexplosion WarShip SpaceShuttle 4 Shipboom
+pexplosion WarShip Raam 4 Shipboom
+pexplosion Raam SpaceStation 4 Shipboom
+pexplosion WarShip SpaceStation 4 Shipboom
+pexplosion Azcor SpaceStation 4 Shipboom
+pexplosion FreightShip SpaceStation 4 Shipboom
+pexplosion Raam PlanetaryDestroyer 4 Shipboom
+pexplosion WarShip PlanetaryDestroyer 4 Shipboom
+pexplosion Azcor PlanetaryDestroyer 4 Shipboom
+pexplosion SpaceShuttle PlanetaryDestroyer 4 Shipboom
+pexplosion Raam Nuke 10 Fire
+pexplosion WarShip Nuke 10 Fire
+pexplosion Azcor Nuke 10 Fire
+pexplosion SpaceShuttle Nuke 10 Fire
+pexplosion HIVE Vacuum 3 Hive
+
+self 0.0005 PlanetaryDestroyer 1 Vacuum
+self 1 PlanetBuilder 0.2 EBoom 0.2 MBoom 0.2 MOBoom 0.2 SHBoom 0.2 JBoom
+self 0.001 Rocket 1 Vacuum
+self 0.05 RocketTail 1 Vacuum
+self 0.005 HiveShield 1 Vacuum
+self 0.05 HiveBoom 1 Vacuum
+self 0.005 Builder 0.1 HIVE 0.9 Vacuum
+self 0.005 Nuke 1 Vacuum
+self 0.005 StationPod 1 Vacuum
+self 0.05 SSD 1 Vacuum
+self 0.00005 SpaceStation 1 SSD
+self 0.01 EMP2 1 Vacuum
+self 0.2 EMP 1 EMP2
+self 0.05 ShieldBoom 1 Vacuum
+self 0.0005 Corrupter 1 Vacuum
+self 0.005 OrbitalMine 1 Vacuum
+self 0.0005 SS2 1 Highlands
+self 0.0005 SS1 1 SS2
+self 0.05 Shipboom 1 Vacuum
+self 0.009 Araknius 1 ArakniusHive
+self 0.05 FrozenSea1 1 FrozenSea
+self 0.05 SnowPack1 1 SnowPack
+self 0.0005 TerragenIce 0.7 FrozenSea1 0.3 SnowPack1 
+self 0.09 SolarStorm 1 Vacuum 
+self 0.05 SS 1 Vacuum
+self 0.05 Fire 1 Flare
+self 1 Star 1 Star2
+hotself 99 Star
+self 1 Star2 1 Nova
+hotself 80 Star2
+self 0.0005 Seed 1 Vacuum 
+self 0.005 ClumpedAsteroid 1 Vacuum
+self 1 PBoom 0.2 EBoom 0.05 MOBoom 0.2 MBoom 0.2 JBoom 0.2 SHBoom 0.05 IBoom
+self 0.0005 Asteroid 0.5 Vacuum 0.5 Seed 
+self 0.05 Nebula 0.99 Vacuum 0.01 Asteroid 
+self 0.02 Explosion 1 E
+self 0.05 E 1 Vacuum
+self 0.05 Boom 0.7 Vacuum 0.3 Moon
+self 0.0005 Boat 1 Water
+self 0.00005 WarShip 1 Vacuum
+self 0.00005 Azcor 1 Vacuum
+self 0.0009 Acrid 1 Monument
+self 0.0009 Ruukan 1 Nest
+self 0.00005 SpaceShuttle 1 Vacuum 
+self 0.00005 Raam 1 Vacuum 
+self 0.0009 Human 1 City
+self 0.0009 Jovian 1 Fortress
+self 0.005 Lava 0.5 L 0.5 L2
+self 0.005 L 0.5 Lava 0.5 L2
+self 0.005 L2 0.5 Lava 0.5 L
+self 0.0005 Water 1 W
+self 0.05 W 1 Water
+self 0.005 R 1 Body
+self 0.005 S 1 Body
+self 0.005 H 1 Body
+self 0.005 A 1 Body
+self 0.005 SH 1 Body
+self 0.005 Ruukan-Akt 1 Body
+self 0.005 Soldier 1 Body
+self 0.005 Hunter 1 Body
+self 0.005 Acrid-Ai 1 Body
+self 0.005 Shield 1 Moon
+self 0.005 ShadowInitiate 1 Body
+self 0.0009 Shadowling 1 Cave
+self 0.05 Basin1 1 Basin
+self 0.05 Moon1 1 Moon
+self 0.0005 TerragenMoon 0.5 Basin1 0.5 Moon1 
+self 0.05 Lowlands1 1 Lowlands
+self 0.05 Highlands1 1 Highlands
+self 0.0005 TerragenMars 0.5 Lowlands1 0.5 Highlands1 
+self 0.05 Abyss1 1 Abyss
+self 0.05 Mountains1 1 Mountains
+self 0.0005 TerragenDark 0.4 Abyss1 0.6 Mountains1 
+self 0.05 Lava1 1 Lava
+self 0.05 Plains1 1 Plains
+self 0.0005 TerragenJovian 0.3 Lava1 0.7 Plains1 
+self 0.05 Water1 1 Water
+self 0.05 Land1 1 Land
+self 0.05 Canyon1 1 Canyon
+self 0.0005 TerragenEarth 0.4 Water1 0.4 Land1 0.2 Canyon1
+self 0.05 Flare 1 Vacuum
+self 0.05 ex 0.5 Vacuum 0.5 ex
+
+hotcolor Star2 255 255 255
+hotcolor Star 255 0 

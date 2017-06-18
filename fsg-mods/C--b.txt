@@ -1,0 +1,342 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4-20060322, File subversion 2
+group	Particulates Empty Pebbles Dirt
+group	Rigids Adamantium Rock Plant
+group	Fluids Water Steam Fire Lava Mud 
+group	Spouts	WaterSpout SteamSpout FireSpout LavaSpout PebbleSpout DirtSpout MudSpout
+group	Combinations Instapipe LavaInstapipe 
+group	 	Siphon
+
+#The void.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#My answer to 'wall', Looks really cool when it melts. Can be worn away by pebbles.
+element	Rock	87	87	87	0.000000	0.000000	1.000000	0.500000	1
+neighbor	1.000000	SiphonWater	Rock	1.000000	Empty	Rock
+neighbor	1.000000	Rock	Empty	1.000000	LooseRock	Empty
+hotcolor  Rock  195	80	3
+self	1.000000	Rock	1.000000	Lava
+hotself	99	Rock
+
+#An indestructable metal, conducts heat very well.
+element	Adamantium	150	150	150	0.000000	0.000000	1.000000	0.700000	1
+neighbor	0.020000	Adamantium	Empty	1.000000	Adamantium	HeatedAir
+hotcolor	Adamantium	255	255	255
+hotneighbor	10	Adamantium	Empty
+
+#------------------------------Beginning of Instapipe------------------------------#
+#Instant pipe, now with extra Goomba.
+element	Instapipe	87	88	88	0.000000	0.000000	1.000000	0.500000	1
+neighbor	1.000000	Instapipe	Empty	1.000000	MetalWaterPipeOuter	Empty	
+neighbor	1.000000	Instapipe	MetalWaterPipeOuter	1.000000	MetalWaterPipeOuterEX	MetalWaterPipeOuter
+neighbor	1.000000	SiphonWater	Instapipe	1.000000	Empty	Instapipe
+hotcolor  Instapipe  195	80	3
+self	1.000000	Instapipe	1.000000	PipeWater
+hotself	10	Instapipe
+
+element	MetalWaterPipeOuter	85	87	87	0.000000	0.000000	1.000000	0.500000	0
+hotcolor  MetalWaterPipeOuter  195	80	3
+neighbor	1.000000	MetalWaterPipeOuter	PipeWater	1.000000	MetalWaterPipeOuter2	PipeWater
+neighbor	1.000000	SiphonWater	MetalWaterPipeOuter	1.000000	Empty	MetalWaterPipeOuter
+self	1.000000	MetalWaterPipeOuter	1.000000	Lava
+hotself 99	MetalWaterPipeOuter	
+
+element	MetalWaterPipeOuterEX	86	85	87	0.000000	0.000000	1.000000	1.100000	0
+hotcolor  MetalWaterPipeOuterEX  195	80	3
+neighbor	1.000000	MetalWaterPipeOuterEX	PipeWater	1.000000	MetalWaterPipeOuter2	PipeWater
+neighbor	0.60000	MetalWaterPipeOuterEX	MetalWaterPipeOuter2	1.000000	MetalWaterPipeOuter2	MetalWaterPipeOuter2
+neighbor	1.000000	SiphonWater	MetalWaterPipeOuterEX	1.000000	Empty	MetalWaterPipeOuterEX
+
+element	MetalWaterPipeOuter2	86	86	87	0.000000	0.000000	1.000000	0.500000	0
+hotcolor  MetalWaterPipeOuter2  195	80	3
+self	1.000000	MetalWaterPipeOuter2	1.000000	Lava
+neighbor	1.000000	SiphonWater	MetalWaterPipeOuter2	1.000000	Empty	MetalWaterPipeOuter2
+hotself 99	MetalWaterPipeOuter2
+
+element	PipeWater	32	31	255	0.700000	1.000000	0.500000	1.100000	0
+neighbor	1.000000	SiphonWater	PipeWater	1.000000	Empty	PipeWater
+neighbor	1.000000	PipeWater	Water	1.000000	Water	Water
+hotcolor	PipeWater	200	200	255
+self	1.000000	PipeWater	1.000000	Water
+hotself 99	PipeWater
+
+#Instant pipe, of the deadlier variety.
+element	LavaInstapipe	86	87	87	0.000000	0.000000	1.000000	1.000000	1
+neighbor	1.000000	LavaInstapipe	Empty	1.000000	LavaAdamantiumWaterPipeOuter	Empty	
+neighbor	1.000000	LavaInstapipe	LavaAdamantiumWaterPipeOuter	1.000000	LavaAdamantiumWaterPipeOuterEX	LavaAdamantiumWaterPipeOuter
+neighbor	1.000000	SiphonWater	LavaInstapipe	1.000000	Empty	LavaInstapipe	
+hotcolor	LavaInstapipe  195	80	3
+self		1.000000	LavaInstapipe	1.000000	Lava
+hotself		10	LavaInstapipe
+
+element	LavaAdamantiumWaterPipeOuter	86	86	86	0.000000	0.000000	1.000000	1.000000	0
+neighbor	1.000000	LavaAdamantiumWaterPipeOuter	Lava	1.000000	LavaAdamantiumWaterPipeOuter2	Lava
+#neighbor	1.000000	LavaAdamantiumWaterPipeOuter	Adamantium	1.000000	Adamantium	Adamantium
+neighbor	1.000000	SiphonWater	LavaAdamantiumWaterPipeOuter	1.000000	Empty	LavaAdamantiumWaterPipeOuter
+hotcolor	LavaAdamantiumWaterPipeOuter  195	80	3
+
+element	LavaAdamantiumWaterPipeOuterEX	87	86	86	0.000000	0.000000	1.000000	1.100000	0
+hotcolor	LavaAdamantiumWaterPipeOuterEX  195	80	3
+neighbor	1.000000	LavaAdamantiumWaterPipeOuterEX	Lava	1.000000	LavaAdamantiumWaterPipeOuter2	Lava
+neighbor	1.000000	LavaAdamantiumWaterPipeOuterEX	LavaAdamantiumWaterPipeOuter2	1.000000	LavaAdamantiumWaterPipeOuter2	LavaAdamantiumWaterPipeOuter2
+neighbor	1.000000	SiphonWater	LavaAdamantiumWaterPipeOuterEX	1.000000	Empty	LavaAdamantiumWaterPipeOuterEX
+
+element	LavaAdamantiumWaterPipeOuter2	87	87	86	0.000000	0.000000	1.000000	1.000000	0
+neighbor	1.000000	LavaAdamantiumWaterPipeOuter2	LavaAdamantiumWaterPipeOuter	1.000000	Adamantium	Adamantium
+#neighbor	1.000000	LavaAdamantiumWaterPipeOuter2	Adamantium	1.000000	Adamantium	Adamantium
+neighbor	1.000000	SiphonWater	LavaAdamantiumWaterPipeOuter2	1.000000	Empty	LavaAdamantiumWaterPipeOuter2
+hotcolor  LavaAdamantiumWaterPipeOuter2  195	80	3
+
+#------------------------------End of RockWaterPipe------------------------------#
+
+
+
+#This makes it so that Pebbles don't wear away at Rock like bleach on skin, instead only those parts of rock that have touched empty will be worn away.
+element	LooseRock	87	88	87	0.000000	0.000000	1.000000	0.500000	0
+neighbor	0.100000	LooseRock	Pebbles	0.0051	Pebbles	Pebbles	0.9949	LooseRock	Pebbles
+neighbor	0.100000	LooseRock	IgneousPebbles	0.0051	IgneousPebbles	IgneousPebbles	0.9949	LooseRock	IgneousPebbles
+neighbor	0.020000	LooseRock	Empty	1.000000	LooseRock	HeatedAir
+neighbor	1.000000	SiphonWater	LooseRock	1.000000	Empty	LooseRock
+hotneighbor	10	LooseRock	Empty
+hotcolor  LooseRock  195	80	3
+self	1.000000	LooseRock	1.000000	Lava
+hotself	99	LooseRock
+
+#What our civilisation is built on. Its also mis-classified as a fluid (But doesn't warrant having its own 'Plasma' group).
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	1.000000	Empty
+#neighbor	0.900000	Fire	Water	1.000000	Empty	Steam
+neighbor	1.000000	Fire	Plant	1.000000	Fire	Fire
+hotcolor	Fire	255	63	63
+
+#Evaporated Water. Now conducts heat.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.500000	1
+self	0.001000	Steam	1.000000	Water
+
+#------------------------------Plants------------------------------#
+
+#It grows when it comes in contact with various substances.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.300000	1
+neighbor	0.010000	Plant	Water	1.000000	Plant	Plant
+neighbor	0.008000	Plant	Mud	0.500000	Plant	Plant	0.500000	Plant	Dirt
+neighbor	1.000000	SiphonWater	Plant	1.000000	Empty	Plant
+self	1.000000	Plant	1.000000	DryPlant
+hotself	20	Plant
+#------------------------------Roots------------------------------#
+
+
+#------------------------------End of Plants------------------------------#
+
+#Note: The Bubbling action was done with the help of Zaukul's physics file, however I have since found a new method for the same effect;
+#Unfortunately I'm too lazy to apply it to lava (It's already been applied to Water).
+
+#Melted Rock. Gives off extreme heat, also gives off flames. Now it hardens after a time.
+element	Lava	195	80	3	0.999000	1.000000	0.700000	9999.00000	1
+hotcolor	Lava	255	91	19
+neighbor	0.001000	Lava	Empty	0.300000	Lava	Fire	0.700000	Lava	LavaSplasher
+neighbor	1.000000	Lava	Plant	1.000000	Lava	Fire
+#neighbor	1.000000	Lava	Water	1.000000	IgneousPebbles	Steam
+neighbor	1.000000	Lava	DryPlant	1.000000	Lava	Fire
+neighbor	1.000000	Lava	HeatedAirLava	1.000000	Lava	Empty
+neighbor	1.000000	SiphonWater	Lava	1.000000	Empty	Lava
+self	0.001000	Lava	1.000000	IgneousPebbles
+neighbor	0.001000	Lava	IgneousPebbles	1.000000	IgneousPebbles	IgneousPebbles
+
+#Crushed Rock. good for grinding, or melting.
+element	Pebbles	100	100	100	0.900000	0.500000	0.600000	0.100000	1
+neighbor	1.000000	SiphonWater	Pebbles	1.000000	Empty	Pebbles
+hotcolor	Pebbles	195	80	3
+self	1.000000	Pebbles	1.000000	Lava
+hotself	99	Pebbles
+
+#Igneous rock.
+element	IgneousPebbles	100	100	100	0.900000	0.500000	0.600000	1.000000	0
+neighbor	1.000000	SiphonWater	IgneousPebbles	1.000000	Empty	IgneousPebbles
+hotcolor	IgneousPebbles	195	80	3
+#self	0.000500	IgneousPebbles	1.000000	Rock
+neighbor	0.000500	IgneousPebbles	Rock	1.000000	Rock	Rock
+neighbor	0.001700	IgneousPebbles	IgneousPebbles	1.000000	Rock	Rock
+
+#LavaSplasher drops splashes of Lava.
+element	LavaSplasher	195	80	3	1.000000	0.000000	0.700000	9999.000000	0
+self	0.000000	LavaSplasher	1.000000	Empty
+neighbor	1.00000	LavaSplasher	Empty	1.000000	LavaSplasher	LavaSplash
+neighbor	1.00000	LavaSplasher	LavaSplash	1.000000	Empty	LavaSplash
+neighbor	1.00000	LavaSplasher	Dirt	1.000000	Empty	Dirt
+neighbor	1.00000	LavaSplasher	Mud	1.000000	Empty	Mud
+neighbor	1.00000	LavaSplasher	Lava	1.000000	Empty	Lava
+hotcolor	LavaSplasher	255	91	19
+
+element	LavaSplash	195	80	3	0.000000	0.000000	1.000000	9999.000000	0
+self	0.030000	LavaSplash	1.000000	BoiledLava
+neighbor	0.050000	LavaSplash	Empty	1.000000	LavaSplash	LavaSplash
+neighbor	1.000000	LavaSplash	BoiledLava	1.000000	BoiledLava	BoiledLava
+hotcolor	LavaSplash	255	91	19
+
+#Dead plant, no longer grows, crumbles at a touch.
+element	DryPlant	94	115	43	0.000000	0.000000	1.000000	0.300000	0
+neighbor	0.500000	DryPlant	Pebbles	1.000000	DryPlantCrumble	Pebbles
+neighbor	0.500000	DryPlant	Water	1.000000	DryPlantCrumble	Water
+neighbor	0.500000	DryPlant	Dirt	1.000000	DryPlantCrumble	Dirt
+neighbor	1.000000	Fire	DryPlant	1.000000	Fire	Fire
+neighbor	0.500000	DryPlant	PlantWater	1.000000	DryPlantCrumble	PlantWater
+neighbor	0.500000	DryPlant	PlantPaste	1.000000	DryPlantCrumble	PlantPaste
+neighbor	1.000000	SiphonWater	DryPlant	1.000000	Empty	DryPlant
+self	1.000000	DryPlant	1.000000	Fire
+hotself	90	DryPlant
+
+#Free-falling crushed dry plant.
+element	DryPlantCrumble	94	115	43	0.300000	0.000000	0.500100	0.300000	0
+neighbor	0.100000	DryPlantCrumble	Water	1.000000	PlantWater	Water
+neighbor	1.000000	Fire	DryPlantCrumble	1.000000	Fire	Fire
+neighbor	1.000000	SiphonWater	DryPlantCrumble	1.000000	Empty	DryPlantCrumble
+self	1.000000	DryPlantCrumble	1.000000	Fire
+hotself	85	DryPlantCrumble
+
+#Ground, dried up plant crushed and mixed with water.
+element	PlantWater	73	87	114	0.700000	1.000000	0.500100	0.400000	0
+neighbor	0.100000	Plant	PlantWater	1.000000	Plant	Plant
+neighbor	1.000000	SiphonWater	PlantWater	1.000000	Empty	PlantWater
+self	0.01000	PlantWater	0.500000	Water	0.500000	PlantPaste
+hotcolor	PlantWater	200	200	255
+hotself	50	PlantWater
+
+#Plant Water, exept refined into a paste.
+element	PlantPaste	94	115	43	0.990000	1.000000	0.500100	0.400000	0
+neighbor	0.200000	Plant	PlantPaste	1.000000	Plant	Plant
+neighbor	1.000000	SiphonWater	PlantPaste	1.000000	Empty	PlantPaste
+self	0.008000	PlantPaste	0.500000	Water	0.500000	DryPlantCrumble
+hotcolor	PlantPaste	100	100	155
+hotself	50	PlantPaste
+
+#Air super-heated by Lava, it floats up and conducts heat. It's invisible.
+element	HeatedAir	0	0	0	-1.000000	1.000000	0.000000	1.100000	0
+self	0.010000	HeatedAir	1.000000	Empty
+neighbor	1.000000	HeatedAir	Lava	1.000000	Empty	Lava
+neighbor	1.000000	HeatedAir	Adamantium	1.000000	Empty	Adamantium
+neighbor	1.000000	HeatedAir	LooseRock	1.000000	Empty	LooseRock
+neighbor	1.000000	HeatedAir	Rock		1.000000	Empty	Rock
+
+
+#Air super-heated by Lava, it floats up and conducts heat. It's invisible.
+element	HeatedAirLava	0	0	0	-1.000000	1.000000	0.000000	1.100000	0
+self	0.010000	HeatedAirLava	1.000000	Empty
+neighbor	1.000000	HeatedAirLava	Lava	1.000000	Empty	Lava
+
+
+#Normal Dirt, water soluble, lava soluble. Water seeps through it slowly.
+element	Dirt	114	72	44	0.680000	0.500000	0.490000	0.100000	1
+neighbor	0.100000	Dirt	Water	0.500000	Empty	Mud	0.500000	Mud	Empty
+neighbor	1.000000	SiphonWater	Dirt	1.000000	Empty	Dirt
+self	0.050000	Dirt	0.600000	Lava	0.400000	Fire
+hotself	50	Dirt
+
+#Sorta Looks like poop.
+element	Mud	94	59	36	1.000000	1.000000	0.510000	0.200000	1
+self	1.000000	Mud	0.500000	Water	0.500000	Dirt
+neighbor	1.000000	SiphonWater	Mud	1.000000	Empty	Mud
+hotself	75	Mud
+
+#This is a special Lava that is destroyed when it hits anything, if it wasn't we would have Lava everywhere.
+element	BoiledLava	195	80	3	0.700000	1.000000	0.500000	9999.000000	0
+neighbor	0.050000	BoiledLava	Empty	1.000000	BoiledLava	HeatedAirLava
+neighbor	1.000000	BoiledLava	Water	1.000000	Empty	Water
+neighbor	1.000000	BoiledLava	Rock	1.000000	Empty	Rock
+neighbor	1.000000	BoiledLava	Adamantium	1.000000	Empty	Adamantium
+neighbor	1.000000	BoiledLava	Dirt	1.000000	Empty	Dirt
+neighbor	1.000000	BoiledLava	Pebbles	1.000000	Empty	Pebbles
+neighbor	1.000000	BoiledLava	Fire	1.000000	Empty	Fire
+neighbor	1.000000	BoiledLava	Plant	1.000000	Empty	Plant
+neighbor	1.000000	BoiledLava	Lava	1.000000	Empty	Lava
+neighbor	1.000000	BoiledLava	DryPlant	1.000000	Empty	DryPlant
+neighbor	1.000000	BoiledLava	DryPlantCrumble	1.000000	Empty	DryPlantCrumble
+neighbor	1.000000	BoiledLava	PlantWater	1.000000	Empty	PlantWater
+neighbor	1.000000	BoiledLava	PlantPaste	1.000000	Empty	PlantPaste
+neighbor	1.000000	BoiledLava	HeatedAirLava	1.000000	Empty	HeatedAirLava
+neighbor	1.000000	BoiledLava	HeatedAir	1.000000	Empty	HeatedAir
+neighbor	1.000000	BoiledLava	Mud	1.000000	Empty	Mud
+neighbor	1.000000	BoiledLava	LooseRock	1.000000	Empty	LooseRock
+neighbor	1.000000	BoiledLava	HeatedAirLava	1.000000	Empty	HeatedAirLava
+hotcolor	BoiledLava	255	91	19
+
+#------------------------------Spouts------------------------------#
+
+#Emits Water.
+element	WaterSpout	31	32	255	0.000000	0.000000	1.000000	0.400000	1
+neighbor	0.750000	WaterSpout	Empty	1.000000	WaterSpout	Water
+hotcolor	WaterSpout	200	200	255
+
+#Emits Lava.
+element	LavaSpout	195	81	3	0.000000	0.000000	1.000000	9999.000000	1
+neighbor	0.750000	LavaSpout	Empty	1.000000	LavaSpout	Lava
+hotcolor	LavaSpout	255	91	19
+
+#Emits Steam.
+element	SteamSpout	85	84	255	0.000000	0.000000	1.000000	1.000000	1
+neighbor	0.750000	SteamSpout	Empty	1.000000	SteamSpout	Steam
+hotcolor	SteamSpout	200	200	255
+
+#Spews Mud.
+element	MudSpout	76	47	30	0.000000	0.000000	1.000000	0.200000	1
+neighbor	0.750000	MudSpout	Empty	1.000000	MudSpout	Mud
+hotcolor	MudSpout	200	200	255
+
+#Emits Pebbles.
+element	PebbleSpout	100	101	100	0.000000	0.000000	1.000000	0.100000	1
+neighbor	0.100000	PebbleSpout	Empty	1.000000	PebbleSpout	Pebbles
+hotcolor	PebbleSpout	195	80	3
+
+#Emits Dirt.
+element	DirtSpout	114	71	44	0.000000	0.000000	1.000000	0.100000	1
+neighbor	0.750000	DirtSpout	Empty	1.000000	DirtSpout	Dirt
+
+#Emits Fire.
+element	FireSpout	247	62	63	0.000000	0.000000	1.000000	0.100000	1
+neighbor	0.750000	FireSpout	Empty	1.000000	FireSpout	Fire
+hotcolor	FireSpout	255	63	63
+
+#----------------------------Spouts End----------------------------#
+
+#element	Siphon	150	150	150	1.000000	1.000000	1.000000	0.000001	1
+#neighbor	1.000000	Siphon	Empty	1.000000	Siphon2	Siphon2
+#hotneighbor	1	Siphon	Empty
+
+#element	Siphon2	150	150	150	1.000000	0.000000	1.000000	1.000000	0
+#self 0.020000	Siphon2	1.000000	Empty
+#neighbor	1.000000	Siphon2	Empty	1.000000	Siphon2	Siphon2
+#hotneighbor	1	Siphon2	Empty
+
+
+
+#Secret Element: Siphon is a new form of life as of yet undiscovered, they are Thermodynamic and have few alternatives for nourishment.
+element	Siphon	255	255	255	1.000000	0.000000	1.000000	0.001000	1
+neighbor	1.000000	Siphon	Empty	1.000000	Siphon2	Siphon2
+neighbor	0.010000	Siphon	DryPlant	1.000000	Siphon	DryPlantCrumble
+hotneighbor	50	Siphon	Empty
+
+element	Siphon2	255	255	255	0.000000	0.000000	0.000000	1.000000	0
+self 0.100000	Siphon2	1.000000	Empty
+neighbor	0.500000	Siphon2	Empty	1.000000	Siphon2	Siphon2
+neighbor	0.010000	Siphon2	DryPlant	1.000000	Siphon2	DryPlantCrumble
+neighbor	0.001000	Siphon2	Adamantium	1.000000	Siphon2	HeatedAir
+hotcolor	Siphon2	0	0	0
+hotneighbor	1	Siphon2	Empty
+
+#It's water. It boils, releases steam, and bubbles. 
+element	Water	32	32	255	0.990000	1.000000	0.500000	0.400000	1
+self	0.005000	Water	1.000000	SiphonMaker
+neighbor	1.000000	Water	Lava	1.000000	Steam	Lava
+neighbor	1.000000	Water	Fire	1.000000	Steam	Fire
+hotcolor	Water	200	200	255
+hotself	50	Water
+
+
+element	SiphonMaker	200	200	255	0.990000	0.000000	0.000000	1.000000	0
+neighbor	1.000000	SiphonMaker	Empty	1.000000	Steam	SiphonWater
+
+element SiphonWater	200	200	255	0.000000	0.000000	0.500000	1.000000	0
+self 0.350000	SiphonWater	1.000000	Empty
+neighbor	0.500000	SiphonWater	Empty	1.000000	SiphonWater	SiphonWater
+neighbor	1.000000	SiphonWater	Adamantium	1.000000	Empty	Adamantium
+hotneighbor	1	SiphonWater	Empty
+

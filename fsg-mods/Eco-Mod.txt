@@ -1,0 +1,156 @@
+#Version 4, File subversion 2
+element Empty 0 0 0 0 0 10 1 1
+element Ground 70 30 0 0 0 10 1 1
+element Water 0 102 255 1 1 1 1 1
+element FreshGround 80 40 10 0 0 10 1 0
+element Steam 0 150 255 -1 1 .5 1 0
+element Cloud 255 255 255 0 0 .5 1 1
+element Fire 255 0 0 -1 1 1 1.1 1
+element Ember 150 0 0 0 1 1 1.1 1
+element LakeWater 0 103 255 1 1 1 1 1
+#----------------------------------------------
+element Worm 255 80 80 0 0 10 1 0
+element Worm2 255 80 80 0 0 10 1 0
+#----------------------------------------------
+self .04 Fire 1 Empty
+self .01 Ember 1 Empty
+neighbor .3 Ember Empty 1 Ember Fire
+self .0001 Water 1 Steam
+self .001 Steam 1 Water
+self .0001 Cloud   1 Water
+neighbor .01 Cloud Empty .5 Cloud Cloud   .5 Empty Empty
+#neighbor .01 Cloud Empty 1 Water Empty
+neighbor 1 Ground Water 1 FreshGround Water
+neighbor .01 Water FreshGround 1 Empty FreshGround
+neighbor 1 LakeWater Ground 1 LakeWater FreshGround
+neighbor .0001 Grass Ground .7 Grass Worm .3 Grass Ground
+neighbor .0001 Grass FreshGround .7 Grass Worm .3 Grass FreshGround
+#----------------------------------------------
+element VineSeed 153 102 0 1 1 1.1 1 1
+element Vine 153 102 51 0 0 0 10 0
+element VineGrow 150 100 10 -1 1 9.9 1 0
+element Vine1 153 101 51 0 0 3 1 0
+element VineEnd 153 100 51 0 0 3 1 0
+element Vine2 152 102 51 0 0 3 1 0
+element Vine3 151 102 51 0 0 3 1 0
+element Leaves 0 204 0 0 0 3 1 0
+element Leaves2 0 203 0 0 0 3 1 0
+element Leaves3 0 202 0 0 0 3 1 0
+element Grape 51 0 51 0 0 10 1 0
+element Leaves4 1 204 0 0 0 3 1 0
+#----------------------------------------------
+element TreeSeed 153 102 10 1 1 1.1 1 1
+element TreeGrow 90 50 0 -1 0 9.9 1 0
+element Tree1 90 50 1 0 0 0 0 0
+element Tree2 90 50 2 0 0 3 1 0
+element Tree3 90 50 3 0 0 3 1 0
+element Tree4 90 50 4 0 0 3 1 0
+element Tree5 90 51 0 0 0 3 1 0
+element TreeLeaves 0 150 0 0 0 3 1 0
+element TreeLeaves2 1 150 0 0 0 3 1 0
+element TreeLeaves3 0 150 1 0 0 3 1 0
+element TreeLeaves4 1 150 1 0 0 3 1 0
+#----------------------------------------------
+element GrassSeed 154 102 10 1 1 1.1 1 1
+element Grass1 25 200 25 0 0 1 1 0
+element Grass2 25 200 25 0 0 1 1 0
+element Grass3 25 200 25 0 0 1 1 0
+element Grass4 25 200 25 0 0 1 1 0
+element Grass 25 200 25 0 0 1 1 0
+#----------------------------------------------
+neighbor 1 GrassSeed FreshGround 1 Grass1 FreshGround
+neighbor 1 Grass1 Empty 1 Grass1 Grass2
+neighbor 1 Grass2 Empty 1 Grass2 Grass3
+neighbor 1 Grass3 Empty 1 Grass3 Grass4
+self .02 Grass4 1 Grass
+neighbor 1 Grass Grass1 1 Grass Grass
+neighbor 1 Grass Grass2 1 Grass Grass
+neighbor 1 Grass Grass3 1 Grass Grass
+neighbor 1 Grass Grass4 1 Grass Grass
+#----------------------------------------------
+neighbor 1 VineSeed FreshGround 1 VineGrow Ground
+neighbor 1 VineGrow Empty .99 Vine1 VineGrow .01 Vine2 Vine2
+neighbor 1 VineGrow Water .99 Vine1 VineGrow .01 Vine2 Vine2
+neighbor 1 Vine1 Empty 1 Vine1 Vine3
+neighbor 1 Vine3 Empty 1 Vine3 Leaves2
+neighbor .02 Leaves2 Vine1 1 Leaves2 Leaves2
+neighbor .02 Leaves2 Empty .7 Leaves2 Leaves2 .3 Leaves2 Leaves
+neighbor 1 Leaves Leaves2 1 Leaves Leaves
+self .01 VineGrow .9 VineGrow .1 Empty
+self .005 Leaves .5 Leaves .5 Leaves3
+pexplosion Leaves3 Empty 4 Grape
+neighbor 1 Grape Leaves 1 Grape Leaves4
+neighbor .01 Leaves4 Leaves 1 Leaves4 Leaves4
+neighbor 1 VineGrow Grass 1 VineGrow Empty
+#----------------------------------------------
+neighbor 1 TreeSeed FreshGround 1 TreeGrow Ground
+neighbor 1 TreeGrow Empty 1 TreeGrow Tree1
+neighbor 1 Tree1 Empty 1 Tree1 Tree2
+self .005 TreeGrow 1 Tree3
+self .005 Tree1 1 Tree2
+neighbor 1 Tree1 Tree3 1 Tree4 Tree3
+neighbor 1 Tree2 Tree3 1 Tree4 Tree3
+neighbor 1 Tree1 Tree4 1 Tree5 Tree4
+neighbor 1 Tree2 Tree4 1 Tree5 Tree4
+neighbor 1 Tree4 Empty 1 Tree4 TreeLeaves
+neighbor 1 Tree3 Empty 1 Tree3 TreeLeaves
+neighbor 1 TreeLeaves Empty 1 TreeLeaves TreeLeaves2
+explosion TreeLeaves Empty -160 -160
+pexplosion TreeLeaves2 Empty 8 TreeLeaves3
+neighbor 1 TreeLeaves2 Ground 1 Ground Ground
+neighbor .05 TreeLeaves3 Empty 1 TreeLeaves3 TreeLeaves3
+neighbor 1 TreeLeaves3 Tree1 1 TreeLeaves4 Tree4
+neighbor 1 TreeLeaves3 Tree2 1 TreeLeaves4 Tree4
+neighbor 1 TreeLeaves3 Tree3 1 TreeLeaves4 Tree4
+neighbor 1 TreeLeaves3 Tree4 1 TreeLeaves4 Tree4
+neighbor 1 TreeLeaves4 TreeLeaves3 1 TreeLeaves4 TreeLeaves4
+neighbor 1 TreeGrow Grass 1 TreeGrow Empty
+neighbor 1 TreeGrow Tree1 1 TreeGrow Empty
+neighbor 1 TreeGrow Tree2 1 TreeGrow Empty
+neighbor .005 TreeLeaves4 Tree4 1 TreeLeaves4 Tree5
+neighbor 1 Tree5 Tree4 1 Tree5 Tree5
+neighbor 1 TreeLeaves Ground 1 Ground Ground
+neighbor .1 Fire Tree1 1 Ember Ember
+neighbor .1 Fire Tree2 1 Ember Ember
+neighbor .1 Fire Tree3 1 Ember Ember
+neighbor .1 Fire Tree4 1 Ember Ember
+neighbor .1 Fire Tree5 1 Ember Ember
+neighbor 1 Fire TreeLeaves 1 Fire Fire
+neighbor 1 Fire TreeLeaves2 1 Fire Fire
+neighbor 1 Fire TreeLeaves3 1 Fire Fire
+neighbor 1 Fire TreeLeaves4 1 Fire Fire
+neighbor .1 Fire TreeGrow 1 Ember Ember
+neighbor .1 Ember Tree1 1 Ember Ember
+neighbor .1 Ember Tree2 1 Ember Ember
+neighbor .1 Ember Tree3 1 Ember Ember
+neighbor .1 Ember Tree4 1 Ember Ember
+neighbor .1 Ember Tree5 1 Ember Ember
+neighbor 1 Ember TreeLeaves 1 Fire Fire
+neighbor 1 Ember TreeLeaves2 1 Fire Fire
+neighbor 1 Ember TreeLeaves3 1 Fire Fire
+neighbor 1 Ember TreeLeaves4 1 Fire Fire
+neighbor .1 Ember TreeGrow 1 Ember Ember
+self 1 Tree1 1 Ember
+hotself 80 Tree1
+self 1 Tree2 1 Ember
+hotself 80 Tree2
+self 1 Tree3 1 Ember
+hotself 80 Tree3
+self 1 Tree4 1 Ember
+hotself 80 Tree4
+self 1 Tree5 1 Ember
+hotself 80 Tree5
+self 1 TreeLeaves 1 Fire
+hotself 80 TreeLeaves
+self 1 TreeLeaves2 1 Fire
+hotself 80 TreeLeaves2
+self 1 TreeLeaves3 1 Fire
+hotself 80 TreeLeaves3
+self 1 TreeLeaves4 1 Fire
+hotself 80 TreeLeaves4
+#----------------------------------------------
+neighbor 1 Worm Ground 1 Worm2 Worm
+neighbor 1 FreshGround Worm 1 Worm Worm2
+self .07 Worm2 1 FreshGround
+self .0002 Worm 1 FreshGround
+#---------------------------------------------

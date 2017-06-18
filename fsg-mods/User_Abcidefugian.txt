@@ -1,0 +1,229 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+#abcmod
+#Version 1
+#Created by Abcidefugian
+#2006/2007
+
+group   Waters  Water  Steam  Saltwater  Spout
+group	Fires	Fire	Torch	Ember	FallingEmber	Lava	Volcano	BurningRock
+group	Bombs	TNT	Dynamite	LavaBomb
+group	Destruction	???	hyperAcid
+sources Sand    Water  Salt   Oil
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#Eraser element.
+element	Drain	10	10	10	0.000000	1.000000	0.000000	0.000000	1
+neighbor 1.0	Drain	Water	1.0	Drain	Empty
+neighbor 1.0	Drain	Dust	1.0	Drain	Empty
+neighbor 1.0	Drain	Oil	1.0	Drain	Empty
+neighbor 1.0	Drain	Steam	1.0	Drain	Empty
+neighbor 1.0	Drain	Sand	1.0	Drain	Empty
+neighbor 1.0	Drain	Salt	1.0	Drain	Empty
+neighbor 1.0	Drain	Saltwater	1.0	Drain	Empty
+neighbor 1.0	Drain	MoltenCera	1.0	Drain	Empty
+neighbor 1.0	Drain	FallingEmber	1.0	Drain	Empty
+neighbor 1.0	Drain	ExplodingTNT	1.0	Drain	Empty
+neighbor 1.0	Drain	Lava	1.0	Drain	Empty
+neighbor 1.0	Drain	Magma	1.0	Drain	Empty
+#Solid rock
+element	Wall	128	128	128	0.000000	0.000000	5.000000	0.500000	1
+hotcolor  Wall  255     0     0
+self	0.00900	Wall	1	Lava
+hotself	85	Wall
+#Works as a stable container, will not melt
+element	Container	253	253	253	0.000	0	4	0	1
+#Does nothing. Useful for explosion aftermaths
+element	Dust	128	128	128	0.900000	0.000000	1.000000	0.500000	1
+#Burns other elements. Source of energy.
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	1.0000	Empty	
+hotcolor Fire   255    63     63
+neighbor 0.9	Fire	Water	1.0	Empty		Steam
+neighbor 0.75	Fire	Oil	1.0	Fire		Fire
+neighbor 1.0	Fire	Plant	1.0	Fire		Fire
+neighbor 0.005	Fire	Cera	1.0	MoltenCera	Ember
+neighbor 0.9	Fire	TNT	1.0	ExplodingTNT	Fire
+explosion	Fire	Oil	10	10
+explosion	Fire	TNT	100	100
+#This fuse works on any bomb.
+element	TNT	50	50	50	0.000000	0.000000	1.000000	0.000000	1
+element	ExplodingTNT	100	50	50	0.900000	1.000000	1.000000	0.000000	0
+self	0.02000	ExplodingTNT	1.0000	TNTFire
+neighbor 0.9	ExplodingTNT	TNT	1.0	ExplodingTNT	ExplodingTNT
+neighbor 1.0	ExplodingTNT	Wall	1.0	ExplodingTNT	Dust
+explosion	ExplodingTNT	TNT	100	100
+element	TNTFire	247	63	63	-1.000000	1.000000	0.000000	1.100000	0
+self	0.050000	TNTFire	1.0000	Empty	
+#Dissolves other elements. Turns to steam when heated.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant
+#Inert.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.000000	1
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Spout	Empty	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Empty		Empty
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000	1
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty	1.0	???	???
+neighbor 1.0	???	Wall	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 1.0	???	Container	1.0	???	???
+neighbor 1.0	???	Lava	1.0	???	???
+neighbor 1.0	???	Magma	1.0	???	???
+neighbor 1.0	???	Drain	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.000000	1
+#Soluable in water.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+neighbor 0.9		Ember	Water	1.0	Empty	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+#Burning solids.
+element	FallingEmber	200	50	50	0.700000	5.00000	3.000000	0.000000	1
+neighbor 0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor 0.9		FallingEmber	Water	1.0	Empty	Steam
+neighbor 1.0		FallingEmber	Oil	1.0	FallingEmber	FallingEmber
+neighbor 1.0		FallingEmber	Plant	1.0	FallingEmber	Fire
+neighbor 0.005		FallingEmber	Cera	1.0	MoltenCera	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	0
+neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self	0.00001	Saltwater	0.5	Water	0.5	Salt
+neighbor 0.004	Water	Salt	1.0	Saltwater	Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt	Steam
+neighbor 0.04	Saltwater	Water	1.0	Water	Saltwater
+neighbor 0.9	Saltwater	Fire	1.0	Salt	Steam
+hotneighbor   50	Saltwater	Saltwater
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2	Torch	Empty	1.0	Torch	Fire
+neighbor 0.2	Torch	Water	1.0	Torch	Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch	Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch	Fire
+neighbor 0.2	Torch	Plant	1.0	Torch	Fire
+neighbor 0.2	Torch	Cera	1.0	Torch	MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.005000	Leftover???	1.0000	Empty	
+#For whenever you really want to get rid of everything.
+element	hyperAcid	254	0	0	0	0	0	0	1
+self	0.100000	hyperAcid	1	LeftoverHyperAcid
+neighbor 1.0	hyperAcid	Empty	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Wall	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Fire	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Water	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Sand	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Spout	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Cera	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Oil	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Salt	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Ember	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	MoltenCera	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Steam	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Saltwater	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Torch	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Plant	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Dust	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Drain	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Container	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Lava	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Magma	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	???	1.0	hyperAcid	hyperAcid
+neighbor 1.0	hyperAcid	Leftover???	1.0	hyperAcid	hyperAcid
+neighbor 0.2	hyperAcid	LeftoverHyperAcid	1	LeftoverHyperAcid	LeftoverHyperAcid
+element	LeftoverHyperAcid	0	254	0	0.000000	0	0	0	0
+self	0.020	LeftoverHyperAcid	1	LeftoverHyperAcid2
+element	LeftoverHyperAcid2	0	0	254	0	0	0	0	0
+self	0.01	LeftoverHyperAcid2	1	Empty
+#Molten rock
+element Lava	255	0	66	1	1	2.0	1.9	1
+self	0.5	Lava	1	Magma
+neighbor	1.0	Lava	Empty	1	Lava	Fire
+#More Molten rock
+element Magma	255	200	0	1	1	2.0	1.9	0
+self	0.5	Magma	1	Lava
+neighbor	1.0	Lava	Empty	1	Lava	Fire
+element	Volcano	   196	150	0	0	0	5	1.01	1
+neighbor	1.0	Volcano	Empty	1	Volcano	AirborneLava
+neighbor	1.0	Volcano	Wall	1	Volcano	AirborneLava
+self	0.0005	Volcano	1	ExtinctVolcano
+element ExtinctVolcano	150	110	0	0	0	5	1.01	0
+element	AirborneLava	255	0	66	-2	30	0	1.1	0
+self	1	AirborneLava	0.991	AirborneMagma	0.009	Lava
+element	AirborneMagma	255	200	0	2	30	2.0	1.1	0
+self	1	AirborneMagma	0.991	AirborneLava	0.009	Magma
+#Use with care.
+element Dynamite	252	0	0	0	0	0	0	1
+neighbor	1	Dynamite	TNTFire	1	TNTFire	TNTFire
+explosion	Dynamite	TNTFire	255	255
+#This rock melts shortly after being placed into the sandbox.
+element BurningRock	192	192	192	0	0	10	0	1
+neighbor	1	BurningRock	Empty	1	Wall	Empty
+neighbor	0.00200	BurningRock	Wall	1	Wall	Wall
+self	0.000200	BurningRock	1	Lava
+#Dissolves in water, blows up at a temperature of 5, and randomly turns into HyperAcid.  USE AT YOUR OWN RISK.
+element SuperFragile	0	240	0	0	0	11	0.9	1
+self	1	SuperFragile	1	ExplodingSuperFragile
+hotself	5	SuperFragile
+neighbor	0.0000020	SuperFragile	SuperFragile	1	hyperAcid	hyperAcid
+element	ExplodingSuperFragile	0	240	0	0	0	11	0	1
+pexplosion ExplodingSuperFragile	SuperFragile	128	Fire
+element SuperFragileWater	0	240	0	0	0	11	0	1
+#Very dangerous.
+element	LavaBomb	100	0	16	0	0	0	0	1
+neighbor	1	LavaBomb	TNTFire	1	BOOMLava	BOOMLava
+neighbor	1	LavaBomb	BOOMLava	1	BOOMLava	BOOMLava
+explosion	LavaBomb	TNTFire	255	255
+explosion	LavaBomb	BOOMLava	255	255
+element BOOMLava	255	0	66	1	1	0	1.1	1
+self	1	BOOMLava	0.15	Magma	0.85	Empty
+neighbor	1.0	BOOMLava	Empty	1	BOOMLava	Fire
+

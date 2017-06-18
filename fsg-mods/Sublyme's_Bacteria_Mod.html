@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Sublyme's Bacteria Mod" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>Sublyme's Bacteria Mod - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">Sublyme's Bacteria Mod</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+	
+group	Tools	PetriDish	Clean	---	SugarA	SugarB	SugarC	SugarD	--- 	Fire	Torch	Wall	SuperWall	Electricity	Toxin	Ice	Freon	Refrigerator	---	SugarSourceA	SugarSourceB	SugarSourceC	SugarSourceD
+group	---	===
+group 	Level0 B.Simplistia
+group	Level1	B.Pyrotodia	B.Predatora	B.Toxicacia	B.Muruphagia	B.Gelucia	B.Electria	B.Microtachio
+group	Level2	B.Giganta	B.Pyromajora	B.Toxiphagia	B.Grantoxica	B.Freocia	B.Gelcuada	B.Megeleca
+group	Level3	B.Terraminor	B.Demopyra	B.Vepretoxia	B.Majogiganta
+
+
+#Petri Dish.  It is where all the bacteria live, die, feed, reproduce, and eventually evolve.
+element PetriDish 90	90	155	0	0	0	0	1
+
+element ---
+self	1	---	1	PetriDish
+#The bacteria are divided by 'level', or how higly evolved they are.
+element ===
+self	1	===	1	PetriDish
+
+#Clean.  Completely clears the screen.
+element Clean
+pexplosion Clean	PetriDish	9999	PetriDish
+
+#A simple Sugar not known to mutate any bacteria.
+element SugarA	255	255	255	0	0	0	0	1
+
+#When charred can become potentially dangerous.
+element SugarB	200	200	200	0	0	0	0	1
+
+#A Sugar that is produced from digested bacteria.  Can turn into toxins.
+element SugarC	190	200	255	0	0	0	0	1
+
+#The most dangerous of the four main Sugars.  Can cause large amount of mutations to occur quickly.
+element SugarD	200	255	255	0	0	0	0	1
+
+#Can you say secret Sugars?
+element SugarE	100	205	205	0	0	0	0	0
+
+#I can.
+element SugarF	120	105	205	0	0	0	0	0
+
+neighbor .004	SugarA	PetriDish	1	PetriDish	PetriDish
+neighbor .002	SugarB	PetriDish	1	PetriDish	PetriDish
+neighbor .009	SugarC	PetriDish	.97	PetriDish	PetriDish	.03	Toxin	PetriDish
+neighbor .001	SugarD	PetriDish	1	PetriDish	PetriDish
+neighbor .0007	SugarE	PetriDish	1	PetriDish	PetriDish
+neighbor .0007	SugarF	PetriDish	1	PetriDish	PetriDish
+
+#Wall.  Stops anything from moving past it.
+element Wall	200	200	200	0	0	0	0	1
+
+#Super Wall.  Nothing reacts with it at all.
+element SuperWall	255	000	255	0	0	0	0	1	
+
+#Fire.  Quite the obvious here.  It burns and can cause some forms of evolution.
+element Fire	255	128	0	0	0	0	0	1
+neighbor .06	Fire	PetriDish	.55	PetriDish	PetriDish	.45	Fire	Fire	
+neighbor .1	Fire	SugarA	1	Fire	Fire
+neighbor .07	Fire	SugarB	.6	Fire	Fire	.4	SugarD	PetriDish
+neighbor .2	Fire	SugarC	1	Fire	Fire
+neighbor .01	Fire	SugarD	.6	Fire	Fire	.4	PetriDish	SugarD
+
+#A secret unselectable type of superhot fire that lasts a long time.
+element SFire	200	0	200	0	0	0	0	0
+neighbor 1	SFire	PetriDish	.99	SFire	Fire	.01	PetriDish	Fire
+neighbor 1	SFire	Fire	.99	SFire	Fire	.01	Fire	Fire
+
+#Torch.  A permanent Source of fire.  This is nonmechanical, and can thus be inhabited by rare types of bacteria.
+element Torch	50	0	90	0	0	0	0	1
+neighbor 1	Torch	PetriDish	.99	Torch	Fire	.01	Torch	SFire
+
+#Refrigerator.  It keeps the  area cold.
+element Refrigerator	10	10	120	0	0	0	0	1
+neighbor .92	Refrigerator	PetriDish	1	Refrigerator	Freon
+
+#Freon.  An element that is incredibly cold.
+element Freon	120	180	255	0	0	0	0	1
+neighbor 1	Freon	PetriDish	.93	PetriDish	Freon	.07	Ice	PetriDish
+
+#A simple Sugar not known to mutate any bacteria.
+element SugarSourceA	50	0	90	0	0	0	0	1
+neighbor 1	SugarSourceA	PetriDish	1	SugarSourceA	SugarA
+
+#When charred can become potentially dangerous.
+element SugarSourceB	0	90	90	0	0	0	0	1
+neighbor 1	SugarSourceB	PetriDish	1	SugarSourceB	SugarB
+
+#A Sugar that is produced from digested bacteria.  Can turn into toxins.
+element SugarSourceC	0	40	90	0	0	0	0	1
+neighbor 1	SugarSourceC	PetriDish	1	SugarSourceC	SugarC
+
+#The most dangerous of the four main Sugars.  Can cause large amount of mutations to occur quickly.
+element SugarSourceD	0	20	90	0	0	0	0	1
+neighbor 1	SugarSourceD	PetriDish	1	SugarSourceD	SugarD
+
+#These are the simplest of bacteria, and evolve into almost all other types over time.
+element B.Simplistia	30	20	10	0	0	0	0	1
+neighbor .04	B.Simplistia PetriDish	.9	PetriDish	B.Simplistia	.05	B.Simplistia	B.Simplistia	.05	SugarB	B.Simplistia
+neighbor 1	Fire	B.Simplistia	.06	Fire	B.Pyrotodia	.54	PetriDish	Fire	.4	Fire	Fire
+neighbor 1	B.Simplistia	SugarA	1	PetriDish	B.Simplistia
+neighbor 1	B.Simplistia	SugarD	1	B.Predatora	PetriDish
+self	.005	B.Simplistia	.2	PetriDish	.79	B.Simplistia	.01	B.Microtachio
+
+#These are fire loving organisms and tend to burst into flames randomly as they are incredibly hot.  If they near flame they reproduce like madness.
+element B.Pyrotodia	250	0	50	0	0	0	0	1
+neighbor .033	B.Pyrotodia	PetriDish	.9	PetriDish	B.Pyrotodia	.04	Fire	B.Pyrotodia	.05	SugarB	B.Pyrotodia	.01	B.Pyrotodia	B.Pyrotodia
+neighbor .1	B.Pyrotodia	Fire	.1	B.Pyrotodia	B.Pyrotodia	.9	B.Pyrotodia	PetriDish
+neighbor 1	B.Pyrotodia	SugarB	1	PetriDish	B.Pyrotodia
+neighbor 1	B.Pyrotodia	SFire	.01	B.Pyromajora	SFire	.99	SFire	SFire
+self	.002	B.Pyrotodia	.6	Fire	.4	PetriDish
+
+#These are heavily predatory bacteria which feed on weaker ones, but they can't digest B.Pyrotodia, as they burst into flames as a defense.  They move quickly and but reproduce slowly.
+element	B.Predatora	255	185	0	0	0	0	0	1
+neighbor .1	B.Predatora	PetriDish	.8	PetriDish	B.Predatora	.009	B.Predatora	B.Predatora	.191	SugarC	B.Predatora
+neighbor .1	B.Predatora	B.Simplistia	.96	PetriDish	B.Predatora	.04	B.Predatora	B.Predatora
+neighbor 1	B.Predatora	B.Pyrotodia	1	PetriDish	Fire
+neighbor 1	B.Predatora	B.Muruphagia	1	PetriDish	Fire
+neighbor .4	B.Predatora	Fire	.5	Fire	Fire	.5	PetriDish	PetriDish
+neighbor 1	B.Predatora	SugarB	1	PetriDish	B.Predatora
+self	.0017	B.Predatora	.991	PetriDish	.009	B.Giganta
+
+#Slightly larger bacteria that can devour nearly all others.
+element B.Giganta	0	255	255	0	0	0	0	1
+element B.Giganta2	0	255	255	0	0	0	0	0
+neighbor .1	B.Giganta	PetriDish	.1	PetriDish	B.Giganta	.87	B.Giganta	B.Giganta2	.03	B.Giganta	B.Giganta
+neighbor .1	B.Giganta2	B.Predatora	.7	B.Giganta2	PetriDish	.3	B.Giganta	B.Giganta2
+neighbor 1	B.Giganta2	B.Pyrotodia	1	B.Giganta2	PetriDish
+neighbor 1	B.Giganta2	B.Simplistia	1	B.Giganta2	PetriDish
+neighbor 1	B.Giganta2	B.Muruphagia	1	B.Giganta2	PetriDish
+neighbor 1	B.Giganta2	SugarD	1	PetriDish	B.Giganta2
+self	.007	B.Giganta	1	PetriDish
+self	.2	B.Giganta2	1	PetriDish
+
+#These bacteria are silent and deadly.  The spread disease and move incredibly quickly.  They are completely inedible but die quickly.
+element B.Toxicacia	150	250	100	0	0	0	0	1
+#A terrible toxin that kills nearly all that touch it.
+element Toxin	10	255	0	0	0	0	0	1
+neighbor 1	B.Toxicacia	PetriDish	.1	Toxin	B.Toxicacia	.89	PetriDish	B.Toxicacia	.01	B.Toxicacia	B.Toxicacia
+self	.005	B.Toxicacia	1	PetriDish
+self	.001	Toxin	1	PetriDish
+neighbor 1	Toxin	B.Simplistia	.4	PetriDish	PetriDish	.59	PetriDish	Toxin	.01	B.Toxicacia	PetriDish
+neighbor 1	Toxin	B.Pyrotodia	.4	PetriDish	PetriDish	.5	PetriDish	Toxin	.1	PetriDish	B.ToxiphagiaHalf
+neighbor 1	Toxin	B.Predatora	.4	PetriDish	PetriDish	.6	PetriDish	Toxin
+neighbor 1	Toxin	B.Giganta2	1	PetriDish	Toxin
+neighbor 1	Toxin	B.Giganta	.4	PetriDish	PetriDish	.6	PetriDish	Toxin
+neighbor 1	Toxin	B.Pyromajora	.4	PetriDish	PetriDish	.6	PetriDish	Toxin
+neighbor 1	Toxin	B.Muruphagia	.4	PetriDish	PetriDish	.6	PetriDish	Toxin
+neighbor 1	Toxin	SugarA	.1	PetriDish	PetriDish	.9	PetriDish	Toxin
+neighbor 1	Toxin	SugarB	.1	PetriDish	PetriDish	.9	PetriDish	Toxin
+neighbor 1	Toxin	SugarC	.1	PetriDish	PetriDish	.9	PetriDish	Toxin
+neighbor 1	Toxin	SugarD	.1	PetriDish	PetriDish	.9	PetriDish	Toxin
+neighbor 1	B.Toxicacia	SugarE	1	B.Toxicacia	B.Grantoxica
+
+#These are one of the most dangerous kinds of bacteria known to exist.  They leave behind massive spots of incredibly hot fire.
+element B.Pyromajora	255	0	155	0	0	0	0	1
+element B.PyromajoraTorch	255	0	255	0	0	0	0	0
+neighbor 1	B.Pyromajora	Fire	1	Fire	B.Pyromajora
+neighbor .1	B.Pyromajora	Torch	1	Fire	B.PyromajoraTorch	
+neighbor 1	B.PyromajoraTorch	Torch	.997	Torch	B.PyromajoraTorch	.003	B.PyromajoraTorch	B.PyromajoraTorch
+neighbor .07	B.Pyromajora	PetriDish	.8	PetriDish	B.Pyromajora	.1	SFire	B.Pyromajora	.06	Fire	B.Pyromajora	.04	B.Pyromajora	B.Pyromajora
+neighbor .1	B.PyromajoraTorch	Fire	1	Torch	B.Pyromajora
+self	.003	B.Pyromajora	1	SFire
+self	.0012	B.PyromajoraTorch	1	Torch
+neighbor 1	B.Pyromajora	SugarE	1	B.Pyromajora	B.Demopyra
+
+#These are bacteria that love poisons and feed from them.  They are rare and occur only in odd ways.
+element B.Toxiphagia	50	155	200	0	0	0	0	1
+element B.ToxiphagiaHalf 90	125	0	0	0	0	0	0
+neighbor 1	B.ToxiphagiaHalf	Fire	1	B.Toxiphagia	PetriDish
+neighbor .1	B.Toxiphagia	PetriDish	.97	PetriDish	B.Toxiphagia	.02	SugarF	B.Toxiphagia	.01	B.Toxiphagia	B.Toxiphagia
+neighbor 1	B.Toxiphagia	Toxin	1	SugarF	B.Toxiphagia
+neighbor .1	B.Toxiphagia	SugarD	1	B.Terraminor	PetriDish
+self	.003	B.Toxiphagia	1	Fire
+
+#Bacteria that build walls and can feed off of Toxins.
+element	B.Terraminor	155	155	155	0	0	0	0	1
+neighbor .04	B.Terraminor	PetriDish	.97	PetriDish	B.Terraminor	.02	B.Terraminor	B.Terraminor	.01	SugarE	B.Terraminor
+neighbor 1	B.Terraminor	SugarF	1	Wall	B.Terraminor
+neighbor 1	B.Terraminor	Toxin	1	Wall	B.Terraminor
+self	.004	B.Terraminor	.5	Fire	.5	Wall
+
+#Bacteria that can explode into bursts of fire if they die.
+element B.Demopyra	90	0	0	0	0	0	0	1
+element Boom	0	0	0	0	0	0	0	0
+neighbor .01	B.Demopyra	PetriDish	.94	PetriDish	B.Demopyra	.03	Boom	B.Demopyra	.02	B.Demopyra	B.Demopyra	.01	SugarE	B.Demopyra
+neighbor 1	B.Demopyra	Toxin	1	Fire	SFire
+pexplosion	Boom	PetriDish	4	Fire
+self	.001	B.Demopyra	1	SFire
+
+#A bacteria that is able to destroy most others with it's horrible toxins.
+element B.Grantoxica	200	255	100	0	0	0	0	1
+neighbor .1	B.Grantoxica	PetriDish	.4	PetriDish	B.Grantoxica	.5	B.Grantoxica	Toxin	.01	B.Grantoxica	B.Grantoxica	.09	Toxin	Toxin
+neighbor .1	B.Grantoxica	Toxin	1	Toxin	B.Grantoxica
+self	.0007	B.Grantoxica	.9	Toxin	.1	B.Vepretoxia
+
+#A bacteria that destroys and digests wall.  With it's amazing appetite, sometimes it can't hold it all and will burst, explelling it's contents.  This primarily happens around flames.
+element B.Muruphagia	0	90	100	0	0	0	0	1
+neighbor .04	B.Muruphagia	PetriDish	.97	PetriDish	B.Muruphagia	.02	B.Muruphagia	B.Muruphagia	.01	SugarD	B.Muruphagia
+neighbor 1	B.Muruphagia	Wall	1	PetriDish	B.Muruphagia
+neighbor .01	B.Simplistia	Wall	.01	B.Muruphagia	Wall	.99	B.Simplistia	Wall	
+neighbor 1	Fire	B.Muruphagia	.9	PetriDish	Fire	.05	Wall	Wall	.05	Fire	Fire
+self	.004	B.Muruphagia	1	PetriDish
+
+#A bacteria that is nearly opposite of B.Pyrotodia, it is cold and can create masses of ice.
+element	B.Gelucia	100	100	250	0	0	0	0	1
+#A solid form of water that can form large walls.  It is easily combatted by fire though.
+element Ice	140	140	255	0	00	0	0	1
+neighbor .08	B.Gelucia	PetriDish	.1	Ice	B.Gelucia	.05	B.Gelucia	B.Gelucia	.85	PetriDish	B.Gelucia
+neighbor .0005	Ice	PetriDish	1	PetriDish	PetriDish
+neighbor 1	Ice	Fire	1	PetriDish	Fire
+neighbor 1	B.Gelucia	Fire	1	PetriDish	Fire
+neighbor .01	B.Simplistia	Ice	.2	B.Gelucia	Ice	.8	Ice	Ice
+neighbor .01	B.Predatora	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .01	B.Toxicacia	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .01	B.Muruphagia	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .01	B.Grantoxica	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .01	B.Giganta2	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .01	B.Giganta	Ice	.2	PetriDish	Ice	.8	Ice	Ice
+neighbor .08	B.Gelucia	Ice	.97	Ice	B.Gelucia	.03	B.Gelucia	B.Gelucia
+self	.011	B.Gelucia	.99	Ice	.01	B.Freocia
+
+#A bacteria that freezes distant bacteria and can make large amounts of ice wherever it goes.  It is slightly more resistant to fire than it's predescessor.
+element	B.Freocia	160	180	255	0	0	0	0	1
+neighbor .06	B.Freocia	PetriDish	.1	B.Freocia	Freon	.03	B.Freocia	B.Freocia	.87	PetriDish	B.Freocia
+neighbor .11	B.Freocia	Ice	.7	Ice	B.Freocia	.27	Freon	B.Freocia	.03	B.Freocia	B.Freocia
+self	.009	B.Freocia	1	Freon
+
+#A bacteria that is long and stretched out and leaves icy trails.
+element	B.Gelcuada	130	130	255	0	0	0	0	1
+element	B.Gelcuada2	100	100	205	0	0	0	0	0
+neighbor 1	B.Gelucia	SugarD	1	B.Gelucia	B.Gelcuada
+neighbor .06	B.Gelcuada	PetriDish	.69	B.Gelcuada2	B.Gelcuada	.3	Ice	B.Gelcuada	.01	B.Gelcuada	B.Gelcuada
+neighbor .03	B.Gelcuada	Ice	1	Ice	B.Gelcuada
+self	.001	B.Gelcuada	1	Ice
+self	.99	B.Gelcuada2	1	Ice
+
+#A bacteria which sends out small electrical pulses, leaving other bacteria burned to ashes.  They have grown resistant to fire because of the condition they leave most bacteria in.
+element B.Electria	255	255	0	0	0	0	0	1
+element Electricity	0	255	200	0	0	0	0	1
+neighbor 1	B.Simplistia	Electricity	.9	B.Electria	Electricity	.1	Fire	Electricity
+neighbor .01	B.Electria	PetriDish	.01	B.Electria	B.Electria	.9	PetriDish	B.Electria	.09	Electricity	B.Electria
+neighbor .03	Electricity	PetriDish	1	Electricity	Electricity
+self	.002	B.Electria	.7	Electricity	.3	B.Megeleca
+self	.09	Electricity	1	PetriDish
+neighbor 1	B.Predatora	Electricity	.1	Fire	Fire	.9	B.Predatora	PetriDish
+neighbor 1	B.Toxicacia	Electricity	.1	Fire	Fire	.9	B.Toxicacia	PetriDish
+neighbor 1	B.Muruphagia	Electricity	.1	Fire	Fire	.9	B.Muruphagia	PetriDish
+neighbor 1	B.Gelucia	Electricity	.1	Fire	Fire	.9	B.Gelucia	PetriDish
+neighbor 1	B.Giganta2	Electricity	.1	Fire	Fire	.9	B.Giganta2	PetriDish
+neighbor 1	B.Grantoxica	Electricity	.1	Fire	Fire	.9	B.Grantoxica	PetriDish
+neighbor 1	B.Freocia	Electricity	.1	Fire	Fire	.9	B.Freocia	PetriDish
+neighbor 1	B.Gelcuada	Electricity	.1	Fire	Fire	.9	B.Gelcuada	PetriDish
+
+#A bacteria capable of producing tremendous amounts of electricity nearly always destroying other bacteria on a large scale.
+element B.Megeleca	190	190	0	0	0	0	0	1
+neighbor .03	B.Megeleca	PetriDish	.8	PetriDish	B.Megeleca	.19	Electricity	B.Megeleca	.01	B.Megeleca	B.Megeleca
+self	.002	B.Megeleca	1	PetriDish
+
+#A bacteria that is small and weak, yet moves quickly and is difficult to ingest.  It is possibly small enough to undergo endosymbios with larger organisms and create an even more dangerous one.
+element B.Microtachio	160	100	130	0	0	0	0	1
+neighbor .1	B.Microtachio	PetriDish	.97	PetriDish	B.Microtachio	.02	SugarA	B.Microtachio	.01	B.Microtachio	B.Microtachio
+self	.002	B.Microtachio	1	PetriDish
+
+#A bacteria that is immobile but produces tendrils which carry dangerous poisons.
+element B.Vepretoxia	100	255	100	0	0	0	0	1
+element Tendril	0	155	0	0	0	0	0	0
+element TendrilBody	0	155	0	0	0	0	0	0
+element TendrilDead	0	155	0	0	0	0	0	0
+neighbor .7	B.Vepretoxia	PetriDish	.99	B.Vepretoxia	Tendril	.01	B.Vepretoxia	B.Vepretoxia
+neighbor 1	Tendril	PetriDish	.9997	TendrilBody	Tendril	.0003	Tendril	TendrilDead
+neighbor 1	TendrilDead	Tendril	1	TendrilDead	TendrilDead
+neighbor 1	TendrilDead	TendrilBody	1	TendrilDead	TendrilDead
+self	.1	TendrilDead	1	PetriDish
+self	.003	B.Vepretoxia	1	PetriDish
+self	.001	TendrilBody	1	TendrilDead
+neighbor .07	TendrilBody	PetriDish	1	TendrilBody	Toxin
+
+#A bacteria that is the product of endosymbios of a large bacteria and a small bacteria capable of producing enough energy to power itself along with much excess energy.
+element B.Majogiganta	0	0	100	0	0	0	0	1
+element B.Majogiganta2	0	0	120	0	0	0	0	0
+element B.Majogiganta3	0	0	140	0	0	0	0	0
+neighbor 1	B.Giganta2	B.Microtachio	1	B.Majogiganta	PetriDish
+neighbor .9	B.Majogiganta	PetriDish	.786	B.Majogiganta	B.Majogiganta2	.21	PetriDish	B.Majogiganta	.004	B.Majogiganta	B.Majogiganta
+neighbor .9	B.Majogiganta2	PetriDish	1	B.Majogiganta2	B.Majogiganta3
+self	.48	B.Majogiganta3	1	PetriDish
+self	.57	B.Majogiganta2	1	PetriDish
+self	.0001	B.Majogiganta	1	PetriDish
+neighbor 1	B.Majogiganta3	B.Simplistia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Pyrotodia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Predatora	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Toxicacia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Muruphagia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Gelucia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Electria	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Microtachio	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Giganta	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Pyromajora	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Toxiphagia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Grantoxica	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Freocia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Gelcuada	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Megeleca	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Vepretoxia	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Terraminor	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Demopyra	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	Toxin	1	B.Majogiganta3	PetriDish
+neighbor 1	B.Majogiganta3	B.Giganta2	1	B.Majogiganta3	PetriDish
+</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:2327-0!1!0!0!!en!2 and timestamp 20071027035105 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/Sublyme%27s_Bacteria_Mod">http://www.fallingsandgame.com/wiki/index.php/Sublyme%27s_Bacteria_Mod</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="/wiki/index.php/Sublyme%27s_Bacteria_Mod">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=Talk:Sublyme%27s_Bacteria_Mod&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=Sublyme%27s_Bacteria_Mod&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=Sublyme%27s_Bacteria_Mod&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=Sublyme%27s_Bacteria_Mod">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/Sublyme%27s_Bacteria_Mod">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/Sublyme%27s_Bacteria_Mod">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=Sublyme%27s_Bacteria_Mod&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=Sublyme%27s_Bacteria_Mod&amp;oldid=5963">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 21:42, 23 July 2007.</li>
+				<li id="viewcount">This page has been accessed 3,774 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

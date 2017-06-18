@@ -1,0 +1,1971 @@
+#subversion 2
+# Beater looking elements mod 1.6
+
+
+
+
+group Explosivs/Heat Fire Ember  BlazeScreen Dynamite  SuperN0va EquinoxBomb InfernoMine
+group Liqids/Powders Water Oil Acid Sand Plazmatter
+group Solids Wall Wood Charcoal Sponge BeatBall
+group Gasius/Moving WaterVapor  HeliumN0vate Eon Love Sound
+group Waters Water WaterVapor Sponge
+group Natral Lightning Meatiorite Plant Commet LiveLava
+group MJHSLHC Charlotteium Hannahium Jamesium Harryium Lukeium Sarahium Mattium 
+
+
+
+#Well Empty.
+element Empty 0 0 0 0 0 0 0 1
+
+#Hot.Burns Things.
+element Fire 255 0 0 -0.9 1 -1 2 1
+neighbor 0.01 Fire2 Empty 1 Empty Fire2
+
+self 0.03 Fire   0.6 Fire2 0.4 Empty 
+element Smoke 100 100 100 -0.6 0.8 -1 1 0
+self 0.08 Smoke 1 Empty
+element Fire2 255 255 0 -0.9 1 -1 2 0
+self 0.08 Fire2  0.2 Smoke 0.8 Empty
+neighbor 1 Fire2 Smoke 1 Fire2 Fire
+neighbor 1 Fire Smoke 1 Fire Fire2
+neighbor 0.01 Smoke Empty 1 Smoke Smoke
+neighbor 0.1 Fire Fire2 1 Fire Fire
+neighbor 0.05 Fire Empty 0.5  Fire Fire 0.5 Empty Empty
+neighbor 1 Empty Fire 1 Empty Empty
+neighbor 0.05 Fire2 Empty 0.5  Fire2 Fire2 0.5 Empty Empty
+neighbor 1 Empty Fire2 0.5 Empty Empty 0.25 Empty Fire 0.25 Empty Fire2
+hotcolor Fire 255 50 0
+
+
+self   0.0009   Water   1.000000   Water2
+self   0.1   Water2   1.000000   Water3
+self   0.1  Water3   1.000000   Water 
+neighbor 1 Water3 Water3 1 Water3! Water3!
+hotneighbor 40 Water3 Water3
+neighbor 1 Water2 Water2 1 Water2! Water2!
+hotneighbor 40 Water2 Water2
+neighbor 1 Water3 Water3 1 Water3! Water3!
+hotneighbor 40 Water Water 
+self 0.06 Water! 1 WaterVapor
+hotself 50 Water! 
+self 0.06 Water2! 1 WaterVapor
+hotself 50 Water2! 
+self 0.06 Water3! 1 WaterVapor
+hotself 50 Water3! 
+self   1 Water3!   1.000000   WaterVapor 
+hotself 50 Water3!
+self   1 Water2!   1.000000   WaterVapor 
+hotself 50 Water2!
+self   1 Water!   1.000000   WaterVapor 
+hotself 50 Water!
+
+element	Water!	0	45	211	.9 0 0.500000 1.4 0
+element	Water2!	2	234	255	.9 0 0.500000 1.400000 0
+element	Water3!	0	45	211	.9 0 0.500000 1.400000 0
+
+
+
+neighbor 1 Water2! Water2 1 Water2! Water2!
+
+neighbor 1 Water! Water3 1 Water! Water!
+neighbor 1 Water! Water2 1 Water! Water!
+neighbor 1 Water! Water 1 Water! Water!
+
+hotcolor Water 200 200 200
+#Turns To Water Vapor When Heated.
+element	Water	0	45	211	.9 0 0.500000 0.400000 1
+element	Water2	2	234	255	.9 0 0.500000 0.400000 0
+element	Water3	0	45	211	.9 0 0.500000 0.400000 0
+
+#Gasius Water.
+element WaterVapor 0 0 178 -3 5 0.02 0.9 1
+neighbor 0.001 Steam2 WaterVapor 1 Steam2 Steam2
+self 0.0001 WaterVapor 0.1 Steam2 0.9 WaterVapor
+element Steam2 0 0 178 -3 5 0.02 0.9 0
+pexplosion Steam2 Steam2 7 Water
+neighbor 0.0001 WaterVapor Steam2 0.4 WaterVapor Lightning 0.6 WaterVapor Steam2
+
+#Zap And The Life Is Gon
+element Lightning 255 255 56 3 1 1.1 1.4 1
+neighbor 1 Lightning Empty 1 Lightning Lightning2
+element Lightning2 255 255 2 0 0 1 1.4 0
+neighbor 0.09 Lightning2 Empty 1 Lightning2 Lightning3
+neighbor 0.1 Lightning3 Empty 1 Lightning3 Lightning4
+self 0.008 Lightning2 1 Lightning3
+element Lightning3 230 230 6 0 0 1 1.4 0
+element Lightning4 230 230 6 0 0 1 1.4 0
+self 0.09 Lightning3 0.5 Empty 0.5 Lightning4
+self 0.09 Lightning4 1 Empty 
+self 0.002 Lightning 1 Empty 
+neighbor 0.09 Lightning Lightning 1 Empty Empty
+
+neighbor 0.05 Fire Water 1 Empty Empty
+neighbor 0.005 Water Fire 1 Water Empty
+neighbor 0.05 Fire2 Water 1 Empty Empty
+neighbor 0.001 Water Fire2 1 Water Empty
+neighbor 0.05 Fire Water2 1 Empty Empty
+neighbor 0.001 Water2 Fire 1 Water2 Empty
+neighbor 0.05 Fire2 Water2 1 Empty Empty
+neighbor 0.001 Water2 Fire2 1 Water2 Empty
+neighbor 0.51 Fire Water3 1 Empty Empty
+neighbor 0.001 Water3 Fire 1 Water3 Empty
+neighbor 0.05 Fire2 Water 1 Empty Empty
+neighbor 0.001 Water3 Fire2 1 Water3 Empty 
+
+#Like All Walls
+element Wall 123 123 211 0 0 2 0.3 1
+hotcolor Wall 255 100 100
+
+
+#A diffrent torch
+#element Torch 255 100 50 0 0 2 0.3 1
+#neighbor 1 Torch Empty 0.8 Torch Fire 0.1 Torch FirePellet 0.1 Torch FirePellet2
+#A pellet of fire
+#element FirePellet 100 0 0 0.9 1 0 0.3 1
+#pexplosion  FirePellet Empty 1 Fire
+#neighbor 0.03 FirePellet2 Empty 1 Fire Fire
+#self 0.001 FirePellet2 1 FirePellet
+#self 0.001 FirePellet 1 FirePellet2
+#neighbor 0.001 Torch Torch 1 Torch Empty 
+#neighbor 0.001 Empty Torch  1 Torch Torch
+
+#A pellet of fire
+#element FirePellet2 100 0 0 0.9 1 0 0.3 0
+
+#Makes Fire 
+element Ember 255 200 0 0 0 0.5 0.7 1 
+neighbor 0.01 Ember2 Empty 1 Ember Fire
+self 0.03 Ember 1 Ember2
+element Ember2 123 0 0 0 0 0.5 0.7 0
+self 0.03 Ember2 1 Ember
+hotcolor Ember 255 100 0
+neighbor 1 Ember Empty 1 Emberf Ember3
+neighbor 1 Ember3 Empty 1 Ember3 Ember4
+neighbor 1 Ember4 Empty 1 Ember4 Ember5
+neighbor 1 Ember5 Empty 1 Ember5 Ember6
+neighbor 1 Ember6 Empty 1 Ember6 Ember7
+
+neighbor 1 Ember62 Ember7 1 Ember62 Ember72
+neighbor 0.001 Ember3 Ember4 1 Ember32 Ember42
+neighbor 1 Ember42 Ember5 1 Ember42 Ember52
+neighbor  1 Ember52 Ember6 1 Ember52 Ember62
+neighbor 0.004 Ember72 Empty 1 Ember72 Fire
+
+
+neighbor 1 Ember32 Ember32 1 Ember32 Ember32
+neighbor 1 Ember42 Ember42 1 Ember42 Ember42
+neighbor 1 Ember52 Ember52 1 Ember52 Ember52
+neighbor 1 Ember62 Ember62 1 Ember62 Ember62
+neighbor 1 Ember72 Ember72 1 Ember72 Ember72
+
+
+neighbor 1 Ember3 Hole 1 Hole2  Hole 
+neighbor 1 Ember4 Hole 1 Hole2  Hole 
+neighbor 1 Ember5 Hole 1 Hole2  Hole 
+neighbor 1 Ember6 Hole 1 Hole2  Hole 
+neighbor 1 Ember7 Hole 1 Hole2  Hole 
+
+
+neighbor 1 Ember3 Hole2 1 Hole3  Hole2 
+neighbor 1 Ember4 Hole2 1 Hole3  Hole2 
+neighbor 1 Ember5 Hole2 1 Hole3  Hole2
+neighbor 1 Ember6 Hole2 1 Hole3  Hole2
+neighbor 1 Ember7 Hole2 1 Hole3  Hole2 
+
+
+neighbor 1 Ember3 Hole3 1 Hole4  Hole3 
+neighbor 1 Ember4 Hole3 1 Hole4  Hole3
+neighbor 1 Ember5 Hole3 1 Hole4  Hole3 
+neighbor 1 Ember6 Hole3 1 Hole4  Hole3 
+neighbor 1 Ember7 Hole3 1 Hole4  Hole3 
+
+
+neighbor 1 Ember3 Hole4 1 Hole5  Hole4 
+neighbor 1 Ember4 Hole4 1 Hole5  Hole4
+neighbor 1 Ember5 Hole4 1 Hole5  Hole4 
+neighbor 1 Ember6 Hole4 1 Hole5  Hole4 
+neighbor 1 Ember7 Hole4 1 Hole5  Hole4 
+
+neighbor 1 Ember3 Hole5 1 Hole6  Hole5 
+neighbor 1 Ember4 Hole5 1 Hole6  Hole5
+neighbor 1 Ember5 Hole5 1 Hole6  Hole5 
+neighbor 1 Ember6 Hole5 1 Hole6  Hole5 
+neighbor 1 Ember7 Hole5 1 Hole6  Hole5 
+
+neighbor 1 Ember3 Hole6 1 Hole7  Hole6 
+neighbor 1 Ember4 Hole6 1 Hole7  Hole6
+neighbor 1 Ember5 Hole6 1 Hole7  Hole6 
+neighbor 1 Ember6 Hole6 1 Hole7  Hole6 
+neighbor 1 Ember7 Hole6 1 Hole7  Hole6 
+
+element Hole 255 255 255 0 0 0.5 0.7 0 
+element Hole2 200 200 200 0 0 0.5 0.7 0 
+element Hole3 155 155 155 0 0 0.5 0.7 0 
+element Hole4 100 100 100 0 0 0.5 0.7 0 
+element Hole5 50 50 50 0 0 0.5 0.7 0
+element Hole6 0 0 0 0 0 0.5 0.7 0
+element Hole7 100 100 100 0 0 0.5 0.7 0
+ 
+neighbor 1 Hole Ember32 1 Hole Hole2
+neighbor 1 Hole Ember42 1 Hole Hole2
+neighbor 1 Hole Ember52 1 Hole Hole2
+neighbor 1 Hole Ember62 1 Hole Hole2
+neighbor 1 Hole Ember72 1 Hole Hole2
+
+neighbor 1 Hole2 Ember32 1 Hole2 Hole3
+neighbor 1 Hole2 Ember42 1 Hole2 Hole3
+neighbor 1 Hole2 Ember52 1 Hole2 Hole3
+neighbor 1 Hole2 Ember62 1 Hole2 Hole3
+neighbor 1 Hole2 Ember72 1 Hole2 Hole3
+
+neighbor 1 Hole3 Ember32 1 Hole3 Hole4
+neighbor 1 Hole3 Ember42 1 Hole3 Hole4
+neighbor 1 Hole3 Ember52 1 Hole3 Hole4
+neighbor 1 Hole3 Ember62 1 Hole3 Hole4
+neighbor 1 Hole3 Ember72 1 Hole3 Hole4
+
+neighbor 1 Hole4 Ember32 1 Hole4 Hole5
+neighbor 1 Hole4 Ember42 1 Hole4 Hole5
+neighbor 1 Hole4 Ember52 1 Hole4 Hole5
+neighbor 1 Hole4 Ember62 1 Hole4 Hole5
+neighbor 1 Hole4 Ember72 1 Hole4 Hole5
+
+neighbor 1 Hole5 Ember32 1 Hole5 Hole6
+neighbor 1 Hole5 Ember42 1 Hole5 Hole6
+neighbor 1 Hole5 Ember52 1 Hole5 Hole6
+neighbor 1 Hole5 Ember62 1 Hole5 Hole6
+neighbor 1 Hole5 Ember72 1 Hole5 Hole6
+
+neighbor 1 Hole6 Ember32 1 Hole6 Hole7
+neighbor 1 Hole6 Ember42 1 Hole6 Hole7
+neighbor 1 Hole6 Ember52 1 Hole6 Hole7
+neighbor 1 Hole6 Ember62 1 Hole6 Hole7
+neighbor 1 Hole6 Ember72 1 Hole6 Hole7
+
+element Ember32 255 100 0 0 0 0.5 0.7 0 
+element Ember42 200 70 0 0 0 0.5 0.7 0 
+element Ember52 150 30 0 0 0 0.5 0.7 0
+element Ember62 110 10 0 0 0 0.5 0.7 0
+element Ember42 150 20 0 0 0 0.5 0.7 0
+element Ember72 180 30 0 0 0 0.5 0.7 0
+element Ember3 255 100 0 0 0 0.5 0.7 0 
+element Ember4 200 70 0 0 0 0.5 0.7 0 
+element Ember5 150 30 0 0 0 0.5 0.7 0
+element Ember6 110 10 0 0 0 0.5 0.7 0
+element Ember4 150 20 0 0 0 0.5 0.7 0
+element Ember7 180 30 0 0 0 0.5 0.7 0
+element Emberf 255 200 0 0 0.5 0.7 0 
+element Emberf2 123 0 0 0 0 0.5 0.25 0
+hotcolor Emberf 255 100 0
+neighbor 0.1 Emberf  Ember  1 Emberf  Emberf 
+neighbor 0.1 Emberf  Ember2  1 Emberf  Emberf2
+neighbor 0.1 Emberf2  Ember2  1 Emberf2  Emberf2  
+neighbor 1 Emberf2  Empty  1 Emberf2 Fire
+
+
+self 0.0001 Ember52 1 Hole
+self 0.0001 Ember42 1 Hole
+self 0.0001 Ember62 1 Hole
+self 0.1 Hole 1 Empty
+self 0.1 Hole2 1 Empty
+self 0.1 Hole3 1 Empty
+self 0.1 Hole4 1 Empty
+self 0.1 Hole5 1 Empty
+self 0.1 Hole6 1 Empty
+self 0.1 Hole7 1 Empty
+
+#Falls Frough Things
+element Meatiorite 255 0 0 3 1 5 1.4 1
+neighbor 1 Meatiorite Empty 1 Meatiorite Meatiorite2
+element Meatiorite2 255 200 2 0 0 5 1.4 0
+neighbor 0.7 Meatiorite2 Empty 1 Meatiorite2 Meatiorite3
+neighbor 0.1 Meatiorite3 Empty 1 Meatiorite3 Meatiorite4
+self 1 Meatiorite2 1 Meatiorite3
+element Meatiorite3 230 100 6 0 0 5 1.4 0
+element Meatiorite4 230 20 6 0 0 5 1.4 0
+self 0.2 Meatiorite3 0.5 Empty 0.5 Meatiorite4
+self 1 Meatiorite4 1 Empty 
+self 0.002 Meatiorite 1 Empty 
+neighbor 0.09 Meatiorite Meatiorite 1 Empty Empty
+
+#Flamable
+element Oil 100	36 36 0.9 0.7 0.3 0.1 1
+neighbor 1 Oil Fire 1 Fire Fire
+neighbor 1 Oil Fire2 1 Fire2 Fire2
+self 0.002 Oil 1 Fire
+hotself 40 Oil
+
+#Burns. Rots In Water
+element Wood 150 121 72 0 0 1.2 0.09  1
+self 1 Wood 0.8 Wood2 0.2 Empty
+hotself 45 Wood
+element Rot 150 200 72 0 0 1 0.09 0
+neighbor 0.002 Wood2 Water 1 Rot Water
+neighbor 0.0002 Wood2 Rot 1 Rot Rot 
+neighbor 0.004 Wood Water 1 Rot Water
+neighbor 0.0004 Wood Rot 1 Rot Rot 
+neighbor 1 Rot Fire 1 Water Fire
+neighbor 0.0001 Water Rot 1 Rot Rot 
+neighbor 1 Rot Fire2 1 Water Fire2
+
+neighbor 0.4 Wood2 Fire 1 Fire Empty
+neighbor 0.4 Wood2 Fire2 1 Fire2 Empty
+self 1 Wood 0.8 Charcoal 0.2 Empty
+hotself 60 Wood2
+element Wood2 78 45 23 0 0 1.2 0.02  0
+element Charcoal 20 0 0 0 0 1.2 0.2  1
+element Charcoal2 20 0 0 0 0 1.2 0.2  0
+self 0.01 Charcoal  0.42 Charcoal 0.06 LLFire 0.5 Charcoal2
+hotself 30 Charcoal 
+element LLFire 100 0 0 0 0 1 0.9  0
+neighbor 1 LLFire Charcoal2  1 LLFire LLFire
+neighbor 1 LLFire Charcoal  1 Fire LLFire
+neighbor 0.02 LLFire Wood  0.9 LLFire LLFire 0.1 Spit LLFire
+neighbor 0.005 Spit Empty  1 Spit Spit
+explosion Spit Empty 200 10
+neighbor 1 LLFire Wood2 1 Fire LLFire
+neighbor 0.003 LLFire Empty  1 Fire LLFire
+self 0.8 LLFire 0.01 Fire 0.9 LLFire
+element Spit 255 121 0 0.7 0 0 1  0
+self 0.05 Spit 0.7 Empty 0.3 Fire
+
+self 1 Charcoal2 1 Fire
+hotself 20 Charcoal2 
+
+neighbor 0.001 Charcoal2 Fire2 1 Fire2 Fire2
+neighbor 0.001 Charcoal2 Fire 1 Fire Fire
+
+
+neighbor 1 Fire2 Wood 1 Fire2 Fire2
+neighbor 1 Fire Wood 1 Fire Fire
+
+
+
+neighbor 1 Charcoal Charcoal2 1 Charcoal2 Charcoal2
+
+#Blows Up
+element Dynamite 255 0 0 0 0 2 0.01  1
+self 1 Dynamite 0.5 Boom 0.5 Boom2
+hotself 70 Dynamite
+pexplosion  Dynamite Boom 20  Boom2
+pexplosion  Dynamite Boom2 20 Boom
+neighbor 1 Dynamite Boom2 1 Boom Dynamite
+neighbor 1 Dynamite Boom 1 Boom2 Dynamite
+element Boom 255 200  0 -1 0 0 1.1  0
+element Boom2 255	40 40 -1 0 0 1.1  0
+self 0.05 Boom 1 Empty
+self 0.05 Boom2 1 Empty
+neighbor 0.001 Boom Empty 0.009 Dynamite Boom2 0.991 Boom Boom2
+neighbor 0.001 Boom2 Empty 0.009 Dynamite Boom 0.991 Boom2 Boom
+explosion Boom2 Empty 200 10
+explosion Boom  Empty 10 200
+
+#Slowly Grows
+element Acid 50 255 200 1 0 0.6 1.01  1
+neighbor 0.02 Acid Water 1 Fire Acid
+self 0.002 Acid   1 Acid2
+element Acid2 50 200 200 1 0 0.6 1.01  0
+self 0.001 Acid2 0.8 Acid 0.2 Acid3
+element Acid3 5 255 20 1 0 0.59 1.01  0
+neighbor 0.002 Acid3 Acid3 1 Acid3 Acid
+neighbor 0.02 Acid3 Water 1 Fire Acid3
+neighbor 0.02 Acid3 Empty 1 Acid3 Acid4
+element Acid4 0 0 200 1 0 0.5 1.01  0
+neighbor 1 Acid4 Empty 0.1 Acid2 Acid4 0.9 Empty Acid4 
+neighbor 0.007 Acid2 Acid3 1 Acid2 Acid
+self 0.009 Acid4 1 Empty
+
+#My Littel Cuz[The Youngest]
+element Charlotteium 255 0 255 0.001 1 0 0 1
+element sPlant 255 0 0 0 0 1.2 0 0
+self 0.0001 sPlant 1 sPlant2  
+neighbor 1 sPlant sPlant2 1 sPlant2 sPlant2
+element sPlant2 0 0 255 0 0 1.2 0 0
+self 0.0001 sPlant2 1 sPlant3  
+neighbor 1 sPlant2 sPlant3 1 sPlant3 sPlant3
+element sPlant3 0 255 0 0 0 1.2 0 0
+self 0.0001 sPlant3 1 sPlant  
+neighbor 1 sPlant sPlant3 1 sPlant sPlant
+neighbor 1 sPlant Water 1 sPlant sPlant
+neighbor 1 sPlant2 Water 1 sPlant2 sPlant2
+neighbor 1 sPlant3 Water 1 sPlant3 sPlant3
+neighbor 1 sPlant Fire 1  Fire Fire
+neighbor 1 sPlant2 Fire 1 Fire Fire
+neighbor 1 sPlant3 Fire 1 Fire Fire 
+neighbor 1 sPlant Fire2 1  Fire2 Fire2
+neighbor 1 sPlant2 Fire2 1 Fire2 Fire2
+neighbor 1 sPlant3 Fire2 1 Fire2 Fire2 
+neighbor 1 Charlotteium  Water 1 Charlotteium  sPlant
+neighbor 1 Charlotteium  sPlant 1 sPlant  sPlant
+neighbor 1 Charlotteium  sPlant2 1 sPlant2  sPlant2
+neighbor 1 Charlotteium  sPlant3 1 sPlant3  sPlant3
+
+#Me! Beats All Others Exept my gf
+element Jamesium 255 0 0 0 0 999 999 1
+neighbor 1 Jamesium   Charlotteium 1 Jamesium Jamesium
+self 0.009 Jamesium 0.8 Jamesium 0.2 Fire 
+neighbor 1 Jamesium   Harryium 1 Jamesium Jamesium
+neighbor 1 Jamesium Lukeium 1 Jamesium Jamesium
+neighbor 1 Jamesium Lukeium2 1 Jamesium Jamesium
+neighbor 1 Jamesium Lukeium3 1 Jamesium Jamesium
+neighbor 1 Jamesium Lukeium4 1 Jamesium Jamesium
+neighbor 1 Jamesium   Sarahium 1 Jamesium Jamesium
+neighbor 1 Jamesium   Empty 0.5 Fire Jamesium 0.5 Eon Jamesium
+neighbor 1 Jamesium   Fire 0.33 Jamesium Eon 0.33 Jamesium Fire 0.34 Jamesium Jamesium
+neighbor 1 Jamesium   Eon 0.33 Jamesium Eon 0.33 Jamesium Fire 0.34 Jamesium Jamesium
+neighbor 1 Jamesium   Harryium2 1 Jamesium Jamesium
+neighbor 1 Jamesium   Harryium3 1 Jamesium Jamesium
+neighbor 1 Eon   Harryium2 1 Jamesium Jamesium
+neighbor 1 Eon    Harryium3 1 Jamesium Jamesium
+neighbor 1 Eon   Harryium 1 Jamesium Jamesium
+neighbor 1 Eon Lukeium 1 Jamesium Jamesium
+neighbor 1 Eon Lukeium2 1 Jamesium Jamesium
+neighbor 1 Eon Lukeium3 1 Jamesium Jamesium
+neighbor 1 Eon Lukeium4 1 Jamesium Jamesium
+neighbor 1 Eon   Sarahium 1 Jamesium Jamesium
+neighbor 0.01 Eon   Mattium 1 Jamesium Jamesium
+neighbor 0.01 Eon   Mattium2 1 Jamesium Jamesium
+neighbor 0.2 Jamesium   Mattium 1 Jamesium Jamesium
+neighbor 0.2 Jamesium  Mattium2 1 Jamesium Jamesium
+
+element Harryium3 255 0 0 0 0 2 0 0
+self 0.5 Harryium 0.5 Harryium2 0.5 Harryium3
+#My Littel Bro
+element Harryium 255 255 0 0 0 2 0 1
+element Harryium2 0 0 255 0 0 2 0 0
+self 0.9 Harryium3 1 Harryium2
+self 0.9 Harryium2 1 Harryium3
+neighbor 1 Harryium  Empty 1 Harryium Harryium
+neighbor 1 Harryium  Lukeium 1 Jamesium Jamesium
+neighbor 1 Harryium2  Lukeium 1 Jamesium Jamesium
+neighbor 1 Harryium3  Lukeium 1 Jamesium Jamesium
+neighbor 1 Harryium  Lukeium2 1 Jamesium Jamesium
+neighbor 1 Harryium2  Lukeium2 1 Jamesium Jamesium
+neighbor 1 Harryium3  Lukeium2 1 Jamesium Jamesium
+neighbor 1 Harryium  Lukeium3 1 Jamesium Jamesium
+neighbor 1 Harryium2  Lukeium3 1 Jamesium Jamesium
+neighbor 1 Harryium3  Lukeium3 1 Jamesium Jamesium
+neighbor 1 Harryium  Lukeium4 1 Jamesium Jamesium
+neighbor 1 Harryium2  Lukeium4 1 Jamesium Jamesium
+neighbor 1 Harryium3  Lukeium4 1 Jamesium Jamesium
+neighbor 1 Harryium  Charlotteium  1 Harryium Harryium
+neighbor 1 Harryium2  Charlotteium  1 Harryium2 Harryium2
+neighbor 1 Harryium3  Charlotteium  1 Harryium3 Harryium3
+#My Mid Cuz
+element Lukeium 0 0 150 0 0 0 0 1
+neighbor 1 Lukeium Empty  1 Lukeium2 Lukeium2
+explosion Lukeium Empty 255 255
+neighbor 1 Lukeium4 Empty  1 Lukeium4 Lukeium3
+explosion Lukeium4 Empty 255 25
+pexplosion  Lukeium3  Empty 20  Lukeium4
+self 0.001 Lukeium2 1 Lukeium3
+self 0.001 Lukeium3 1 Lukeium4
+neighbor 1 Lukeium2 Lukeium4  1 Lukeium2 Lukeium2
+neighbor 0.1 Lukeium4 Lukeium2  1 Lukeium4 Lukeium4
+element Lukeium3 100 100 150 0 0 0 0 0
+element Lukeium4 255 0 150 0 0 0 0 0
+element Lukeium2 0 150 150 0 0 0 0 0
+neighbor 1 Lukeium3 Lukeium2  1 Lukeium4 Lukeium3
+#My Big Cuz
+element Sarahium 155 0 155 1 0 3 0.0001 1
+neighbor 1 Sarahium  Charlotteium  1 Sarahium  sPlant
+neighbor 1  Sarahium Lukeium3 0.7 Sarahium sPlant 0.3 Sarahium sPlant
+neighbor 1  Sarahium Lukeium2 0.7 Sarahium Sarahium 0.3 Sarahium sPlant
+neighbor 1  Sarahium Lukeium4 0.7 Sarahium Sarahium 0.3 Sarahium sPlant
+neighbor 1  Sarahium Lukeium 0.7 Sarahium Sarahium 0.3 Sarahium sPlant
+neighbor 0.01  Sarahium sPlant 1 sPlant sPlant
+neighbor 0.01  Sarahium sPlant2 1 sPlant2 sPlant2
+neighbor 0.01  Sarahium sPlant3 1 sPlant3 sPlant3
+pexplosion  Charlotteium  Sarahium 60  sPlant
+pexplosion  Lukeium  Sarahium 60  sPlant
+
+element N0va 255 0 0 0 0 1 9  0
+element N0va2 255 100 0 0 0  1.1 9 0
+element N0va3 255 200 0 0 0  1.2  9 0
+neighbor 1  N0va Empty 1 N0va N0va2
+neighbor 1  N0va2 Empty 1 N0va2 N0va3
+neighbor 1  N0va3 Empty 1 N0va3 N0va
+self 0.71 N0va 1 Empty
+self 0.69 N0va2 1 N0va
+self 0.71 N0va3 1 Empty
+
+#!!!Explosiv!!!
+element SuperN0va 200 100 100 0 0 1 1  1
+element n2 0 0 0 0 0 1 1 0
+element n3 0 0 0 0 0 1 1 0
+element n4 0 0 0 0 0 1 1 0
+neighbor 1  SuperN0va n3 0.1 n3 n2 0.9 SuperN0va n2
+neighbor 1  SuperN0va Empty 1 SuperN0va n2
+neighbor 1  SuperN0va n4 1 SuperN0va n2
+neighbor 1  n3 SuperN0va 1 n3 n3
+neighbor 1  n2 n4 1 n2 n3
+neighbor 1  n2 Empty 1 n2 n3
+neighbor 1  n3 Empty 1 n3 n4
+self 1 SuperN0va 1 N0va
+hotself 70 SuperN0va 
+pexplosion  N0va2  N0va 10  N0va3
+
+
+
+
+
+
+
+
+
+#Woha Shiny
+element ShockBo0m 255 255 255 0 0 1 0.01 0
+hotcolor ShockBo0m 0 0 0
+element s 0 0 200 0 0 -11 1.1 0
+element s1 0 0 150 0 0 -11 2 0
+element s2 0 0 100 0 0 -11 2 0
+element s3 0 0 50 0 0 -11 2 0
+element s4 50 0 0 0 0 -11 2 0
+element s5 150 0 0 0 0 -11 2 0
+element s6 200 0 0 0 0 -11 1.2 0
+element s7 255 0 0 0 0 -11 0.1 0
+
+neighbor 1 ShockBo0m s1 1 ShockBo0m s
+self 0.01 s7 0.4 Empty 0.6 s
+self 0.05 s6 1 Empty
+self 0.05 s5 1 Empty
+self 0.05 s4 1 Empty
+self 0.06 s3 1 Empty
+self 0.06 s2 1 Empty
+self 0.06 s1 0.7 s1 0.3 Empty
+hotself -99 s1
+self 0.06 s 1 Empty
+self 0.009 ShockBo0m 1 Empty
+neighbor 1 ShockBo0m s2 1 ShockBo0m s
+neighbor 1 ShockBo0m s7 1 ShockBo0m ShockBo0m
+neighbor 1 ShockBo0m s3 1 ShockBo0m ShockBo0m
+neighbor 1 ShockBo0m s3 1 ShockBo0m s
+neighbor 1 ShockBo0m s4 1 ShockBo0m s
+neighbor 1 ShockBo0m s5 1 ShockBo0m s
+neighbor 1 ShockBo0m s6 1 ShockBo0m s
+
+
+neighbor 1 ShockBo0m Water 1 ShockBo0m s
+neighbor 1 s Water 1 s s1
+neighbor 1 s1 Water 1 s1 s2
+neighbor 1 s2 Water 1 s2 s3
+neighbor 1 s3 Water 1 s3 s4
+neighbor 1 s4 Water 1 s4 s5
+neighbor 1 s5 Water 1 s5 s6
+neighbor 1 s6 Water 1 s6 s7
+
+neighbor 1 ShockBo0m Water2 1 ShockBo0m s
+neighbor 1 s Water2 1 s s1
+neighbor 1 s1 Water2 1 s1 s2
+neighbor 1 s2 Water2 1 s2 s3
+neighbor 1 s3 Water2 1 s3 s4
+neighbor 1 s4 Water2 1 s4 s5
+neighbor 1 s5 Water2 1 s5 s6
+neighbor 1 s6 Water2 1 s6 s7
+
+neighbor 1 ShockBo0m Water3 1 ShockBo0m s
+neighbor 1 s Water3 1 s s1
+neighbor 1 s1 Water3 1 s1 s2
+neighbor 1 s2 Water3 1 s2 s3
+neighbor 1 s3 Water3 1 s3 s4
+neighbor 1 s4 Water3 1 s4 s5
+neighbor 1 s5 Water3 1 s5 s6
+neighbor 1 s6 Water3 1 s6 s7
+
+neighbor 1 ShockBo0m Sand 1 ShockBo0m s
+neighbor 1 s Sand 1 s s1
+neighbor 1 s1 Sand 1 s1 s2
+neighbor 1 s2 Sand 1 s2 s3
+neighbor 1 s3 Sand 1 s3 s4
+neighbor 1 s4 Sand 1 s4 s5
+neighbor 1 s5 Sand 1 s5 s6 
+neighbor 1 s6 Sand 1 s6 s7
+
+neighbor 1 ShockBo0m Sand2 1 ShockBo0m s
+neighbor 1 s Sand2 1 s s1
+neighbor 1 s1 Sand2 1 s1 s2
+neighbor 1 s2 Sand2 1 s2 s3
+neighbor 1 s3 Sand2 1 s3 s4
+neighbor 1 s4 Sand2 1 s4 s5
+neighbor 1 s5 Sand2 1 s5 s6 
+neighbor 1 s6 Sand2 1 s6 s7
+
+
+neighbor 1 ShockBo0m Sand3 1 ShockBo0m s
+neighbor 1 s Sand3 1 s s1
+neighbor 1 s1 Sand3 1 s1 s2
+neighbor 1 s2 Sand3 1 s2 s3
+neighbor 1 s3 Sand3 1 s3 s4
+neighbor 1 s4 Sand3 1 s4 s5
+neighbor 1 s5 Sand3 1 s5 s6 
+neighbor 1 s6 Sand3 1 s6 s7
+
+
+
+neighbor 1 ShockBo0m Sand4 1 ShockBo0m s
+neighbor 1 s Sand4 1 s s1
+neighbor 1 s1 Sand4 1 s1 s2
+neighbor 1 s2 Sand4 1 s2 s3
+neighbor 1 s3 Sand4 1 s3 s4
+neighbor 1 s4 Sand4 1 s4 s5
+neighbor 1 s5 Sand4 1 s5 s6 
+neighbor 1 s6 Sand4 1 s6 s7
+
+neighbor 1 ShockBo0m Sand5 1 ShockBo0m s
+neighbor 1 s Sand5 1 s s1
+neighbor 1 s1 Sand5 1 s1 s2
+neighbor 1 s2 Sand5 1 s2 s3
+neighbor 1 s3 Sand5 1 s3 s4
+neighbor 1 s4 Sand5 1 s4 s5
+neighbor 1 s5 Sand5 1 s5 s6 
+neighbor 1 s6 Sand5 1 s6 s7
+
+neighbor 1 ShockBo0m Sand6 1 ShockBo0m s
+neighbor 1 s Sand6 1 s s1
+neighbor 1 s1 Sand6 1 s1 s2
+neighbor 1 s2 Sand6 1 s2 s3
+neighbor 1 s3 Sand6 1 s3 s4
+neighbor 1 s4 Sand6 1 s4 s5
+neighbor 1 s5 Sand6 1 s5 s6 
+neighbor 1 s6 Sand6 1 s6 s7
+
+
+neighbor 1 ShockBo0m Wall 1 ShockBo0m s
+neighbor 1 s Wall 1 s s1
+neighbor 1 s1 Wall 1 s1 s2
+neighbor 1 s2 Wall 1 s2 s3
+neighbor 1 s3 Wall 1 s3 s4
+neighbor 1 s4 Wall 1 s4 s5
+neighbor 1 s5 Wall 1 s5 s6 
+neighbor 1 s6 Wall 1 s6 s7
+
+neighbor 1 ShockBo0m Dynamite 1 ShockBo0m s
+neighbor 1 s Dynamite 1 s s1
+neighbor 1 s1 Dynamite 1 s1 s2
+neighbor 1 s2 Dynamite 1 s2 s3
+neighbor 1 s3 Dynamite 1 s3 s4
+neighbor 1 s4 Dynamite 1 s4 s5
+neighbor 1 s5 Dynamite 1 s5 s6 
+neighbor 1 s6 Dynamite 1 s6 s7
+
+neighbor 1 ShockBo0m Smoke 1 ShockBo0m s
+neighbor 1 s Smoke 1 s s1
+neighbor 1 s1 Smoke 1 s1 s2
+neighbor 1 s2 Smoke 1 s2 s3
+neighbor 1 s3 Smoke 1 s3 s4
+neighbor 1 s4 Smoke 1 s4 s5
+neighbor 1 s5 Smoke 1 s5 s6 
+neighbor 1 s6 Smoke 1 s6 s7
+
+neighbor 1 ShockBo0m Fire 1 ShockBo0m s
+neighbor 1 s Fire 1 s s1
+neighbor 1 s1 Fire 1 s1 s2
+neighbor 1 s2 Fire 1 s2 s3
+neighbor 1 s3 Fire 1 s3 s4
+neighbor 1 s4 Fire 1 s4 s5
+neighbor 1 s5 Fire 1 s5 s6 
+neighbor 1 s6 Fire 1 s6 s7
+
+neighbor 1 ShockBo0m Fire2 1 ShockBo0m s
+neighbor 1 s Fire2 1 s s1
+neighbor 1 s1 Fire2 1 s1 s2
+neighbor 1 s2 Fire2 1 s2 s3
+neighbor 1 s3 Fire2 1 s3 s4
+neighbor 1 s4 Fire2 1 s4 s5
+neighbor 1 s5 Fire2 1 s5 s6 
+neighbor 1 s6 Fire2 1 s6 s7
+
+neighbor 1 ShockBo0m N0va 1 ShockBo0m s
+neighbor 1 s N0va 1 s s1
+neighbor 1 s1 N0va 1 s1 s2
+neighbor 1 s2 N0va 1 s2 s3
+neighbor 1 s3 N0va 1 s3 s4
+neighbor 1 s4 N0va 1 s4 s5
+neighbor 1 s5 N0va 1 s5 s6 
+neighbor 1 s6 N0va 1 s6 s7
+
+neighbor 1 ShockBo0m N0va2 1 ShockBo0m s
+neighbor 1 s N0va2 1 s s1
+neighbor 1 s1 N0va2 1 s1 s2
+neighbor 1 s2 N0va2 1 s2 s3
+neighbor 1 s3 N0va2 1 s3 s4
+neighbor 1 s4 N0va2 1 s4 s5
+neighbor 1 s5 N0va2 1 s5 s6 
+neighbor 1 s6 N0va2 1 s6 s7
+
+
+neighbor 1 ShockBo0m N0va3 1 ShockBo0m s
+neighbor 1 s N0va3 1 s s1
+neighbor 1 s1 N0va3 1 s1 s2
+neighbor 1 s2 N0va3 1 s2 s3
+neighbor 1 s3 N0va3 1 s3 s4
+neighbor 1 s4 N0va3 1 s4 s5
+neighbor 1 s5 N0va3 1 s5 s6 
+neighbor 1 s6 N0va3 1 s6 s7
+pexplosion  N0va3  s 10  s
+pexplosion  N0va2  s 10  s
+pexplosion  N0va  s 10  s
+pexplosion  N0va3  s1 10  s1
+pexplosion  N0va2  s1 10  s1
+pexplosion  N0va  s1 10  s1
+pexplosion  N0va3  s2 10  s2
+pexplosion  N0va2  s2 10  s2
+pexplosion  N0va  s2 10  s2
+pexplosion  N0va3  s3 10  s3
+pexplosion  N0va2  s3 10  s3
+pexplosion  N0va  s3 10  s3
+pexplosion  N0va3  s4 10  s4
+pexplosion  N0va2  s4 10  s4
+pexplosion  N0va  s4 10  s4
+pexplosion  N0va3  s5 10  s5
+pexplosion  N0va2  s5 10  s5
+pexplosion  N0va  s5 10  s5
+pexplosion  N0va3  s6 10  s6
+pexplosion  N0va2  s6 10  s6
+pexplosion  N0va  s6 10  s6
+pexplosion  N0va3  s7 10  s7
+pexplosion  N0va2  s7 10  s7
+pexplosion  N0va  s7 10  s7
+
+
+neighbor 1 ShockBo0m Ember 1 ShockBo0m s
+neighbor 1 s Ember 1 s s1
+neighbor 1 s1 Ember 1 s1 s2
+neighbor 1 s2 Ember 1 s2 s3
+neighbor 1 s3 Ember 1 s3 s4
+neighbor 1 s4 Ember 1 s4 s5
+neighbor 1 s5 Ember 1 s5 s6 
+neighbor 1 s6 Ember 1 s6 s7
+
+
+neighbor 1 ShockBo0m Ember2 1 ShockBo0m s
+neighbor 1 s Ember2 1 s s1
+neighbor 1 s1 Ember2 1 s1 s2
+neighbor 1 s2 Ember2 1 s2 s3
+neighbor 1 s3 Ember2 1 s3 s4
+neighbor 1 s4 Ember2 1 s4 s5
+neighbor 1 s5 Ember2 1 s5 s6 
+neighbor 1 s6 Ember2 1 s6 s7
+
+neighbor 1 ShockBo0m Ember3 1 ShockBo0m s
+neighbor 1 s Ember3 1 s s1
+neighbor 1 s1 Ember3 1 s1 s2
+neighbor 1 s2 Ember3 1 s2 s3
+neighbor 1 s3 Ember3 1 s3 s4
+neighbor 1 s4 Ember3 1 s4 s5
+neighbor 1 s5 Ember3 1 s5 s6 
+neighbor 1 s6 Ember3 1 s6 s7
+
+neighbor 1 ShockBo0m Ember32 1 ShockBo0m s
+neighbor 1 s Ember32 1 s s1
+neighbor 1 s1 Ember32 1 s1 s2
+neighbor 1 s2 Ember32 1 s2 s3
+neighbor 1 s3 Ember32 1 s3 s4
+neighbor 1 s4 Ember32 1 s4 s5
+neighbor 1 s5 Ember32 1 s5 s6 
+neighbor 1 s6 Ember32 1 s6 s7
+
+neighbor 1 ShockBo0m Ember4 1 ShockBo0m s
+neighbor 1 s Ember4 1 s s1
+neighbor 1 s1 Ember4 1 s1 s2
+neighbor 1 s2 Ember4 1 s2 s3
+neighbor 1 s3 Ember4 1 s3 s4
+neighbor 1 s4 Ember4 1 s4 s5
+neighbor 1 s5 Ember4 1 s5 s6 
+neighbor 1 s6 Ember4 1 s6 s7
+
+neighbor 1 ShockBo0m Ember42 1 ShockBo0m s
+neighbor 1 s Ember42 1 s s1
+neighbor 1 s1 Ember42 1 s1 s2
+neighbor 1 s2 Ember42 1 s2 s3
+neighbor 1 s3 Ember42 1 s3 s4
+neighbor 1 s4 Ember42 1 s4 s5
+neighbor 1 s5 Ember42 1 s5 s6 
+neighbor 1 s6 Ember42 1 s6 s7
+
+neighbor 1 ShockBo0m Ember5 1 ShockBo0m s
+neighbor 1 s Ember5 1 s s1
+neighbor 1 s1 Ember5 1 s1 s2
+neighbor 1 s2 Ember5 1 s2 s3
+neighbor 1 s3 Ember5 1 s3 s4
+neighbor 1 s4 Ember5 1 s4 s5
+neighbor 1 s5 Ember5 1 s5 s6 
+neighbor 1 s6 Ember5 1 s6 s7
+
+neighbor 1 ShockBo0m Ember52 1 ShockBo0m s
+neighbor 1 s Ember52 1 s s1
+neighbor 1 s1 Ember52 1 s1 s2
+neighbor 1 s2 Ember52 1 s2 s3
+neighbor 1 s3 Ember52 1 s3 s4
+neighbor 1 s4 Ember52 1 s4 s5
+neighbor 1 s5 Ember52 1 s5 s6 
+neighbor 1 s6 Ember52 1 s6 s7
+
+neighbor 1 ShockBo0m Ember6 1 ShockBo0m s
+neighbor 1 s Ember6 1 s s1
+neighbor 1 s1 Ember6 1 s1 s2
+neighbor 1 s2 Ember6 1 s2 s3
+neighbor 1 s3 Ember6 1 s3 s4
+neighbor 1 s4 Ember6 1 s4 s5
+neighbor 1 s5 Ember6 1 s5 s6 
+neighbor 1 s6 Ember6 1 s6 s7
+
+neighbor 1 ShockBo0m Ember62 1 ShockBo0m s
+neighbor 1 s Ember62 1 s s1
+neighbor 1 s1 Ember62 1 s1 s2
+neighbor 1 s2 Ember62 1 s2 s3
+neighbor 1 s3 Ember62 1 s3 s4
+neighbor 1 s4 Ember62 1 s4 s5
+neighbor 1 s5 Ember62 1 s5 s6 
+neighbor 1 s6 Ember62 1 s6 s7
+
+neighbor 1 ShockBo0m Ember7 1 ShockBo0m s
+neighbor 1 s Ember7 1 s s1
+neighbor 1 s1 Ember7 1 s1 s2
+neighbor 1 s2 Ember7 1 s2 s3
+neighbor 1 s3 Ember7 1 s3 s4
+neighbor 1 s4 Ember7 1 s4 s5
+neighbor 1 s5 Ember7 1 s5 s6 
+neighbor 1 s6 Ember7 1 s6 s7
+
+neighbor 1 ShockBo0m Ember72 1 ShockBo0m s
+neighbor 1 s Ember72 1 s s1
+neighbor 1 s1 Ember72 1 s1 s2
+neighbor 1 s2 Ember72 1 s2 s3
+neighbor 1 s3 Ember72 1 s3 s4
+neighbor 1 s4 Ember72 1 s4 s5
+neighbor 1 s5 Ember72 1 s5 s6 
+neighbor 1 s6 Ember72 1 s6 s7
+
+neighbor 1 ShockBo0m Emberf 1 ShockBo0m s
+neighbor 1 s Emberf 1 s s1
+neighbor 1 s1 Emberf 1 s1 s2
+neighbor 1 s2 Emberf 1 s2 s3
+neighbor 1 s3 Emberf 1 s3 s4
+neighbor 1 s4 Emberf 1 s4 s5
+neighbor 1 s5 Emberf 1 s5 s6 
+neighbor 1 s6 Emberf 1 s6 s7
+
+neighbor 1 ShockBo0m Emberf2 1 ShockBo0m s
+neighbor 1 s Emberf2 1 s s1
+neighbor 1 s1 Emberf2 1 s1 s2
+neighbor 1 s2 Emberf2 1 s2 s3
+neighbor 1 s3 Emberf2 1 s3 s4
+neighbor 1 s4 Emberf2 1 s4 s5
+neighbor 1 s5 Emberf2 1 s5 s6
+neighbor 1 s6 Emberf2 1 s6 s7
+
+neighbor 1 ShockBo0m Ember72 1 ShockBo0m s
+neighbor 1 s Ember72 1 s s1
+neighbor 1 s1 Ember72 1 s1 s2
+neighbor 1 s2 Ember72 1 s2 s3
+neighbor 1 s3 Ember72 1 s3 s4
+neighbor 1 s4 Ember72 1 s4 s5
+neighbor 1 s5 Ember72 1 s5 s6 
+neighbor 1 s6 Ember72 1 s6 s7
+
+neighbor 1 ShockBo0m Lightning 1 ShockBo0m s
+neighbor 1 s Lightning 1 s s1
+neighbor 1 s1 Lightning 1 s1 s2
+neighbor 1 s2 Lightning 1 s2 s3
+neighbor 1 s3 Lightning 1 s3 s4
+neighbor 1 s4 Lightning 1 s4 s5
+neighbor 1 s5 Lightning 1 s5 s6 
+neighbor 1 s6 Lightning 1 s6 s7
+
+neighbor 1 ShockBo0m Lightning2 1 ShockBo0m s
+neighbor 1 s Lightning2 1 s s1
+neighbor 1 s1 Lightning2 1 s1 s2
+neighbor 1 s2 Lightning2 1 s2 s3
+neighbor 1 s3 Lightning2 1 s3 s4
+neighbor 1 s4 Lightning2 1 s4 s5
+neighbor 1 s5 Lightning2 1 s5 s6 
+neighbor 1 s6 Lightning2 1 s6 s7
+
+neighbor 1 ShockBo0m Lightning3 1 ShockBo0m s
+neighbor 1 s Lightning3 1 s s1
+neighbor 1 s1 Lightning3 1 s1 s2
+neighbor 1 s2 Lightning3 1 s2 s3
+neighbor 1 s3 Lightning3 1 s3 s4
+neighbor 1 s4 Lightning3 1 s4 s5
+neighbor 1 s5 Lightning3 1 s5 s6 
+neighbor 1 s6 Lightning3 1 s6 s7
+
+neighbor 1 ShockBo0m Lightning4 1 ShockBo0m s
+neighbor 1 s Lightning4 1 s s1
+neighbor 1 s1 Lightning4 1 s1 s2
+neighbor 1 s2 Lightning4 1 s2 s3
+neighbor 1 s3 Lightning4 1 s3 s4
+neighbor 1 s4 Lightning4 1 s4 s5
+neighbor 1 s5 Lightning4 1 s5 s6 
+neighbor 1 s6 Lightning4 1 s6 s7
+
+neighbor 1 ShockBo0m Meatiorite 1 ShockBo0m s
+neighbor 1 s Meatiorite 1 s s1
+neighbor 1 s1 Meatiorite 1 s1 s2
+neighbor 1 s2 Meatiorite 1 s2 s3
+neighbor 1 s3 Meatiorite 1 s3 s4
+neighbor 1 s4 Meatiorite 1 s4 s5
+neighbor 1 s5 Meatiorite 1 s5 s6
+neighbor 1 s6 Meatiorite 1 s6 s7
+
+neighbor 1 ShockBo0m Meatiorite2 1 ShockBo0m s
+neighbor 1 s Meatiorite2 1 s s1
+neighbor 1 s1 Meatiorite2 1 s1 s2
+neighbor 1 s2 Meatiorite2 1 s2 s3
+neighbor 1 s3 Meatiorite2 1 s3 s4
+neighbor 1 s4 Meatiorite2 1 s4 s5
+neighbor 1 s5 Meatiorite2 1 s5 s6 
+neighbor 1 s6 Meatiorite2 1 s6 s7
+
+neighbor 1 ShockBo0m Meatiorite3 1 ShockBo0m s
+neighbor 1 s Meatiorite3 1 s s1
+neighbor 1 s1 Meatiorite3 1 s1 s2
+neighbor 1 s2 Meatiorite3 1 s2 s3
+neighbor 1 s3 Meatiorite3 1 s3 s4
+neighbor 1 s4 Meatiorite3 1 s4 s5
+neighbor 1 s5 Meatiorite3 1 s5 s6 
+neighbor 1 s6 Meatiorite3 1 s6 s7
+
+neighbor 1 ShockBo0m Meatiorite4 1 ShockBo0m s
+neighbor 1 s Meatiorite4 1 s s1
+neighbor 1 s1 Meatiorite4 1 s1 s2
+neighbor 1 s2 Meatiorite4 1 s2 s3
+neighbor 1 s3 Meatiorite4 1 s3 s4
+neighbor 1 s4 Meatiorite4 1 s4 s5
+neighbor 1 s5 Meatiorite4 1 s5 s6
+neighbor 1 s6 Meatiorite4 1 s6 s7
+
+
+neighbor 1 ShockBo0m Acid 1 ShockBo0m s
+neighbor 1 s Acid 1 s s1
+neighbor 1 s1 Acid 1 s1 s2
+neighbor 1 s2 Acid 1 s2 s3
+neighbor 1 s3 Acid 1 s3 s4
+neighbor 1 s4 Acid 1 s4 s5
+neighbor 1 s5 Acid 1 s5 s6
+neighbor 1 s6 Acid 1 s6 s7
+
+neighbor 1 ShockBo0m Acid2 1 ShockBo0m s
+neighbor 1 s Acid2 1 s s1
+neighbor 1 s1 Acid2 1 s1 s2
+neighbor 1 s2 Acid2 1 s2 s3
+neighbor 1 s3 Acid2 1 s3 s4
+neighbor 1 s4 Acid2 1 s4 s5
+neighbor 1 s5 Acid2 1 s5 s6 
+neighbor 1 s6 Acid2 1 s6 s7
+
+neighbor 1 ShockBo0m Acid3 1 ShockBo0m s
+neighbor 1 s Acid3 1 s s1
+neighbor 1 s1 Acid3 1 s1 s2
+neighbor 1 s2 Acid3 1 s2 s3
+neighbor 1 s3 Acid3 1 s3 s4
+neighbor 1 s4 Acid3 1 s4 s5
+neighbor 1 s5 Acid3 1 s5 s6 
+neighbor 1 s6 Acid3 1 s6 s7
+
+neighbor 1 ShockBo0m Acid4 1 ShockBo0m s
+neighbor 1 s Acid4 1 s s1
+neighbor 1 s1 Acid4 1 s1 s2
+neighbor 1 s2 Acid4 1 s2 s3
+neighbor 1 s3 Acid4 1 s3 s4
+neighbor 1 s4 Acid4 1 s4 s5
+neighbor 1 s5 Acid4 1 s5 s6
+neighbor 1 s6 Acid4 1 s6 s7
+
+neighbor 1 ShockBo0m Boom 1 ShockBo0m s
+neighbor 1 s Boom 1 s s1
+neighbor 1 s1 Boom 1 s1 s2
+neighbor 1 s2 Boom 1 s2 s3
+neighbor 1 s3 Boom 1 s3 s4
+neighbor 1 s4 Boom 1 s4 s5
+neighbor 1 s5 Boom 1 s5 s6 
+neighbor 1 s6 Boom 1 s6 s7
+
+neighbor 1 ShockBo0m Boom2 1 ShockBo0m s
+neighbor 1 s Boom2 1 s s1
+neighbor 1 s1 Boom2 1 s1 s2
+neighbor 1 s2 Boom2 1 s2 s3
+neighbor 1 s3 Boom2 1 s3 s4
+neighbor 1 s4 Boom2 1 s4 s5
+neighbor 1 s5 Boom2 1 s5 s6 
+neighbor 1 s6 Boom2 1 s6 s7
+
+
+pexplosion  Boom2  s 10  s
+pexplosion  Boom  s 10  s
+pexplosion  Boom2  s2 10  s2
+pexplosion  Boom  s2 10  s2
+pexplosion  Boom2  s3 10  s3
+pexplosion  Boom  s3 10  s3
+pexplosion  Boom2  s4 10  s4
+pexplosion  Boom  s4 10  s4
+pexplosion  Boom2  s5 10  s5
+pexplosion  Boom  s5 10  s5
+pexplosion  Boom2  s6 10  s6
+pexplosion  Boom s6 10  s6
+pexplosion  Boom2  s7 10  s7
+pexplosion Boom  s7 10  s7
+
+neighbor 1 ShockBo0m WaterVapor 1 ShockBo0m s
+neighbor 1 s WaterVapor 1 s s1
+neighbor 1 s1 WaterVapor 1 s1 s2
+neighbor 1 s2 WaterVapor 1 s2 s3
+neighbor 1 s3 WaterVapor 1 s3 s4
+neighbor 1 s4 WaterVapor 1 s4 s5
+neighbor 1 s5 WaterVapor 1 s5 s6 
+neighbor 1 s6 WaterVapor 1 s6 s7
+
+neighbor 1 ShockBo0m Steam2 1 ShockBo0m s
+neighbor 1 s Steam2 1 s s1
+neighbor 1 s1 Steam2 1 s1 s2
+neighbor 1 s2 Steam2 1 s2 s3
+neighbor 1 s3 Steam2 1 s3 s4
+neighbor 1 s4 Steam2 1 s4 s5
+neighbor 1 s5 Steam2 1 s5 s6
+neighbor 1 s6 Steam2 1 s6 s7
+
+neighbor 1 ShockBo0m Water! 1 ShockBo0m s
+neighbor 1 s Water! 1 s s1
+neighbor 1 s1 Water! 1 s1 s2
+neighbor 1 s2 Water! 1 s2 s3
+neighbor 1 s3 Water! 1 s3 s4
+neighbor 1 s4 Water! 1 s4 s5
+neighbor 1 s5 Water! 1 s5 s6
+neighbor 1 s6 Water! 1 s6 s7
+
+neighbor 1 ShockBo0m Water2! 1 ShockBo0m s
+neighbor 1 s Water2! 1 s s1
+neighbor 1 s1 Water2! 1 s1 s2
+neighbor 1 s2 Water2! 1 s2 s3
+neighbor 1 s3 Water2! 1 s3 s4
+neighbor 1 s4 Water2! 1 s4 s5
+neighbor 1 s5 Water2! 1 s5 s6
+neighbor 1 s6 Water2! 1  s6 s7
+
+neighbor 1 ShockBo0m Water3! 1 ShockBo0m s
+neighbor 1 s Water3! 1 s s1
+neighbor 1 s1 Water3! 1 s1 s2
+neighbor 1 s2 Water3! 1 s2 s3
+neighbor 1 s3 Water3! 1 s3 s4
+neighbor 1 s4 Water3! 1 s4 s5
+neighbor 1 s5 Water3! 1 s5 s6
+neighbor 1 s6 Water3! 1 s6 s7
+
+neighbor 1 ShockBo0m Charlotteium 1 ShockBo0m s
+neighbor 1 s Charlotteium 1 s s1
+neighbor 1 s1 Charlotteium 1 s1 s2
+neighbor 1 s2 Charlotteium 1 s2 s3
+neighbor 1 s3 Charlotteium 1 s3 s4
+neighbor 1 s4 Charlotteium 1 s4 s5
+neighbor 1 s5 Charlotteium 1 s5 s6
+neighbor 1 s6 Charlotteium 1 s6 s7
+
+neighbor 1 ShockBo0m Jamesium 1 ShockBo0m s
+neighbor 1 s Jamesium 1 s s1
+neighbor 1 s1 Jamesium 1 s1 s2
+neighbor 1 s2 Jamesium 1 s2 s3
+neighbor 1 s3 Jamesium 1 s3 s4
+neighbor 1 s4 Jamesium 1 s4 s5
+neighbor 1 s5 Jamesium 1 s5 s6
+neighbor 1 s6 Jamesium 1 s6 s7
+
+neighbor 1 ShockBo0m Harryium 1 ShockBo0m s
+neighbor 1 s Harryium 1 s s1
+neighbor 1 s1 Harryium 1 s1 s2
+neighbor 1 s2 Harryium 1 s2 s3
+neighbor 1 s3 Harryium 1 s3 s4
+neighbor 1 s4 Harryium 1 s4 s5
+neighbor 1 s5 Harryium 1 s5 s6
+neighbor 1 s6 Harryium 1 s6 s7
+
+neighbor 1 ShockBo0m Harryium2 1 ShockBo0m s
+neighbor 1 s Harryium2 1 s s1
+neighbor 1 s1 Harryium2 1 s1 s2
+neighbor 1 s2 Harryium2 1 s2 s3
+neighbor 1 s3 Harryium2 1 s3 s4
+neighbor 1 s4 Harryium2 1 s4 s5
+neighbor 1 s5 Harryium2 1 s5 s6
+neighbor 1 s6 Harryium2 1 s6 s7
+
+neighbor 1 ShockBo0m Harryium3 1 ShockBo0m s
+neighbor 1 s Harryium3 1 s s1
+neighbor 1 s1 Harryium3 1 s1 s2
+neighbor 1 s2 Harryium3 1 s2 s3
+neighbor 1 s3 Harryium3 1 s3 s4
+neighbor 1 s4 Harryium3 1 s4 s5
+neighbor 1 s5 Harryium3 1 s5 s6
+neighbor 1 s6 Harryium3 1 s6 s7
+
+neighbor 1 ShockBo0m Lukeium 1 ShockBo0m s
+neighbor 1 s Lukeium 1 s s1
+neighbor 1 s1 Lukeium 1 s1 s2
+neighbor 1 s2 Lukeium 1 s2 s3
+neighbor 1 s3 Lukeium 1 s3 s4
+neighbor 1 s4 Lukeium 1 s4 s5
+neighbor 1 s5 Lukeium 1 s5 s6
+neighbor 1 s6 Lukeium 1 s6 s7
+
+neighbor 1 ShockBo0m Lukeium2 1 ShockBo0m s
+neighbor 1 s Lukeium2 1 s s1
+neighbor 1 s1 Lukeium2 1 s1 s2
+neighbor 1 s2 Lukeium2 1 s2 s3
+neighbor 1 s3 Lukeium2 1 s3 s4
+neighbor 1 s4 Lukeium2 1 s4 s5
+neighbor 1 s5 Lukeium2 1 s5 s6
+neighbor 1 s6 Lukeium2 1 s6 s7
+
+neighbor 1 ShockBo0m Lukeium3 1 ShockBo0m s
+neighbor 1 s Lukeium3 1 s s1
+neighbor 1 s1 Lukeium3 1 s1 s2
+neighbor 1 s2 Lukeium3 1 s2 s3
+neighbor 1 s3 Lukeium3 1 s3 s4
+neighbor 1 s4 Lukeium3 1 s4 s5
+neighbor 1 s5 Lukeium3 1 s5 s6
+neighbor 1 s6 Lukeium3 1 s6 s7
+
+neighbor 1 ShockBo0m Lukeium4 1 ShockBo0m s
+neighbor 1 s Lukeium4 1 s s1
+neighbor 1 s1 Lukeium4 1 s1 s2
+neighbor 1 s2 Lukeium4 1 s2 s3
+neighbor 1 s3 Lukeium4 1 s3 s4
+neighbor 1 s4 Lukeium4 1 s4 s5
+neighbor 1 s5 Lukeium4 1 s5 s6
+neighbor 1 s6 Lukeium4 1 s6 s7
+
+neighbor 1 ShockBo0m Sarahium 1 ShockBo0m s
+neighbor 1 s Sarahium 1 s s1
+neighbor 1 s1 Sarahium 1 s1 s2
+neighbor 1 s2 Sarahium 1 s2 s3
+neighbor 1 s3 Sarahium 1 s3 s4
+neighbor 1 s4 Sarahium 1 s4 s5
+neighbor 1 s5 Sarahium 1 s5 s6
+neighbor 1 s6 Sarahium 1 s6 s7
+
+
+neighbor 1 ShockBo0m sPlant 1 ShockBo0m s
+neighbor 1 s sPlant 1 s s1
+neighbor 1 s1 sPlant 1 s1 s2
+neighbor 1 s2 sPlant 1 s2 s3
+neighbor 1 s3 sPlant 1 s3 s4
+neighbor 1 s4 sPlant 1 s4 s5
+neighbor 1 s5 sPlant 1 s5 s6
+neighbor 1 s6 sPlant 1 s6 s7
+
+neighbor 1 ShockBo0m sPlant2 1 ShockBo0m s
+neighbor 1 s sPlant2 1 s s1
+neighbor 1 s1 sPlant2 1 s1 s2
+neighbor 1 s2 sPlant2 1 s2 s3
+neighbor 1 s3 sPlant2 1 s3 s4
+neighbor 1 s4 sPlant2 1 s4 s5
+neighbor 1 s5 sPlant2 1 s5 s6
+neighbor 1 s6 sPlant2 1 s6 s7
+
+neighbor 1 ShockBo0m sPlant3 1 ShockBo0m s
+neighbor 1 s sPlant3 1 s s1
+neighbor 1 s1 sPlant3 1 s1 s2
+neighbor 1 s2 sPlant3 1 s2 s3
+neighbor 1 s3 sPlant3 1 s3 s4
+neighbor 1 s4 sPlant3 1 s4 s5
+neighbor 1 s5 sPlant3 1 s5 s6
+neighbor 1 s6 sPlant3 1 s6 s7
+
+neighbor 1 ShockBo0m Plant3 1 ShockBo0m s
+neighbor 1 s Plant3 1 s s1
+neighbor 1 s1 Plant3 1 s1 s2
+neighbor 1 s2 Plant3 1 s2 s3
+neighbor 1 s3 Plant3 1 s3 s4
+neighbor 1 s4 Plant3 1 s4 s5
+neighbor 1 s5 Plant3 1 s5 s6
+neighbor 1 s6 Plant3 1 s6 s7
+
+neighbor 1 ShockBo0m Plant2 1 ShockBo0m s
+neighbor 1 s Plant2 1 s s1
+neighbor 1 s1 Plant2 1 s1 s2
+neighbor 1 s2 Plant2 1 s2 s3
+neighbor 1 s3 Plant2 1 s3 s4
+neighbor 1 s4 Plant2 1 s4 s5
+neighbor 1 s5 Plant2 1 s5 s6
+neighbor 1 s6 Plant2 1 s6 s7
+
+neighbor 1 ShockBo0m Plant 1 ShockBo0m s
+neighbor 1 s Plant 1 s s1
+neighbor 1 s1 Plant 1 s1 s2
+neighbor 1 s2 Plant 1 s2 s3
+neighbor 1 s3 Plant 1 s3 s4
+neighbor 1 s4 Plant 1 s4 s5
+neighbor 1 s5 Plant 1 s5 s6
+neighbor 1 s6 Plant 1 s6 s7
+
+neighbor 1 ShockBo0m Wood 1 ShockBo0m s
+neighbor 1 s Wood 1 s s1
+neighbor 1 s1 Wood 1 s1 s2
+neighbor 1 s2 Wood 1 s2 s3
+neighbor 1 s3 Wood 1 s3 s4
+neighbor 1 s4 Wood 1 s4 s5
+neighbor 1 s5 Wood 1 s5 s6
+neighbor 1 s6 Wood 1 s6 s7
+
+neighbor 1 ShockBo0m Wood2 1 ShockBo0m s
+neighbor 1 s Wood2 1 s s1
+neighbor 1 s1 Wood2 1 s1 s2
+neighbor 1 s2 Wood2 1 s2 s3
+neighbor 1 s3 Wood2 1 s3 s4
+neighbor 1 s4 Wood2 1 s4 s5
+neighbor 1 s5 Wood2 1 s5 s6
+neighbor 1 s6 Wood2 1 s6 s7
+
+neighbor 1 ShockBo0m Charcoal 1 ShockBo0m s
+neighbor 1 s Charcoal 1 s s1
+neighbor 1 s1 Charcoal 1 s1 s2
+neighbor 1 s2 Charcoal 1 s2 s3
+neighbor 1 s3 Charcoal 1 s3 s4
+neighbor 1 s4 Charcoal 1 s4 s5
+neighbor 1 s5 Charcoal 1 s5 s6
+neighbor 1 s6 Charcoal 1 s6 s7
+
+neighbor 1 ShockBo0m Charcoal2 1 ShockBo0m s
+neighbor 1 s Charcoal2 1 s s1
+neighbor 1 s1 Charcoal2 1 s1 s2
+neighbor 1 s2 Charcoal2 1 s2 s3
+neighbor 1 s3 Charcoal2 1 s3 s4
+neighbor 1 s4 Charcoal2 1 s4 s5
+neighbor 1 s5 Charcoal2 1 s5 s6
+neighbor 1 s6 Charcoal2 1 s6 s7
+
+neighbor 1 ShockBo0m HeliumN0vate 1 ShockBo0m s
+neighbor 1 s HeliumN0vate 1 s s1
+neighbor 1 s1 HeliumN0vate 1 s1 s2
+neighbor 1 s2 HeliumN0vate 1 s2 s3
+neighbor 1 s3 HeliumN0vate 1 s3 s4
+neighbor 1 s4 HeliumN0vate 1 s4 s5
+neighbor 1 s5 HeliumN0vate 1 s5 s6
+neighbor 1 s6 HeliumN0vate 1 s6 s7
+
+neighbor 1 ShockBo0m SuperN0va 1 ShockBo0m s
+neighbor 1 s SuperN0va 1 s s1
+neighbor 1 s1 SuperN0va 1 s1 s2
+neighbor 1 s2 SuperN0va 1 s2 s3
+neighbor 1 s3 SuperN0va 1 s3 s4
+neighbor 1 s4 SuperN0va 1 s4 s5
+neighbor 1 s5 SuperN0va 1 s5 s6
+neighbor 1 s6 SuperN0va 1 s6 s7
+
+
+neighbor 1 ShockBo0m n2 1 ShockBo0m s
+neighbor 1 s n2 1 s s1
+neighbor 1 s1 n2 1 s1 s2
+neighbor 1 s2 n2 1 s2 s3
+neighbor 1 s3 n2 1 s3 s4
+neighbor 1 s4 n2 1 s4 s5
+neighbor 1 s5 n2 1 s5 s6
+neighbor 1 s6 n2 1 s6 s7
+
+neighbor 1 ShockBo0m n3 1 ShockBo0m s
+neighbor 1 s n3 1 s s1
+neighbor 1 s1 n3 1 s1 s2
+neighbor 1 s2 n3 1 s2 s3
+neighbor 1 s3 n3 1 s3 s4
+neighbor 1 s4 n3 1 s4 s5
+neighbor 1 s5 n3 1 s5 s6
+neighbor 1 s6 n3 1 s6 s7
+
+neighbor 1 ShockBo0m n4 1 ShockBo0m s
+neighbor 1 s n4 1 s s1
+neighbor 1 s1 n4 1 s1 s2
+neighbor 1 s2 n4 1 s2 s3
+neighbor 1 s3 n4 1 s3 s4
+neighbor 1 s4 n4 1 s4 s5
+neighbor 1 s5 n4 1 s5 s6
+neighbor 1 s6 n4 1 s6 s7
+
+
+
+neighbor 1 ShockBo0m Oil 1 ShockBo0m s
+neighbor 1 s Oil 1 s s1
+neighbor 1 s1 Oil 1 s1 s2
+neighbor 1 s2 Oil 1 s2 s3
+neighbor 1 s3 Oil 1 s3 s4
+neighbor 1 s4 Oil 1 s4 s5
+neighbor 1 s5 Oil 1 s5 s6
+neighbor 1 s6 Oil 1 s6 s7
+
+neighbor 1 ShockBo0m LLFire 1 ShockBo0m s
+neighbor 1 s LLFire  1 s s1
+neighbor 1 s1 LLFire  1 s1 s2
+neighbor 1 s2 LLFire  1 s2 s3
+neighbor 1 s3 LLFire  1 s3 s4
+neighbor 1 s4 LLFire  1 s4 s5
+neighbor 1 s5 LLFire  1 s5 s7
+neighbor 1 s6 LLFire  1 s6 s7
+
+neighbor 1 ShockBo0m EquinoxBomb3 1 ShockBo0m s
+neighbor 1 s EquinoxBomb3  1 s s1
+neighbor 1 s1 EquinoxBomb3  1 s1 s2
+neighbor 1 s2 EquinoxBomb3  1 s2 s3
+neighbor 1 s3 EquinoxBomb3  1 s3 s4
+neighbor 1 s4 EquinoxBomb3  1 s4 s5
+neighbor 1 s5 EquinoxBomb3  1 s5 s6
+neighbor 1 s6 EquinoxBomb3  1 s6 s7
+
+
+neighbor 1 ShockBo0m Empty 1 ShockBo0m s
+neighbor 1 s Empty 1 s s1
+neighbor 1 s1 Empty 1 s1 s2
+neighbor 1 s2 Empty 1 s2 s3
+neighbor 1 s3 Empty 1 s3 s4
+neighbor 1 s4 Empty 1 s4 s5
+neighbor 1 s5 Empty 1 s5 s6
+neighbor 1 s6 Empty 1 s6 s7
+
+neighbor 1 ShockBo0m SSSponge 1 ShockBo0m s
+neighbor 1 s SSSponge 1 s s1
+neighbor 1 s1 SSSponge 1 s1 s2
+neighbor 1 s2 SSSponge 1 s2 s3
+neighbor 1 s3 SSSponge 1 s3 s4
+neighbor 1 s4 SSSponge 1 s4 s5
+neighbor 1 s5 SSSponge 1 s5 s6
+neighbor 1 s6 SSSponge 1 s6 s7
+
+neighbor 1 ShockBo0m SSponge 1 ShockBo0m s
+neighbor 1 s SSponge 1 s s1
+neighbor 1 s1 SSponge 1 s1 s2
+neighbor 1 s2 SSponge 1 s2 s3
+neighbor 1 s3 SSponge 1 s3 s4
+neighbor 1 s4 SSponge 1 s4 s5
+neighbor 1 s5 SSponge 1 s5 s6
+neighbor 1 s6 SSponge 1 s6 s7
+
+neighbor 1 ShockBo0m Sponge 1 ShockBo0m s
+neighbor 1 s Sponge 1 s s1
+neighbor 1 s1 Sponge 1 s1 s2
+neighbor 1 s2 Sponge 1 s2 s3
+neighbor 1 s3 Sponge 1 s3 s4
+neighbor 1 s4 Sponge 1 s4 s5
+neighbor 1 s5 Sponge 1 s5 s6
+neighbor 1 s6 Sponge 1 s6 s7
+
+
+neighbor 1 ShockBo0m Mattium 1 ShockBo0m s
+neighbor 1 s Mattium 1 s s1
+neighbor 1 s1 Mattium 1 s1 s2
+neighbor 1 s2 Mattium 1 s2 s3
+neighbor 1 s3 Mattium 1 s3 s4
+neighbor 1 s4 Mattium 1 s4 s5
+neighbor 1 s5 Mattium 1 s5 s6
+neighbor 1 s6 Mattium 1 s6 s7
+
+
+
+neighbor 1 ShockBo0m Mattium2 1 ShockBo0m s
+neighbor 1 s Mattium2 1 s s1
+neighbor 1 s1 Mattium2 1 s1 s2
+neighbor 1 s2 Mattium2 1 s2 s3
+neighbor 1 s3 Mattium2 1 s3 s4
+neighbor 1 s4 Mattium2 1 s4 s5
+neighbor 1 s5 Mattium2 1 s5 s6
+neighbor 1 s6 Mattium2 1 s6 s7
+
+
+neighbor 1 ShockBo0m InfernoMine 1 ShockBo0m s
+neighbor 1 s InfernoMine 1 s s1
+neighbor 1 s1 InfernoMine 1 s1 s2
+neighbor 1 s2 InfernoMine 1 s2 s3
+neighbor 1 s3 InfernoMine 1 s3 s4
+neighbor 1 s4 InfernoMine 1 s4 s5
+neighbor 1 s5 InfernoMine 1 s5 s6
+neighbor 1 s6 InfernoMine 1 s6 s7
+
+neighbor 1 ShockBo0m InfernoMine2 1 ShockBo0m s
+neighbor 1 s InfernoMine2 1 s s1
+neighbor 1 s1 InfernoMine2 1 s1 s2
+neighbor 1 s2 InfernoMine2 1 s2 s3
+neighbor 1 s3 InfernoMine2 1 s3 s4
+neighbor 1 s4 InfernoMine2 1 s4 s5
+neighbor 1 s5 InfernoMine2 1 s5 s6
+neighbor 1 s6 InfernoMine2 1 s6 s7
+
+neighbor 1 ShockBo0m InfernoMine3 1 ShockBo0m s
+neighbor 1 s InfernoMine3 1 s s1
+neighbor 1 s1 InfernoMine3 1 s1 s2
+neighbor 1 s2 InfernoMine3 1 s2 s3
+neighbor 1 s3 InfernoMine3 1 s3 s4
+neighbor 1 s4 InfernoMine3 1 s4 s5
+neighbor 1 s5 InfernoMine3 1 s5 s6
+neighbor 1 s6 InfernoMine3 1 s6 s7
+
+
+neighbor 1 ShockBo0m InfernoMine4 1 ShockBo0m s
+neighbor 1 s InfernoMine4 1 s s1
+neighbor 1 s1 InfernoMine4 1 s1 s2
+neighbor 1 s2 InfernoMine4 1 s2 s3
+neighbor 1 s3 InfernoMine4 1 s3 s4
+neighbor 1 s4 InfernoMine4 1 s4 s5
+neighbor 1 s5 InfernoMine4 1 s5 s6
+neighbor 1 s6 InfernoMine4 1 s6 s7
+
+
+neighbor 1 ShockBo0m InfernoMine5 1 ShockBo0m s
+neighbor 1 s InfernoMine5 1 s s1
+neighbor 1 s1 InfernoMine5 1 s1 s2
+neighbor 1 s2 InfernoMine5 1 s2 s3
+neighbor 1 s3 InfernoMine5 1 s3 s4
+neighbor 1 s4 InfernoMine5 1 s4 s5
+neighbor 1 s5 InfernoMine5 1 s5 s6
+neighbor 1 s6 InfernoMine5 1 s6 s7
+
+
+neighbor 1 ShockBo0m InfernoMine6 1 ShockBo0m s
+neighbor 1 s InfernoMine6 1 s s1
+neighbor 1 s1 InfernoMine6 1 s1 s2
+neighbor 1 s2 InfernoMine6 1 s2 s3
+neighbor 1 s3 InfernoMine6 1 s3 s4
+neighbor 1 s4 InfernoMine6 1 s4 s5
+neighbor 1 s5 InfernoMine6 1 s5 s6
+neighbor 1 s6 InfernoMine6 1 s6 s7
+
+
+neighbor 1 ShockBo0m InfernoMine7 1 ShockBo0m s
+neighbor 1 s InfernoMine7 1 s s1
+neighbor 1 s1 InfernoMine7 1 s1 s2
+neighbor 1 s2 InfernoMine7 1 s2 s3
+neighbor 1 s3 InfernoMine7 1 s3 s4
+neighbor 1 s4 InfernoMine7 1 s4 s5
+neighbor 1 s5 InfernoMine7 1 s5 s6
+neighbor 1 s6 InfernoMine7 1 s6 s7
+
+neighbor 1 ShockBo0m BlazeScreen 1 ShockBo0m s
+neighbor 1 s BlazeScreen 1 s s1
+neighbor 1 s1 BlazeScreen 1 s1 s2
+neighbor 1 s2 BlazeScreen 1 s2 s3
+neighbor 1 s3 BlazeScreen 1 s3 s4
+neighbor 1 s4 BlazeScreen 1 s4 s5
+neighbor 1 s5 BlazeScreen 1 s5 s6
+neighbor 1 s6 BlazeScreen 1 s6 s7
+
+pexplosion s7 BlazeScreen 10 s7
+pexplosion s6 BlazeScreen 10 s6
+pexplosion s5 BlazeScreen 10 s5
+pexplosion s4 BlazeScreen 10 s4
+pexplosion s3 BlazeScreen 10 s3
+pexplosion s2 BlazeScreen 10 s2
+pexplosion s1 BlazeScreen 10 s1
+pexplosion s BlazeScreen 10 s
+
+neighbor 1 ShockBo0m Eon 1 ShockBo0m s
+neighbor 1 s Eon 1 s s1
+neighbor 1 s1 Eon 1 s1 s2
+neighbor 1 s2 Eon 1 s2 s3
+neighbor 1 s3 Eon 1 s3 s4
+neighbor 1 s4 Eon 1 s4 s5
+neighbor 1 s5 Eon 1 s5 s6
+neighbor 1 s6 Eon 1 s6 s7
+
+
+neighbor 1 ShockBo0m Eon2 1 ShockBo0m s
+neighbor 1 s Eon2 1 s s1
+neighbor 1 s1 Eon2 1 s1 s2
+neighbor 1 s2 Eon2 1 s2 s3
+neighbor 1 s3 Eon2 1 s3 s4
+neighbor 1 s4 Eon2 1 s4 s5
+neighbor 1 s5 Eon2 1 s5 s6
+neighbor 1 s6 Eon2 1 s6 s7
+
+
+neighbor 1 ShockBo0m Eon3 1 ShockBo0m s
+neighbor 1 s Eon3 1 s s1
+neighbor 1 s1 Eon3 1 s1 s2
+neighbor 1 s2 Eon3 1 s2 s3
+neighbor 1 s3 Eon3 1 s3 s4
+neighbor 1 s4 Eon3 1 s4 s5
+neighbor 1 s5 Eon3 1 s5 s6
+neighbor 1 s6 Eon3 1 s6 s7
+
+
+neighbor 1 ShockBo0m Eon4 1 ShockBo0m s
+neighbor 1 s Eon4 1 s s1
+neighbor 1 s1 Eon4 1 s1 s2
+neighbor 1 s2 Eon4 1 s2 s3
+neighbor 1 s3 Eon4 1 s3 s4
+neighbor 1 s4 Eon4 1 s4 s5
+neighbor 1 s5 Eon4 1 s5 s6
+neighbor 1 s6 Eon4 1 s6 s7
+
+
+neighbor 1 ShockBo0m Eon5 1 ShockBo0m s
+neighbor 1 s Eon5 1 s s1
+neighbor 1 s1 Eon5 1 s1 s2
+neighbor 1 s2 Eon5 1 s2 s3
+neighbor 1 s3 Eon5 1 s3 s4
+neighbor 1 s4 Eon5 1 s4 s5
+neighbor 1 s5 Eon5 1 s5 s6
+neighbor 1 s6 Eon5 1 s6 s7
+
+
+neighbor 1 ShockBo0m Love 1 ShockBo0m s
+neighbor 1 s Love 1 s s1
+neighbor 1 s1 Love 1 s1 s2
+neighbor 1 s2 Love 1 s2 s3
+neighbor 1 s3 Love 1 s3 s4
+neighbor 1 s4 Love 1 s4 s5
+neighbor 1 s5 Love 1 s5 s6
+neighbor 1 s6 Love 1 s6 s7
+
+neighbor 1 ShockBo0m Love2 1 ShockBo0m s
+neighbor 1 s Love2 1 s s1
+neighbor 1 s1 Love2 1 s1 s2
+neighbor 1 s2 Love2 1 s2 s3
+neighbor 1 s3 Love2 1 s3 s4
+neighbor 1 s4 Love2 1 s4 s5
+neighbor 1 s5 Love2 1 s5 s6
+neighbor 1 s6 Love2 1 s6 s7
+
+neighbor 1 ShockBo0m Love3 1 ShockBo0m s
+neighbor 1 s Love3 1 s s1
+neighbor 1 s1 Love3 1 s1 s2
+neighbor 1 s2 Love3 1 s2 s3
+neighbor 1 s3 Love3 1 s3 s4
+neighbor 1 s4 Love3 1 s4 s5
+neighbor 1 s5 Love3 1 s5 s6
+neighbor 1 s6 Love3 1 s6 s7
+
+
+neighbor 1 ShockBo0m Hannahium 1 ShockBo0m s
+neighbor 1 s Hannahium 1 s s1
+neighbor 1 s1 Hannahium 1 s1 s2
+neighbor 1 s2 Hannahium 1 s2 s3
+neighbor 1 s3 Hannahium 1 s3 s4
+neighbor 1 s4 Hannahium 1 s4 s5
+neighbor 1 s5 Hannahium 1 s5 s6
+neighbor 1 s6 Hannahium 1 s6 s7
+
+
+
+neighbor 1 ShockBo0m BeatBall 1 ShockBo0m s
+neighbor 1 s BeatBall 1 s s1
+neighbor 1 s1 BeatBall 1 s1 s2
+neighbor 1 s2 BeatBall 1 s2 s3
+neighbor 1 s3 BeatBall 1 s3 s4
+neighbor 1 s4 BeatBall 1 s4 s5
+neighbor 1 s5 BeatBall 1 s5 s6
+neighbor 1 s6 BeatBall 1 s6 s7
+
+
+neighbor 1 ShockBo0m DragBall2 1 ShockBo0m s
+neighbor 1 s DragBall2 1 s s1
+neighbor 1 s1 DragBall2 1 s1 s2
+neighbor 1 s2 DragBall2 1 s2 s3
+neighbor 1 s3 DragBall2 1 s3 s4
+neighbor 1 s4 DragBall2 1 s4 s5
+neighbor 1 s5 DragBall2 1 s5 s6
+neighbor 1 s6 DragBall2 1 s6 s7
+
+neighbor 1 ShockBo0m DragBall3 1 ShockBo0m s
+neighbor 1 s DragBall3 1 s s1
+neighbor 1 s1 DragBall3 1 s1 s2
+neighbor 1 s2 DragBall3 1 s2 s3
+neighbor 1 s3 DragBall3 1 s3 s4
+neighbor 1 s4 DragBall3 1 s4 s5
+neighbor 1 s5 DragBall3 1 s5 s6
+neighbor 1 s6 DragBall3 1 s6 s7
+
+neighbor 1 ShockBo0m DragBall4 1 ShockBo0m s
+neighbor 1 s DragBall4 1 s s1
+neighbor 1 s1 DragBall4 1 s1 s2
+neighbor 1 s2 DragBall4 1 s2 s3
+neighbor 1 s3 DragBall4 1 s3 s4
+neighbor 1 s4 DragBall4 1 s4 s5
+neighbor 1 s5 DragBall4 1 s5 s6
+neighbor 1 s6 DragBall4 1 s6 s7
+
+neighbor 1 ShockBo0m Sound 1 ShockBo0m s
+neighbor 1 s Sound 1 s s1
+neighbor 1 s1 Sound 1 s1 s2
+neighbor 1 s2 Sound 1 s2 s3
+neighbor 1 s3 Sound 1 s3 s4
+neighbor 1 s4 Sound 1 s4 s5
+neighbor 1 s5 Sound 1 s5 s6
+neighbor 1 s6 Sound 1 s6 s7
+
+
+neighbor 1 ShockBo0m DragBall6 1 ShockBo0m s
+neighbor 1 s DragBall6 1 s s1
+neighbor 1 s1 DragBall6 1 s1 s2
+neighbor 1 s2 DragBall6 1 s2 s3
+neighbor 1 s3 DragBall6 1 s3 s4
+neighbor 1 s4 DragBall6 1 s4 s5
+neighbor 1 s5 DragBall6 1 s5 s6
+neighbor 1 s6 DragBall6 1 s6 s7
+
+neighbor 1 ShockBo0m DragBall7 1 ShockBo0m s
+neighbor 1 s DragBall7 1 s s1
+neighbor 1 s1 DragBall7 1 s1 s2
+neighbor 1 s2 DragBall7 1 s2 s3
+neighbor 1 s3 DragBall7 1 s3 s4
+neighbor 1 s4 DragBall7 1 s4 s5
+neighbor 1 s5 DragBall7 1 s5 s6
+neighbor 1 s6 DragBall7 1 s6 s7
+
+neighbor 1 ShockBo0m DragBall8 1 ShockBo0m s
+neighbor 1 s DragBall8 1 s s1
+neighbor 1 s1 DragBall8 1 s1 s2
+neighbor 1 s2 DragBall8 1 s2 s3
+neighbor 1 s3 DragBall8 1 s3 s4
+neighbor 1 s4 DragBall8 1 s4 s5
+neighbor 1 s5 DragBall8 1 s5 s6
+neighbor 1 s6 DragBall8 1 s6 s7
+
+
+neighbor 1 ShockBo0m Plazmatter 1 ShockBo0m s
+neighbor 1 s Plazmatter 1 s s1
+neighbor 1 s1 Plazmatter 1 s1 s2
+neighbor 1 s2 Plazmatter 1 s2 s3
+neighbor 1 s3 Plazmatter 1 s3 s4
+neighbor 1 s4 Plazmatter 1 s4 s5
+neighbor 1 s5 Plazmatter 1 s5 s6
+neighbor 1 s6 Plazmatter 1 s6 s7
+
+neighbor 1 ShockBo0m Plazmatter2 1 ShockBo0m s
+neighbor 1 s Plazmatter2 1 s s1
+neighbor 1 s1 Plazmatter2 1 s1 s2
+neighbor 1 s2 Plazmatter2 1 s2 s3
+neighbor 1 s3 Plazmatter2 1 s3 s4
+neighbor 1 s4 Plazmatter2 1 s4 s5
+neighbor 1 s5 Plazmatter2 1 s5 s6
+neighbor 1 s6 Plazmatter2 1 s6 s7
+
+neighbor 1 ShockBo0m Plazmatter3 1 ShockBo0m s
+neighbor 1 s Plazmatter3 1 s s1
+neighbor 1 s1 Plazmatter3 1 s1 s2
+neighbor 1 s2 Plazmatter3 1 s2 s3
+neighbor 1 s3 Plazmatter3 1 s3 s4
+neighbor 1 s4 Plazmatter3 1 s4 s5
+neighbor 1 s5 Plazmatter3 1 s5 s6
+neighbor 1 s6 Plazmatter3 1 s6 s7
+
+pexplosion  LiveLava  s7 10  s7
+pexplosion  bOO,2  s7 10  s7
+pexplosion  LiveLava  s6 10  s6
+pexplosion  bOO,2  s6 10  s6
+pexplosion  LiveLava  s5 10  s5
+pexplosion  bOO,2  s5 10  s5
+pexplosion  LiveLava  s4 10  s4
+pexplosion  bOO,2  s4 10  s4
+pexplosion  LiveLava s3 10  s3
+pexplosion  bOO,2  s3 10  s3
+pexplosion  LiveLava  s2 10  s2
+pexplosion  bOO,2  s2 10  s2
+pexplosion  LiveLava  s1 10  s1
+pexplosion  bOO,2  s1 10  s1
+pexplosion  LiveLava  s 10  s
+pexplosion  bOO,2  s 10  s
+
+neighbor 1 s s2 1 s s1
+neighbor 1 s s3 1 s s1
+neighbor 1 s s4 1 s s1
+neighbor 1 s s5 1 s s1
+neighbor 1 s s6 1 s s1
+neighbor 1 s s7 1  s s1
+
+neighbor 1 s1 s3 1 s1 s2
+neighbor 1 s1 s4 1 s1 s2
+neighbor 1 s1 s5 1 s1 s2
+neighbor 1 s1 s6 1 s1 s2
+neighbor 1 s1 s7 1 s1 s2
+
+neighbor 1 s2 s4 1 s2 s3
+neighbor 1 s2 s5 1 s2 s3
+neighbor 1 s2 s6 1 s2 s3
+neighbor 1 s2 s7 1 s2 s3
+
+neighbor 1 s3 s5 1 s3 s4
+neighbor 1 s3 s6 1 s3 s4
+neighbor 1 s3 s7 1 s3 s4
+
+neighbor 1 s4 s6 1 s4 s5
+neighbor 1 s4 s7 1 s4 s5
+
+neighbor 1 s5 s7 1 s5 s6
+
+#A Strange Element
+element HeliumN0vate 190 210 255 0.04 0 0.2 0.01 1
+neighbor 1 WaterVapor SuperN0va 1 HeliumN0vate HeliumN0vate
+neighbor 0.007 HeliumN0vate SuperN0va 1 SuperN0va HeliumN0vate
+neighbor 0.004 HeliumN0vate Water 1 Empty HeliumN0vate
+neighbor 0.004 HeliumN0vate WaterVapor 1 Empty HeliumN0vate
+neighbor 0.001 HeliumN0vate n2  1 Empty HeliumN0vate
+neighbor 0.001 HeliumN0vate n3 1 Empty HeliumN0vate
+neighbor 0.001 HeliumN0vate n4 1 Empty HeliumN0vate
+neighbor 0.9 Empty HeliumN0vate 1 HeliumN0vate2 HeliumN0vate2
+neighbor 1 HeliumN0vate2 HeliumN0vate 1 HeliumN0vate HeliumN0vate
+explosion Empty HeliumN0vate 100 2
+neighbor 0.081 HeliumN0vate Empty 0.5 Empty Empty 0.1 HeliumN0vate Empty 0.3 HeliumN0vate HeliumN0vate 0.1 Empty HeliumN0vate
+self 0.02 HeliumN0vate 0.65 HeliumN0vate 0.35 Empty 
+neighbor 0.1 HeliumN0vate Eon 1 HeliumN0vate HeliumN0vate
+neighbor 0.1 HeliumN0vate Eon2 1 HeliumN0vate HeliumN0vate
+neighbor 0.1 HeliumN0vate Eon3 1 HeliumN0vate HeliumN0vate
+neighbor 0.1 HeliumN0vate Eon4 1 HeliumN0vate HeliumN0vate
+neighbor 0.1 HeliumN0vate Eon5 1 HeliumN0vate HeliumN0vate
+element HeliumN0vate2 190 210 255 -0.01 0 0.2 0.01 0
+self 0.9 HeliumN0vate2 1 HeliumN0vate
+pexplosion HeliumN0vate2 HeliumN0vate2 4 HeliumN0vate
+#A Powerfull Bomb
+element EquinoxBomb 0 100 200 0 0 1 0.01 1
+element EquinoxBomb2 0 200 100 0 0 1 0.01 0
+element EquinoxBomb3 200 0 0 0 0 1 0.01 0
+neighbor 0.009 EquinoxBomb EquinoxBomb 1 EquinoxBomb EquinoxBomb2
+neighbor 0.009 EquinoxBomb2 EquinoxBomb2 1 EquinoxBomb EquinoxBomb2
+neighbor 0.1 EquinoxBomb EquinoxBomb2 1 EquinoxBomb EquinoxBomb
+neighbor 0.1 EquinoxBomb2 EquinoxBomb 1 EquinoxBomb2 EquinoxBomb2
+neighbor 1 EquinoxBomb3 EquinoxBomb2 1 EquinoxBomb3 EquinoxBomb3
+neighbor 1 EquinoxBomb3 EquinoxBomb 1 EquinoxBomb3 EquinoxBomb3
+
+neighbor 0.007 EquinoxBomb3 Empty 1 ShockBo0m ShockBo0m
+neighbor 0.1 EquinoxBomb3 ShockBo0m 1 ShockBo0m ShockBo0m
+self 1 EquinoxBomb 1 EquinoxBomb
+hotself 70 EquinoxBomb 
+self 1 EquinoxBomb2 1 EquinoxBomb3
+hotself 70 EquinoxBomb2 
+explosion EquinoxBomb3 Empty 255 255
+explosion EquinoxBomb3 ShockBo0m 255 255
+#Well It Is Falling SandGame
+element Sand 238 204 128 1 1 0.6 0.5 1
+self 0.9 Sand 0.4 Sand2 0.3 Sand3 0.2 Sand4 0.05 Sand5 0.006 Sand6
+element Sand2 238 204 128 1 1 0.6 0.5 0
+element Sand3 238 178 10 1 1 0.6 0.5 0
+element Sand4 238 204 128 1 1 0.6 0.5 0
+element Sand5 255 110 110 1 1 0.6 0.5 0
+element Sand6 50 50 50 1 1 0.6 0.5 0
+neighbor 0.001 Sand6 Wall 1 Wall Wall
+neighbor 0.001 Sand5 Wall 1 Wall Wall
+neighbor 0.001 Sand4 Wall 1 Wall Wall
+neighbor 0.001 Sand3 Wall 1 Wall Wall
+neighbor 0.001 Sand2 Wall 1 Wall Wall
+neighbor 0.001 Sand Wall 1 Wall Wall
+#Grows
+element Plant 50 255 150 0 0 0.8 0.1 1
+neighbor 0.009 Plant Water 0.05 Plant2 Water 0.85 Plant Plant 0.1 Plant Empty
+neighbor 0.9 Plant2 Water 1 Plant Plant2
+self 0.001 Plant 0.05 Plant3 0.995 Plant
+element Plant2 100 200 150 0 0 0.8 0.1 0
+element Plant3 255 150 0 0 0 0.8 0.1 0
+neighbor 1 Plant3 Plant 1 Plant Plant3
+neighbor 0.7 Plant Plant3 1 Plant3 Plant
+neighbor  1 Plant2 Fire 1 Fire Empty
+neighbor 1 Plant Fire 1 Fire Fire
+neighbor 1 Plant3 Fire 1 Empty Fire
+self 0.009 Plant3 0.445 Plant 0.55 Plant3 0.005 Wood
+neighbor 1 Plant Empty 1 Fire Fire
+hotneighbor 50  Plant Empty
+neighbor 0.0001 Wood Plant 1 Wood Wood
+neighbor 0.003 Rot Plant 1 Rot Rot
+#somthing i did when i was bored
+element Eon 255 79 200 0 0 0 0 1
+self 0.27 Eon 0.2 Empty 0.1 Eon2 0.7 Eon3
+self 0.27 Eon2 0.1 Empty 0.5 Eon3 0.4 Eon2
+self 0.027 Eon3 0.1 Empty 0.9 Eon 
+self 0.09 Eon4 0.9 Empty 0.1 Eon 
+self .9 Eon5 0.0 Empty 0.1 Eon 
+element Eon2 255 79 100 0 0 0 0 0
+neighbor 1 Eon Eon 1 Eon Eon2
+neighbor 1 Eon Empty 1 Empty Eon2
+element Eon3 0 255 0 0 0 0 0 0
+element Eon4 255 0 0 0 0 0 0 0
+element Eon5 0 0 255 0 0 0 0 0
+neighbor 0.011 Eon3 Empty 0.1 Eon2 Eon3 0.9 Eon4 Empty
+neighbor 0.011 Eon4 Empty 0.1 Eon3 Eon4 0.9 Eon5 Empty
+neighbor 0.9 Eon5 Empty 0.5 Eon5 Eon5 0.1 Eon Eon 0.1 Eon2 Eon2  0.1 Eon3 Eon3 0.1 Eon4 Eon4 0.1 Eon5 Eon5  
+neighbor 0.9 Eon5 Empty 0.5 Eon5 Eon5 0.1 Eon Eon 0.1 Eon2 Eon2  0.1 Eon3 Eon3 0.1 Eon4 Eon4 0.1 Eon5 Eon5  
+#Lets Water And WaterVapore frue
+element Sponge 200 190 0 0 0 0.9 0.1 1
+element SSponge 0 100 200 0 0.1 0.64 0.1 0
+element SSSponge 0 100 200 0 0.8 0.16 0.1 0
+neighbor 1 Sponge Water 1 SSponge Empty
+neighbor 1 SSponge Sponge 0.6 Sponge SSponge 0.4 SSponge Sponge
+neighbor 1 SSponge Empty 1 Sponge Water
+neighbor 1 Sponge WaterVapor 1 SSSponge Empty
+neighbor 1 SSSponge Sponge 0.6 Sponge SSSponge 0.4 SSSponge Sponge
+neighbor 1 SSSponge Empty 1 Sponge WaterVapor
+neighbor 1 SSponge Fire 1 Fire Water
+neighbor 1 Sponge Fire 1 Fire Fire
+neighbor 1 SSSponge Fire 1 Fire WaterVapor
+self 1 Sponge  1 Fire
+hotself 50 Sponge
+
+#My M8
+element Mattium 255 0 0 -1 0 1.1 0 1
+element Mattium2 0 255 255 0 0 1.2 0 0
+
+pexplosion  Mattium  Empty 90  Mattium2
+neighbor 1 Mattium Mattium2 1 Mattium Mattium2
+neighbor 1 Mattium Empty 1 Mattium Empty
+neighbor 1 Mattium Empty 1 Mattium Mattium2
+neighbor 0.099 Mattium2 Empty 1 Empty Empty
+
+
+#Fallsdown killing every thing
+element Commet 255 0 0 -1 0 1.1 0 1
+element Commet2 255 100 0 0 0 1.2 0 0
+
+
+pexplosion  Commet Empty 50  Commet2
+neighbor 1 Commet Commet2 1 Commet Commet2
+neighbor 1 Commet Empty 1 Commet Empty
+neighbor 1 Commet Empty 1 Commet Commet
+neighbor 1 Commet2 Empty 0.5 Empty Empty 0.5 Fire Fire
+pexplosion  Commet Fire 50  Commet2
+neighbor 1 Commet Commet2 1 Commet Commet2
+neighbor 1 Commet Fire 1 Commet Fire
+neighbor 1 Commet Fire 1 Commet Commet
+neighbor 1 Commet2 Fire 0.5 Empty Empty 0.5 Fire Fire
+
+self 0.005 Commet2 0.5 Fire 0.5 Fire2
+
+#Blowing up power
+element InfernoMine 255 200 200 0 0 1 0 1
+element InfernoMine2 255 255 0 0 0 1 0 0
+element InfernoMine3 0 255 0 0 0 0 0 0
+element InfernoMine4 0 255 0 0 0 0 0 0
+element InfernoMine5 0 255 0 0 0 0 0 0
+element InfernoMine6 255 0 255 0 0 0 0 0
+element InfernoMine7 255 0 255 0 0 0 0 0
+
+neighbor 1 InfernoMine Fire 1 InfernoMine2 InfernoMine2
+self 0.001 InfernoMine2 1 InfernoMine3 
+pexplosion InfernoMine3  Empty 110  InfernoMine4 
+self 0.01 InfernoMine4 0.006 InfernoMine5  0.194 Empty 0.8 InfernoMine4
+neighbor 0.1 InfernoMine4 Empty 1 Empty InfernoMine4
+pexplosion InfernoMine5  Empty 30  InfernoMine6 
+neighbor 1 InfernoMine6 Empty 0.9 InfernoMine2 InfernoMine2 0.1 InfernoMine2 InfernoMine6
+explosion InfernoMine6 Empty 255 255 
+self 0.01 InfernoMine6 0.006 InfernoMine7  0.194 Fire 0.6 InfernoMine6 0.2 Empty
+pexplosion InfernoMine6  InfernoMine7 90  Fire
+
+#A screen of fire
+element BlazeScreen 200 90 09 -1 0 -1 9 1
+neighbor 1 BlazeScreen Empty 1.0 Fire BlazeScreen
+explosion BlazeScreen Empty 255 255
+neighbor 1 BlazeScreen Fire 1.0 BlazeScreen BlazeScreen
+neighbor 0.005 Fire BlazeScreen  1.0 BlazeScreen BlazeScreen
+neighbor 1 BlazeScreen Fire2 1.0 BlazeScreen BlazeScreen
+neighbor 0.005 Fire2 BlazeScreen  1.0 BlazeScreen BlazeScreen
+
+#My girl frend 
+element Hannahium 200 0 200 0 0 0 0 1
+#Love maks the world go round
+element Love 255 0 100 0 0 -1 0 1
+element Love2 100 0 255 0 0 -1.1 0 0
+element Love3 255 0 255 0 0 -1.1 0 0
+self 0.05 Love2 0.1 Empty 0.9 Love3
+self 0.05 Love3 0.1 Empty 0.9 Love2
+neighbor 1 Love Empty 1 Love2 Love
+neighbor 0.05 Hannahium Empty 0.5 Hannahium Love 0.3 Empty Hannahium 0.2 Hannahium Hannahium
+pexplosion Hannahium Jamesium 10000 Love
+pexplosion Hannahium Jamesium 10000 Love2
+pexplosion Hannahium Jamesium 10000 Love3
+
+#Found this whille trying to make a dragebule ball (wich i did)
+element BeatBall 255 255 0 -1 0 1.1 0 1
+element DragBall2 255 255 255 0 0 1.2 0 0
+element DragBall3 255 0 0 0 0 1.2 0 0
+element DragBall4 0 0 255 0 0 1.2 0 0
+#Loud
+element Sound 0 0 255 0 0 1.2 0 1
+element DragBall6 255 0 255 0 0 1.2 0 0
+element DragBall7 255  255 0 0 0 1.2 0 0
+element DragBall8 0 255 255 0 0 1.2 0 0
+
+neighbor 0.1 Sound Empty 0.2 Sound Sound 0.2 Empty Empty 0.4 Empty Sound 0.2 DragBall6 Empty
+neighbor 0.1 DragBall6 Empty 0.2 DragBall6 DragBall6 0.2 Empty Empty 0.4 Empty DragBall6 0.2 DragBall7 Empty
+neighbor 0.1 DragBall7 Empty 0.2 DragBall7 DragBall7 0.2 Empty Empty 0.4 Empty DragBall7 0.2 DragBall8 Empty
+neighbor 0.1 DragBall8 Empty 0.2 DragBall8 DragBall8 0.2 Empty Empty 0.4 Empty DragBall8 0.2 Sound Empty
+neighbor 0.001 DragBall4 Empty 0.25 DragBall4 Sound 0.25 DragBall4 DragBall6 0.25 DragBall4 DragBall7 0.25 DragBall4 DragBall8                   
+self 0.01 DragBall2 1 DragBall3
+self 0.01 DragBall3 0.1 DragBall2 0.9 DragBall3
+self 0.01 Sound 1 DragBall8
+self 0.01 DragBall4 0.1 DragBall2 0.9 DragBall3
+pexplosion  BeatBall  Empty 80  DragBall2
+neighbor 1 BeatBall DragBall2 1 BeatBall DragBall2
+neighbor 1 BeatBall Empty 1 BeatBall Empty
+neighbor 1 BeatBall Empty 1 BeatBall DragBall2
+neighbor 0.5 DragBall2 Empty 1 Empty Empty
+neighbor 0.5  Empty DragBall2 1 DragBall4 DragBall4
+
+#Live lava
+element LiveLava 252 255 0 -1 0 1 1 1
+pexplosion LiveLava Empty 8 LiveLava
+self .01 LiveLava .99 Fire .01  bOO,2
+pexplosion LiveLava bOO,2 9 bOO,2
+self .1 bOO,2 1 Fire
+element bOO,2 255 50 0 -1 0 1 1.1 0
+neighbor 1 Fire LiveLava 1 Fire Fire
+pexplosion Fire LiveLava 7 Fire
+
+element Plazmatter3  47 47 255 0 0 0 0 
+element Plazmatter2 0 0 0 1 1 2 0.1 0 
+element Plazmatter 255 0 0 -1 1 1 0.1 1 
+neighbor 1 Plazmatter2 Plazmatter2 1 Plazmatter Plazmatter2 
+self 0.9 Plazmatter 1 Plazmatter2 
+neighbor 1 Plazmatter Empty 1 Plazmatter Plazmatter3 
+
+self 0.01 Plazmatter3 1 Empty 
+neighbor 1 Plazmatter3 Empty 0.3 Plazmatter3 Plazmatter3 0.5 Empty Empty 0.001 Plazmatter3 Plazmatter 0.199 Plazmatter3 Empty
+
+
+neighbor 1 Plazmatter Sand6 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Sand2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Sand3 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Sand4 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Sand5 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Water 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Water2 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter Water3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter Fire 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Fire2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Oil 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Acid 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter Acid2 1 Plazmatter Vorpal
+neighbor 1 Plazmatter Acid3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter Acid4 1 Plazmatter Empty
+
+neighbor 1 Plazmatter3 Sand6 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Sand2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Sand3 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Sand4 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Sand5 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Water 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Water2 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter3 Water3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter3 Fire 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Fire2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Oil 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Acid 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter3 Acid2 1 Plazmatter Vorpal
+neighbor 1 Plazmatter3 Acid3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter3 Acid4 1 Plazmatter Plazmatter3 
+
+neighbor 1 Plazmatter2 Sand6 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Sand2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Sand3 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Sand4 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Sand5 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Water 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Water2 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter2 Water3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter2 Fire 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Fire2 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Oil 1 Plazmatter Plazmatter3 
+neighbor 1 Plazmatter2 Acid 1 Plazmatter Empty
+neighbor 1 Plazmatter2 Acid2 1 Plazmatter Vorpal
+neighbor 1 Plazmatter2 Acid3 1 Plazmatter Plazmatter3
+neighbor 1 Plazmatter2 Acid4 1 Plazmatter Plazmatter3 
+
+element Vorpal 255 0 0 0 1 1 0 0
+self 0.001 Vorpal  0.25 Sand 0.25 Water 0.25 Acid 0.25 Oil
+neighbor 1 Vorpal Sand 1 Sand Sand
+neighbor 1 Vorpal Oil 1 Oil Oil
+neighbor 1 Vorpal Acid 1 Acid Acid
+neighbor 1 Vorpal Water 1 Water Water
+neighbor 1 Vorpal Plazmatter 1 Vorpal Vorpal
+neighbor 1 Vorpal Plazmatter2 1 Vorpal Vorpal
+neighbor 1 Vorpal Plazmatter3 1 Vorpal Vorpal

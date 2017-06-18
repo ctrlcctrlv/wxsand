@@ -1,0 +1,268 @@
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group	Basics	Empty	Wall	Rubberwall Rubble
+group	Waters	Water	Wave
+group	Solids	Rock
+group	Explosives/Shockwaves	Airbomb	DepthCharge	Earthquake
+
+
+#Empty.
+element	Empty	0	0	0	0	1	0	0	1
+
+#Liquid. Can carry waves made by earthquakes and DepthCharges.
+element	Water	32	32	255	0.7	0.3	0.5	0.4	1
+#Bomb to use in the air. Use 2 pixel dots.
+element	Airbomb	255	000	000	0	0	1	1.01	1
+neighbor	1	Airbomb	Empty	1	Airwave	Empty
+hotneighbor	90	Airbomb	Empty
+neighbor	1	Airbomb	Airremains	1	Airremains	Airremains
+
+
+element	Airwave	255	255	255	0.0	1.0	0.0	0.0	0
+self	0.1	Airwave	1.0	Airremains
+neighbor	1.0	Airwave	Empty	0.99	Airwave	Airwave	0.010000	Airwave1	Airwave1
+neighbor	0.2	Airwave	Airremains	1.0	Airremains	Airremains
+
+element	Airwave1	175	175	175	0.0	1.0	0.0	0.0	0
+self	0.1	Airwave1	1.0	Airremains
+neighbor	1.0	Airwave1	Empty	0.99000	Airwave1	Airwave1	0.01	Airwave2	Airwave2
+neighbor	0.2	Airwave1	Airremains	1.0	Airremains	Airremains
+
+element	Airwave2	125	125	125	0.0	1.0	0.0	0.0	0
+self	0.1	Airwave2	1.0	Airremains
+neighbor	1.0	Airwave2	Empty	0.99000	Airwave2	Airwave2	0.01	Airwave3	Airwave3
+neighbor	0.2	Airwave2	Airremains	1.0	Airremains	Airremains
+
+element	Airwave3	75	75	75	0.0	1.0	0.0	0.0	0
+self	0.1	Airwave3	1.0	Airremains
+neighbor	1.0	Airwave3	Empty	0.99000	Airwave3	Airwave3	0.01	Airwave4	Airwave4
+neighbor	0.2	Airwave3	Airremains	1.0	Airremains	Airremains
+
+element	Airwave4	000	000	000	0.0	1.0	0.0	0.0	0
+self	0.1	Airwave4	1.0	Airremains
+neighbor	1.0	Airwave4	Empty	1.0	Airwave4	Airwave4
+neighbor	0.2	Airwave4	Airremains	1.0	Airremains	Airremains
+
+neighbor	1	Airwave	Airwave1	1	Airwave1	Airwave1
+neighbor	1	Airwave1	Airwave2	1	Airwave2	Airwave2
+neighbor	1	Airwave2	Airwave3	1	Airwave3	Airwave3
+neighbor	1	Airwave3	Airwave4	1	Airwave4	Airwave4
+
+
+element	Airremains	10	10	10	0.0	0.0	0.0	0.0	0
+neighbor	0.01	Airremains	Empty	1	Empty	Empty
+self	0.01000	Airremains	1.0	Empty
+
+#Broken down wall. Can splash in water.
+element	Rubble	150	150	150	1	1	1	1	1
+
+#Solid. Can be broken with shockwaves in water and rock.
+element	Wall	100	100	100	0	0	1	1	1
+neighbor	1	Airwave	Wall	1	Airremains	Wall4
+neighbor	1	Airwave1	Wall	1	Airremains	Wall3
+neighbor	1	Airwave2	Wall	1	Airremains	Wall2
+neighbor	1	Airwave3	Wall	1	Airremains	Wall1
+element	Wall1	100	100	100	0	0	1	1	0
+self	0.5	Wall1	0.5	Rubble	0.5	Wall1
+element	Wall2	100	100	100	0	0	1	1	0
+self	0.5	Wall2	0.5	Rubble	0.5	Wall2
+element	Wall3	100	100	100	0	0	1	1	0
+self	0.5	Wall3	0.5	Rubble	0.5	Wall3
+element	Wall4	100	100	100	0	0	1	1	0
+self	0.5	Wall4	0.5	Rubble	0.5	Wall4
+
+neighbor	1	Wall4	Wall	1	Rubble	Wall3
+neighbor	1	Wall3	Wall	1	Rubble	Wall2
+neighbor	1	Wall2	Wall	1	Rubble	Wall1
+neighbor	1	Wall1	Wall	1	Rubble	Rubble
+
+
+element Rubblex	100	100	100	2	1	1	0	0
+neighbor	1	Rubble	Rubblex	1	Rubblex	Rubblex
+neighbor	1	Rubble	Water	1	Rubblex	Wavestarter
+element	Wavestarter	32	32	255	0.7	1.0	0.5	0.4	0
+self	0.1	Wavestarter	1.0	Waveremains
+neighbor	1.0	Wavestarter	Water	1.0	Wavestarter	Wavestarter
+neighbor	0.2	Wavestarter	Waveremains	1.0	Waveremains	Waveremains
+neighbor	1.0	Wavestarter	Empty	1.0	Waveremains	Wave
+
+element	Waveremains	32	32	255	0.7	1.0	0.5	0.4	0
+self	0.010000	Waveremains	1.0	Water
+
+
+#Creates waves. ONLY CLICK UNDER WATER!!!
+element	Wave	32	32	255	0	0	1	0	1
+neighbor	1	Wave	Empty	1	Wave	Wave1
+neighbor	1	Wave	Wave2	1	Wave	Wave1
+neighbor	1	Wave	Wave3	1	Wave	Wave1
+neighbor	1	Wave	Wave4	1	Wave	Wave1
+neighbor	1	Wave	Wave5	1	Wave	Wave1
+element	Wave1	32	32	255	0	0	1	0	0
+neighbor	1	Wave1	Empty	1	Wave1	Wave2
+neighbor	1	Wave1	Wave2	1	Wave1	Wave2
+neighbor	1	Wave1	Wave3	1	Wave1	Wave2
+neighbor	1	Wave1	Wave4	1	Wave1	Wave2
+neighbor	1	Wave1	Wave5	1	Wave1	Wave2
+element	Wave2	32	32	255	0	0	1	0	0
+neighbor	1	Wave2	Empty	1	Wave2	Wave3
+neighbor	1	Wave2	Wave3	1	Wave2	Wave3
+neighbor	1	Wave2	Wave4	1	Wave2	Wave3
+neighbor	1	Wave2	Wave5	1	Wave2	Wave3
+element	Wave3	32	32	255	0	0	1	0	0
+neighbor	1	Wave3	Empty	1	Wave3	Wave4
+neighbor	1	Wave3	Wave4	1	Wave3	Wave4
+neighbor	1	Wave3	Wave5	1	Wave3	Wave4
+element	Wave4	32	32	255	0	0	1	0	0
+neighbor	1	Wave4	Empty	1	Wave4	Wave5
+neighbor	1	Wave4	Wave5	1	Wave4	Wave5
+element	Wave5	32	32	255	0	0	1	0	0
+
+element	Stopwave5	32	32	255	0	0	1	0	0
+neighbor	1	Wave5	Empty	1	Stopwave5	Empty
+self	0.2	Stopwave5	1	Empty
+
+element	Stopwave4	32	32	255	0	0	1	0	0
+neighbor	1	Wave4	Stopwave5	1	Stopwave4	Empty
+self	0.2	Stopwave4	1	Empty
+
+element	Stopwave3	32	32	255	0	0	1	0	0
+neighbor	1	Wave3	Stopwave4	1	Stopwave3	Empty
+self	0.2	Stopwave3	1	Empty
+
+element	Stopwave2	32	32	255	0	0	1	0	0
+neighbor	1	Wave2	Stopwave3	1	Stopwave2	Empty
+self	0.2	Stopwave2	1	Empty
+
+element	Stopwave1	32	32	255	0	0	1	0	0
+neighbor	1	Wave1	Stopwave2	1	Stopwave1	Empty
+self	0.2	Stopwave1	1	Empty
+
+element	Stopwave	32	32	255	0	0	1	0	0
+neighbor	1	Wave	Stopwave1	1	Stopwave	Empty
+self	0.2	Stopwave	1	Empty
+#Bomb for use under water. Use 2 pixel dots.
+element	DepthCharge	000	100	000	2	0	0.5	1	1
+element	Charged	000	130	100	2	0	0.5	1.02	0
+element	Flash	255	255	255	1	1	1	1	0
+element	Boom	255	000	000	0	0	1	1	0
+element	Casing	000	000	000	0	0	1	0	0
+element	Rubbley	100	100	100	2	1	1	0	0
+self	0.1	Rubbley	1	Rubblex
+neighbor	1	Rubbley	Wall	1	Rubblex	Rubblex
+neighbor	1	Rubblex	Wave	1	Empty	Rubblex
+neighbor	1	Rubblex	Wave1	1	Empty	Rubblex
+neighbor	1	Rubblex	Wave2	1	Empty	Rubblex
+neighbor	1	Rubblex	Wave3	1	Empty	Rubblex
+neighbor	1	Rubblex	Wave4	1	Empty	Rubblex
+neighbor	1	Rubblex	Wave5	1	Empty	Rubblex
+
+
+element	Shockwave	32	32	215	0.7	1	0.5	0.4	0
+self	0.01	Shockwave	1.0	Waveremains
+neighbor	1.0	Shockwave	Water	1.0	Shockwave	Shockwave
+neighbor	0.2	Shockwave	Waveremains	1.0	Waveremains	Waveremains
+neighbor	1.0	Shockwave	Empty	1.0	Waveremains	Wave
+neighbor	1	DepthCharge	Water	1	Charged	Water
+neighbor	1	Charged	DepthCharge	1	Charged	Charged
+neighbor	1	Charged	Water	1	Charged	Casing
+self	1	Charged	1	Boom	
+hotself	90	Charged
+pexplosion	Boom	Water	10	Flash
+self	0.5	Flash	1	Water
+neighbor	1	Flash	Water	1	Flash	Shockwave	
+neighbor	1	Shockwave	Casing	1	Shockwave	Shockwave
+neighbor	1	Shockwave	Charged	1	Shockwave	Boom
+neighbor	0.001	Boom	Casing	1	Boom	Boom
+neighbor	1	Shockwave	Wall	1	Waveremains	Rubbley
+
+#Can withstand shockwaves.
+element	Rubberwall	100	000	100	0	0	1	0	1
+#Solid rock. Affected by earthquakes.
+element	Rock	100	50	30	0	0	1	1	1
+#Creates earthquakes. Click inside rock. 2 pixel dots.
+element	Earthquake	000	100	000	0	0	1	1	1
+neighbor	1	Earthquake	Rock	1	Rockwave	Rock
+neighbor	1	Earthquake	Rockremains	1	Rockremains	Rockremains
+
+element	Rockwave	150	50	30	0.0	1.0	1.0	0.0	0
+self	0.1	Rockwave	1.0	Rockremains
+neighbor	1.0	Rockwave	Rock	0.99	Rockwave	Rockwave	0.010000	Rockwave1	Rockwave1
+neighbor	0.2	Rockwave	Rockremains	1.0	Rockremains	Rockremains
+
+element	Rockwave1	140	50	30	0.0	1.0	1.0	0.0	0
+self	0.1	Rockwave1	1.0	Rockremains
+neighbor	1.0	Rockwave1	Rock	0.99000	Rockwave1	Rockwave1	0.01	Rockwave2	Rockwave2
+neighbor	0.2	Rockwave1	Rockremains	1.0	Rockremains	Rockremains
+
+element	Rockwave2	130	50	30	0.0	1.0	1.0	0.0	0
+self	0.1	Rockwave2	1.0	Rockremains
+neighbor	1.0	Rockwave2	Rock	0.99000	Rockwave2	Rockwave2	0.01	Rockwave3	Rockwave3
+neighbor	0.2	Rockwave2	Rockremains	1.0	Rockremains	Rockremains
+
+element	Rockwave3	120	50	30	0.0	1.0	1.0	0.0	0
+self	0.1	Rockwave3	1.0	Rockremains
+neighbor	1.0	Rockwave3	Rock	0.99000	Rockwave3	Rockwave3	0.01	Rockwave4	Rockwave4
+neighbor	0.2	Rockwave3	Rockremains	1.0	Rockremains	Rockremains
+
+element	Rockwave4	110	50	30	0.0	1.0	1.0	0.0	0
+self	0.1	Rockwave4	1.0	Rockremains
+neighbor	1.0	Rockwave4	Rock	1.0	Rockwave4	Rockwave4
+neighbor	0.2	Rockwave4	Rockremains	1.0	Rockremains	Rockremains
+
+neighbor	1	Rockwave	Rockwave1	1	Rockwave1	Rockwave1
+neighbor	1	Rockwave1	Rockwave2	1	Rockwave2	Rockwave2
+neighbor	1	Rockwave2	Rockwave3	1	Rockwave3	Rockwave3
+neighbor	1	Rockwave3	Rockwave4	1	Rockwave4	Rockwave4
+
+element	Rockremains	110	50	30	0.0	0.0	1.0	0.0	0
+neighbor	0.01	Rockremains	Rock	1	Rock	Rock
+self	0.01000	Rockremains	1.0	Rock
+
+element	Crack	100	50	30	2	1	2	1	0
+neighbor	1	Crack	Rock	0.95	Empty	Crack	0.05	Rock	Rock
+neighbor	1	Crack	Rockremains	0.95	Empty	Crack	0.05	Rockremains	Rockremains
+
+neighbor	0.01	Rockwave	Empty	1	Crack	Empty
+neighbor	0.01	Rockwave1	Empty	1	Crack	Empty
+neighbor	0.01	Rockwave2	Empty	1	Crack	Empty
+neighbor	0.01	Rockwave	Water	1	Crack	Water
+neighbor	0.01	Rockwave1	Water	1	Crack	Water
+neighbor	0.01	Rockwave2	Water	1	Crack	Water
+neighbor	0.01	Rockwave	Waveremains	1	Crack	Waveremains
+neighbor	0.01	Rockwave1	Waveremains	1	Crack	Waveremains
+neighbor	0.01	Rockwave2	Waveremains	1	Crack	Waveremains
+neighbor	0.01	Rockwave	Wavestarter	1	Crack	Wavestarter
+neighbor	0.01	Rockwave1	Wavestarter	1	Crack	Wavestarter
+neighbor	0.01	Rockwave2	Wavestarter	1	Crack	Wavestarter
+
+neighbor	1	Crack	Crack	1	Empty	Empty
+neighbor	0.001	Crack	Empty	1	Empty	Empty
+
+neighbor	1	Rockwave	Water	1	Rockremains	Wavestarter
+neighbor	1	Rockwave1	Water	1	Rockremains	Wavestarter
+neighbor	1	Rockwave2	Water	1	Rockremains	Wavestarter
+neighbor	1	Rockwave3	Water	1	Rockremains	Wavestarter
+neighbor	1	Rockwave4	Water	1	Rockremains	Wavestarter
+
+neighbor	1	Rockwave	Wall	1	Rockremains	Wall4
+neighbor	1	Rockwave1	Wall	1	Rockremains	Wall3
+neighbor	1	Rockwave2	Wall	1	Rockremains	Wall2
+neighbor	1	Rockwave3	Wall	1	Rockremains	Wall1
+element	Wall1	100	100	100	0	0	1	1	0
+self	0.5	Wall1	0.5	Rubble	0.5	Wall1
+element	Wall2	100	100	100	0	0	1	1	0
+self	0.5	Wall2	0.5	Rubble	0.5	Wall2
+element	Wall3	100	100	100	0	0	1	1	0
+self	0.5	Wall3	0.5	Rubble	0.5	Wall3
+element	Wall4	100	100	100	0	0	1	1	0
+self	0.5	Wall4	0.5	Rubble	0.5	Wall4
+
+
