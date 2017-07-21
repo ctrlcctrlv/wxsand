@@ -1,0 +1,1358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Bombs Bugs Booms PVC" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>Bombs Bugs Booms PVC - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">Bombs Bugs Booms PVC</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#Bombs, bugs and booms! Version 3.2 for Purple100s version. Made by randomcraziness
+#element element r g b gravity slip density conductivity visible
+group   Waters  Water  Steam  Saltwater  Spout
+group Sources Spout Well Mine Beach SprayCan FireExtinguisher Bomber AA-Gun Torch Blowtorch GasTap
+group Destructive Fire BlueFire Oil&nbsp;??? Wood??? Ink??? C4 Bomb AA-Shell Napalm BurningNapalm Gas Propane Gunpowder Torch Blowtorch Chlorine
+group Life Plant Wood Woodworm Locust Woodlocust Maggot Worm Seed Rotworm Superbug Treegrow Plankton Jellyfish Shark
+group Woodcutting Wood Chainsaw Grinder Compressor Water Paper WaterRemover Chipboard Wood???	Ink??? RInk BInk YInk ElectricGrinder ElectricSaw
+group Railways Note Rail Train Carriage Trainhouse
+group Glassmaking Sand MoltenGlass Glass Mold MoldLid
+group Oilming CrudeOil Oil BottomPipe TopPipeA TopPipeB Pressure Tar SolidTar ElectricPipe
+group Random Note2 Starter Domino1 Domino2
+group Electricity HeatConverter Wire CoatedWire Coating HeatPlate Stove Lightbulb SolarPanel BatteryAcid Recharger Oil-Generator Oil-Funnel Gate Uranium ControlRod Seal Dam Turbine Pipe
+group Mining+Smithing Drill Rock IronOre Collector MinePipe MoltenIron Strengthener Iron Mold MoldLid
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#A solid element which reacts with nothing.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall  200     55     55
+#Burns other elements. Source of energy.
+element	Fire	222	46	26	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	Fire	0.5000	Empty	0.5	Smoke
+hotcolor Fire   230	90	20
+neighbor 0.9	Fire	Water	1.0	Empty		Steam
+neighbor 0.75	Fire	Oil	1.0	Fire		Fire
+neighbor 0.9	Fire	Plant	1.0	Fire		Fire
+neighbor 0.005	Fire	Cera	1.0	MoltenCera	Ember
+neighbor 0.1	Fire	Wood	1.0	Charcoal		Ember
+neighbor 0.3	Fire	Charcoal	1.0	Fire		Fire
+neighbor 0.1	Fire	Woodworm	1.0	Fire	Fire
+neighbor 0.1	Fire	Locust	1.0	Fire	Fire
+neighbor 0.75	Fire	BugSpray	1.0	Fire	Fire
+neighbor 0.1	Fire	Woodlocust	1.0	Fire	Fire
+neighbor 0.3	Fire	DeadLocust	1.0	Fire	Fire
+neighbor 0.3	Fire	DeadWoodworm	1.0	Fire	Fire
+neighbor 0.3	Fire	DeadWoodlocust	1.0	Fire	Fire
+neighbor 0.3	Fire	DeadMaggot	1.0	Fire	Fire
+neighbor 0.1	Fire	Maggot		1.0	Fire	Fire
+neighbor 0.1	Fire	Worm		1.0	Fire	Fire
+neighbor 0.3	Fire	DeadWorm	1.0	Fire	Fire
+neighbor 0.1	Fire	Rotworm		1.0	Fire	Fire
+neighbor 0.3	Fire	DeadRotworm	1.0	Fire	Fire
+neighbor 0.2	Fire	Bomber		1.0	Fire	Fire
+neighbor 0.1	Fire	FelledTree	1.0	Fire	Ember
+neighbor	0.2	Fire	Woodchips	1.0	Fire	Fire
+neighbor	1	Fire	Paper		1.0	Fire	Fire	
+neighbor	0.4	Fire	Chipboard	1.0	Fire	Ember
+neighbor	1.0	Fire	Napalm		1.0	Fire	BurningNapalm
+neighbor	1.0	Fire	Gas		1.0	Fire	Fire
+neighbor	1.0	Fire	Propane		1.0	Fire	Boom
+neighbor	1.0	Fire	Gunpowder	1.0	Fire	Bang
+neighbor	1	Fire	RPaper		1.0	Fire	Fire
+neighbor	1	Fire	BPaper		1.0	Fire	Fire
+neighbor	1	Fire	YPaper		1.0	Fire	Fire
+neighbor	1	Fire	GPaper		1.0	Fire	Fire
+neighbor	1	Fire	OPaper		1.0	Fire	Fire
+neighbor	1	Fire	PPaper		1.0	Fire	Fire
+neighbor	0.4	Fire	Chipboard1	1.0	Fire	Ember
+neighbor	0.4	Fire	Chipboard2	1.0	Fire	Ember
+neighbor	0.05	Fire	CrudeOil		1.0	Fire	Fire
+neighbor	0.5	Fire	Tar	1.0	Fire	SolidTar			
+#Even hotter than normal fire.
+element	BlueFire	66	66	250	-1	1	0	1.5	1
+hotcolor	BlueFire	66	66	170
+self	0.03	BlueFire	1	Empty
+neighbor 0.9	BlueFire	Water	1.0	Empty		Steam
+neighbor 0.75	BlueFire	Oil	1.0	BlueFire		Fire
+neighbor 1.0	BlueFire	Plant	1.0	BlueFire		Fire
+neighbor 0.005	BlueFire	Cera	1.0	MoltenCera	Ember
+neighbor 0.1	BlueFire	Wood	1.0	Charcoal		Ember
+neighbor 0.3	BlueFire	Charcoal	1.0	BlueFire		Fire
+neighbor 0.1	BlueFire	Woodworm	1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	Locust	1.0	BlueFire	BlueFire
+neighbor 0.75	BlueFire	BugSpray	1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	Woodlocust	1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadLocust	1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadWoodworm	1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadWoodlocust	1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadMaggot	1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	Maggot		1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	Worm		1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadWorm	1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	Rotworm		1.0	BlueFire	Fire
+neighbor 0.3	BlueFire	DeadRotworm	1.0	BlueFire	Fire
+neighbor 0.2	BlueFire	Bomber		1.0	BlueFire	Fire
+neighbor 0.1	BlueFire	FelledTree	1.0	BlueFire	Ember
+neighbor	0.2	BlueFire	Woodchips	1.0	BlueFire	Fire
+neighbor	1	BlueFire	Paper		1.0	BlueFire	Fire
+neighbor	0.4	BlueFire	Chipboard	1.0	BlueFire	Ember
+neighbor	1.0	BlueFire	Napalm		1.0	BlueFire	BurningNapalm
+neighbor	1.0	BlueFire	Gas		1.0	BlueFire	BlueFire
+neighbor	1.0	BlueFire	Propane		1.0	BlueFire	BBoom
+neighbor	1.0	BlueFire	Gunpowder	1.0	BlueFire	Bang
+neighbor	1	BlueFire	RPaper		1.0	BlueFire	Fire
+neighbor	1	BlueFire	YPaper		1.0	BlueFire	Fire
+neighbor	1	BlueFire	BPaper		1.0	BlueFire	Fire
+neighbor	1	BlueFire	OPaper		1.0	BlueFire	Fire
+neighbor	1	BlueFire	GPaper		1.0	BlueFire	Fire
+neighbor	1	BlueFire	PPaper		1.0	BlueFire	Fire
+neighbor	0.4	BlueFire	Chipboard1	1.0	BlueFire	Ember
+neighbor	0.4	BlueFire	Chipboard2	1.0	BlueFire	Ember
+neighbor	0.05	BlueFire	CrudeOil		1.0	BlueFire	Fire
+neighbor	0.5	BlueFire	Tar	1.0	BlueFire	SolidTar	
+#Dissolves other elements. Turns to steam when heated. Destroys wells.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+neighbor 0.005	Water	Wood	1.0	Empty	Rot
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant
+#Destroys spout and can be heated to make glass.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.500000	1
+hotcolor Sand 250 88 41
+#Source of water. Is destroyed by sand.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Spout	Empty	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Empty		Empty
+#Source of oil. Is destroyed by water.
+element	Well	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Well	Empty	1.0	Well		Oil
+neighbor 0.5	Well	Water	1.0	Empty		Empty
+#Source of salt. Is destroyed by oil.
+element	Mine	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Mine	Empty	1.0	Mine		Salt
+neighbor 0.5	Mine	Oil	1.0	Empty		Empty
+#Source of sand. Is destroyed by salt.
+element	Beach	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Beach	Empty	1.0	Beach		Sand
+neighbor 0.5	Beach	Salt	1.0	Empty		Empty
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000	1
+#Destroys everything except living things.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty	1.0	???	???
+neighbor 1.0	???	Wall	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor	1.0	???	BlueFire	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+neighbor 1.0	???	C4	1.0	???	???
+neighbor 1.0	???	Charcoal	1.0	???	???
+neighbor 1.0	???	BugSpray	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 1.0	???	MaggotBomb	1.0	???	???
+neighbor 1.0	???	Bomb	1.0	???	???
+neighbor 1.0	???	InstaWall	1.0	???	???
+neighbor 1.0	???	Soil	1.0	???	???
+neighbor 1.0	???	HealthySoil	1.0	???	???
+neighbor 1.0	???	Foam	1.0	???	???
+neighbor 1.0	???	AA-Shell	1.0	???	???
+neighbor 1.0	???	Well	1.0	???	???
+neighbor 1.0	???	Mine	1.0	???	???
+neighbor 1.0	???	Beach	1.0	???	???
+neighbor	1.0	???	Blowtorch	1.0	???	???
+neighbor 1.0	???	SprayCan	1.0	???	???
+neighbor 1.0	???	FireExtinguisher	1.0	???	???
+neighbor 1.0	???	Bomber	1.0	???	???
+neighbor 1.0	???	AA-Gun	1.0	???	???
+neighbor 1.0	???	Chainsaw	1.0	???	???
+neighbor 1.0	???	Grinder	1.0	???	???
+neighbor 1.0	???	Compressor	1.0	???	???
+neighbor 1.0	???	Paper	1.0	???	???
+neighbor 1.0	???	WaterRemover	1.0	???	???
+neighbor 1.0	???	Chipboard1	1.0	???	???
+neighbor 1.0	???	Chipboard2	1.0	???	???
+neighbor 1.0	???	Wood???	1.0	???	???
+neighbor 1.0	???	Ink???	1.0	???	???
+neighbor 1.0	???	RInk	1.0	???	???
+neighbor 1.0	???	BInk	1.0	???	???
+neighbor 1.0	???	YInk	1.0	???	???
+neighbor 1.0	???	GInk	1.0	???	???
+neighbor 1.0	???	OInk	1.0	???	???
+neighbor 1.0	???	PInk	1.0	???	???
+neighbor 1.0	???	RPaper	1.0	???	???
+neighbor 1.0	???	BPaper	1.0	???	???
+neighbor 1.0	???	GPaper	1.0	???	???
+neighbor 1.0	???	YPaper	1.0	???	???
+neighbor 1.0	???	OPaper	1.0	???	???
+neighbor 1.0	???	PPaper	1.0	???	???
+neighbor 1.0	???	Napalm	1.0	???	???
+neighbor 1.0	???	BurningNapalm	1.0	???	???
+neighbor 1.0	???	Gas	1.0	???	???
+neighbor 1.0	???	Propane	1.0	???	???
+neighbor 1.0	???	Gunpowder	1.0	???	???
+neighbor 1.0	???	Smoke	1.0	???	???
+neighbor 1.0	???	GasTap	1.0	???	???
+neighbor 1.0	???	Train	1.0	???	???
+neighbor 1.0	???	Rail	1.0	???	???
+neighbor 1.0	???	Carriage	1.0	???	???
+neighbor 1.0	???	Trainhouse	1.0	???	???
+neighbor 1.0	???	Mold	1.0	???	???
+neighbor 1.0	???	MoldLid	1.0	???	???
+neighbor 1.0	???	Pressure	1.0	???	???
+neighbor 1.0	???	BottomPipe	1.0	???	???
+neighbor 1.0	???	TopPipeA	1.0	???	???
+neighbor 1.0	???	TopPipeB	1.0	???	???
+neighbor 1.0	???	Glass	1.0	???	???
+neighbor 1.0	???	MoltenGlass	1.0	???	???
+neighbor 1.0	???	CrudeOil	1.0	???	???
+neighbor 1.0	???	Tar	1.0	???	???
+neighbor 1.0	???	SolidTar	1.0	???	???
+neighbor 1.0	???	HeatConverter	1.0	???	???
+neighbor 1.0	???	ChargedConverter	1.0	???	???
+neighbor 1.0	???	Wire	1.0	???	???
+neighbor 1.0	???	ChargedWire	1.0	???	???
+neighbor 1.0	???	Coating	1.0	???	???
+neighbor 1.0	???	HeatPlate	1.0	???	???
+neighbor 1.0	???	HotPlate	1.0	???	???
+neighbor 1.0	???	Stove	1.0	???	???
+neighbor 1.0	???	SolarPanel	1.0	???	???
+neighbor 1.0	???	ChargedPanel	1.0	???	???
+neighbor 1.0	???	Lightbulb	1.0	???	???
+neighbor 1.0	???	ChargedStove	1.0	???	???
+neighbor 1.0	???	LightBulb	1.0	???	???
+neighbor 1.0	???	LightBulb1	1.0	???	???
+neighbor 1.0	???	LightBulb2	1.0	???	???
+neighbor 1.0	???	LightBulb3	1.0	???	???
+neighbor 1.0	???	LightBulb4	1.0	???	???
+neighbor 1.0	???	LightBulb5	1.0	???	???
+neighbor 1.0	???	LightBulb6	1.0	???	???
+neighbor 1.0	???	LightBulb7	1.0	???	???
+neighbor 1.0	???	LightBulb8	1.0	???	???
+neighbor 1.0	???	LightBulb9	1.0	???	???
+neighbor 1.0	???	LightBulb10	1.0	???	???
+neighbor 1.0	???	LightBulb11	1.0	???	???
+neighbor 1.0	???	LightBulb12	1.0	???	???
+neighbor 1.0	???	LightBulb13	1.0	???	???
+neighbor 1.0	???	LightBulb14	1.0	???	???
+neighbor 1.0	???	LightBulb15	1.0	???	???
+neighbor 1.0	???	LightBulb16	1.0	???	???
+neighbor 1.0	???	LightBulb17	1.0	???	???
+neighbor 1.0	???	LightBulb18	1.0	???	???
+neighbor	1.0	???	LightBulb19	1.0	???	???
+neighbor	1.0	???	Oil-Generator	1.0	???	???
+neighbor	1.0	???	Oiled-Generator	1.0	???	???
+neighbor	1.0	???	Oil-Funnel	1.0	???	???
+neighbor	1.0	???	Oiled-Funnel	1.0	???	???
+neighbor	1.0	???	Gate	1.0	???	???
+neighbor	1.0	???	ChargedGate	1.0	???	???
+neighbor	1.0	???	BatteryAcid	1.0	???	???
+neighbor	1.0	???	DeadBatteryAcid	1.0	???	???
+neighbor	1.0	???	Recharger	1.0	???	???
+neighbor	1.0	???	Uranium	1.0	???	???
+neighbor	1.0	???	ControlledUranium	1.0	???	???
+neighbor	1.0	???	CriticalUranium	1.0	???	???
+neighbor	1.0	???	Seal	1.0	???	???
+neighbor	1.0	???	SealedWater	1.0	???	???
+neighbor	1.0	???	ControlRod	1.0	???	???
+neighbor	1.0	???	Pipe	1.0	???	???
+neighbor	1.0	???	Dam	1.0	???	???
+neighbor	1.0	???	Turbine	1.0	???	???
+neighbor	1.0	???	WPipe	1.0	???	???
+neighbor	1.0	???	WDam	1.0	???	???
+neighbor	1.0	???	WTurbine	1.0	???	???
+neighbor	1.0	???	ElectricSaw	1.0	???	???
+neighbor	1.0	???	ElectricPipe	1.0	???	???
+neighbor	1.0	???	ElectricGrinder	1.0	???	???
+neighbor	1.0	???	Drill	1.0	???	???
+neighbor	1.0	???	Rock	1.0	???	???
+neighbor	1.0	???	IronOre	1.0	???	???
+neighbor	1.0	???	MinedIronOre	1.0	???	???
+neighbor	1.0	???	Collector	1.0	???	???
+neighbor	1.0	???	ICollector	1.0	???	???
+neighbor	1.0	???	MinePipe	1.0	???	???
+neighbor	1.0	???	IMinePipe	1.0	???	???
+neighbor	1.0	???	MoltenIron	1.0	???	???
+neighbor	1.0	???	SMoltenIron	1.0	???	???
+neighbor	1.0	???	Iron	1.0	???	???
+#Burns. Destroys mines.
+element	Oil	128	64	40	0.700000	1.000000	0.200000	0.200000	1
+#Soluable in water. Destroys beaches.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+neighbor 0.9		Ember	Water	1.0	Empty	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	0
+neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self    0.00001         Saltwater       0.5   Water  0.5  Salt
+neighbor 0.004	Water	Salt	1.0	Saltwater		Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt		Steam
+neighbor 0.04		Saltwater	Water		1.0	Water		Saltwater
+neighbor 0.9		Saltwater	Fire		1.0	Salt		Steam
+neighbor 0.9		Saltwater	BlueFire		1.0	Salt		Steam
+hotneighbor   50      Saltwater	Saltwater
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2	Torch	Empty	1.0	Torch		Fire
+neighbor 0.2	Torch	Water	1.0	Torch		Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch		Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch		Fire
+neighbor 0.2	Torch	Plant	1.0	Torch		Fire
+neighbor 0.2	Torch	Cera	1.0	Torch		MoltenCera
+#Continuous blue fire.
+element	Blowtorch	0	0	149	0	1	1	1	1
+neighbor 0.2	Blowtorch	Empty	1.0	Blowtorch		BlueFire
+neighbor 0.2	Blowtorch	Water	1.0	Blowtorch		Steam
+neighbor 0.2	Blowtorch	Saltwater	0.5	Blowtorch		Steam	0.5	Blowtorch	Salt
+neighbor 0.2	Blowtorch	Oil	1.0	Blowtorch		Fire
+neighbor 0.2	Blowtorch	Plant	1.0	Blowtorch		Fire
+neighbor 0.2	Blowtorch	Cera	1.0	Blowtorch		MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.005000	Leftover???	1.0000	Empty
+#Plastic explosive.	
+element	C4	250	242	156	0	0	1	0	1
+neighbor 1	C4 Fire	1	Boom	Fire
+neighbor	1	C4	BlueFire	1	Boom	BlueFire
+element	Boom	255	200	0	0	0	1	0	0
+explode	Boom	Fire	64
+#That stuff you get from trees.
+element Wood	160	120	80	0	0	1	0	1
+#Burnt wood. Burns quickly.
+element Charcoal	90	90	90	0	0	1	0	1
+#Eats wood and burns slowly. Slowly eats plants.
+element Woodworm	250	250	200	0	1	1	0.5	1
+neighbor 0.5	Woodworm	Wood	1.0	Empty		Woodworm
+neighbor 0.5	Woodworm	Empty	1.0	Empty		Woodworm
+neighbor 0.05	Woodworm	Plant	1.0	Empty		Woodworm
+neighbor 1	Woodworm	Locust	1.0	Woodlocust	Woodlocust
+#Eats plants and burns slowly. Slowly eats wood.
+element Locust	60	190	30	0	1	1	0.5	1
+neighbor 0.5	Locust	Plant	1.0	Empty	Locust
+neighbor 0.5	Locust	Empty	1.0	Empty	Locust
+neighbor 0.05	Locust	Wood	1.0	Empty	Locust
+#Kills woodworms and locusts. Flammable.
+element	BugSpray	100	130	90	-0.5	1	0	0	1
+neighbor 1	BugSpray	Locust		1.0	BugSpray	DeadLocust
+neighbor 1	BugSpray	Woodworm	1.0	BugSpray	DeadWoodworm
+neighbor 0.001	BugSpray		Empty		1.0	Empty		Empty
+neighbor 1	BugSpray	Woodlocust	1.0	BugSpray	DeadWoodlocust
+neighbor 1	BugSpray	Maggot		1.0	BugSpray		DeadMaggot
+neighbor 1	BugSpray	Worm		1.0	BugSpray	DeadWorm
+neighbor 1	BugSpray	Rotworm		1.0	BugSpray	DeadRotworm
+#It's a woodworm, but it's dead.
+element DeadWoodworm	250	250	200	0.7	1	1	0.5	0
+#It's a locust, but it's dead.
+element DeadLocust	60	190	30	0.7	1	1	0.5	0
+#The dreaded Woodlocust!
+element Woodlocust	126	90	131	0	1	1	0.5	1
+neighbor 0.5	Woodlocust	Plant	1.0	Empty	Woodlocust
+neighbor 0.5	Woodlocust	Empty	1.0	Empty	Woodlocust
+neighbor 0.5	Woodlocust	Wood	1.0	Empty	Woodlocust
+neighbor 0.05	Woodlocust	Locust	1.0	Woodlocust	Woodlocust
+neighbor 0.05	Woodlocust	Woodworm	1.0	Woodlocust	Woodlocust
+#It's a woodlocust, but it's dead.
+element DeadWoodlocust	126	90	131	0.7	1	1	0.5	0
+#Rotten wood.
+element Rot		130	147	49	0	1	1	0.5	0
+neighbor	0.005	Rot	Wood	1.0	Rot	Rot
+self	0.0001	Rot	1.0	Empty
+neighbor 0.005	Rot	Fire	1.0	Fire	Fire
+neighbor	0.005	Rot	BlueFire	1.0	Fire	BlueFire
+#Eats dead insects.
+element Maggot	255	255	255	0	0	1	0.5	1
+neighbor 0.05	Maggot	DeadWoodworm	1.0	Maggot	Empty
+neighbor 0.05	Maggot	DeadLocust	1.0	Maggot	Empty
+neighbor 0.05	Maggot	DeadWoodlocust	1.0	Maggot	Empty
+neighbor 0.05	Maggot	DeadMaggot	1.0	Maggot	Empty
+neighbor 0.5	Maggot	Empty		1.0	Empty	Maggot
+neighbor 0.05	Maggot	DeadWorm	1.0	Maggot	Empty
+neighbor	0.05	Maggot	DeadRotworm	1.0	Maggot	Empty
+element DeadMaggot	255	255	255	0.7	0	1	0.5	0
+#A bomb of maggots.	
+element	MaggotBomb	250	242	156	0	0	1	0	1
+neighbor 1	MaggotBomb	 Fire	1	MaggotBoom	Fire
+neighbor	1	MaggotBomb	BlueFire	1	MaggotBoom	BlueFire
+neighbor	1	MaggotBomb	Maggot	1	MaggotBoom	Maggot
+element	MaggotBoom	255	255	255	0	0	1	0	0
+explode	MaggotBoom	Maggot	32
+#Falling bomb.
+element	Bomb	95	95	95	1	0	1	0	1
+neighbor	1.0	Bomb	Bomb	1.0	Bomb	Empty
+neighbor	1.0	Bomb	Wall	1.0	BombBoom	Wall
+neighbor 1.0	Bomb	Wood	1.0	BombBoom	Wood
+neighbor 1.0	Bomb	Cera	1.0	BombBoom	Cera
+neighbor 1.0	Bomb	Plant	1.0	BombBoom	Plant
+neighbor 1.0	Bomb	C4	1.0	BombBoom	C4
+neighbor	1.0	Bomb	AA-Gun	1.0	BombBoom	AA-Gun
+neighbor 1.0	Bomb	Soil	1.0	BombBoom	Soil
+neighbor 1.0	Bomb	HealthySoil	1.0	BombBoom	HealthySoil
+neighbor 1.0	Bomb	Spout	1.0	BombBoom	Spout
+neighbor 1.0	Bomb	Well	1.0	BombBoom	Well
+neighbor 1.0	Bomb	Mine	1.0	BombBoom	Mine
+neighbor 1.0	Bomb	Beach	1.0	BombBoom	Beach
+neighbor 1.0	Bomb	SprayCan	1.0	BombBoom	SprayCan
+neighbor 1.0	Bomb	FireExtinguisher	1.0	BombBoom	FireExtinguisher
+neighbor 1.0	Bomb	Torch	1.0	BombBoom	Torch
+neighbor	1.0	Bomb	Iron	1.0	BombBoom	Iron
+neighbor	1.0	Bomb	Rock	1.0	BombBoom	Rock
+element	BombBoom	255	200	0	0	0	1	0	0
+explode	BombBoom	Fire	8
+#Just add water.
+element	InstaWall	95	95	95	1	0	1	0	1
+neighbor 1.0	InstaWall		Water	1.0	WallBoom	Water
+element	WallBoom	95	95	95	1	0	1	0	0
+explode	WallBoom	Wall	32
+#Plants grow in this.
+element	Soil	200	180	130	1	0	0.4	0	1
+neighbor 0.05	Soil	Water	1.0	HealthySoil	Empty
+neighbor	1.0	Plant	Soil	0.3	PlantRootGrow	Soil	0.7	Plant	Soil
+neighbor	1.0	Plant	HealthySoil	0.4	PlantRootGrow	Soil	0.6	Plant	HealthySoil
+neighbor	1.0	Wood	Soil	0.3	WoodRootGrow	Soil	0.7	Wood	Soil
+neighbor	1.0	Wood	HealthySoil	0.4	WoodRootGrow	Soil	0.6	Wood	HealthySoil
+neighbor	1.0	PlantRootGrow	Soil	1.0	PlantRoot	PlantRootGrow
+neighbor	1.0	WoodRootGrow	Soil	1.0	WoodRoot	WoodRootGrow
+neighbor	1.0	PlantRootGrow	HealthySoil	1.0	PlantRoot	PlantRootGrow
+neighbor	1.0	WoodRootGrow	HealthySoil	1.0	WoodRoot	WoodRootGrow
+element	PlantRoot	32	204	32	0	0	1	0	0
+element	WoodRoot	160	120	80	0	0	1	0	0
+element	PlantRootGrow	200	180	130	0	0	0.45	0	0
+element	WoodRootGrow	200	180	130	0	0	0.45	0	0
+neighbor	0.9	Fire	PlantRoot	1.0	Fire	Fire
+neighbor	0.1	Fire	WoodRoot	1.0	Fire	Ember
+self	0.4	PlantRootGrow	1.0	Plant
+self	0.4	WoodRootGrow	1.0	Wood
+#Grows in soil.
+element	Seed	250	250	230	1	0	1	0	1
+neighbor	1.0	Seed	Seed	1.0	Seed	Empty
+neighbor 1.0	Seed	Soil	1.0	Growth	Soil
+neighbor	1.0	Seed	HealthySoil	1.0	Growth	HealthySoil
+element	Growth	95	95	95	1	0	1	0	0
+explode	Growth	Plant	32
+#Healthier than normal soil.
+element	HealthySoil	180	140	60	1	0	0.5	0	1
+#Wriggly creatures.
+element	Worm	250	160	175	0	0	1	0	1
+neighbor 0.5	Worm	Empty	1.0	Empty	Worm
+neighbor 0.4	Worm	Soil	1.0	HealthySoil	Worm
+neighbor	0.5	Worm	HealthySoil	1.0	HealthySoil	Worm
+#Dead worms.
+element	DeadWorm	250	160	175	1	0	1	0	0
+#Source of BugSpray. Explodes on contact with fire.
+element	SprayCan	0	0	120	0	1	1	0	1
+neighbor	0.75	SprayCan	Empty	1.0	SprayCan	BugSpray
+neighbor	0.5	SprayCan	Fire	1.0	Boom	Fire
+neighbor	0.5	SprayCan	BlueFire	1.0	Boom	BlueFire
+#Extinguishes fire.
+element Foam	255	255	255	1	0	0	0	1
+neighbor 1.0 Foam		Fire	1.0	Foam	Empty
+neighbor	1.0	Foam	BlueFire	1.0	Foam	Empty
+#Source of foam.
+element	FireExtinguisher	255	0	0	0	0	1	0	1
+neighbor	0.75	FireExtinguisher	Empty	1.0	FireExtinguisher	Foam
+#Makes soil healthy and eats bodies.
+element Rotworm	100	90	10	0	0	0	0	1
+neighbor	0.5	Rotworm		Empty	1.0	Empty		Rotworm
+neighbor	0.5	Rotworm		Soil	1.0	HealthySoil	Rotworm
+neighbor	0.5	Rotworm		HealthySoil	1.0	HealthySoil	Rotworm
+neighbor	0.05	Rotworm		Worm	1.0	Rotworm		Rotworm
+neighbor	0.05	Rotworm		Maggot	1.0	Rotworm		Rotworm
+neighbor	0.05	Rotworm		DeadWorm	1.0	Empty		Rotworm
+neighbor	0.05	Rotworm		DeadLocust	1.0	Empty		Rotworm
+neighbor	0.05	Rotworm		DeadWoodworm	1.0	Empty		Rotworm
+neighbor	0.05	Rotworm		DeadMaggot	1.0	Empty		Rotworm
+neighbor	0.05	Rotworm		DeadWoodlocust	1.0	Empty		Rotworm
+neighbor	0.05	Rotworm		DeadRotworm	1.0	Empty		Rotworm
+element	DeadRotworm	100	90	10	1	0	0	0	0
+#Source of bombs.
+element	Bomber	100	140	60	0	0	1	0	1
+#Source of AA Shells.
+element 	AA-Gun	120	120	80	0	0	1	0	1
+element	Rocket	200	100	100	-1	0	0	0	0
+#Shoots down bombers.
+element	AA-Shell	100	100	100	-1	1	0.8	0	1
+neighbor 	1.0	AA-Shell	AA-Shell	1.0	AA-Shell	Empty
+neighbor	0.001	AA-Gun	Empty	0.9	AA-Gun	AA-Shell	0.1	AA-Gun	Rocket
+neighbor	1.0	Rocket	Bomber	1.0	BombBoom	Bomber
+neighbor	1.0	AA-Shell	Bomber	1.0	Empty	ShotBomber
+element	ShotBomber	100	140	60	0	0	1	0	0
+self	0.2	ShotBomber	1.0	Empty
+neighbor	1.0	ShotBomber	Bomber	0.99	ShotBomber	ShotBomber	0.01	ShotBomber	ShotBomberE
+element	ShotBomberE	100	140	60	0	0	1	0	0
+self	0.005	ShotBomberE	1.0	BombBoom
+neighbor	0.001	Bomber	Empty	1.0	Bomber	Bomb
+#All the bugs combined into one handy package, but it's called Superbug for a reason. It's immune to bugspray.
+element	Superbug		75	135	70	0	1	0	0	1
+neighbor	1.0	Superbug		Empty	1.0	Empty	Superbug
+neighbor	0.05	Rotworm		Woodlocust	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Rotworm	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Woodlocust	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Woodworm	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Locust	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Worm	1.0	Superbug		Superbug
+neighbor	0.05	Superbug		Maggot	1.0	Superbug		Superbug
+neighbor	0.5	Superbug		Plant	1.0	Empty		Superbug
+neighbor	0.5	Superbug		Wood	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadWorm	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadLocust	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadWoodworm	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadMaggot	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadWoodlocust	1.0	Empty		Superbug
+neighbor	0.05	Superbug		DeadRotworm	1.0	Empty		Superbug
+#Add some above wood.
+element	Treegrow		160	120	80	-1	0	0	0	1
+element	Tree	160	120	80	1	0	0.5	0	0
+neighbor	1.0	Treegrow		Empty	1.0	Treegrow		Tree
+neighbor	0.2	Tree	Wood	1.0	Wood	Wood
+self 0.01	Treegrow	 1.0	Empty
+#Smokin'!
+element	Smoke	50	50	50	-1	0	0	0	1
+self	0.05	Smoke	1.0	Empty
+#For cutting down trees.
+element	Chainsaw	122	122	122	0	0	0	0	1
+self	0.1	Chainsaw	1.0	Empty
+#A tree that has fell.
+element	FelledTree	160	120	80	1	0.5	0	0	0
+neighbor	1.0	Chainsaw	Wood	1.0	Chainsaw	FelledTree
+neighbor	1.0	FelledTree	Wood	1.0	FelledTree	FelledTree
+#For grinding felled trees.
+element	Grinder	113	140	104	0	0	1	0	1
+element	WGrinder		113	140	104	0	0	0.9	0	0
+element	Woodchips	162	135	79	1	0.6	0	0	0
+neighbor	1	Grinder	FelledTree	1.0	WGrinder		Empty
+neighbor	1	WGrinder		Empty	1.0	Grinder	Woodchips
+neighbor	1	FelledTree	Woodchips	1.0	FelledTree	FelledTree
+neighbor	0.25	Grinder	WGrinder	1.0	WGrinder	Grinder
+#Compress to make paper.
+element	Woodpulp	203	200	163	0.2	0	0.6	0	0
+neighbor	1.0	Woodchips	Water	1.0	Woodpulp	Empty
+#For crushing woodpulp.
+element	Compressor	83	83	83	1	0	0	0	1
+#Yay for paper!
+element	Paper	242	240	255	0	0	0	0	1
+neighbor	1.0	Compressor	Woodpulp	1.0	Compressor	Paper
+neighbor	0.5	Paper	Woodpulp	1.0	Paper	Paper
+neighbor	1.0	Compressor	Paper	1.0	Empty	Paper
+#For removing water leftover by the pulping process.
+element	WaterRemover	32	32	255	0	0	0	0	1
+neighbor	1.0	WaterRemover	Water	1.0	WaterRemover	WaterRemover
+self	0.1	WaterRemover	1.0	Empty
+#Compressed woodchips.
+element	Chipboard	209	182	71	0	0	0	0	1
+neighbor	1.0	Compressor	Woodchips	1.0	Compressor	Chipboard
+neighbor	1.0	Chipboard	Woodchips	0.5	Chipboard1	Chipboard1	0.5	Chipboard2	Chipboard2
+neighbor	1.0	Chipboard1	Woodchips	0.5	Chipboard1	Chipboard1	0.5	Chipboard1	Chipboard2
+neighbor	1.0	Chipboard2	Woodchips	0.5	Chipboard2	Chipboard1	0.5	Chipboard2	Chipboard2
+neighbor	1.0	Compressor	Chipboard	1.0	Empty	Chipboard
+neighbor	1.0	Compressor	Chipboard1	1.0	Empty	Chipboard1
+neighbor	1.0	Compressor	Chipboard2	1.0	Empty	Chipboard2
+self	1	Chipboard	0.5	Chipboard1	0.5	Chipboard2
+element	Chipboard1	209	182	71	0	0	1	0	0
+element	Chipboard2	180	126	73	0	0	1	0	0
+#Yay for napalm!
+element	Napalm	238	179	98	1	0	0.5	0	1
+#For those too lazy to light it themselves.
+element	BurningNapalm	248	124	88	1	0	0.5	0	1
+neighbor	0.2	BurningNapalm	Empty	1.0	BurningNapalm	Fire
+neighbor	0.1	BurningNapalm	Napalm	1.0	BurningNapalm	BurningNapalm
+neighbor	0.01	BurningNapalm	Wall	1.0	BurningNapalm	Empty
+self	0.001	BurningNapalm	1.0	Fire
+#Flammable gas.
+element	Gas	179	189	147	-1	1	0	0	1
+#Can be used as a torch if lit.
+element	GasTap	181	181	155	0	0	1	0	1
+neighbor	0.4	GasTap	Empty	1.0	GasTap	Gas
+#Highly explosive gas.
+element	Propane	164	154	182	-1	0	0	0	1
+element	BBoom	0	0	0	0	0	0	0	0
+explode	BBoom	BlueFire	64
+#Quick burning powder.
+element	Gunpowder	202	190	155	0.700000	1.000000	0.500000	0.400000	1
+element	Bang	0	0	0	0	0	0	0	0
+explode	Bang	Fire	2
+#To remove everything from the woodcutting process except the finished product.
+element	Wood???	231	236	17	0	0	0	0	1
+self	0.1	Wood???	1.0	Empty
+neighbor	1	Wood	Wood???	1	Wood???	Wood???
+neighbor	1	Woodchips	Wood???	1	Wood???	Wood???
+neighbor	1	Woodpulp	Wood???	1	Wood???	Wood???
+neighbor	1	Water	Wood???	1	Wood???	Wood???
+neighbor	1	FelledTree	Wood???	1	Wood???	Wood???
+neighbor	1	Grinder	Wood???	1	Wood???	Wood???
+neighbor	1	Wall	Wood???	1	Wood???	Wood???
+neighbor	1	Compressor	Wood???	1	Wood???	Wood???
+neighbor	1	Chainsaw	Wood???	1	Wood???	Wood???
+neighbor	1	WaterRemover	Wood???	1	Wood???	Wood???
+#Blue ink for colouring paper.
+element	BInk	31	108	224	1	1	0	0	1
+#Red ink for colouring paper.
+element	RInk	211	44	48	1	1	0	0	1
+#Yellow ink for colouring paper.
+element YInk	225	225	19	1	1	0	0	1
+element	RPaper	255	74	74	0	0	1	0	0
+element	BPaper	97	171	233	0	0	1	0	0
+element	YPaper	252	255	147	0	0	1	0	0
+element	PInk	173	0	175	1	1	0.2	0	0
+element	GInk	37	164	23	1	1	0.2	0	0
+element	OInk	254	155	22	1	1	0.2	0	0
+element	PPaper	220	126	254	0	0	1	0	0
+element	GPaper	125	255	148	0	0	1	0	0
+element	OPaper	255	209	125	0	0	1	0	0
+neighbor	1.0	BInk	Paper	1.0	BInk	BPaper
+neighbor	1.0	RInk	Paper	1.0	RInk	RPaper
+neighbor	1.0	YInk	Paper	1.0	YInk	YPaper
+neighbor	1.0	PInk	Paper	1.0	PInk	PPaper
+neighbor	1.0	OInk	Paper	1.0	OInk	OPaper
+neighbor	1.0	GInk	Paper	1.0	GInk	GPaper
+neighbor	1.0	BInk	RInk	1.0	PInk	PInk
+neighbor	1.0	YInk	RInk	1.0	OInk	OInk
+neighbor	1.0	YInk	BInk	1.0	GInk	GInk
+neighbor	1.0	RPaper	Paper	1.0	RPaper	RPaper
+neighbor	1.0	BPaper	Paper	1.0	BPaper	BPaper
+neighbor	1.0	YPaper	Paper	1.0	YPaper	YPaper
+neighbor	1.0	OPaper	Paper	1.0	OPaper	OPaper
+neighbor	1.0	PPaper	Paper	1.0	PPaper	PPaper
+neighbor	1.0	GPaper	Paper	1.0	GPaper	GPaper
+neighbor	1.0	RInk	RPaper	1.0	Empty	RPaper
+neighbor	1.0	BInk	BPaper	1.0	Empty	BPaper
+neighbor	1.0	YInk	YPaper	1.0	Empty	YPaper
+neighbor	1.0	OInk	OPaper	1.0	Empty	OPaper
+neighbor	1.0	PInk	PPaper	1.0	Empty	PPaper
+neighbor	1.0	GInk	GPaper	1.0	Empty	GPaper
+#For removing all excess ink.
+element	Ink???	231	236	17	0	0	0	0	1
+self	0.1	Ink???	1.0	Empty
+neighbor	1.0	Ink???	RInk	1.0	Ink???	Ink???
+neighbor	1.0	Ink???	BInk	1.0	Ink???	Ink???
+neighbor	1.0	Ink???	YInk	1.0	Ink???	Ink???
+neighbor	1.0	Ink???	OInk	1.0	Ink???	Ink???
+neighbor	1.0	Ink???	GInk	1.0	Ink???	Ink???
+neighbor	1.0	Ink???	PInk	1.0	Ink???	Ink???
+#This is just an alpha category. I may or may not chose to expand on it so don't get your hopes up.
+element	Note	255	255	255	0	0	0	0	1
+self 1.0	Note 1.0	Empty
+#Trains run on this.
+element	Rail	128	128	128	0	0	0	0	1
+#Choo-choo!&nbsp;:D
+element	Train	128	0	0	0	0	0	0	1
+#Where all the people/cargo get put.
+element 	Carriage		0	128	0	0	0	0	0	1
+neighbor	1.0	Train	Rail	1.0	Train	Train
+neighbor	1.0	Carriage	Train	1.0	Carriage	Carriage
+#Creates one train when connected with rail.
+element	Trainhouse	0	0	128	0	0	0	0	1
+neighbor	1.0	Rail	Carriage	1.0	Rail	Rail
+element	trainhouse	0	0	128	0	0	1	1.03	0
+element	trainhouse2	0	0	128	0	0	1	0	0
+element	trainhouse3	0	0	128	0	0	1	1.01	0
+element	trainhouse4	0	0	128	0	0	1	0	0
+self	1.0	trainhouse	1.0	trainhouse2
+hotself	50	trainhouse
+self	1.0	trainhouse3	1.0	trainhouse4
+hotself	70	trainhouse3
+neighbor	1.0	Trainhouse	Rail	1.0	trainhouse	Train
+neighbor	1.0	trainhouse2	Train	1.0	trainhouse3	Carriage
+neighbor	1.0	trainhouse4	Carriage	1.0	trainhouse4	Rail
+neighbor	1.0	trainhouse	Trainhouse	1.0	trainhouse	trainhouse
+neighbor	1.0	trainhouse2	trainhouse	1.0	trainhouse2	trainhouse
+neighbor	1.0	trainhouse3	trainhouse2	1.0	trainhouse3	trainhouse3
+neighbor	1.0	trainhouse4	trainhouse3	1.0	trainhouse4	trainhouse4
+#Heats up quickly.
+element	Glass	196	251	255	0	0	1	0.7	1
+hotcolor	Glass	222	96	73
+#Glass that has been melted.
+element	MoltenGlass	255	58	36	1	0	0.4	1.3	1
+self    0.001     Sand   1.0     MoltenGlass
+hotself 60     Sand
+#Good for holding melted solids.
+element	Mold	100	100	100	0	0	1	0.9	1
+#For cooling melted solids.
+element	MoldLid	100	100	100	1	0	0	0.9	1
+neighbor	0.1	MoldLid	MoltenGlass	1.0	MoldLid	Glass
+neighbor	0.1	Glass	MoltenGlass	1.0	Glass	Glass
+#For pressurizing the oil.
+element	Pressure	70	50	70	1	0	0.59	0	1
+neighbor	1.0	Pressure	Empty	1.0	Pressure	Pressure
+#For pumping the oil into the pressure.
+element	BottomPipe	120	80	100	0	0	1	0	1
+element	OBottomPipe	120	80	100	0	0	0.6	0	0
+neighbor	1.0	BottomPipe	OBottomPipe	1.0	OBottomPipe	BottomPipe
+neighbor 1.0	BottomPipe	CrudeOil	1.0	OBottomPipe	Empty
+neighbor	1.0	OBottomPipe	Pressure	1.0	BottomPipe	CrudeOil
+#Helps take the oil to the surface.
+element	TopPipeA	200	220	180	0	0	1	0	1
+element	OTopPipeA	200	220	180	0	0	0.6	0	0
+#Puts the oil on to the surface.
+element	TopPipeB	160	140	150	0	0	1	0	1
+element	OTopPipeB	160	140	150	0	0	0.6	0	0
+neighbor	1.0	TopPipeA	CrudeOil	1.0	OTopPipeA	Pressure
+neighbor	1.0	TopPipeB	OTopPipeA	1.0	OTopPipeB	TopPipeA
+neighbor	1.0	OTopPipeB	Empty	1.0	TopPipeB	CrudeOil
+neighbor	1.0	TopPipeA	OTopPipeA	1.0	OTopPipeA	TopPipeA
+neighbor	1.0	TopPipeB	OTopPipeB	1.0	OTopPipeB	TopPipeB
+#Oil that is pumped from the ground.
+element	CrudeOil	90	64	35	1	0	0.4	0.6	1
+#For making roads and roofs.
+element	Tar	38	28	15	1	0	0.3	0.6	1
+#Tar that has solidified.
+element	SolidTar	38	28	15	0	0	1	0	1
+self	0.05	CrudeOil	0.5	Tar	0.5	Oil
+hotself	70	CrudeOil
+neighbor	0.3	SolidTar	Tar	1.0	SolidTar	SolidTar
+#These are just random elements I have made that either look cool, or have a cool effect. Feel free to expand on them, as long as I am given credit.
+element	Note2	0	0	0	0	0	0	0	1
+self	1.0	Note2	1.0	Empty
+#To make a 'domino effect' just stack alternating lines of Domino1 and 2 vertically and use Starter to start it.
+element	Starter	255	255	255	0	0	0	0	1
+self	0.1	Starter	1.0	Empty
+element   Domino1   255   0   0   0   0   0   0   1 
+element   Domino2   0   255   0   0   0   0   0   1 
+element   domino1   255   0   0   1   0   0   0   0 
+element   Domino1S   255   0   0   0   0   0   0   0 
+element   domino2   0   255   0   1   0   0   0   0 
+element   Domino2S   0   255   0   0   0   0   0   0 
+neighbor   1.0   Domino1S   domino1   1.0   Domino1S   Domino1S 
+neighbor   1.0   Domino2S   domino2   1.0   Domino2S   Domino2S 
+neighbor   1.0   domino1      Domino2   1.0   Domino1S   domino2 
+neighbor   1.0   domino2      Domino1   1.0   Domino2S   domino1
+neighbor   1.0   Starter      Domino2   1.0   Empty   domino2 
+neighbor   1.0   Starter      Domino1   1.0   Empty   domino1 
+neighbor   1.0   domino1   Domino1   1.0   domino1      domino1 
+neighbor   1.0   domino2   Domino2   1.0   domino2      domino2
+#Takes in heat and turns it into electricity.
+element HeatConverter	102	89	0	0	0	1	0.9	1
+element ChargedConverter	102	89	0	0	0	1	0.9	0
+self	1.0	 HeatConverter	1.0	ChargedConverter
+hotself	50	HeatConverter
+#Transfers electricity.
+element	Wire	184	129	0	0	0	1	0	1
+#Wire that is coated.
+element	CoatedWire	184	129	0	0	0	1	0	1
+#To protect wire from the elements.
+element	Coating	185	0	0	0	0	1	0	1
+element	Coating2	185	0	0	0	0	0	1	0	0
+neighbor	1.0	CoatedWire	Empty	1.0	Wire	Coating2
+neighbor	0.5	Wire	CoatedWire	1.0	Wire	Wire
+neighbor	1.0	Coating2	Empty	1.0	Coating2	Coating
+#Wire that is charged with electricity.
+element	ChargedWire	184	129	0	0	0	1	0	0
+neighbor	0.1	Coating	Coating2	1.0	Coating	Coating
+#A spark of electricity.
+element	Spark	255	255	0	0	0	1	1.2	0
+element	Spark2	255	255	0	0	0	1	1.2	0
+self	1.0	Spark2	1.0	Empty
+hotself	80	Spark2
+self	0.1	Spark	1.0	Empty
+neighbor	1.0	Spark	Empty	1.0	Spark2	Spark
+neighbor	0.01	ChargedWire	Empty	1.0	ChargedWire	Spark
+neighbor	1.0	ChargedWire	Wire	1.0	ChargedWire	ChargedWire
+neighbor	1.0	ChargedConverter	Wire	1.0	ChargedConverter	ChargedWire
+neighbor	1.0	Spark	Water	1.0	Fire	Fire
+neighbor	1.0	Spark2	Water	1.0	Fire	Fire
+neighbor	1.0	ChargedWire	Water	1.0	ChargedWire	Fire
+#A plate, when charged heats up a lot.
+element	HeatPlate	140	95	95	0	0	1	0	1
+element	HotPlate		255	50	50	0	0	1	1.5	0
+neighbor	1.0	ChargedWire	HeatPlate	1.0	ChargedWire	HotPlate
+neighbor	1.0	HotPlate		HeatPlate	1.0	HotPlate		HotPlate
+#When charged, it gives off blue fire.
+element	Stove	51	51	51	0	0	1	0	1
+element	ChargedStove	0	137	166	0	0	1	0	0
+neighbor	1.0	ChargedStove	Empty	1.0	ChargedStove	BlueFire
+neighbor	1.0	ChargedStove	Stove	1.0	ChargedStove	ChargedStove
+neighbor	1.0	ChargedWire	Stove	1.0	ChargedWire	ChargedStove
+element	Lightbulb	230	230	230	0	0	1	0	1
+neighbor	1.0	ChargedWire	Lightbulb	1.0	ChargedWire	LightBulb
+neighbor	1.0	LightBulb	Lightbulb	1.0	LightBulb	LightBulb
+element	LightBulb	255	255	0	0	0	1	0	0
+neighbor	1	LightBulb	Empty	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb2	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb3	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb4	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb5	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb6	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb7	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb8	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb9	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb10	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb11	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb12	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb13	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb14	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb15	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb16	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb17	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb18	1	LightBulb	LightBulb1
+neighbor	1	LightBulb	LightBulb19	1	LightBulb	LightBulb1
+element	LightBulb1	242	242	0	0	0	1	0	0
+neighbor	1	LightBulb1	Empty	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb2	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb3	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb4	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb5	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb6	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb7	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb8	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb9	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb10	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb11	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb12	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb13	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb14	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb15	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb16	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb17	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb18	1	LightBulb1	LightBulb2
+neighbor	1	LightBulb1	LightBulb19	1	LightBulb1	LightBulb2
+element	LightBulb2	229	229	0	0	0	1	0	0
+neighbor	1	LightBulb2	Empty	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb3	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb4	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb5	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb6	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb7	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb8	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb9	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb10	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb11	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb12	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb13	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb14	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb15	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb16	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb17	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb18	1	LightBulb2	LightBulb3
+neighbor	1	LightBulb2	LightBulb19	1	LightBulb2	LightBulb3
+element	LightBulb3	216	216	0	0	0	1	0	0
+neighbor	1	LightBulb3	Empty	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb4	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb5	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb6	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb7	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb8	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb9	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb10	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb11	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb12	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb13	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb14	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb15	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb16	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb17	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb18	1	LightBulb3	LightBulb4
+neighbor	1	LightBulb3	LightBulb19	1	LightBulb3	LightBulb4
+element	LightBulb4	204	204	0	0	0	1	0	0
+neighbor	1	LightBulb4	Empty	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb5	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb6	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb7	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb8	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb9	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb10	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb11	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb12	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb13	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb14	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb15	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb16	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb17	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb18	1	LightBulb4	LightBulb5
+neighbor	1	LightBulb4	LightBulb19	1	LightBulb4	LightBulb5
+element	LightBulb5	191	191	0	0	0	1	0	0
+neighbor	1	LightBulb5	Empty	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb6	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb7	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb8	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb9	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb10	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb11	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb12	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb13	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb14	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb15	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb16	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb17	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb18	1	LightBulb5	LightBulb6
+neighbor	1	LightBulb5	LightBulb19	1	LightBulb5	LightBulb6
+element	LightBulb6	178	178	0	0	0	1	0	0
+neighbor	1	LightBulb6	Empty	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb7	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb8	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb9	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb10	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb11	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb12	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb13	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb14	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb15	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb16	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb17	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb18	1	LightBulb6	LightBulb7
+neighbor	1	LightBulb6	LightBulb19	1	LightBulb6	LightBulb7
+element	LightBulb7	165	165	0	0	0	1	0	0
+neighbor	1	LightBulb7	Empty	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb8	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb9	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb10	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb11	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb12	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb13	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb14	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb15	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb16	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb17	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb18	1	LightBulb7	LightBulb8
+neighbor	1	LightBulb7	LightBulb19	1	LightBulb7	LightBulb8
+element	LightBulb8	153	153	0	0	0	1	0	0
+neighbor	1	LightBulb8	Empty	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb9	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb10	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb11	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb12	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb13	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb14	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb15	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb16	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb17	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb18	1	LightBulb8	LightBulb9
+neighbor	1	LightBulb8	LightBulb19	1	LightBulb8	LightBulb9
+element	LightBulb9	140	140	0	0	0	1	0	0
+neighbor	1	LightBulb9	Empty	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb10	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb11	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb12	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb13	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb14	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb15	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb16	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb17	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb18	1	LightBulb9	LightBulb10
+neighbor	1	LightBulb9	LightBulb19	1	LightBulb9	LightBulb10
+element	LightBulb10	127	127	0	0	0	1	0	0
+neighbor	1	LightBulb10	Empty	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb11	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb12	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb13	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb14	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb15	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb16	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb17	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb18	1	LightBulb10	LightBulb11
+neighbor	1	LightBulb10	LightBulb19	1	LightBulb10	LightBulb11
+element	LightBulb11	114	114	0	0	0	1	0	0
+neighbor	1	LightBulb11	Empty	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb12	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb13	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb14	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb15	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb16	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb17	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb18	1	LightBulb11	LightBulb12
+neighbor	1	LightBulb11	LightBulb19	1	LightBulb11	LightBulb12
+element	LightBulb12	102	102	0	0	0	1	0	0
+neighbor	1	LightBulb12	Empty	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb13	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb14	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb15	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb16	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb17	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb18	1	LightBulb12	LightBulb13
+neighbor	1	LightBulb12	LightBulb19	1	LightBulb12	LightBulb13
+element	LightBulb13	89	89	0	0	0	1	0	0
+neighbor	1	LightBulb13	Empty	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb14	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb15	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb16	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb17	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb18	1	LightBulb13	LightBulb14
+neighbor	1	LightBulb13	LightBulb19	1	LightBulb13	LightBulb14
+element	LightBulb14	76	76	0	0	0	1	0	0
+neighbor	1	LightBulb14	Empty	1	LightBulb14	LightBulb15
+neighbor	1	LightBulb14	LightBulb15	1	LightBulb14	LightBulb15
+neighbor	1	LightBulb14	LightBulb16	1	LightBulb14	LightBulb15
+neighbor	1	LightBulb14	LightBulb17	1	LightBulb14	LightBulb15
+neighbor	1	LightBulb14	LightBulb18	1	LightBulb14	LightBulb15
+neighbor	1	LightBulb14	LightBulb19	1	LightBulb14	LightBulb15
+element	LightBulb15	63	63	0	0	0	1	0	0
+neighbor	1	LightBulb15	Empty	1	LightBulb15	LightBulb16
+neighbor	1	LightBulb15	LightBulb16	1	LightBulb15	LightBulb16
+neighbor	1	LightBulb15	LightBulb17	1	LightBulb15	LightBulb16
+neighbor	1	LightBulb15	LightBulb18	1	LightBulb15	LightBulb16
+neighbor	1	LightBulb15	LightBulb19	1	LightBulb15	LightBulb16
+element	LightBulb16	51	51	0	0	0	1	0	0
+neighbor	1	LightBulb16	Empty	1	LightBulb16	LightBulb17
+neighbor	1	LightBulb16	LightBulb17	1	LightBulb16	LightBulb17
+neighbor	1	LightBulb16	LightBulb18	1	LightBulb16	LightBulb17
+neighbor	1	LightBulb16	LightBulb19	1	LightBulb16	LightBulb17
+element	LightBulb17	38	38	0	0	0	1	0	0
+neighbor	1	LightBulb17	Empty	1	LightBulb17	LightBulb18
+neighbor	1	LightBulb17	LightBulb18	1	LightBulb17	LightBulb18
+neighbor	1	LightBulb17	LightBulb19	1	LightBulb17	LightBulb18
+element	LightBulb18	25	25	0	0	0	1	0	0
+neighbor	1	LightBulb18	Empty	1	LightBulb18	LightBulb19
+neighbor	1	LightBulb18	LightBulb19	1	LightBulb18	LightBulb19
+element	LightBulb19	12	12	0	0	0	1	0	0
+#Absorbes light and turns it into electricity.
+element	SolarPanel	0	18	140	0	0	1	0	1
+element	ChargedPanel	0	18	140	0	0	1	0	0
+neighbor	1.0	LightBulb	SolarPanel	1.0	LightBulb	ChargedPanel
+neighbor	1.0	LightBulb1	SolarPanel	1.0	LightBulb1	ChargedPanel
+neighbor	1.0	LightBulb2	SolarPanel	1.0	LightBulb2	ChargedPanel
+neighbor	1.0	LightBulb3	SolarPanel	1.0	LightBulb3	ChargedPanel
+neighbor	1.0	LightBulb4	SolarPanel	1.0	LightBulb4	ChargedPanel
+neighbor	1.0	LightBulb5	SolarPanel	1.0	LightBulb5	ChargedPanel
+neighbor	1.0	LightBulb6	SolarPanel	1.0	LightBulb6	ChargedPanel
+neighbor	1.0	LightBulb7	SolarPanel	1.0	LightBulb7	ChargedPanel
+neighbor	1.0	LightBulb8	SolarPanel	1.0	LightBulb8	ChargedPanel
+neighbor	1.0	LightBulb9	SolarPanel	1.0	LightBulb9	ChargedPanel
+neighbor	1.0	LightBulb10	SolarPanel	1.0	LightBulb10	ChargedPanel
+neighbor	1.0	LightBulb11	SolarPanel	1.0	LightBulb11	ChargedPanel
+neighbor	1.0	LightBulb12	SolarPanel	1.0	LightBulb12	ChargedPanel
+neighbor	1.0	LightBulb13	SolarPanel	1.0	LightBulb13	ChargedPanel
+neighbor	1.0	LightBulb14	SolarPanel	1.0	LightBulb14	ChargedPanel
+neighbor	1.0	LightBulb15	SolarPanel	1.0	LightBulb15	ChargedPanel
+neighbor	1.0	LightBulb16	SolarPanel	1.0	LightBulb16	ChargedPanel
+neighbor	1.0	LightBulb17	SolarPanel	1.0	LightBulb17	ChargedPanel
+neighbor	1.0	LightBulb18	SolarPanel	1.0	LightBulb18	ChargedPanel
+neighbor	1.0	LightBulb19	SolarPanel	1.0	LightBulb19	ChargedPanel
+neighbor	1.0	ChargedPanel	SolarPanel	1.0	ChargedPanel	ChargedPanel
+neighbor	1.0	ChargedPanel	Wire		1.0	ChargedPanel	ChargedWire
+#A easy source of electricity. Make sure it is enclosed.
+element	BatteryAcid	15	117	0	1	1	0.5	0	1
+element	DeadBatteryAcid	22	179	0	1	1	0.9	0	0
+neighbor	1.0	BatteryAcid	Wire	1.0	DeadBatteryAcid	ChargedWire
+neighbor	1.0	BatteryAcid	ChargedWire	1.0	DeadBatteryAcid	ChargedWire
+#To recharge batteries, put some of this in the acid.
+element	Recharger	54	152	84	0	0	1	0	1
+neighbor	1.0	DeadBatteryAcid	Recharger	1.0	BatteryAcid	Recharger
+#Turns oil into electricity. You can tell it is charged when it gives off smoke.
+element	Oil-Generator	242	193	0	0	0	1	0	1
+element	Oiled-Generator	242	193	0	0	0	1	0	0
+#Pour oil into this. Make sure it is connected to a generator.
+element	Oil-Funnel	193	155	0	0	0	1	0	1
+element	Oiled-Funnel	193	155	0	0	0	1	0	0
+neighbor	1.0	Oil	Oil-Funnel	1.0	Empty	Oiled-Funnel
+neighbor	1.0	Oil	Oiled-Funnel	1.0	Empty	Oiled-Funnel
+neighbor	1.0	Oiled-Funnel	Oil-Funnel	1.0	Oiled-Funnel	Oiled-Funnel
+neighbor	1.0	Oiled-Funnel	Oil-Generator	1.0	Oiled-Funnel	Oiled-Generator
+neighbor	1.0	Oiled-Generator	Oil-Generator	1.0	Oiled-Generator	Oiled-Generator
+neighbor	1.0	Oiled-Generator	Wire	1.0	Oiled-Generator	ChargedWire
+neighbor	0.1	Oiled-Generator	Empty	1.0	Oiled-Generator	Smoke
+#When charged, it disentegrates.
+element	Gate	182	27	199	0	0	1	0	1
+element	ChargedGate	182	27	199	0	0	1	1.1	0
+neighbor	1.0	ChargedWire	Gate	1.0	ChargedWire	ChargedGate
+neighbor	1.0	ChargedGate	Gate	1.0	ChargedGate	ChargedGate
+self	1.0	ChargedGate	1.0	Empty
+hotself	50	ChargedGate
+#Used in nuclear power. Make sure you have control rods connected to it!
+element	Uranium	64	255	159	0	0	1	0	1
+element	ControlledUranium	64	255	159	0	0	1	0	0
+element	CriticalUranium	64	255	159	0	0	1	1.9	0
+neighbor	1.0	ControlledUranium	Uranium	1.0	ControlledUranium	ControlledUranium
+neighbor	1.0	ControlRod	Uranium	1.0	ControlRod	ControlledUranium
+neighbor	1.0	SealedWater	Uranium	1.0	Water	BOOM
+neighbor	1.0	SealedWater	ControlledUranium	1.0	SealedWater	CriticalUranium
+neighbor	1.0	CriticalUranium	ControlledUranium	1.0	CriticalUranium	CriticalUranium
+#For cooling the nuclear reaction.
+element	ControlRod	0	138	138	0	0	1	0	1
+#Nuclear asplosion!
+element	BOOM	0	0	0	0	0	0	0	0
+explode	BOOM	Fire	512
+#To keep the water in.
+element	Seal	138	0	0	0	0	1	0	1
+element	SealedWater	100	83	255	1	0.9	0.5	0.9	0
+hotcolor	SealedWater	180	163	255
+neighbor	1.0	Seal	Water	1.0	Seal	SealedWater
+neighbor	1.0	SealedWater	Water	1.0	SealedWater	SealedWater
+#For pumping water into a turbine.
+element	Dam	84	126	89	0	0	1	0	1
+element	WDam	84	126	89	0	0	0.5	0	0
+neighbor	1.0	Dam	WDam	1.0	WDam	Dam
+neighbor	1.0	Dam	Water	1.0	WDam	Empty
+#Pushes water up and generates the power.
+element	Turbine	142	188	129	0	0	1	0	1
+element	WTurbine	142	188	129	0	0	0.5	0	0
+neighbor	1.0	WTurbine	Wire	1.0	WTurbine	ChargedWire
+neighbor	1.0	Turbine	WTurbine	1.0	WTurbine	Turbine
+neighbor	1.0	WDam	Turbine	1.0	Dam	WTurbine
+#Puts water back.
+element	Pipe	106	120	119	0	0	0.5	0	1
+element	WPipe	106	120	119	0	0	1	0	0
+neighbor	1.0	Pipe	WPipe	1.0	WPipe	Pipe
+neighbor	1.0	Pipe	WTurbine	1.0	WPipe	Turbine
+neighbor	1.0	WPipe	Empty	1.0	Pipe	Water
+#Charge up, and... TIMBER!
+element	ElectricSaw	160	160	160	0	0	1	0	1
+neighbor	1.0	ChargedWire	ElectricSaw	1.0	ChargedWire	Chainsaw
+neighbor	1.0	Chainsaw	ElectricSaw	1.0	Chainsaw	Chainsaw
+#Don't put your hand in it when charged.
+element	ElectricGrinder	143	184	137	0	0	1	0	1
+neighbor	1.0	ElectricGrinder	ChargedWire	1.0	Grinder	ChargedWire
+neighbor	1.0	ElectricGrinder	Grinder	1.0	Grinder	Grinder
+#Will start oilming when charged.
+element	ElectricPipe	148	96	149	0	0	1	0	1
+neighbor	1.0	ChargedWire	ElectricPipe	1.0	ChargedWire	BottomPipe
+neighbor	1.0	BottomPipe	ElectricPipe	1.0	BottomPipe	BottomPipe
+#Very strong material.
+element	Rock	157	87	89	0	0	1	0	1
+#Drills things.
+element	Drill	89	140	155	0	0	1	0	1
+element	DrilledRock	157	87	89	0	0	1	0	0
+self	0.1	DrilledRock	1.0	Empty
+neighbor	1.0	Drill	Rock	1.0	Drill	DrilledRock
+neighbor	1.0	DrilledRock	Rock	1.0	DrilledRock	DrilledRock
+#Iron ore that is found beneath the earth.
+element	IronOre	71	97	135	0	0	1	0	1
+element	MinedIronOre	71	97	135	0.9	0	0	0.4	0
+hotcolor	MinedIronOre	243	77	58
+self	1.0	MinedIronOre	1.0	MoltenIron
+hotself	60	MinedIronOre	
+neighbor	1.0	DrilledRock	IronOre	1.0	DrilledRock	MinedIronOre
+neighbor	1.0	MinedIronOre	IronOre	1.0	MinedIronOre	MinedIronOre
+#Collects mined material and puts it into a metal pipe.
+element	Collector	36	102	121	0	0	0.7	0	1
+element	ICollector	36	102	121	0	0	0.3	0	0
+neighbor	1.0	MinedIronOre	Collector	1.0	Empty	ICollector
+neighbor	1.0	ICollector	Collector	1.0	Collector	ICollector	
+#Carries mined material to the surface.
+element	MinePipe	100	100	200	0	0	0.9	0	1
+element	IMinePipe	100	100	200	0	0	0.1	0	0
+neighbor	1.0	MinePipe	IMinePipe	1.0	IMinePipe	MinePipe
+neighbor	1.0	MinePipe	ICollector	1.0	IMinePipe	Collector
+neighbor	1.0	IMinePipe	Empty	1.0	MinePipe		MinedIronOre
+#Very, very hot iron.
+element	MoltenIron	255	150	132	1	0	0.8	1.8	1
+#Makes iron stronger.
+element	Strengthener	242	60	141	1	0	1	0	1
+element	SMoltenIron	255	150	162	1	0	0.8	1.8	0
+#Strong metal that heats up slowly.
+element	Iron	53	53	113	0	0	1	0.05	1
+hotcolor	Iron	149	17	27
+neighbor	1.0	Strengthener	MoltenIron	1.0	Empty	SMoltenIron
+neighbor	1.0	Strengthener	SMoltenIron	1.0	Empty	SMoltenIron
+neighbor	1.0	SMoltenIron	MoltenIron	1.0	SMoltenIron	SMoltenIron
+neighbor	1.0	MoltenIron	MoldLid	1.0	IronOre	MoldLid
+neighbor	1.0	SMoltenIron	MoldLid	1.0	Iron	MoldLid
+neighbor	1.0	Iron	SMoltenIron	1.0	Iron	Iron
+neighbor	1.0	IronOre	MoltenIron	1.0	IronOre	IronOre
+#One of the most basic forms of sea life.
+element	Plankton	150	202	40	0.6	0	0.5	0	1
+element	DeadPlankton	150	202	40	0.6	0	1	0	0
+neighbor	1.0	Plankton	Water	1.0	Water	Plankton
+neighbor	0.01	Plankton	Empty	1.0	Empty	Empty
+#Just floats around aimlessly.
+element	Jellyfish	236	167	245	0.6	0	0.5	0	1
+element	DeadJellyfish	236	167	245	1	0	1	0	0
+neighbor	0.3	Jellyfish	Water	1.0	Water	Jellyfish
+neighbor	0.01	Jellyfish	Empty	1.0	Empty	Empty
+#Kills all sea life.
+element	Chlorine	63	248	179	1	0	0.5	0	1
+element	ChlorinatedWater	97	181	243	0.7	0	0.5	0	0
+neighbor	1.0	Chlorine	Water	1.0	Chlorine	ChlorinatedWater
+neighbor	1.0	ChlorinatedWater	Water	1.0	ChlorinatedWater	ChlorinatedWater
+neighbor	1.0	ChlorinatedWater	Plankton	1.0	ChlorinatedWater	DeadPlankton
+neighbor	1.0	ChlorinatedWater	Jellyfish	1.0	ChlorinatedWater	DeadJellyfish
+#Eats jellyfish and plankton.
+element	Shark	115	120	157	0.6	0	0.5	0	1
+element	DeadShark	115	120	157	1	0	1	0	0
+neighbor	0.01	Shark	Empty	1.0	Empty	Empty
+neighbor	1.0	Shark	Water	1.0	Water	Shark
+neighbor	1.0	Shark	Jellyfish	1.0	Water	Shark
+neighbor	1.0	Shark	Plankton	1.0	Water	Shark
+neighbor	1.0	Shark	ChlorinatedWater	1.0	DeadShark	ChlorinatedWater
+</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:1870-0!1!0!0!!en!2 and timestamp 20071027182621 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/Bombs_Bugs_Booms_PVC">http://www.fallingsandgame.com/wiki/index.php/Bombs_Bugs_Booms_PVC</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="/wiki/index.php/Bombs_Bugs_Booms_PVC">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=Talk:Bombs_Bugs_Booms_PVC&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=Bombs_Bugs_Booms_PVC&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=Bombs_Bugs_Booms_PVC&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=Bombs_Bugs_Booms_PVC">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/Bombs_Bugs_Booms_PVC">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/Bombs_Bugs_Booms_PVC">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=Bombs_Bugs_Booms_PVC&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=Bombs_Bugs_Booms_PVC&amp;oldid=4142">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 21:04, 25 February 2007.</li>
+				<li id="viewcount">This page has been accessed 556 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

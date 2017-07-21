@@ -1,0 +1,292 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group submarine empty water sub Missile Mcover shoot engine shield Lazer 
+group helicopter empty helo Cbomb cover launch shield engine
+group regulars empty fire water steam torch
+
+#Erases.
+element	empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+
+#water
+element water 25 25 112 1.000000 2.000000 .600000 1.000000 1
+self    0.01     water   1.0     steam 
+hotself 50     water
+
+#Burns other elements. Source of energy.
+element	fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self .1 fire 1.0 empty
+hotcolor fire   238 0 0
+neighbor .1 fire fire 1.0 fire fire2
+
+#other fire
+element fire2 255 215 0 -1.000000 1.000000 0.000000 1.100000 0
+self .1 fire2 1.0 empty
+hotcolor fire2 255 215 0
+
+
+#evaporated water
+element steam 100 149 237 -1.000000 2.000000 .050000 1.000000 1
+neighbor .01 steam empty 1.0 water empty	
+
+#source of fire
+element torch 178 34 34 0.000000 0.000000 1.000000 0.000000 1
+neighbor 1.0 torch empty 1.0 torch fire
+
+#make a sub out of it
+element sub 105 105 105 0.000000 0.000000 2.000000 0.000000 1
+
+#put a size 8 blob in missile tube
+element Missile 85 107 47 0.000000 0.000000 .6000000 0.000000 1
+
+#an activated missile
+element missile 85 107 47 -1.000000 0.000000 0.050000 0.000000 0
+
+#place a size 1 dot on a missile group to fire
+element shoot 0 0 0 0.000000 1.000000 0.000000 0.000000 1
+neighbor 1.0 shoot Missile 1.0 missile missile
+
+#cover the top of loaded missile tube with this to keep water out
+element Mcover 125 205 105 0.00000 0.000000 1.000000 0.000000 1
+neighbor 1.0 missile Mcover 1.0 Mcover missile
+neighbor 1.0 missile Missile 1.0 missile missile
+
+
+#armed missile
+element Amissile 85 107 47 -1.000000 0.000000 0.50000 0.000000 0
+neighbor 1.0 missile water 1.0 Amissile water
+neighbor .001 Amissile empty 1.0 empty bang
+
+#bang
+element bang 85 107 47 -1.000000 0.000000 0.050000 0.000000 0
+pexplosion bang empty 50 fire
+pexplosion bang water 55 fire
+
+#cluster bomb, but 6 size 1 dots in bomb hanger of plane
+element Cbomb 107 142 35 1.000000 0.000000 1.000000 0.000000 1
+neighbor 1.0 Cbomb water 1.0 Cbomb2 water
+
+neighbor .003 Cbomb empty 1.0 Cbomb Cbomb
+explosion Cbomb empty 255 -255
+
+#armed cluster bomb
+element Cbomb2 107 142 35 1.000000 0.000000 1.000000 0.000000 0
+neighbor 1.0 Cbomb2 sub 1.0 bang sub
+
+#make a helicopter out of this
+element helo 32 178 170 0.000000 0.000000 1.000000 0.000000 1
+
+#place this under 6 size 1 dots of cluster bombs in the bomb hanger
+element cover 240 230 140 0.000000 0.000000 1.000000 0.0000000 1
+
+#when ready to drop bombs, place a size 1 dot of this on the cover
+element launch 0.000000 0.000000 1.000000 0.000000 1
+neighbor 1.0 launch cover 1.0 empty2 empty2
+
+#second empty
+element empty2 240 230 140 0.000000 1.000000 0.000000 0.000000 0
+self 0.2 empty2 1.0 empty
+neighbor 1.0 empty2 cover 1.0 empty2 empty2
+
+neighbor 1.0 Amissile helo 1.0 helo bang
+
+#falling helo
+element helo2 32 178 170 1.000000 0.100000 1.000000 0.000000 0
+neighbor 1.0 fire helo 1.0 helo2 helo2
+
+#place a strip of this on the inside of the sub or helo
+element engine 222 184 135 0.000000 0.000000 1.000000 1.000000 1
+
+pexplosion fire engine 70 fire3
+pexplosion fire3 engine 70 fire3
+
+
+
+#place a layer of this  around engine for extra protection
+element shield 184 134 11 0.000000 0.000000 1.000000 0.000000 1
+
+element S1 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S2 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S3 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S4 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S5 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S6 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S7 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S8 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S9 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+element S10 205 133 63 0.000000 0.000000 1.000000 0.000000 0
+
+
+
+neighbor 1.0 shield empty 1.0 shield S1
+neighbor 1.0 S1 empty 1.0 S1 S2
+neighbor 1.0 S2 empty 1.0 S2 S3
+neighbor 1.0 S3 empty 1.0 S3 S4
+neighbor 1.0 S4 empty 1.0 S4 S5
+neighbor 1.0 S5 empty 1.0 S5 S6
+neighbor 1.0 S6 empty 1.0 S6 S7
+neighbor 1.0 S7 empty 1.0 S7 S8
+neighbor 1.0 S8 empty 1.0 S8 S9
+neighbor 1.0 S9 empty 1.0 S9 S10
+
+
+
+
+
+neighbor 1.0 shield S2 1.0 shield S1
+neighbor 1.0 shield S3 1.0 shield S1
+neighbor 1.0 shield S4 1.0 shield S1
+neighbor 1.0 shield S5 1.0 shield S1
+neighbor 1.0 shield S6 1.0 shield S1
+neighbor 1.0 shield S7 1.0 shield S1
+neighbor 1.0 shield S8 1.0 shield S1
+neighbor 1.0 shield S9 1.0 shield S1
+neighbor 1.0 shield S10 1.0 shield S1
+
+
+neighbor 1.0 S1 S2 1.0 S1 S2
+neighbor 1.0 S1 S3 1.0 S1 S2
+neighbor 1.0 S1 S4 1.0 S1 S2
+neighbor 1.0 S1 S5 1.0 S1 S2
+neighbor 1.0 S1 S6 1.0 S1 S2
+neighbor 1.0 S1 S7 1.0 S1 S2
+neighbor 1.0 S1 S8 1.0 S1 S2
+neighbor 1.0 S1 S9 1.0 S1 S2
+neighbor 1.0 S1 S10 1.0 S1 S2
+
+
+
+
+neighbor 1.0 S2 S3 1.0 S2 S3
+neighbor 1.0 S2 S4 1.0 S2 S3
+neighbor 1.0 S2 S5 1.0 S2 S3
+neighbor 1.0 S2 S6 1.0 S2 S3
+neighbor 1.0 S2 S7 1.0 S2 S3
+neighbor 1.0 S2 S8 1.0 S2 S3
+neighbor 1.0 S2 S9 1.0 S2 S3
+neighbor 1.0 S2 S10 1.0 S2 S3
+
+
+
+
+neighbor 1.0 S3 S4 1.0 S3 S4
+neighbor 1.0 S3 S5 1.0 S3 S4
+neighbor 1.0 S3 S6 1.0 S3 S4
+neighbor 1.0 S3 S7 1.0 S3 S4
+neighbor 1.0 S3 S8 1.0 S3 S4
+neighbor 1.0 S3 S9 1.0 S3 S4
+neighbor 1.0 S3 S10 1.0 S3 S4
+
+
+
+
+#lazer
+element lazer 50 205 50 -1.000000 0.000000 0.300000 0.000000 0
+self .1 lazer 1.0 LW
+
+#lazer wall shield
+element LW 50 205 50 0.000000 1.000000 1.000000 0.000000 0
+explosion lazer empty 0 255
+
+neighbor 1.0 lazer empty 1.0 LW lazer
+neighbor 1.0 lazer LW 1.0 empty lazer
+
+neighbor 1.0 lazer empty 1.0 lazer LW
+
+
+neighbor 0.1 LW LW 1.0 LW lazer
+neighbor 1.0 sub LW 1.0 sub empty
+neighbor 1.0 sub lazer 1.0 sub empty
+
+
+
+
+
+neighbor 1.0 lazer helo 1.0 DL DL
+
+element DL 0 0 0 0.000000 0.000000 0.200000 0.000000 0
+neighbor 1.0 DL LW 1.0 DL DL
+neighbor 1.0 DL lazer 1.0 DL DL
+self 0.9 DL 1.0 DL2
+neighbor 1.0 fire3 lazer 1.0 fire3 infra
+
+element DL2 0 0 0 0.000000 0.000000 0.200000 0.000000 0
+
+pexplosion DL2 empty 200 fire3
+pexplosion DL2 helo 200 fire3
+pexplosion DL2 coating 200 fire3
+
+
+
+#Burns other elements. Source of energy2.
+element	fire3	247	63	63	-1.000000	1.000000	0.000000	1.100000	0
+self .1 fire3 1.0 empty
+hotcolor fire   238 0 0
+neighbor .1 fire3 fire3 1.0 fire3 fire4
+
+#other fire
+element fire4 255 215 0 -1.000000 1.000000 0.000000 1.100000 0
+self .1 fire4 1.0 empty
+hotcolor fire2 255 215 0
+neighbor 1.0 fire3 helo 1.0 helo2 helo2
+neighbor 1.0 fire4 helo 1.0 helo2 helo2
+
+#falling infrared
+element infra 0 0 0 1.000000 0.000000 0.300000 0.000000 0
+neighbor 1.0 infra lazer 1.0 infra infra
+neighbor 1.0 infra LW 1.0 infra infra
+neighbor 1.0 infra water 1.0 empty water
+neighbor 1.0 infra sub 1.0 water sub
+
+neighbor 1.0 helo2 lazer 1.0 helo2 empty
+neighbor 1.0 helo2 LW 1.0 helo2 empty
+neighbor 1.0 fire3 lazer 1.0 infra infra
+neighbor 1.0 fire4 lazer 1.0 infra infra
+neighbor 1.0 fire3 LW 1.0 infra infra
+neighbor 1.0 fire4 LW 1.0 infra infra
+neighbor 1.0 lazer water 1.0 empty water
+neighbor 1.0 LW water 1.0 empty water
+
+
+#launches the lazer
+element LL 50 205 50 -1.000000 0.000000 0.100000 0.000000 0
+neighbor 0.006 LL empty 1.0 LL2 empty
+
+#explodes into lazer from LL
+element LL2 50 205 50 -1.000000 0.000000 0.100000 0.000000 0
+pexplosion LL2 empty 8 lazer
+
+
+
+#put a size 1 dot of this inside of a flooded and open tube in the sub
+element Lazer 255 0 0 0.000000 0.000000 1.000000 0.000000 1
+neighbor 0.01 Lazer water 1.0 water LL 
+
+#coating for the sub
+element coating 0 100 0 0.000000 0.000000 1.000000 0.000000 0
+pexplosion sub water 7 coating
+pexplosion helo empty 7 coating
+
+#sub two
+element sub2 105 105 105 0.000000 0.000000 1.000000 0.000000 0
+neighbor 0.2 coating sub 1.0 coating sub2
+
+neighbor 1.0 coating fire3 1.0 coating coating
+neighbor 1.0 coating fire4 1.0 coating coating
+neighbor 1.0 sub2 sub 1.0 sub2 sub2
+neighbor 1.0 Cbomb2 coating 1.0 bang bang
+
+
+pexplosion fire3 coating 4 fire3
+neighbor 1.0 Cbomb2 sub2 1.0 bang bang
+
+

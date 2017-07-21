@@ -1,0 +1,136 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2						
+group		Do-It-Yourself	Boundary Gate Wire Switch End RigGate Rocks FlameGate Flame Fuse Bomb Water ElectroGate !? HiddenWire
+
+element		Empty		0	0	0	0.000	1.000	0.000	0.000	1
+
+element		Thing		0	255	0	0.000	0.000	1.000	0.000	1
+neighbor	1.000	Thing		Boundary	1.000	ThingDead	Boundary
+neighbor	1.000	Thing		ThingDead	1.000	ThingDead	ThingDead
+neighbor	1.000	Thing		Switch		1.000	Thing		SwitchOff
+neighbor	1.000	Thing		Gate		1.000	ThingDead	Gate
+neighbor	1.000	Thing		End		1.000	ThingEnd	End
+neighbor	1.000	Thing		ThingEnd	1.000	ThingEnd	ThingEnd
+neighbor	1.000	Thing		RigGate		1.000	Thing		RigGateOff
+neighbor	1.000	Thing		Rocks		1.000	ThingDead	Rocks
+neighbor	1.000	Thing		Flame		1.000	ThingDead	Flame
+neighbor	1.000	Thing		Explode		1.000	ThingDead	Explode
+neighbor	1.000	Thing		Bomb		1.000	ThingDead	Bomb
+neighbor	1.000	Thing		Wire		1.000	ThingDead	Wire
+neighbor	1.000	Thing		WireOff		1.000	ThingDead	WireOff
+neighbor	1.000	Thing		FlameGate	1.000	ThingDead	FlameGate
+neighbor	1.000	Thing		FlameOff	1.000	ThingDead	FlameOff
+neighbor	1.000	Thing		Electro		1.000	ThingDead	Electro
+neighbor	1.000	Thing		HiddenWire	1.000	ThingDead	HiddenWire
+neighbor	1.000	Thing		HiddenOff	1.000	ThingDead	HiddenOff
+
+element		ThingDead	0	255	0	0.000	0.000	1.000	0.000	0
+self		1.000	ThingDead			1.000	Empty
+
+element		ThingEnd	0	255	0	0.000	0.000	1.000	0.000	0
+self		1.000	ThingEnd			1.000	ThingEnd2
+
+element		ThingEnd2	255	0	255	0.000	0.000	1.000	0.000	0
+self		1.000	ThingEnd2			1.000	ThingEnd	
+
+element		Boundary	128	0	0	0.000	0.000	1.000	0.000	1
+
+element		GateOff		0	0	0	0.000	0.000	1.000	0.000	0
+self		1.000	GateOff				1.000	Empty
+
+element		Gate		255	0	0	0.000	0.000	1.000	0.000	1
+neighbor	1.000	Gate		GateOff		1.000	GateOff		GateOff
+
+element		WireOff		226	226	226	0.000	0.000	1.000	0.000	0
+neighbor	1.000	WireOff		Gate		1.000	WireOff		GateOff
+neighbor	1.000	WireOff		FlameGate	1.000	WireOff		FlameOff
+neighbor	1.000	WireOff		ElectroGate	1.000	WireOff		ElectroOff
+neighbor	1.000	HiddenOff	Gate		1.000	HiddenOff	GateOff
+neighbor	1.000	HiddenOff	FlameGate	1.000	HiddenOff	FlameOff	
+neighbor	1.000	HiddenOff	ElectroGate	1.000	HiddenOff	ElectroOff
+
+element		Wire		192	192	192	0.000	0.000	1.000	0.000	1
+neighbor	1.000	Wire		WireOff		1.000	WireOff		WireOff
+
+element		Switch		0	0	255	0.000	0.000	1.000	0.000	1
+neighbor	1.000	Switch		SwitchOff	1.000	SwitchOff	SwitchOff
+
+element		SwitchOff	43	43	255	0.000	0.000	1.000	0.000	0
+neighbor	1.000	SwitchOff	Wire		1.000	SwitchOff	WireOff	
+neighbor	1.000	SwitchOff	HiddenWire	1.000	SwitchOff	HiddenOff
+
+element		End		255	255	0	0.000	0.000	1.000	0.000	1
+
+element		RigGate		128	0	128	0.000	0.000	1.000	0.000	1
+neighbor	1.000	RigGate		RigGateOff	1.000	RigGateOff	RigGateOff
+
+element		RigGateOff	128	0	128	0.000	0.000	1.000	0.000	0
+self		1.000	RigGateOff			1.000	Empty
+neighbor	1.000	RigGateOff	Wire		1.000	RigGateOff	WireOff
+
+element		Rocks		128	128	128	0.990	0.000	1.000	0.000	1
+
+element		FlameGate	128	64	0	0.000	0.000	1.000	0.000	1
+neighbor	1.000	FlameGate	Empty		1.000	FlameGate	Flame
+neighbor	1.000	FlameGate	FlameOff	1.000	FlameOff	FlameOff
+
+element		FlameOff	128	64	0	0.000	0.000	1.000	0.000	0
+
+element		Flame		247	63	63	-1.000	1.000	0.000	0.000	1
+self		0.250	Flame				1.000	Empty
+neighbor	0.900	Flame		Water		1.000	Empty		Steam		
+neighbor	1.000	Flame		Bomb		1.000	Explode		Flame
+
+#Credit to joe_blade
+element		Fuse		255	128	0	0.000	0.000	1.000	0.000	1
+neighbor	1.000	Fuse		Empty		1.000	OuterFuse	Empty
+neighbor	0.300	Fuse		Flame		1.000	BurningFuse	Flame
+
+element		OuterFuse	255	128	0	0.000	0.000	1.000	0.000	0
+
+element		BurningFuse	255	0	0	0.000	0.000	1.000	0.000	0
+self		0.050	BurningFuse			1.000	Flame
+neighbor	0.300	BurningFuse	OuterFuse	1.000	BurningFuse	BurningFuse
+neighbor	0.300	BurningFuse	Fuse		1.000	BurningFuse	BurningFuse
+
+element		Bomb		64	0	0	0.000	0.000	1.000	0.000	1
+neighbor	0.850	Bomb		Flame		1.000	Explode		Explode
+neighbor	0.850	Bomb		Explode		1.000	Explode		Explode
+
+#Originally from Lynx's awesome Nitroglycerin
+element		Explode		245	24	24	0.000	0.000	1.000	0.000	0
+self		0.555	Explode				1.000	Empty
+neighbor	0.900	Explode		Empty		1.000	Explode		Explode
+neighbor 	0.500	Explode		Explode		1.000	Explode2	Explode2
+neighbor	0.900	Explode		Water		1.000	Empty		Steam
+
+element		Explode2	255	255	53	-1.000	1.000	0.000	1.100	0
+self		0.800	Explode2			1.000	Empty
+neighbor	0.900	Explode2	Empty		1.000	Empty		Explode2
+neighbor	0.900	Explode2	Explode2	1.000	Flame		Flame
+
+element		Water		32	32	255	0.700	1.000	0.500	0.400	1
+neighbor	1.000	Water		BurningFuse	1.000	Steam		Empty
+
+element		Steam		85	85	255	-1.000	1.000	0.010	0.000	0
+self		0.001	Steam				1.000	Water
+
+element		!?		255	255	255	0.000	0.000	1.000	0.000	1
+neighbor	1.000	!?		Thing		1.000	Thing		Thing
+
+#Again, credit to Lynx
+element		ElectroGate	0	128	255	0.000	0.000	1.000	0.000	1
+neighbor	0.500	ElectroGate	Empty		1.000	ElectroGate	Electro
+neighbor	1.000	ElectroGate	ElectroOff	1.000	ElectroOff	ElectroOff
+
+element		Electro		51	0	255	0.000	0.000	1.000	0.000	0
+neighbor	0.120	Electro		Empty		1.000	Electro		Electro
+neighbor	0.600	Electro		Electro		1.000	Empty		Empty
+
+element		ElectroOff	0	128	255	0.000	0.000	1.000	0.000	0
+
+element		HiddenWire	128	0	1	0.000	0.000	1.000	0.000	1
+neighbor	1.000	HiddenWire	HiddenOff	1.000	HiddenOff	HiddenOff
+
+element		HiddenOff	128	0	1	0.000	0.000	1.000	0.000	0
+

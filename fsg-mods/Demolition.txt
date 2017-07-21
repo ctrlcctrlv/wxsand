@@ -1,0 +1,178 @@
+#Version 4, File subversion 2
+
+#element element r g b gravity slip density conductivity visible
+group Explosives Lighter Smallexplosive Mediumexplosive Largeexplosive
+
+element Empty	0	0	0	0.000000	0.000000	0.000000	0.000000	1
+
+#Building material. To make floors, use Empty to carve out empty spaces for people.
+element Wall	100	100	100	0.000000	0.000000	10.000000	0.000000	1
+
+#Stable ground! Use this as a base to catch debris.
+element Ground	130	65	0	0.000000	0.000000	10.000000	0.000000	1
+
+element Debris	135	135	135	.7000000	10.000000	1.000000	0.000000	0
+neighbor .8	Debris	Wall	.3	Debris	Debris	.7	Debris2	Wall
+
+element Debris2 125	125	125	.7000000	8.000000	0.5000000	0.000000	0
+
+element Fire	255	0	0	-1		10.00000	0.0000000	1.100000	0
+self .1		Fire	1	Empty
+
+#Lighter is solid, touch an explosive to activate it.
+element Lighter  0	255	255	0	0.000000	10.00000	0.000000	1
+
+#I suggest you sprinkle humans sparingly; click (don't hold) with 1-pixel on. The can light on fire and be buried alive!
+element Human	255	255	255	.4	20		1		0		1
+neighbor 1	Human	Exp1	.3	Deadman	Exp1	.7	Firehuman	Exp1
+neighbor 1	Human	Exp1-2	.3	Deadman	Exp1-2	.7	Firehuman	Exp1-2
+
+neighbor 1	Human	Exp2	.3	Deadman	Exp2	.7	Firehuman	Exp2
+neighbor 1	Human	Exp2-2	.3	Deadman	Exp2-2	.7	Firehuman	Exp2-2
+
+neighbor 1	Human	Exp3	.3	Deadman	Exp3	.7	Firehuman	Exp3
+neighbor 1	Human	Exp3-2	.3	Deadman	Exp3-2	.7	Firehuman	Exp3-2
+
+neighbor .01	Human	Debris	1	Buriedhuman	Debris
+neighbor .01	Human	Debris2	1	Buriedhuman	Debris2
+
+element Buriedhuman 235	235	235	0	0		1		0		0
+neighbor 1 Buriedhuman	Empty	1	Human	Empty
+neighbor .1	Buriedhuman	Debris	.4	Deadman	Debris	.6	Buriedhuman	Debris
+neighbor .1	Buriedhuman	Debris2	.4	Deadman	Debris2	.6	Buriedhuman	Debris2
+
+element Firehuman 245	245	245	.4	20		1		0		0
+neighbor 1 Firehuman	Empty	1	Firehuman	Fire
+self .01	Firehuman	1	Deadman
+
+element Deadman	0	0	200	1	0		1		0		0	
+#---------EXPLOSIVES BEGIN --------------
+#explosives from Dark2176's methane element, which he credited to _Twitch_, the microproccesor fad founder.
+element Exp1	200	0	0	0.000000	0.000000	0.000000	0.000000	0
+neighbor .3	Exp1	Empty	1	Exp1	Exp1
+neighbor .3	Exp1	Wall	1	Exp1	Exp1
+neighbor .3	Exp1	Debris	1	Exp1	Exp1
+neighbor .3	Exp1	Debris2	1	Exp1	Exp1
+neighbor .3	Exp1	Lighter	1	Exp1	Exp1
+self	.09	Exp1	1	Exp1-2
+neighbor 1	Exp1	Smallexplosive 1	Exp1	Exp1
+
+element Exp1-2	200	0	0	0.000000	0.000000	0.0000000	0.000000	0
+self	.1	Exp1-2	1	Empty
+neighbor 1	Exp1-2	Exp1	1	Exp1-2	Exp1-2
+neighbor .6	Exp1-2	Wall	1	Exp1-2	Debris
+
+
+element Exp2	200	0	0	0.000000	0.000000	0.000000	0.000000	0
+neighbor .35	Exp2	Empty	1	Exp2	Exp2
+neighbor .35	Exp2	Wall	1	Exp2	Exp2
+neighbor .35	Exp2	Debris	1	Exp2	Exp2
+neighbor .35	Exp2	Debris2	1	Exp2	Exp2
+neighbor .35	Exp2	Lighter	1	Exp2	Exp2
+self	.09	Exp2	1	Exp2-2
+neighbor 1	Exp2	Mediumexplosive 1 Exp2	Exp2
+
+element Exp2-2	200	0	0	0.000000	0.000000	0.0000000	0.000000	0
+neighbor 1	Exp2-2	Exp2	1	Exp2-2	Exp2-2
+neighbor .6	Exp2-2	Wall	1	Exp2-2	Debris
+self	.1	Exp2-2	1	Empty
+
+
+element Exp3	200	0	0	0.000000	0.000000	0.000000	0.000000	0
+neighbor .4	Exp3	Empty	1	Exp3	Exp3
+neighbor .4	Exp3	Wall	1	Exp3	Exp3
+neighbor .4	Exp3	Debris	1	Exp3	Exp3
+neighbor .4	Exp3	Debris2	1	Exp3	Exp3
+neighbor .4	Exp3	Lighter	1	Exp3	Exp3
+self	.1	Exp3	1	Exp3-2
+neighbor 1	Exp3	Largeexplosive 1 Exp3	Exp3
+
+element Exp3-2	200	0	0	0.000000	0.000000	0.0000000	0.000000	0
+neighbor 1	Exp3-2	Exp3	1	Exp3-2	Exp3-2
+neighbor .6	Exp3-2	Wall	1	Exp3-2	Debris
+neighbor 1	Exp3-2	Largeexplosive 1 Exp3-2	Exp3-2
+self	.1	Exp3-2	1	Empty
+
+#------------EXPLOSIVES END------------
+#----------TIMERS!--------------------- These awesome timers were made by the all-powerful _Twitch_
+group Timers Timer(1) Timer(2) Timer(3) Timer(4) 
+
+#The Slowest, all timers explode on contact with an explosive.
+element Timer(1) 255 0 0 1 0 1 1.7 1 
+self 1 Timer(1) 1 Timer(1) 
+hotself 1 Timer(1) 
+
+neighbor 1   Largeexplosive   Timer(1)   1   Exp3   Exp3 
+neighbor 1   Mediumexplosive   Timer(1)   1   Exp2   Exp2 
+neighbor 1   Smallexplosive   Timer(1)   1   Exp1   Exp1 
+
+#2nd Slowest 
+element Timer(2) 0 255 0 1 0 1 1.4 1 
+self 1 Timer(2) 1 Timer(2) 
+hotself 1 Timer(2) 
+
+neighbor 1   Largeexplosive   Timer(2)   1   Exp3   Exp3 
+neighbor 1   Mediumexplosive   Timer(2)   1   Exp2   Exp2 
+neighbor 1   Smallexplosive   Timer(2)   1   Exp1   Exp1 
+
+#2nd Fastest 
+element Timer(3) 0 0 255 1 0 1 1.2 1 
+self 1 Timer(3) 1 Timer(3) 
+hotself 1 Timer(3) 
+
+neighbor 1   Largeexplosive   Timer(3)   1   Exp3   Exp3 
+neighbor 1   Mediumexplosive   Timer(3)   1   Exp2   Exp2 
+neighbor 1   Smallexplosive   Timer(3)   1   Exp1   Exp1 
+
+#The Fastest 
+element Timer(4) 0 0 255 1 0 1 1.2 1 
+self 1 Timer(4) 1 Timer(4) 
+hotself 2 Timer(4) 
+
+neighbor 1   Largeexplosive   Timer(4)   1   Exp3   Exp3 
+neighbor 1   Mediumexplosive   Timer(4)   1   Exp2   Exp2 
+neighbor 1   Smallexplosive   Timer(4)   1   Exp1   Exp1
+#--------END TIMERS!!!!!!!!!---------
+
+#Explodes on contact with lighter
+element Smallexplosive 155 135	255	0.000000	0.000000	5.000000	0.000000	1
+neighbor 1	Smallexplosive	Lighter	1	Exp1	Exp1
+
+neighbor 1	Smallexplosive	Exp1	1	Exp1	Exp1
+neighbor 1	Smallexplosive	Exp1-2	1	Exp1	Exp1-2
+neighbor 1	Smallexplosive	Exp2	1	Exp1	Exp2
+neighbor 1	Smallexplosive	Exp2-2	1	Exp1	Exp2-2
+neighbor 1	Smallexplosive	Exp3	1	Exp1	Exp3
+neighbor 1	Smallexplosive	Exp3-2	1	Exp1	Exp3-2
+
+neighbor 1	Smallexplosive	Debris	1	Exp1	Exp1
+neighbor 1	Smallexplosive	Debris2	1	Exp1	Exp1
+
+#Explodes on contact with lighter
+element Mediumexplosive 255 85	135	0.000000	0.000000	5.000000	0.000000	1
+neighbor 1	Mediumexplosive Lighter	1	Exp2	Exp2
+
+neighbor 1	Mediumexplosive	Exp1	1	Exp2	Exp1
+neighbor 1	Mediumexplosive	Exp1-2	1	Exp2	Exp1-2
+neighbor 1	Mediumexplosive	Exp2	1	Exp2	Exp2
+neighbor 1	Mediumexplosive	Exp2-2	1	Exp2	Exp2-2
+neighbor 1	Mediumexplosive	Exp3	1	Exp2	Exp3
+neighbor 1	Mediumexplosive	Exp3-2	1	Exp2	Exp3-2
+
+neighbor 1	Mediumexplosive	Debris	1	Exp2	Exp2
+neighbor 1	Mediumexplosive	Debris2	1	Exp2	Exp2
+
+#Explodes on contact with lighter
+element Largeexplosive 0 255	0	0.000000	0.000000	5.000000	0.000000	1
+neighbor 1	Largeexplosive	Lighter	1	Exp3	Exp3
+
+neighbor 1	Largeexplosive	Exp1	1	Exp3	Exp1
+neighbor 1	Largeexplosive	Exp1-2	1	Exp3	Exp1-2
+neighbor 1	Largeexplosive	Exp2	1	Exp3	Exp2
+neighbor 1	Largeexplosive	Exp2-2	1	Exp3	Exp2-2
+neighbor 1	Largeexplosive	Exp3	1	Exp3	Exp3
+neighbor 1	Largeexplosive	Exp3-2	1	Exp3	Exp3-2
+
+neighbor 1	Largeexplosive	Debris	1	Exp3	Exp3
+neighbor 1	Largeexplosive	Debris2	1	Exp3	Exp
+</body></html>

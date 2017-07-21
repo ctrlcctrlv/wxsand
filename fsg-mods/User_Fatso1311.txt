@@ -1,0 +1,160 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group EU_Army	EU_Infantry EU_AT EU_Walker EU_Titan EU_FAV TitanCore
+group PAC_Army	PAC_Infantry PAC_AT PAC_Walker PAC_Titan PAC_FAV TitanCore
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#A solid element which reacts with nothing.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall  255     0	0  
+   
+#Annihalates all foot units on the battlefield
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self 0.050000	Fire	1.0000	Empty	
+hotcolor Fire   255    63     63
+neighbor   0.7   Fire   Empty   1.0   Fire   OrngFlame
+neighbor 0.1 Fire EU_Infantry  1.0 Fire Fire
+neighbor 0.1 Fire PAC_Infantry 1.0 Fire Fire
+neighbor 0.001 Fire PAC_AT 1.0 Fire Fire
+neighbor 0.001 Fire EU_AT 1 Fire Fire
+neighbor 0.1 Fire Empty 1 Fire BlueFlame
+neighbor 0.9 Fire Empty 1 Fire DarkFlame
+
+element DarkFlame	128	0	0	-1	1	0	1.1	0
+self	0.050000	DarkFlame	1.0000	Empty
+hotcolor DarkFlame   128	0	03
+neighbor 0.1 DarkFlame EU_Infantry  1.0 DarkFlame DarkFlame
+neighbor 0.1 DarkFlame PAC_Infantry 1.0 DarkFlame DarkFlame
+
+element OrngFlame	255	145	34	-1	1	0	1.1	0
+self	0.050000	OrngFlame	1.0000	Empty	
+hotcolor OrngFlame   255	145	34
+neighbor 0.1 OrngFlame EU_Infantry  1.0 OrngFlame OrngFlame
+neighbor 0.1 OrngFlame PAC_Infantry 1.0 OrngFlame OrngFlame
+
+#Pac infantry unit, 
+element PAC_Infantry	98 	85 	15 	0.9 	0.9 	1 	0 	1
+neighbor 0.75 PAC_Infantry  EU_Infantry 1 PAC_Infantry Empty
+neighbor 0.0001 PAC_Infantry  Empty 1 PAC_Infantry bullet2
+neighbor 0.75 PAC_Infantry  EU_AT 1 PAC_Infantry Empty
+
+#Heavy Mech Unit, pretty much annihalates anything except for AT units
+element PAC_Walker	146	176	21	0.1	0.5	1	0	1
+neighbor 0.9 PAC_Walker EU_Infantry 1 PAC_Walker Empty
+neighbor 0.5 EU_Walker PAC_Walker 1 PAC_Walker Empty
+neighbor 1 EU_AT PAC_Walker 1 Empty PAC_Walker
+neighbor 0.0001 PAC_Walker  Empty 1 PAC_Walker WalkerBullet2
+
+#European Forces Infantry Unit
+element EU_Infantry   255      128       64      -0.9       1.000000        0.000000        0.000000        1
+neighbor 0.75 EU_Infantry  PAC_AT 1 EU_Infantry  Empty
+neighbor 0.0001 EU_Infantry  Empty 1 EU_Infantry bullet1
+
+#Heavy Mech Unit, pretty much annihalates anything except for AT units
+element EU_Walker	207	184	112	-0.1	0.5	0	0	1
+neighbor 0.9 EU_Walker PAC_Infantry 1 EU_Walker Empty
+neighbor 0.5 EU_Walker PAC_Walker 1 EU_Walker Empty
+
+
+element bullet1 255	255	0	-30	0	0	0	0
+neighbor .9 bullet1 PAC_Infantry 1 Empty Empty
+neighbor .8 bullet1 Fire 1 B1 Fire
+
+element bullet2 255	255	45	30	0	1	0	0
+neighbor .9 bullet2 EU_Infantry 1 Empty Empty
+neighbor .8 bullet2 Fire 1 B2 Fire
+neighbor .8 bullet2 DarkFlame 1 B2 DarkFlame
+neighbor .8 bullet2 OrngFlame 1 B2 OrngFlame
+
+element B2 255	 255 	0 	15 	0 	1 	0 	0
+pexplosion B2 Fire 2 Fire 
+
+element B1 255	 255 	0 	-15 	0 	0 	0 	0
+pexplosion B1 Fire 2 Fire
+
+#Destroys Vehicles with his AT shells
+element PAC_AT 33	66	0	0.6	0.6	0	0	1
+neighbor 1 PAC_AT EU_Walker 1 Empty EU_Walker
+neighbor 0.00009 PAC_AT Empty 1 PAC_AT PAT_Missile
+
+element PAT_Missile 0	128	255	5	0	0	0	0
+neighbor 1 EU_Walker PAT_Missile 1 EU_Walker PACATBOOM 
+neighbor 1 PAT_Missile Fire 1 Fire Fire
+
+element PACATBOOM 0	128	255	5	0	0	0	0
+pexplosion PACATBOOM EU_Walker 16 Fire
+
+#Destroys Vehicles with his AT shells
+element EU_AT 176	163	142	-0.6	0.6	0	0	1
+neighbor 1 EU_AT PAC_Walker 1 Empty PAC_Walker
+neighbor 0.00009 EU_AT Empty 1 EU_AT EAT_Missile
+
+element EAT_Missile 0	128	255	-10	0	0	0	0
+neighbor 1 PAC_Walker EAT_Missile 1 PAC_Walker EUATBOOM 
+pexplosion EAT_Missile Fire 3 Fire
+
+element EUATBOOM 0	128	255	-10	0	0	0	0
+pexplosion EUATBOOM PAC_Walker 16 Fire
+#fastest unit on the field, used for quick advancement through enemy lines
+element EU_FAV 207	203	112	-30	0	0	0	1
+neighbor 1 PAC_Infantry EU_FAV 1 Empty EU_FAV
+pexplosion EU_FAV PAT_Missile 8 Fire
+neighbor 1 PAC_AT EU_FAV 1 Empty EU_FAV 
+
+#put core inside it to produce shields (Shields coming soon)
+element EU_Titan 128	0	0	0	0	1	0	1
+neighbor 1 bullet2 EU_Titan 1 Empty Empty
+neighbor 1 PAC_Infantry EU_Titan 1 Empty EU_Titan
+neighbor 1 PAC_AT EU_Titan 1 Empty EU_Titan
+neighbor 1 PAC_Walker EU_Titan 1 Empty EU_Titan
+pexplosion EU_Titan PAC_AT 8 Fire
+
+element WalkerBullet2 128	255	255	20	0	0	1	0
+neighbor 1 PAC_Infantry WalkerBullet2 1 Empty Empty
+neighbor 1 PAC_AT WalkerBullet2 1 Empty Empty
+#just cool looking
+element BlueFlame 0	128	255	-1.000000	1.000000	0.000000	1.100000	1
+neighbor 0.1 BlueFlame Empty 1 BlueFlame Fire
+self 0.05 BlueFlame 1 Empty
+neighbor 0.01 PAC_AT BlueFlame 1 BlueFlame BlueFlame
+neighbor 0.01 PAC_Infantry BlueFlame 1 BlueFlame BlueFlame
+#powers titans and gives them the ability to shield themselves
+element TitanCore 117 151 202 0 0 1 0 1
+pexplosion TitanCore bullet2 32 TitanBoom
+pexplosion TitanCore Empty 32 TitanBoom
+pexplosion TitanCore bullet1 32 TitanBoom
+
+element TitanBoom	255	249	0	-1.000000	1.000000	0.000000	1.100000	0
+self 0.050000	TitanBoom	1.0000	Empty
+neighbor 0.0005 Empty TitanBoom 1 Empty Fire
+neighbor 0.005 TitanBoom EU_Titan 1 TitanBoom2 EU_Titan
+neighbor 0.005 TitanBoom TitanCore 1 TitanBoom2 TitanCore
+neighbor 0.005 TitanBoom PAC_Titan 1 TitanBoom2 PAC_Titan
+
+element TitanBoom2	255	249	0	-1.000000	1.000000	0.000000	1.100000	0
+self 0.050000	TitanBoom2	1.0000	Empty
+neighbor 0.0005 Empty TitanBoom2 1 Empty Fire
+pexplosion TitanBoom2 EU_Titan 16 TitanBoom
+pexplosion TitanBoom2 TitanCore 16 TitanBoom
+pexplosion TitanBoom2 PAC_Titan 16 TitanBoom
+
+#Main base for PAC units, connect to Power Core
+element PAC_Titan 5	97	107	0	0	1	0	1
+neighbor 1 bullet1 PAC_Titan 1 Empty Empty
+neighbor 1 EU_Infantry PAC_Titan 1 Empty PAC_Titan
+neighbor 1 EU_AT PAC_Titan 1 Empty PAC_Titan
+neighbor 1 EU_Walker PAC_Titan 1 Empty PAC_Titan
+pexplosion PAC_Titan EU_AT 8 Fire
+#Fastest PAC unit, speeds through enemy lines
+element PAC_FAV 0	70	35	30	10	0	0	1
+neighbor 1 EU_Infantry PAC_FAV 1 Empty PAC_FAV
+pexplosion PAC_FAV EAT_Missile 8 Fire
+neighbor 1 EU_AT PAC_FAV 1 Empty PAC_FAV 
+neighbor 0.5 EU_FAV PAC_FAV 1 Empty PAC_FAV
+neighbor 0.5 EU_FAV PAC_FAV 1 EU_FAV Empty 
+ 
+
+

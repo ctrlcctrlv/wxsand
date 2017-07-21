@@ -1,0 +1,270 @@
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group      Hardware PowerSupply PowerCabbles Motherboard  Cddrive  Monitor  Screen  Wire Outlet Paint Battery
+group        Software Windows95 WindowsXP
+group        Cases FutureCase Case
+group        Destruction Fire Virus Water Torch ETorch Magnet Firebomb ANFO
+
+#Just empty space.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.0000001	1
+
+#the thing your hardware is inside.
+element	Case	120	120	120	0.000000	1.000000	1.000000	0.0000001	1
+
+#A futuristic version of case. highly explosive.
+element	FutureCase	0	0	255	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 FutureCase Empty 1 FancyCase2 Empty
+neighbor 1.0 FutureCase FancyCase2 1 FancyCase2 FutureCase
+
+#A fancy version of case.
+element	FancyCase2	255	0	0	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 FancyCase2 FutureCase 1 FutureCase FancyCase2
+neighbor 1.0 FancyCase2 Empty 1 FutureCase Empty
+
+
+#connects your computer to a wire.
+element	PowerSupply	100	100	100	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 PowerSupply Wire2 1 PowerSupply2 Wire2
+neighbor 1.0 PowerSupply Battery 1 PowerSupply2 Battery
+neighbor 1.0 PowerSupply PowerSupply2 1 PowerSupply2 PowerSupply2
+
+#Power Supply. 
+element	PowerSupply2	120	120	120	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 PowerSupply2 PowerCabbles 1 PowerSupply2 PowerCabbles3
+
+#tranfers power through the computer.
+element	PowerCabbles	90	90	90	0.000000	1.000000	1.000000	0.0000001	1
+
+#Power Cabbles. 
+element	PowerCabbles3	120	120	120	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 PowerCabbles3 Motherboard 1 PowerCabbles3 Motherboard2
+neighbor 1.0 PowerCabbles3 Motherboard2 1 PowerCabbles2 Motherboard2
+neighbor 1.0 PowerCabbles3 PowerCabbles 1 PowerCabbles3 PowerCabbles3
+
+#Powers powercabbles once powered.
+element	Motherboard	0	50	0	0.000000	1.000000	1.000000	0.0000001	1
+
+#Motherboard
+element	Motherboard2	0	70	0	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Motherboard2 Motherboard 1 Motherboard2 Motherboard2
+
+#You put software in it.
+element	Cddrive	255	225	225	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Cddrive Cddrive2 1 Cddrive2 Cddrive2
+
+#DVD/CD drive
+element	Cddrive2	255	255	255	0.000000	1.000000	1.000000	0.0000001	0
+
+#the thing the screens on.
+element	Monitor	150	150	150	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Monitor Monitor2 1 Monitor2 Monitor2
+
+#Monitor
+element	Monitor2	170	170	170	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Monitor2 Screen 1 Monitor2 Screen2
+
+#Monitor
+element	Monitor4	190	190	190	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Monitor4 Monitor 1 Monitor4 Monitor4
+neighbor 1.0 Monitor4 Screen 1 Monitor4 Sc4
+
+
+#Monitor
+element	Monitor3	130	130	130	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Monitor3 Screen2 1 Monitor3 Broken
+neighbor 1.0 Monitor3 Sc4 1 Monitor3 Broken
+neighbor 1.0 Monitor3 Sc5 1 Monitor3 Broken
+neighbor 1.0 Monitor3 Sc6 1 Monitor3 Broken
+
+#
+element	Sc4	0	0	255	0.000000	1.000000	1.000000	0.0000001	0
+self	0.100000	Sc4	1.0000	Sc5
+neighbor 1.0 Sc4 Empty 1 Broken Empty
+neighbor 1.0 Sc4 Screen 1 Sc4 Sc4
+#
+element	Sc5	255	0	0	0.000000	1.000000	1.000000	0.0000001	0
+self	0.100000	Sc5	1.0000	Sc6
+neighbor 1.0 Sc4 Empty 1 Broken Empty
+neighbor 1.0 Sc5 Screen 1 Sc5 Sc5
+
+#
+element	Sc6	0	255	0	0.000000	1.000000	1.000000	0.0000001	0
+self	0.100000	Sc6	1.0000	Sc4
+neighbor 1.0 Sc4 Empty 1 Broken Empty
+neighbor 1.0 Sc6 Screen 1 Sc6 Sc6
+
+#
+element	Screen2	0	0	255	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Screen2 Empty 1 Broken Empty
+
+#your looking at one!
+element	Broken	20	20	20	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Broken Screen2 1 Broken Broken
+neighbor 1.0 Broken Sc4 1 Broken Broken
+neighbor 1.0 Broken Sc5 1 Broken Broken
+neighbor 1.0 Broken Sc6 1 Broken Broken
+
+
+#your looking at one!
+element	Screen	20	20	20	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Screen Screen2 1 Screen2 Screen2
+
+#Connects Outlet to your computer.
+element	Wire	20	20	20	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Wire Outlet 1 Wire2 Outlet
+
+
+#Wire
+element	Wire2	100	100	100	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Wire2 Wire 1 Wire2 Wire2
+
+#Wire
+element	Battery	40	40	40	0.000000	1.000000	1.000000	0.0000001	1
+
+#Um? it's the thing your computer is plugged into.
+element	Outlet	255	255	255	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Outlet Wire 1 Outlet Wire2
+
+#Power Cabbles. 
+element	PowerCabbles2	150	150	150	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 PowerCabbles2 PowerCabbles3 1 PowerCabbles2 PowerCabbles2
+neighbor 1.0 PowerCabbles2 PowerCabbles 1 PowerCabbles2 PowerCabbles2
+neighbor 1.0 PowerCabbles2 Motherboard 1 PowerCabbles2 Motherboard2
+neighbor 1.0 PowerCabbles2 Cddrive 1 PowerCabbles2 Cddrive2
+
+#to keep track of pieces.
+element	Paint	0	0	0	0.000000	1.000000	0.000000	0.0000001	1
+
+#Windows 95 CD. You should know what to do.
+element	Windows95	205	205	205	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Windows95 Cddrive2 1 Windows95 Cddrive3
+
+#Windows XP CD. You should know what to do.
+element	WindowsXP	205	205	205	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 WindowsXP Cddrive2 1 WindowsXP Cddrive5
+
+
+
+#A trojon horse on a CD.
+element	Virus	205	205	205	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Virus Cddrive2 1 Virus Cddrive4
+
+#
+element	Cddrive4	100	100	100	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Cddrive4 PowerCabbles2 1 Wave2 Wave2
+neighbor 1.0 Cddrive4 Cddrive2 1 Cddrive4 Cddrive4
+
+#
+element	Cddrive3	100	100	100	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Cddrive3 PowerCabbles2 1 Wave1 Wave1
+neighbor 1.0 Cddrive3 Cddrive2 1 Cddrive3 Cddrive3
+
+#
+element	Cddrive5	100	100	100	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Cddrive5 PowerCabbles2 1 Cddrive5 Wave3
+neighbor 1.0 Cddrive5 Cddrive2 1 Cddrive5 Cddrive5
+
+#
+element	Wave1	0	100	100	0.000000	1.000000	0.000000	0.0000001	0
+self	0.100000	Wave1	1.0000	PowerCabbles
+neighbor 1.0 Wave1 PowerCabbles2 1 Wave1 Wave1
+neighbor 1.0 Wave1 Monitor 1 Wave1 Monitor2
+
+#
+element	Wave2	255	0	0	0.000000	1.000000	0.000000	0.0000001	0
+self	0.100000	Wave2	1.0000	PowerCabbles
+neighbor 1.0 Wave2 PowerCabbles2 1 Wave2 Wave2
+neighbor 1.0 Wave2 Monitor 1 Wave2 Monitor3
+
+#
+element	Wave3	0	100	100	0.000000	1.000000	0.000000	0.0000001	0
+self	0.100000	Wave3	1.0000	PowerCabbles
+neighbor 1.0 Wave3 PowerCabbles2 1 Wave3 Wave3
+neighbor 1.0 Wave3 Monitor 1 Wave3 Monitor4
+
+
+#Water. liquid. H2O.
+element	Water	0	0	255	 1.000000	1.000000	0.000000	1.100000	1
+neighbor 1.0 Water Outlet 1 Water ElectricFire
+neighbor 1.0 Water Wire2 1 Water ElectricFire
+neighbor 1.0 Water PowerCabbles2 1 Water ElectricFire
+neighbor 1.0 Water Screen 1 Water Broken
+
+#Fire! Really hot. Um? Burns things?
+element	Fire	255	0	0	-1.000000	1.000000	1.000000	1.100000	1
+self	0.050000	Fire	1.0000	Empty
+pexplosion Motherboard2 Fire 55 Fire
+pexplosion FutureCase Fire 55 Fire
+pexplosion FancyCase2 Fire 55 Fire
+pexplosion Cddrive2 Fire 55 Fire
+pexplosion Firebomb Fire 70 Fire
+neighbor 1.0 Fire Wood 1 Fire Fire
+neighbor  1.0 Fire Case 1 Fire MCase
+neighbor 1.0 Fire Outlet 1 ElectricFire ElectricFire
+neighbor 1.0 Fire Wire2 1 ElectricFire ElectricFire
+neighbor 1.0 Fire PowerCabbles2 1 ElectricFire ElectricFire
+
+#Lava! Really hot. Um? Burns things?
+element	Lava	230	0	0	 1.000000	1.000000	1.000000	1.100000	1
+pexplosion Motherboard2 Lava 55 Fire
+pexplosion FutureCase Lava 55 Fire
+pexplosion FancyCase2 Lava 55 Fire
+pexplosion Cddrive2 Lava 55 Fire
+pexplosion Firebomb Lava 70 Fire
+neighbor 1.0 Lava Wood 1 Fire Fire
+neighbor  1.0 Lava Case 1 Fire MCase
+neighbor 1.0 Lava Outlet 1 ElectricFire ElectricFire
+neighbor 1.0 Lava Wire2 1 ElectricFire ElectricFire
+neighbor 1.0 Lava PowerCabbles2 1 ElectricFire ElectricFire
+neighbor 0.1 Lava Empty 1 Lava Fire
+
+#Electric Fire. 
+element	ElectricFire	0	0	128	-1.000000	0.000000	1.000000	1.100000	0
+self	0.070000	ElectricFire	1.0000	Empty
+neighbor 1.0 ElectricFire Outlet 1 ElectricFire ElectricFire
+neighbor 1.0 ElectricFire Wire2 1 ElectricFire ElectricFire
+neighbor 1.0 ElectricFire PowerCabbles2 1 ElectricFire ElectricFire
+neighbor 1.0 ElectricFire PowerCabbles3 1 ElectricFire ElectricFire
+
+
+#Produces Fire!
+element	Torch	200	0	0	0.000000	1.000000	1.000000	1.100000	1
+neighbor 1.0 Torch Empty 1 Torch Fire
+
+
+#Produces Electric Fire!
+element	ETorch	0	0	100	0.000000	1.000000	1.000000	1.100000	1
+neighbor 1.0 ETorch Empty 1 ETorch ElectricFire
+
+
+#Um? wood! Comes from trees and most desks are made of it.
+element	Wood	128	64	0	0.000000	1.000000	1.000000	0.0000001	1
+
+#Computer Case.
+element	MCase	120	120	120	1.000000	1.000000	0.000000	0.0000001	0
+
+#explodes if touched by fire.
+element	Firebomb	259	152	6	0.000000	1.000000	1.000000	0.0000001	1
+
+
+#A mixture used by mining companies, liquid bombs!
+element	ANFO	255	79	79	1.000000	1.000000	0.000000	0.0000001	1
+pexplosion ANFO Fire 55 Fire
+
+
+#Magnet. Put it on your screen.
+element	Magnet	201	201	201	0.000000	1.000000	1.000000	0.0000001	1
+neighbor 1.0 Magnet Screen 1 Messed Screen
+neighbor 1.0 Magnet Screen2 1 Messed Screen
+neighbor 1.0 Magnet Sc4 1 Messed Screen
+neighbor 1.0 Magnet Sc5 1 Messed Screen
+neighbor 1.0 Magnet Sc6 1 Messed Screen
+
+#
+element	Messed	200	200	2	0.000000	1.000000	1.000000	0.0000001	0
+neighbor 1.0 Messed Magnet 1 Messed Messed
+
+#Put this on the stain from the magnet.
+element	Degrauss	200	200	200	0.000000	1.000000	1.000000	0.0000001	1
+self	0.050000	Degrauss	1.0000	Screen
+neighbor 1.0 Degrauss Messed 1 Degrauss Degrauss

@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:Jabagawee/physics" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:Jabagawee/physics - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:Jabagawee/physics</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group   Waters  Water  Steam  Saltwater  Spout
+sources Sand    Water  Salt   Oil
+
+#Air.
+element	Air	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+neighbor	1.0	Air	Fire	1.0	HeatedAir	Fire
+#Hot air.
+element	HeatedAir	10	10	10	-1.0	1.0	0.0	9999.0	1
+self	0.000500	HeatedAir	1.0	Air
+#Burns HeatedAir.
+element	AirFire	245	60	60	-1.0	1.0	0.0	999.999999	1
+self	0.050000	AirFire	1.0	Air
+hotcolor	AirFire	255	255	255
+neighbor	1.0	AirFire	HeatedAir	1.0	AirFire	AirFire
+neighbor	1.0	AirFire	Extinguisher	0.4	Air	Extinguisher	0.3	Air	Water	0.3	Air	Air
+#Makes HeatedAir
+element	AirFireTorch	101	0	0	0.0 1.0 1.0 1.1 1
+neighbor	0.8	AirFireTorch	Air	1.0	AirFireTorch	AirFire
+#My answer to 'wall', Looks really cool when it melts. Can be worn away by pebbles.
+element	Rock	87	87	87	0.000000	0.000000	1.000000	0.900000	1
+hotcolor  Rock  195	80	3
+self	1.000000	Rock	1.000000	LiquidFire
+hotself	99	Rock
+neighbor	0.3	HeatedAir	Rock	1.0	HeatedAir	LiquidFire
+#Indestructible wall.
+element	InDestructoWall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  InDestructoWall  255     0	0
+#Hot, hot, hot. It's also a wall.
+element	FireWall	127	127	127	0.000000	0.000000	1.000000	999.999999	1
+hotcolor	FireWall	255	255	255
+neighbor	1.0	FireWall	Plant	1.0	FireWall	Fire
+neighbor	1.0	FireWall	LiquidFire	1.0	Fire	Fire
+neighbor	0.7	FireWall	Air	1.0	FireWall	HeatedAir
+neighbor	1.0	FireWall	Extinguisher	0.4	Rock	Extinguisher	0.3	Rock	Air	0.3	Rock Water
+#Fire.
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	999.999999	1
+self	0.050000	Fire	1.0000	Air
+hotcolor Fire   255    20     20
+neighbor 1.0	Fire	Water	1.0	Air		Steam
+neighbor 1.0	Fire	Oil	1.0	Fire	Fire
+neighbor 1.0	Fire	Plant	1.0	Fire		Fire
+neighbor 0.5	Fire	Cera	1.0	MoltenCera	Ember
+neighbor	1.0	Fire	RockDust	1.0	Fire	Fire
+neighbor	1.0	Fire	PlantDust	1.0	Fire	Fire
+neighbor	1.0	Fire	EmberDust	1.0	Fire	Fire
+neighbor	1.0	Fire	TorchDust	1.0	Fire	Fire
+neighbor	1.0	Fire	SpoutDust	1.0	Fire	Fire
+neighbor	1.0	Fire	CeraDust	1.0	Fire	Fire
+neighbor	0.7	Fire	Air	1.0	Fire	HeatedAir
+neighbor	1.0	Fire	Extinguisher	0.4	Air	Extinguisher	0.3	Air	Air	0.3	Air	Water
+#Liquid fire.
+element	LiquidFire	250	60	60	1.0	1.0	1.0	999.999999	1
+neighbor	1.0	LiquidFire	Fire	1.0	Fire	Fire
+neighbor 1.0	LiquidFire	Water	1.0	Air		Steam
+neighbor 1.0	LiquidFire	Oil	1.0	Fire	Fire
+neighbor 1.0	LiquidFire	Plant	1.0	Fire		Fire
+neighbor 0.5	LiquidFire	Cera	1.0	MoltenCera	Ember
+neighbor 1.0	LiquidFire	Saltwater	1.0	Steam	Salt
+neighbor	1.0	LiquidFire	RockDust	1.0	Fire	Fire
+neighbor	1.0	LiquidFire	PlantDust	1.0	Fire	Fire
+neighbor	1.0	LiquidFire	EmberDust	1.0	Fire	Fire
+neighbor	1.0	LiquidFire	TorchDust	1.0	Fire	Fire
+neighbor	1.0	LiquidFire	SpoutDust	1.0	Fire	Fire
+neighbor	1.0	LiquidFire	CeraDust	1.0	Fire	Fire
+neighbor	0.7	LiquidFire	Air	1.0	LiquidFire	HeatedAir
+neighbor	1.0	LiquidFire	Extinguisher	0.4	Air	Extinguisher	0.3	Air	Air	0.3	Air	Water
+#Water.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.900000	1
+hotcolor Water  255     255     255
+hotself 99	Water
+self    1.0     Water   1.0     Steam
+#Plant.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant
+#Sand.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.000000	1
+#Makes water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Spout	Air	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Air		Air
+#Wax.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000	1
+#Destroys almost everything and spreads.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Air	1.0	???	???
+neighbor 1.0	???	Rock	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Flammable, oily liquid.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.400000	1
+hotself	99	Oil
+self	0.3	Oil	1.0	Fire
+#Salt.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+#Makes fire and decays.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Air	0.9	Ember	Fire	0.1	Ember	HeatedAir
+neighbor 0.9		Ember	Water	1.0	Air	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+neighbor	1.0	Ember	Extinguisher	0.4	Air	Extinguisher	0.3	Air	Air	0.3	Air	Water
+#Molten wax.
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	1
+neighbor 0.01	MoltenCera	Rock	1.0	Cera	Rock
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+neighbor	0.01	MoltenCera	Extinguisher	1.0	Cera	Extinguisher
+#Steam.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.0000	Water
+#Salt and water combined.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self    0.6         Saltwater       0.5   Water  0.5  Salt
+hotself	50	Saltwater
+neighbor 0.004	Water	Salt	1.0	Saltwater		Saltwater
+neighbor 0.00000	Saltwater	Saltwater	1.0	Salt		Steam
+neighbor 0.04		Saltwater	Water		1.0	Water		Saltwater
+neighbor 0.9		Saltwater	Fire		1.0	Salt		Steam
+hotneighbor   0.0001      Saltwater	Saltwater
+#Makes fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2	Torch	Air	0.9	Torch		Fire	0.1	Torch	HeatedAir
+neighbor 0.2	Torch	Water	1.0	Torch		Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch		Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch		Fire
+neighbor 0.2	Torch	Plant	1.0	Torch		Fire
+neighbor 0.2	Torch	Cera	1.0	Torch		MoltenCera
+neighbor 1.0	Torch	Extinguisher	0.4	Air	Extinguisher	0.3	Air	Air	0.3	Air	Water
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	0
+self	0.005000	Leftover???	1.0000	Air	
+#Invisible death machine.
+element BlackHole	0	0	1	0.000000	0.000000	1.000000	0.000000	1
+neighbor	1.000000	BlackHole	Rock	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Fire	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Plant	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Sand	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Cera	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	MoltenCera	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	???	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Leftover???	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Oil	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Salt	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Ember	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Water	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Spout	1.000000	BlackHole	Air
+neighbor 	1.000000	BlackHole	Steam	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Saltwater	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Crawler	1.00000	BlackHole	Air
+neighbor	1.000000	BlackHole	RockDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	PlantDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	EmberDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	TorchDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	SpoutDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	CeraDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	FireWall	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Pipe	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Clog	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	LiquidPlumber	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	CleanPipe	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	FireWall	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	CloningFluid	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	HeatedAir	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Instapipe	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	MetalWaterPipeOuter	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	MetalWaterPipeOuterEX	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	MetalWaterPipeOuter2	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	AirFire	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	Extinguisher	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	AirFireTorch	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	AirFireTorchDust	1.000000	BlackHole	Air
+neighbor	1.000000	BlackHole	AntiCrawler	1.000000	BlackHole	Air
+#Clones stuff.
+element CloningFluid 100 100 100 0.70000 1.00000 0.50000 0.00000 1
+neighbor	1.000000	CloningFluid	Rock	1.00000	Rock	Rock
+neighbor	1.000000	CloningFluid	Fire	1.00000	Fire	Fire
+neighbor	1.000000	CloningFluid	AirFire	1.00000	AirFire	AirFire 
+neighbor	1.000000	CloningFluid	Plant	1.00000	Plant	Plant 
+neighbor	1.000000	CloningFluid	Sand	1.00000	Sand	Sand 
+neighbor	1.000000	CloningFluid	Cera	1.00000	Cera	Cera
+neighbor	1.000000	CloningFluid	MoltenCera	1.00000	MoltenCera	MoltenCera 
+neighbor	1.000000	CloningFluid	???	1.00000	???	??? 
+neighbor	1.000000	CloningFluid	Leftover???	1.00000	Leftover???	Leftover??? 
+neighbor	1.000000	CloningFluid	Oil	1.00000	Oil	Oil 
+neighbor	1.000000	CloningFluid	Salt	1.00000	Salt	Salt 
+neighbor	1.000000	CloningFluid	Ember	1.00000	Ember	Ember 
+neighbor	1.000000	CloningFluid	Water	1.00000	Water	Water 
+neighbor	1.000000	CloningFluid	Spout	1.00000	Spout	Spout 
+neighbor	1.000000	CloningFluid	Steam	1.00000	Steam	Steam 
+neighbor	1.000000	CloningFluid	Saltwater	1.000000	Saltwater	Saltwater
+neighbor	1.000000	CloningFluid	Crawler	1.00000	Crawler	Crawler
+neighbor	1.000000	CloningFluid	RockDust	1.000000	RockDust	RockDust
+neighbor	1.000000	CloningFluid	PlantDust	1.000000	PlantDust	PlantDust
+neighbor	1.000000	CloningFluid	EmberDust	1.000000	EmberDust	EmberDust
+neighbor	1.000000	CloningFluid	TorchDust	1.000000	TorchDust	TorchDust
+neighbor	1.000000	CloningFluid	SpoutDust	1.000000	SpoutDust	SpoutDust
+neighbor	1.000000	CloningFluid	CeraDust	1.000000	CeraDust	CeraDust
+neighbor	1.000000	CloningFluid	FireWall	1.000000	FireWall	FireWall
+neighbor	1.000000	CloningFluid	LiquidPlumber	1.000000	LiquidPlumber	LiquidPlumber
+neighbor	1.000000	CloningFluid	LiquidFire	1.000000	LiquidFire	LiquidFire
+neighbor	1.000000	CloningFluid	FireWall	1.000000	FireWall	FireWall
+neighbor	1.000000	CloningFluid	HeatedAir	1.000000	HeatedAir	HeatedAir
+neighbor	1.000000	CloningFluid	Instapipe	1.000000	Instapipe	Instapipe
+neighbor	1.000000	CloningFluid	MetalWaterPipeOuter	1.000000	MetalWaterPipeOuter	MetalWaterPipeOuter
+neighbor	1.000000	CloningFluid	MetalWaterPipeOuterEX	1.000000	MetalWaterPipeOuterEX	MetalWaterPipeOuterEX
+neighbor	1.000000	CloningFluid	MetalWaterPipeOuter2	1.000000	MetalWaterPipeOuter2	MetalWaterPipeOuter2
+neighbor	1.000000	CloningFluid	Extinguisher	1.000000	Extinguisher	Extinguisher
+neighbor	1.000000	CloningFluid	AirFireTorch	1.000000	AirFireTorch	AirFireTorch
+neighbor	1.000000	CloningFluid	AirFireTorchDust	1.000000	AirFireTorchDust	AirFireTorchDust
+neighbor	1.000000	CloningFluid	AntiCrawler	1.000000	AntiCrawler	AntiCrawler
+#Creature that eats and makes dust.
+element   Crawler   255   63   255   0.450000   1.000000   0.900000   0.500000   1
+neighbor   1.000000   Rock   Crawler   1.00000   Crawler	RockDust
+neighbor	1.0	Plant	Crawler	1.0	Crawler	PlantDust
+neighbor	1.0	Ember	Crawler	1.0	Crawler	EmberDust
+neighbor	1.0	Torch	Crawler	1.0	Crawler	TorchDust
+neighbor	1.0	Spout	Crawler	1.0	Crawler	SpoutDust
+neighbor	1.0	Cera	Crawler	1.0	Crawler	CeraDust
+neighbor	1.0	AirFireTorch	Crawler	1.0	Crawler	AirFireTorchDust
+neighbor	1.0	Crawler	AntiCrawler	1.0	AntiCrawler	AntiCrawler
+#Undoes all the damage of Crawler and banishes it to the eternal chasm.
+element	AntiCrawler	255	255	63	-1.000000	1.000000	0.900000	0.5000000	1
+self	0.050000	AntiCrawler	1.0000	Air
+#Add AntiCrawler to make AirFireTorch.
+element	AirFireTorchDust	102	0	0	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	AirFireTorchDust	AntiCrawler	1.0	AirFireTorch	AirFireTorch
+neighbor	1.0	AirFireTorchDust	AirFireTorch	1.0	AirFireTorch	AirFireTorch
+#Add AnitCrawler to make Rock.
+element   RockDust	128	128	127	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	RockDust	AntiCrawler	1.0	Rock	Rock
+neighbor	1.0	RockDust	Rock	1.0	Rock	Rock
+#Add AntiCrawler to make plant.
+element	PlantDust	32	205	32	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	PlantDust	AntiCrawler	1.0	Plant	Plant
+neighbor	1.0	PlantDust	Plant	1.0	Plant	Plant
+#Add AntiCrawler to make ember.
+element	EmberDust	199	50	50	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	EmberDust	AntiCrawler	1.0	Ember	Ember
+neighbor	1.0	EmberDust	Ember	1.0	Ember	Ember
+#Add AntiCrawler to make torch.
+element	TorchDust	100	0	1	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	TorchDust	AntiCrawler	1.0	Torch	Torch
+neighbor	1.0	TorchDust	Torch	1.0	Torch	Torch
+#Add AntiCrawler to make spout.
+element	SpoutDust	10	99	10	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	SpoutDust	AntiCrawler	1.0	Spout	Spout
+neighbor	1.0	SpoutDust	Spout	1.0	Spout	Spout
+#Add AntiCrawler to make cera.
+element	CeraDust	238	220	204	1.000000	0.000000	0.500000	0.500000	1
+neighbor	1.0	CeraDust	AntiCrawler	1.0	Cera	Cera
+neighbor	1.0	CeraDust	Cera	1.0	Cera	Cera
+#Used to transport liquids and powders.
+element	Pipe	128	127	128	0.000000	0.000000	1.000000	1.000000	1
+neighbor	0.003000	Saltwater	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Steam	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Water	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Oil	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Sand	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	CeraDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	EmberDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	SpoutDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	RockDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	TorchDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	PlantDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	AirFireTorchDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	CloningFluid	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	LiquidBlackHole	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Water	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Water	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	PlantDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	TorchDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	SpoutDust	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	MoltenCera	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	Salt	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	LiquidFire	Pipe	1.000000	LiquidFire	Pipe
+neighbor	0.003000	Extinguisher	Pipe	1.000000	Clog	Pipe
+neighbor	0.003000	AntiCrawler	Pipe	1.000000	Clog	Pipe
+#Clogs up pipes.
+element	Clog	240	240	240	0.000000	0.000000	0.000000	0.000000	1
+neighbor	0.005000	Clog	Water	1.000000	Clog	Clog
+#Eats clogs and makes pipes clean.
+element	LiquidPlumber	25	25	255	0.700000	1.000000	1.000000	1.000000	1
+neighbor	1.000000	LiquidPlumber	Clog	0.000010	Air	Air	0.999990	LiquidPlumber	Air
+neighbor	1.000000	LiquidPlumber	Pipe	0.500000	Air	CleanPipe	0.500000	LiquidPlumber	CleanPipe
+#Won't make clogs.
+element	CleanPipe	200	200	200	0.000000	0.000000	1.000000	1.000000	0
+self	0.000020	CleanPipe	1.000000	Pipe
+neighbor	0.050000	CleanPipe	Pipe	1.000000	CleanPipe	CleanPipe
+#Eats anything it touches.
+element LiquidBlackHole	100	0	100	1.000000	1.000000	1.000000	0.000000	1
+neighbor	1.000000	LiquidBlackHole	Rock	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Fire	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	AirFire	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Plant	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Sand	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Cera	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	MoltenCera	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	???	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Leftover???	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Oil	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Salt	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Ember	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Torch	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Water	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Spout	1.000000	LiquidBlackHole	Air
+neighbor 	1.000000	LiquidBlackHole	Steam	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Saltwater	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Crawler	1.00000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	RockDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	PlantDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	EmberDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	TorchDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	SpoutDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	CeraDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	AirFireTorchDust	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	FireWall	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	LiquidPlumber	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	FireWall	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	CloningFluid	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	LiquidFire	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	HeatedAir	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Instapipe	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	MetalWaterPipeOuter	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	MetalWaterPipeOuterEX	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	MetalWaterPipeOuter2	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	Extinguisher	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	AirFireTorch	1.000000	LiquidBlackHole	Air
+neighbor	1.000000	LiquidBlackHole	AntiCrawler	1.000000	LiquidBlackHole	Air
+#An instant pipe.
+element	Instapipe	87	87	87	0.000000	0.000000	1.000000	0.500000	1
+neighbor	1.000000	Instapipe	Air	1.000000	MetalWaterPipeOuter	Air	
+neighbor	1.000000	Instapipe	MetalWaterPipeOuter	1.000000	MetalWaterPipeOuterEX	MetalWaterPipeOuter	
+neighbor	0.700000	Instapipe	Water	1.000000	Water	Water
+hotcolor  Instapipe  195	80	3
+self	1.000000	Instapipe	1.000000	Water
+hotself	10	Instapipe
+element	MetalWaterPipeOuter	87	87	87	0.000000	0.000000	1.000000	0.500000	0
+hotcolor  MetalWaterPipeOuter  195	80	3
+neighbor	1.000000	MetalWaterPipeOuter	Water	1.000000	MetalWaterPipeOuter2	Water
+element	MetalWaterPipeOuterEX	87	87	87	0.000000	0.000000	1.000000	1.100000	0
+hotcolor  MetalWaterPipeOuterEX  195	80	3
+neighbor	1.000000	MetalWaterPipeOuterEX	Water	1.000000	MetalWaterPipeOuter2	Water
+neighbor	0.60000	MetalWaterPipeOuterEX	MetalWaterPipeOuter2	1.000000	MetalWaterPipeOuter2	MetalWaterPipeOuter2
+element	MetalWaterPipeOuter2	87	87	87	0.000000	0.000000	1.000000	0.500000	0
+hotcolor  MetalWaterPipeOuter2  195	80	3
+self	1.000000	MetalWaterPipeOuter2	1.000000	LiquidFire
+hotself 99	MetalWaterPipeOuter2
+element	Extinguisher	255	255	240	1.0	0.000030	1.0	0.7	1</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:1354-0!1!0!0!!en!2 and timestamp 20071028014805 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:Jabagawee/physics">http://www.fallingsandgame.com/wiki/index.php/User:Jabagawee/physics</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:Jabagawee/physics">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:Jabagawee/physics&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:Jabagawee/physics&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:Jabagawee/physics&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:Jabagawee/physics">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:Jabagawee/physics">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:Jabagawee/physics">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:Jabagawee/physics&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:Jabagawee/physics&amp;oldid=3210">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 23:16, 16 December 2006.</li>
+				<li id="viewcount">This page has been accessed 3,936 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.12 secs. -->
+</body></html>

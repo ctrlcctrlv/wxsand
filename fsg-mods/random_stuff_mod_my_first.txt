@@ -1,0 +1,40 @@
+#Version 4.4, File subversion 2
+
+group odd invisiwall gas chocolate wall
+
+group hot s fire bomb nuke
+
+element empteyscreen 0 0 0 0 0 0 0 0
+#invisible wall
+element invisiwall 0 0 0 0 0 1 1 1
+#burnes well can use for fuse
+element s 255 255 255 0 0 1 1 1
+neighbor 1.0 s fire 1.0 fire fire
+#gas a good fuel
+element gas 255 240 20 -1 5 2 0 1
+neighbor 1.0 gas fire 1.0 fire fire
+#hot
+element fire 247	63	63	-1.000000	1.000000	0.000000	1.100000	1
+self	0.050000	fire	1.0000 invisiwall	
+hotcolor fire   255    63     63
+#mmmmmmm....chocolate heat it up for melted chocolate
+element chocolate 50 30 0 0 1 1 1 
+neighbor 1.0 chocolate fire 1.0 empteyscreen mchocolate
+
+element mchocolate 50 30 0 1 0 1 1 0 
+
+#my first bomb 
+element bomb 255 0 0 0 0 0 1 1
+neighbor 10 bomb bfire 1 fire bfire
+neighbor 10 bomb fire 1 fire bfire 
+explosion bomb fire 255 255
+
+element bfire 0 0 0 -1 1 0 0 0 
+self 0.25 bfire 0.5 fire
+hotself 3 fire
+
+element nuke 0 255 0 0 0 0 0 1 1
+pexplosion nuke fire 250 fire
+
+element wall 200 200 200 0 0 0 0 1 1
+

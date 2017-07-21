@@ -1,0 +1,330 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighborprobabilityOfReactingelement1element2[probabilityOfChangingIntoTheseElementselement1element2][...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+group	Life	Plant	Water
+group	Earth	Rock	Dirt	Mud	Lava	Saturator
+group   Waters  Water  Steam  Saltwater  Spout	Ice	Wavegen
+group	Beach	Sand	Water	WetSand	Salt	Saltwater	Saturator	Wavegen
+group	Oils	Oil	Oilvapor
+group	Fires	Fire	Torch	TNT	Ember	FallingEmber	Nuke	ANuke	Lava
+sources Sand    Water  Salt   Oil
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000 1
+#Eraser element.
+element	Drain	10	10	10	0.000000	1.000000	0.000000	0.000000 1
+neighbor 1.0	Drain	Water	1.0	Drain	Empty
+neighbor 1.0	Drain	Dust	1.0	Drain	Empty
+neighbor 1.0	Drain	Oil	1.0	Drain	Empty
+neighbor 1.0	Drain	Steam	1.0	Drain	Empty
+neighbor 1.0	Drain	Sand	1.0	Drain	Empty
+neighbor 1.0	Drain	Salt	1.0	Drain	Empty
+neighbor 1.0	Drain	Saltwater	1.0	Drain	Empty
+neighbor 1.0	Drain	MoltenCera	1.0	Drain	Empty
+neighbor 1.0	Drain	FallingEmber	1.0	Drain	Empty
+neighbor 1.0	Drain	ExplodingTNT	1.0	Drain	Empty
+#A solid element which reacts with nothing.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000 1
+hotcolor  Wall  255     0     0
+#Does nothing. Useful for explosion aftermaths
+element	Dust	128	128	128	0.900000	0.000000	1.000000	0.500000 1
+#Burns other elements. Source of energy.
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000 1
+self	0.050000	Fire	1.0000	Empty	
+hotcolor Fire   255    63     63
+neighbor 0.9	Fire	Water	1.0	Empty		Steam
+neighbor 0.75	Fire	Oil	1.0	Fire		Fire
+neighbor 1.0	Fire	Plant	1.0	Fire		Fire
+neighbor 0.005	Fire	Cera	1.0	MoltenCera	Ember
+neighbor 0.9	Fire	TNT	1.0	ExplodingTNT	Fire
+explosion	Fire	Oil	10	10
+explosion	Fire	TNT	100	100
+#Explodes
+element	TNT	50	50	50	0.000000	0.000000	1.000000	0.000000 1
+#Explodes
+element	ExplodingTNT	100	50	50	0.900000	1.000000	1.000000 0.000000 0
+self	0.02000	ExplodingTNT	1.0000	Fire
+neighbor 0.9	ExplodingTNT	TNT	1.0	ExplodingTNT	ExplodingTNT
+neighbor 1.0	ExplodingTNT	Wall	1.0	ExplodingTNT	Dust
+explosion	ExplodingTNT	TNT	100	100
+#Dissolves other elements. Turns to steam when heated.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000 1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.000000 1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant2
+#Inert.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.700000 1
+hotself	93	Sand
+self	0.175	Sand	1.0	Lava
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000 1
+neighbor 0.75	Spout	Empty	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Empty		Empty
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000 1
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000 1
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty	1.0	???	???
+neighbor 1.0	???	Wall	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.450000 1
+#Soluable in water.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000 1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000 1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+neighbor 0.9		Ember	Water	1.0	Empty	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+#Burns for a little while.
+element	FallingEmber	200	50	50	1.000000	0.200000	1.000000 0.000000 1
+self	0.002000	FallingEmber	1.0000	Fire
+neighbor 0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor 0.9		FallingEmber	Water	1.0	Empty	Steam
+neighbor 1.0		FallingEmber	Oil	1.0	FallingEmber	FallingEmber
+neighbor 1.0		FallingEmber	Plant	1.0	FallingEmber	Fire
+neighbor 0.005		FallingEmber	Cera	1.0	MoltenCera	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	1.000000 0.000000 0
+neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000 1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000 0.600000 1
+self	0.00001	Saltwater	0.5	Water	0.5	Salt
+neighbor 0.004	Water	Salt	1.0	Saltwater	Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt	Steam
+neighbor 0.04	Saltwater	Water	1.0	Water	Saltwater
+neighbor 0.9	Saltwater	Fire	1.0	Salt	Steam
+hotneighbor   50	Saltwater	Saltwater
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000 1
+neighbor 0.2	Torch	Empty	1.0	Torch	Fire
+neighbor 0.2	Torch	Water	1.0	Torch	Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch	Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch	Fire
+neighbor 0.2	Torch	Plant	1.0	Torch	Fire
+neighbor 0.2	Torch	Cera	1.0	Torch	MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000 0.000000 0
+self	0.005000	Leftover???	1.0000	Empty	
+
+
+
+#These are for compatability
+neighbor	0.001	Water	Empty	1.0	Ice	Empty
+
+hotself	80	Oil
+self	0.1	Oil	1.0	Oilvapor
+
+
+
+#Water turns into this at 0 degrees
+element	Ice	200	200	250	0.0	1.0	1.0	1.0	1
+
+hotself	1	Ice
+self	1.0	Ice	1.0	Water
+
+neighbor	0.005	Water	Ice	1.0	Ice	Ice
+neighbor	1.0	Steam	Ice	1.0	Water	Ice
+
+#Evaporated Oil, very explosive...
+element	Oilvapor	138	74	74	-1.0	1.0	0.001	0.1	1
+
+self	0.001	Oilvapor	1.0	Oil
+
+pexplosion	Oilvapor	Fire	10.0	Fire
+
+#New plant
+element	Plant2	32	204	32	0.000000	0.000000	1.000000	0.000000 0
+self	0.55	Plant2	1.0	Plant
+neighbor	0.2	Plant2	Water	1.0	Plant2	Plant3
+neighbor	0.5	Plant2	Empty	1.0	Plant	Empty
+neighbor	1.0	Fire	Plant2	1.0	Fire	Fire
+
+#New New plant
+element	Plant3	32	204	32	0.000000	0.000000	1.000000	0.000000 0
+self	0.35	Plant3	1.0	Plant2
+neighbor	0.2	Plant3	Water	1.0	Plant3	DrownedPlant
+neighbor	0.5	Plant3	Empty	1.0	Plant2	Empty
+neighbor	1.0	Fire	Plant3	1.0	Fire	Fire
+
+#Over-watered plant
+element	DrownedPlant	32	204	32	0.000000	0.000000	1.000000 0.000000 0
+self	0.01	DrownedPlant	0.99	Water	0.01	Plant
+neighbor	0.05	DrownedPlant	Plant	1.0	DrownedPlant	Plant2
+neighbor	0.9	DrownedPlant	Plant2	1.0	DrownedPlant	Plant3
+neighbor	0.9	DrownedPlant	Plant3	1.0	DrownedPlant	DrownedPlant
+neighbor	1.0	DrownedPlant	Empty	1.0	Plant	Empty
+neighbor	1.0	Fire	DrownedPlant	0.9	Empty	Plant	0.1	Fire	Plant
+
+#Cold, Hard, Rock
+element	Rock	110	100	100	0.0	0.0	1.0	0.5	1
+hotself	95	Rock
+self	0.1	Rock	1.0	Lava
+hotcolor	Rock	250	100	100
+neighbor	0.001	Rock	Water	1.0	OldRock	Water
+neighbor	0.001	Rock	Sand	1.0	OldRock	Sand
+neighbor	0.001	Rock	WetSand	1.0	OldRock	WetSand
+neighbor	0.001	Rock	Saltwater	1.0	OldRock	Saltwater
+
+#Dirt
+element	Dirt	150	125	100	0.9	0.1	0.7	0.6	1
+hotself	90	Dirt
+self	0.2	Dirt	1.0	Lava
+neighbor	0.6	Dirt	Water	1.0	Mud	Empty
+neighbor	0.35	Dirt	Mud	1.0	Mud	Dirt
+neighbor	0.4	Dirt	WetSand	1.0	Mud	Sand
+
+#Mud
+element	Mud	100	50	40	0.91	0.35	0.65	0.55	1
+neighbor	0.01	Mud	Empty	1.0	Dirt	Water
+neighbor	0.4	Mud	Sand	1.0	Dirt	WetSand
+
+#Saturates with Water
+element	Saturator	100	160	60	0.0	0.0	1.0	0.0	1
+neighbor	1.0	Saturator	Dirt	1.0	Saturator	Mud
+neighbor	1.0	Saturator	Sand	1.0	Saturator	WetSand
+
+
+#Wet Sand, good for building
+element	WetSand	188	159	88	0.000000	0.001000	0.890000	0.000000 1
+neighbor	0.85	Sand	Water	1.0	WetSand	Empty
+neighbor	0.05	Sand	Saltwater	1.0	WetSand	Salt
+neighbor	0.2	Sand	WetSand	1.0	WetSand	Sand
+neighbor	0.01	WetSand	Empty	1.0	Sand	Water
+
+
+#A wave
+element	WWater	32	32	255	0.700000	1.000000	0.500000	0.400000 0
+hotcolor WWater  200     200     255
+neighbor	1.0	Water	WWater	1.0	WWater	WWater
+neighbor	0.2	WWater	Empty	1.0	Empty	DWater
+explosion	WWater	Empty	0	50
+self	0.25	WWater	1.0	DWater
+
+#A dead wave
+element	DWater	32	32	255	0.700000	1.000000	0.500000	0.400000 0
+hotcolor DWater  200     200     255
+self	0.01	DWater	1.0	Water
+
+
+#Weak Rock
+element	OldRock	160	150	150	0.0	0.0	1.0	0.2	0
+hotself	92	OldRock
+self	0.15	OldRock	1.0	Lava
+hotcolor	OldRock	250	100	100
+neighbor	0.001	OldRock	Sand	0.9	Sand	Sand	0.1	Dirt	Sand
+
+
+
+
+#This means war!---&gt;
+#Messes up everything, but removes nothing...
+element	Nuke	20	100	30	0.0	0.0	1.0	0.1	1
+#neighbor	1.0	Nuke	Electricity	1.0	ANuke	Empty
+neighbor	1.0	ANuke	Nuke	1.0	ANuke	ANuke
+
+#Arms the nuke
+element	ANuke	100	100	30	0.0	0.0	1.0	0.1	1
+neighbor	1.0	ANuke	Fire	1.0	N1	Empty
+
+#Nuke Explosion1
+element	N1	10	200	10	0.2	0.0	1.0	-10.0	0
+neighbor	1.0	N1	ANuke	1.0	N1	N1
+neighbor	1.0	N1	Empty	0.5	N2	N2	0.5	N1	N2
+explosion	N1	Empty	255	255
+
+#Nuke Explosion2
+element	N2	20	220	20	0.3	0.0	1.0	-10.0	0
+neighbor	1.0	N2	ANuke	1.0	N1	N1
+neighbor	1.0	N2	Empty	0.5	N3	N3	0.5	N2	N3
+explosion	N2	Empty	255	255
+
+#Nuke Explosion3
+element	N3	30	240	30	0.4	0.0	1.0	-10.0	0
+neighbor	1.0	N3	ANuke	1.0	N1	N1
+neighbor	1.0	N3	Empty	0.5	N4	N4	0.5	N3	N4
+explosion	N3	Empty	255	255
+
+#Nuke Explosion4
+element	N4	40	250	40	0.5	0.0	1.0	-10.0	0
+neighbor	1.0	N4	ANuke	1.0	N1	N1
+neighbor	1.0	N4	Empty	0.5	N5	N5	0.5	N4	N5
+explosion	N4	Empty	255	255
+
+#Nuke Explosion5
+element	N5	50	255	50	0.6	1.0	1.0	-10.0	0
+self	0.1	N5	1.0	Empty
+neighbor	1.0	N5	ANuke	1.0	N1	N1
+
+
+
+#neighbor	0.001	Dust	Water	1.0	Dust	WWater
+
+#This makes waves (credit for wave idea go to LordMantir)
+element	Wavegen	35	25	200	0.0	0.0	1.0	0.0	1
+neighbor	0.001	Wavegen	Water	1.0	Wavegen	WWater
+#neighbor	1.0	Wavegen	Electricity	1.0	Wavegenon	Empty
+
+
+
+
+
+
+#OH MY LAVA THAT IS HOT!
+element	Lava	250	100	100	0.89	1.0	0.64	1.01	1
+self	0.020	Lava	1.0	CoolingRock
+neighbor	0.001	Lava	Rock	0.2	Lava	Lava	0.8	Lava	Rock
+neighbor	0.015	Lava	OldRock	1.0	Lava	Lava
+neighbor	0.015	Lava	Sand	1.0	Lava	Lava
+neighbor	0.025	Lava	Dirt	1.0	Lava	Lava
+neighbor	0.1	Lava	Empty	0.9	Lava	Fire	0.1	CoolingRock	Empty
+neighbor	0.02	Water	Lava	0.1	Water	CoolingRock	0.9	Steam	CoolingRock
+neighbor	0.02	Saltwater	Lava	1.0	Saltwater	CoolingRock
+
+#Hardened Lava
+element	CoolingRock	200	100	100	0.0	0.0	1.0	0.1	0
+self	0.01	CoolingRock	0.99	Rock	0.1	Sand
+neighbor	0.05	CoolingRock	Lava	1.0	CoolingRock	CoolingRock
+neighbor	0.1	CoolingRock	Fire	1.0	CoolingRock	Empty
+
+
+#Heats up anything it touches
+element	Heater	255	0	0	0.0	0.0	1.0	9999999	1
+

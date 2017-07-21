@@ -1,0 +1,119 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version, File subversion 2
+group Bomb bomb flashybombfilling bombfilling pufffilling
+group arming yo Hiya Betchacan'tfigurethisout haha Catch22 batterysource
+group Defusing cutters
+
+
+element empty 0 0 0 0 0 0 0 1
+
+element bomb 255 200 255 0 0 0 0 1
+
+element bombfilling 255 0 0 1 0 0 0 1
+
+element flashybombfilling 0 0 255 1 0 0 0 1
+element yo 255 255 123 0 0 0 0 1
+neighbor 1 AH Hiya 1 AH HiyaA
+neighbor 1 AH haha 1 AH hahaX
+element batterysource 255 255 200 0 0 0 0 1
+neighbor 1 batterysource yo 1 batterysource AH
+element AH 0 0 255 0 0 0 0 0
+neighbor 1 AH Betchacan'tfigurethisout .05 AH Betchacan'tfigurethisoutA .95 AH Betchacan'tfigurethisout 
+neighbor 1 AH yo .05 AH AH .95 AH yo
+neighbor 1 AH bombfilling .3 yo2 spark .7 AH spark
+neighbor 1 AH flashybombfilling .3 yo2 spark .7 AH spark
+element spark 0 0 255 0 0 0 0 0 
+self .1 spark 1 empty
+pexplosion spark bombfilling 500 BOOM
+pexplosion spark flashybombfilling 200 FlashyBoom
+neighbor 1 HiyaX batterysource 1 HiyaA batterysource
+element BOOM 255 0 0 1 0 0 0 1
+self .1 BOOM 1 empty
+element FlashyBoom 255 0 0 0 0 0 0 0
+self .1 FlashyBoom 1 FlashyBoom2
+neighbor 1 FlashyBoom empty 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom Blood 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom batterysource 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom yo2 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom flashybombfilling 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom bomb 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom HiyaX 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom Hiya 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom wirecoverG 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom wirecoverY 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom wirecoverR 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom wirecoverB 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom wirecoverW 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom AH 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom HiyaA 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom Betchacan'tfigurethisout 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom Human 1 FlashyBoom FlashyBoom
+neighbor 1 FlashyBoom Betchacan'tfigurethisoutA 1 FlashyBoom FlashyBoom
+element yo2 255 200 255 0 0 0 0 0
+self .009 yo2 1 yo
+neighbor 1 yo2 AH 1 yo2 yo2
+element FlashyBoom2 0 0 0 0 0 0 0 0
+self .001 FlashyBoom2 1 empty
+element wirecoverG 0 255 0 0 0 0 0 1
+element wirecoverR 255 0 0 0 0 0 0 1
+element wirecoverB 0 0 255 0 0 0 0 1
+element wirecoverW 255 244 255 0 0 0 0 1
+element wirecoverY 255 255 0 0 0 0 0 1
+element Hiya 255 255 123 0 0 0 0 1
+neighbor 1 Hiya cutters 1 HiyaX empty
+neighbor 1 Hiya batterysource 1 HiyaA batterysource
+element HiyaX 255 255 125 0 0 0 0 0
+neighbor 1 HiyaX Hiya 1 HiyaX HiyaX
+neighbor 1 HiyaX flashybombfilling 1 HiyaX spark
+neighbor 1 HiyaX bombfilling 1 HiyaX spark
+element cutters 0 255 0 0 0 0 0 1
+self .1 cutters 1 empty
+element HiyaA 0 0 255 0 0 0 0 0
+neighbor 1 HiyaA yo 1 HiyaA AH
+neighbor 1 HiyaA haha 1 HiyaA hahaX
+neighbor 1 HiyaA  Betchacan'tfigurethisout 1 HiyaA  Betchacan'tfigurethisoutA
+neighbor 1 HiyaA Hiya .05 HiyaA HiyaA .95 HiyaA Hiya
+element Betchacan'tfigurethisout 255 255 123 0 0 0 0 1
+neighbor 1 Betchacan'tfigurethisout batterysource 1 Betchacan'tfigurethisoutA batterysource
+neighbor 1  Betchacan'tfigurethisoutA yo .05  Betchacan'tfigurethisoutA AH .95 Betchacan'tfigurethisoutA yo
+pexplosion Betchacan'tfigurethisout cutters 500 BOOM
+element Betchacan'tfigurethisoutA 0 0 255 0 0 0 0 0
+neighbor 1 Betchacan'tfigurethisoutA Hiya 1 Betchacan'tfigurethisoutA HiyaA
+neighbor 1 Betchacan'tfigurethisoutA haha 1 Betchacan'tfigurethisoutA hahaX
+pexplosion Betchacan'tfigurethisoutA cutters 500 BOOM
+neighbor 1 Betchacan'tfigurethisoutA Betchacan'tfigurethisout .05 Betchacan'tfigurethisoutA Betchacan'tfigurethisoutA .95 Betchacan'tfigurethisoutA Betchacan'tfigurethisout
+element Human 255 255 0 0 0 0 0 1
+neighbor 1 Human BOOM .5 BOOM BOOM .5 BOOM Blood
+element Blood 255 0 0 1 0 0 0 0
+self .001 Blood 1 empty
+neighbor 1 FlashyBoom Blood 1 FlashyBoom FlashyBoom
+element pufffilling 255 100 123 1 0 0 0 1
+neighbor 1 pufffilling AH 1 pufffilling spark
+neighbor 1 pufffilling spark 1 explodingpufffilling explodingpufffilling
+element explodingpufffilling 0 255 0 0 0 0 0 0 
+self .49 explodingpufffilling 1 pufffilling2
+neighbor 1 explodingpufffilling empty 1 explodingpufffilling explodingpufffilling
+neighbor 1 explodingpufffilling pufffilling 1 explodingpufffilling explodingpufffilling
+pexplosion explodingpufffilling explodingpufffilling 2 explodingpufffilling
+element pufffilling2 255 0 0 0 0 0 0 0 
+self .001 pufffilling2 1 empty
+element haha 255 255 123 0 0 0 0 1
+neighbor 1 hahaX Betchacan'tfigurethisout 1 hahaX Betchacan'tfigurethisoutA
+neighbor 1 hahaX Hiya 1 hahaX HiyaA
+neighbor 1 hahaX yo 1 hahaX AH
+neighbor 1 haha batterysource 1 hahaX batterysource
+neighbor 1 haha cutters 1 jump jump
+element jump  0 0 255 1 0 0 0 0
+self .01 jump 1 jump2
+element jump2 0 0 0 -1 0 0 0 0 
+pexplosion jump2 empty 1 jump2
+pexplosion jump2 jump2 2 jump2
+self .1 jump2 1 jump3
+element jump3 255 0 0 1 0 0 0 0
+self .001 jump3 1 empty
+pexplosion jump3 jump2 2 jump3
+element hahaX 0 0 255 0 0 0 0 0
+neighbor 1 hahaX haha .05 hahaX hahaX .95 hahaX haha
+element Catch22 255 255 123 0 0  0 0 1
+self 1 Catch22 .5 yo .5 Betchacan'tfigurethisout
+

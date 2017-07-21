@@ -1,0 +1,132 @@
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+
+group Planets Planet WaterPlanet RockPlanet GasPlanet SuperPlanet RedPlanet
+group Stars Star Sun BlackHole SolarFlare
+group Rockets Rocket MartianRocket 
+
+
+#erase stuff
+element Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#a distant star
+element Star 255 255 255 0 0 1 1 1
+
+#a star close up produces solar flares
+element Sun 255 255 255 0 0 1 1 1
+self 0.5 Sun 1.0 Sun2
+element Sun2  255 0 0 0 0 1 1 0
+self 0.5 Sun2 1.0 Sun3
+element Sun3  50 0 0 0  0 1 1 0
+self 0.5 Sun3 1.0 Sun
+neighbor 1.0  Sun Empty 1.0 SolarFlare Sun
+pexplosion Sun Empty 0.25 Planet Moon 0.25 GasPlanet Destroyer
+ pexplosion Sun Destroyer 1000 Fire
+ pexplosion Sun2  Destroyer 1000 Fire
+ pexplosion Sun3  Destroyer 1000 Fire
+
+#burns
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	0
+self	0.050000	Fire	1.0000	Empty
+	
+# a planet full of life look closely to see space rockets fly out.  The planet will evntually fall apart from global warming
+
+element Planet 0 255 0 0 0 5 1 1
+self 0.5 Planet 1.0 Planet2
+element Planet2  0 0 255 0 0 1 1 0
+self 0.5 Planet2 1.0  Planet  
+neighbor 0.0009 Planet Empty 1.0 Rocket Planet
+neighbor 1.0 Planet Sun 1.0 Fire Fire
+neighbor 1.0 Planet Destroyer 1.0 Fire Fire
+neighbor 1.0 Planet2 Sun 1.0 Fire Fire
+neighbor 1.0 Planet Fire 1.0 Fire Fire
+
+#a watery planet it may have water but the water is to cold to support life
+element WaterPlanet 0 0 255 0 0 1 1 1
+self 0.5 WaterPlanet 1.0 WaterPlanet2
+element WaterPlanet2  0 0 100 0 0 1 1 0
+self 0.5 WaterPlanet2 1.0 WaterPlanet
+pexplosion WaterPlanet Destroyer 10 Fire
+pexplosion WaterPlanet Fire 10 Fire
+
+#a barren waste land of a planet
+element RockPlanet 115 115 115 0 5 1 1 1
+self 0.5 RockPlanet 1.0 AsteroidBelt2
+element AsteroidBelt2  0  0 0 0 5 1 0 0
+self 0.5 AsteroidBelt2 1.0 RockPlanet
+explosion AsteroidBelt2  Destroyer 64  64
+
+#a floating rock
+element Moon 115 115 115 0 5 1 1 1
+neighbor 1.0 Moon SolarFlare  1.0 Moon2 SolarFlare
+element Moon2 200 200 200  0 5 1 1 0
+neighbor 1.0 Moon Moon2  1.0 Moon2 Moon2
+#a gas planet very dangerous 
+element GasPlanet 0 0 0 0 0 0 1 1 1
+
+self 0.5 GasPlanet 1.0 GasPlanet2
+element GasPlanet2  225 225 0 0 0 1 1 0
+self 0.5 GasPlanet2 1.0 GasPlanet
+pexplosion GasPlanet Sun 150 Fire
+pexplosion GasPlanet Fire 150 Fire
+pexplosion GasPlanet Destroyer 150 Fire
+
+#destoys planets
+element Destroyer 255 0 0 -1 5 1 1 1
+neighbor 1.0	Destroyer   	LeftoverFlare	1.0	BlackHole  BlackHole
+
+#will suck up everything near it 
+element BlackHole 0 0 0 0 0 1 1 1
+neighbor 0.5 BlackHole Empty 0.5 BlackHole2 BlackHole2
+element BlackHole2 25 0 25 0 0 1 1 1
+neighbor 0.5 BlackHole2 BlackHole 0.5 BlackHole BlackHole
+neighbor 0.5 BlackHole BlackHole2 0.5 BlackHole2 BlackHole2
+neighbor 0.5 BlackHole2 BlackHole 0.5 BlackHole BlackHole
+#pexplosion 0.5 BlackHole Empty 128 Destroyer
+pexplosion Empty BlackHole 128 Destroyer
+
+#a large planet  will only appear when the sun is placed in the solar system
+element SuperPlanet 0 0 0 0 0 1 1 1
+pexplosion SuperPlanet SolarFlare 64  SuperPlanet2
+element SuperPlanet3   255 0 0 0 0 1 1 0
+element SuperPlanet2  0 255 0 0 0 1 1 0
+self 0.5 SuperPlanet2 1.0 SuperPlanet3
+self 0.5 SuperPlanet3 1.0 SuperPlanet4
+element SuperPlanet4  0 0 255 0 0 1 1 0
+self 0.5 SuperPlanet4 1.0 SuperPlanet2
+pexplosion SuperPlanet3 Destroyer 123  SolarFlare
+
+#firey flares from the sun. your planets are safe from them because they have atmospheres
+element	SolarFlare	  247	63	63	0.000000	1.000000	1.000000	0.000000	1
+self	0.100000	SolarFlare	1.0000	LeftoverFlare
+neighbor 1.0	SolarFlare	Empty	1.0	SolarFlare    SolarFlare
+
+#leftovers
+element	LeftoverFlare	0	0	0	0.000000 	1.000000	1.000000	0.000000	0
+self	0.005000	LeftoverFlare	1.0000	Empty	
+
+#life may excist here keep it away from your Planet they may invade
+element RedPlanet 255 0 63 0 5 5 1 1
+self 0.5 RedPlanet  1.0 RedBelt2
+element RedBelt2 255 0 0   0 5 1 0 0
+self 0.5 RedBelt2 1.0 RedPlanet
+pexplosion RedPlanet Destroyer 1 Destroyer
+
+# a projectile which fires astronauts into space
+element	Rocket	100 100 100	-1.   0.000000	2.000000	1.100000	1
+self	0.0050000	Rocket	1.0000	Empty
+neighbor 1.0  Rocket RedPlanet 1.0 Destroyer Fire
+	
+# a martian warship built to destroy earth 
+element	MartianRocket	63 255   0	-1.   0.000000	2.000000	1.100000	1
+self	0.0050000 MartianRocket	1.0000	Empty
+neighbor 0.0009 RedPlanet Empty 1.0 MartianRocket RedPlanet
+neighbor 1.0  MartianRocket Planet 1.0 Fire Destroyer

@@ -1,0 +1,1011 @@
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group blobs Empty blob blobkiller blobfeed blobfed deathblob waterblob nuetralizedblob nuetralizer heatblob
+group blocks Empty Wall safewall byewall heatwall glass growblock rock pebble
+group electric Empty turbine wire stove batteryfluid -side switch tv switch2
+group plants Empty Plant compost
+group waters Empty Water Spout Steam Saltwater ice snow cloud snowcloud
+group pointless Empty rubberball driller snowglobe lightwall lightabletorch wdeathpowder bakingsoda ohno ohno2 ohno3 drycement cement flyer gate key h2ogate
+group pointless2 Empty waterballoon meltwall megadense solidmegadense flashy liquidheat selfcoolant colory colory2 colory3 supergrow oilx healer purboom 1 2
+group spouts Empty Spout sandstorm saltrock colorspout ocean well
+group basics Empty Salt Sand Water Oil Spout sandstorm saltrock Plant Cera
+group sun Empty nebula evolution galaxy invisomaker visomaker Black_hole bboom
+group destructive Empty acid methane Fire bigbomb blobbomb scatterbomb coal redbomb flyby gunpowder armedpowder timebomb fireball rocket rocketbomb implosioncore 
+group destructive2 Empty A-bomb coldfire coldember flashbomb Torch Ember ??? redpowder4 BIGbomb firestorm saltboom Destroyer Destroyer-Destroyer 
+group booms Empty waboom blaboom emboom WAboom walboom plaboom
+group volcanos Empty lava volcano eruptor reseter base megaeruptor rock
+group flamethrower Empty safewall chemfire tube trigger Oil
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#A solid element which reacts with nothing.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall  255     0     0
+#Burns other elements. Source of energy.
+element	Fire	250 250 0	-1.000000	1.000000	0.000000	1.100000	1
+hotcolor Fire 247	63	63
+self	0.050000	Fire	0.90	Empty	 0.05 smoke 0.05 Fire	
+hotcolor Fire   255    63     63
+neighbor 0.9	Fire	Water	1.0	Empty		Steam
+neighbor 0.75	Fire	Oil	1.0	Fire		Fire
+neighbor 1.0	Fire	Plant	1.0	Fire		Fire
+neighbor 0.005	Fire	Cera	1.0	MoltenCera	Ember
+#Dissolves other elements. Turns to steam when heated.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+hotcolor Water  200     200     255
+self    0.001     Water   1.0     Steam
+hotself 50     Water
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.00000	0.000000	1
+neighbor 0.2	Plant	Water	1.0	Plant	Plant
+#Inert.
+element	Sand	238	204	128	0.900000	0.500000	0.900000	0.2	1
+self 0.05 Sand 1 glass
+hotself 90 Sand
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.75	Spout	Empty	1.0	Spout		Water
+neighbor 0.5	Spout	Sand	1.0	Empty		Empty
+#Wax. Melts.
+element	Cera	238	221	204	0.000000	0.000000	1.000000	0.9	1
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+self 0.05 Cera 1 MoltenCera
+hotself 60 Cera
+self	0.100000	???	1.0000	Leftover???
+neighbor 1.0	???	Empty	1.0	???	???
+neighbor 1.0	???	Wall	1.0	???	???
+neighbor 1.0	???	Fire	1.0	???	???
+neighbor 1.0	???	Water	1.0	???	???
+neighbor 1.0	???	Sand	1.0	???	???
+neighbor 1.0	???	Spout	1.0	???	???
+neighbor 1.0	???	Cera	1.0	???	???
+neighbor 1.0	???	Oil	1.0	???	???
+neighbor 1.0	???	Salt	1.0	???	???
+neighbor 1.0	???	Ember	1.0	???	???
+neighbor 1.0	???	MoltenCera	1.0	???	???
+neighbor 1.0	???	Steam	1.0	???	???
+neighbor 1.0	???	Saltwater	1.0	???	???
+neighbor 1.0	???	Torch	1.0	???	???
+neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.000000	1
+#Soluable in water.
+element	Salt	255	255	255	0.900000	0.400000	0.900000	0.1	1
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+neighbor 0.9		Ember	Water	1.0	Empty	Steam
+neighbor 0.75		Ember	Oil	1.0	Ember	Fire
+neighbor 1.0		Ember	Plant	1.0	Ember	Fire
+neighbor 0.005		Ember	Cera	1.0	MoltenCera	Ember
+#Flowing cera. Will harden eventually.
+element	MoltenCera	255	220	200	0.800000	1.000000	0.8	0.000000	0
+neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+neighbor 0.01	MoltenCera	Spout	1.0	Cera	Spout
+neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+neighbor 0.01	MoltenCera	Oil	1.0	Cera	Oil
+neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.000000	1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+self    0.00001         Saltwater       0.5   Water  0.5  Salt
+neighbor 0.004	Water	Salt	1.0	Saltwater		Saltwater
+neighbor 0.001	Saltwater	Saltwater	1.0	Salt		Steam
+neighbor 0.04		Saltwater	Water		1.0	Water		Saltwater
+neighbor 0.9		Saltwater	Fire		1.0	Salt		Steam
+hotneighbor   50      Saltwater	Saltwater
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+neighbor 0.2	Torch	Empty	1.0	Torch		Fire
+neighbor 0.2	Torch	Water	1.0	Torch		Steam
+neighbor 0.2	Torch	Saltwater	0.5	Torch		Steam	0.5	Torch	Salt
+neighbor 0.2	Torch	Oil	1.0	Torch		Fire
+neighbor 0.2	Torch	Plant	1.0	Torch		Fire
+neighbor 0.2	Torch	Cera	1.0	Torch		MoltenCera
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	0.5	0.000000	0
+self	0.005000	Leftover???	1.0000	Empty	
+#a type of healing block. ever since 4.4 explosions have been happining randomly for an unknown reason
+element growblock 255 255 255 0 1 1 0 1
+neighbor 0.05 growblock Empty 0.5 growblock growblock 0.5 growblock Empty
+self 0.003 growblock 0.03 growblock2 0.97 growblock
+
+element growblock2 255 255 255 0 1 1 0 0
+neighbor 1 growblock2 Empty 1 growblock2 growblockhard
+self 0.0005 growblock2 0.2 growblock3 0.8 growblock2
+neighbor 1 growblock2 growblock 1 growblock2 growblock2
+
+element growblock3 255 255 255 0 1 0 1 0 0
+neighbor 0.5 growblock3 growblock2 1 growblock3 growblock3
+neighbor 1 growblock3 Empty 1 growblock3 growblock
+
+element growblockhard 255 255 255 0 1 1 0 0
+#grows in air destroyed by methane/deathblob
+element blob 0 250 0 1 0 0.4 0 1
+neighbor 0.015 blob Empty 1 blob blob
+# just a pointless wall
+element lightwall 235 235 235 0 0 0.8 1 1
+#kills blob
+element deathblob 0 0 250 1 0 1 3 1
+neighbor 1 deathblob Empty 0.98 Empty deathblob 0.02 deathblob deathblob
+self 0.03 deathblob 1 Empty
+neighbor 1 deathblob blob 1 Empty deathblob
+#deathblob source
+element blobkiller 0 0 250 0 0 1 3 1
+neighbor 0.5 blobkiller Empty 1 blobkiller deathblob
+#feeds blobs
+element blobfeed 0 0 250 1 0 1 0 1
+neighbor 1 blobfeed blob 1 blob blobfed
+#after being fed
+element blobfed 250 0 0 0 0 1 3 1
+neighbor 1 blobfed blob 1 blob blobfed
+neighbor 1 blobfed Empty 1 blob blob
+#destroyes blobs, burns
+element methane 205 201 201 0 0 0 0 1
+neighbor 0.5 methane Empty 1 methane methane
+neighbor 0.30 methane blob 1 methane methane
+neighbor 1 Fire methane 1 Fire Fire
+#only size one or two, add steam, havent tested anything electrical since 4.4 came out
+element turbine 250 250 250 0 0 1 0.5 1
+element tturn 250 0 250 0 0 1 0.5 0
+element tdone 250 250 0 0 0 1 0.5 0
+neighbor 1 turbine Steam 1 tturn Steam
+neighbor 1 turbine tturn 1 tturn tturn
+neighbor 0.05 tdone tturn 1 tdone tdone
+self 0.05 tdone 1 turbine
+self 0.0005 tturn 1 tdone
+#r g b gravity slip density conductivity visible
+#hmm i wonder
+element wire 131 139 131 0 0 1 0 1
+element wirecharge 255 215 0 0 0 1 0 0
+element wire2 255 215 0 0 0 1 0 0  
+neighbor 1 wire tturn 1 wirecharge tdone
+neighbor 0.5 wire2 wirecharge 1 wire2 wire2
+neighbor 1 wirecharge wire 1 wirecharge wirecharge
+self 0.05 wire2 1 wire
+self 0.03 wirecharge 1 wire2
+#r g b gravity slip density conductivity visible
+#just charge
+element stove 93 71 139 0 0 1 0 1
+element bstove 93 71 139 0 0 1 0 0
+element dstove 26 26 26  0 0 1 0 0
+neighbor 1 stove wirecharge 1 bstove wire2
+neighbor 1 bstove stove 1 bstove bstove
+neighbor 1 dstove bstove 1 dstove dstove
+neighbor 1 bstove Empty 1 bstove Fire
+self 0.0001 bstove 1 dstove
+self 0.009 dstove 1 stove
+#put inside wall and connect wire to one end and -side to other end then bring wire in circle into -side
+element batteryfluid 138 43 226  1 1 0.5 1 1
+element batteryfluid2 138 43 226 1 1 0.5 1 0
+element batteryfluid3 0 43 226 1 1 0.5 1 0
+self 1 batteryfluid 1 Fire
+hotself 90 batteryfluid
+neighbor 1 batteryfluid Fire 1 Fire Fire
+neighbor 0.05 batteryfluid wire 1 batteryfluid2 wirecharge
+neighbor 1 batteryfluid2 batteryfluid 1 batteryfluid2 batteryfluid2
+neighbor 1 batteryfluid2 -sidecharge 1 batteryfluid3 -sidecharge2
+neighbor 1 batteryfluid2 batteryfluid3 1 batteryfluid3 batteryfluid3
+self 1 batteryfluid3 1 batteryfluid4
+#read battery
+element -side 250 250 250  0 1 0.5 1 1
+neighbor 1 -side wirecharge 1 -sidecharge wire2
+neighbor 1 -sidecharge -side 1 -sidecharge -sidecharge
+
+element -sidecharge 138 43 226  0 1 0.5 1 0
+self 0.005 -sidecharge 1 -sidecharge2
+neighbor 1 -sidecharge2 -sidecharge 1 -sidecharge2 -sidecharge2
+self 0.009 -sidecharge2 1 -side
+
+element -sidecharge2 138 43 0  0 1 0.5 1 0
+element batteryfluid4 0 43 226 1 1 0.5 1 0
+self 0.3 batteryfluid4 1 batteryfluid
+
+neighbor 1 blob wirecharge 0.5 Empty wirecharge 0.5 deathblob wirecharge
+#r g b gravity slip density conductivity visible
+#a lightable torch
+element lightabletorch 34 139 34 0 0 1 0 1
+neighbor 1 lightabletorch Empty 1 lightabletorch Plant
+neighbor 1 lightabletorch Fire 0.1 lightabletorch Ember 0.9 lightabletorch Plant
+#transfers electricity goes away after first charge
+element switch 255 0 0 0 0 1 0 1 
+element switchdie 255 0 0 0 0 1 0 0
+neighbor 1 switch wirecharge 1 switchdie wire2
+neighbor 1 switch switchdie 1 switchdie switchdie
+self 0.05 switchdie 1 Empty
+neighbor 1 switchdie wire 1 Empty wirecharge 
+neighbor 1 Steam Plant 1 Plant Plant
+#frozen water
+element ice 175 238 238   0 0 1 0.4 1
+neighbor 0.05 ice Water 1 ice ice
+self 0.5 ice 1 Water
+hotself 50 ice 
+#frozen water
+element snow 245 245 245 0.7 1 0.5 0.6 1
+self 0.5 snow 1 Water
+hotself 50 snow
+
+element snowglass 250 250 250 0 0 1 0.9 0
+hotcolor snowglass 250 15 15
+hotself 70 snowglass
+neighbor 1 snowglass Empty 1 snowglass snowglass2
+neighbor 0.05 snowglass Empty2 1 snowglass snowg 
+# size 32 or bigger do NOT open (empty2 leak)
+element snowglobe 0 0 0 0 0 1 0 1
+neighbor 1 snowglobe Empty 1 snowglobe snowglass
+self 0.05 snowglobe 0.9 snowg 0.1 Empty2
+
+element Empty2 0 0 0 0 0 0 0 0
+neighbor 1 Empty2 snowglobe 1 Empty2 Empty2
+
+element snowglass2 250 250 250 0 0 1 0.9 0
+hotcolor glass 250 15 15
+hotself 70 glass
+#... glass
+element glass 250 250 250 0 0 1 0.1 1
+hotcolor glass 250 15 15
+hotself 70 glass
+
+element snowg 245 245 245 1 1 0.5 0.6 0
+self 0.004 snowg 1 Empty2
+
+neighbor 0.5 ice Steam 1 Steam Water
+
+#r g b gravity slip density conductivity visible
+#put over wall
+element rubberball 250 0 0 1 1 0.6 0 1
+element rubberball2 250 0 0 -1 1 0.6 0 0
+neighbor 1 rubberball Wall 1 rubberball2 Wall
+self 0.05 rubberball2 1 rubberball
+neighbor 0.5 rubberball2 Wall 1 rubberball Wall
+#put over wall
+element driller 250 0 0 1 1 0.6 0 1
+element driller2 250 0 0 -1 1 0.6 0 0
+neighbor 1 driller Wall 1 driller2 Empty
+self 0.2 driller2 1 driller
+neighbor 0.5 driller2 Wall 1 driller Wall
+
+element static 0 0 0 0 0 0.5 0 0
+element static2 250 250 250 0 0 0.5 0 0
+self 0.5 static 1 static2
+self 0.5 static2 1 static
+neighbor 0.00015 static static2 0.01 tv2 tv2 0.98 static2 static 0.01 Empty Empty
+#put in wall and connect to wire
+element tv 0 0 0 0 0 0 0 1
+neighbor 0.5 tv wirecharge 1 static wire2
+neighbor 0.5 tv static 1 static static
+
+element tv2 250 250 250 0 0 0 0 0
+neighbor 1 tv2 static 1 tv2 tv2
+neighbor 1 tv2 static2 1 tv2 tv2
+self 0.1 tv2 1 tv3
+
+element tv3 250 250 250 0 0 0 0 0
+self 0.5 tv3 1 tv
+#regen. switch
+element switch2 255 0 0 0 0 1 0 1 
+element switchdie2 255 0 0 0 0 1 0 0
+neighbor 1 switch2 wirecharge 1 switchdie2 wire2
+neighbor 1 switch2 switchdie2 1 switchdie2 switchdie2
+self 0.05 switchdie2 1 switchfinish
+element switchfinish 0 0 0 0 0 1 0 0
+neighbor 1 switchdie2 wire 1 switchfinish wirecharge 
+self 0.005 switchfinish 1 switch2
+neighbor 0.5 Steam Plant 1 Plant Plant
+#r g b gravity slip density conductivity visible
+#water ember
+element cloud 175 238 238 0 0 0.6 0 1
+self 0.005 cloud 1 Water
+neighbor 0.005 cloud Empty 1 cloud Water
+neighbor 0.5 cloud Steam 0.1 cloud cloud 0.9 cloud Empty
+neighbor 1 cloud ice 1 snowcloud snow
+#snow ember
+element snowcloud 0 206 209 0 0 0.6 0 1
+self 0.005 snowcloud 1 snow
+neighbor 0.005 snowcloud Empty 1 snowcloud snow
+neighbor 0.5 snowcloud Steam 0.1 snowcloud ice 0.9 snowcloud Empty
+neighbor 1 snowcloud cloud 1 snowcloud snowcloud
+#eats through stuff like wall
+element acid 102 205 170 1 1 0.9
+neighbor 0.005 acid Wall 1 acid acid
+neighbor 0.009 acid Water 1 acid acid
+neighbor 0.03 acid Plant 1 acid compost
+neighbor 1 acid bakingsoda 1 smoke smoke
+#put water on it, put acid on plant to get compost
+element compost 85 107 47 1 0.5 0.5 0 1
+neighbor 0.0009 compost Plant 1 compost compost
+neighbor 1 compost Water 1 compost vine
+neighbor 1 Fire compost 1 Fire Fire
+neighbor 1 vine Fire 1 Fire Fire
+element vine 0 250 0 -1 0 1 0 0
+neighbor 1 vine Empty 1 Plant vine
+self 0.005 vine 1 Empty
+#couldnt really find a good use so it destroyes acid
+element bakingsoda 250 250 250 1 0 0 0 1
+self 0.005 bakingsoda 1 Empty
+#r g b gravity slip density conductivity visible
+element smoke 139 137 137 -1 0 0 0 0
+self 0.05 smoke 1 Empty
+neighbor 1 smoke acid 1 smoke smoke
+#eatin by blob, evaporates, grows in water
+element waterblob 0 191 255  1 1 0.6 0.5 1
+neighbor 0.03 waterblob Water 0.5 waterblob waterblob 0.5 waterblob Empty
+neighbor 0.015 Plant waterblob 1 Plant Plant
+
+
+element nuetralizedblob 90 220 90 0 0 0.9 0 1
+neighbor 1 nuetralizedblob blob 1 nuetralizedblob nuetralizedblob
+self 0.01 nuetralizedblob 1 flaking
+element flaking 60 220 60 1 1 0.9 0 0
+#read nuetralized blob description
+element nuetralizer 0 250 0 1 0 0.9 0 1
+neighbor 1 nuetralizer blob 1 Empty nuetralizedblob
+neighbor 0.05 flaking Water 1 blob Empty
+neighbor 0.01 blob flaking 1 blob blob
+self 0.009 waterblob 1 Steam
+hotself 80 waterblob
+hotcolor waterblob 0 0 250
+#r g b gravity slip density conductivity visible
+#eats blob eaten by water grows when hot
+element heatblob 250 0 0 1 1 0.4 1 1
+self 0.05 heatblob 1 hotblob
+hotself 70 heatblob
+element hotblob 200 50 50 1 1 0.4 1 0
+neighbor 1 hotblob heatblob 1 heatblob hotblob
+neighbor 1 hotblob Empty 1 heatblob heatblob  
+hotcolor heatblob 100 50 50
+self 0.005 hotblob 1 heatblob
+neighbor 0.01 heatblob waterblob 1 waterblob waterblob
+neighbor 0.01 waterblob blob 1 blob blob
+neighbor 0.01 blob heatblob 1 heatblob heatblob
+neighbor 0.01 blob hotblob 1 heatblob heatblob
+#grows when hot
+element heatwall 173 173 173 0 0 1 1 1
+element hotwall 200 50 50 0 0 1 1 0
+self 0.5 heatwall 1 hotwall
+hotself 70 heatwall
+hotcolor heatwall 200 50 50
+neighbor 1 hotwall heatwall 1 heatwall hotwall
+neighbor 1 hotwall Empty 1 heatwall heatwall
+self 0.005 hotwall 1 heatwall
+#WATER death powder, grows
+element wdeathpowder 250 250 250 1 0 0 0 1
+neighbor 0.04 wdeathpowder Empty 1 wdeathpowder wdeathpowder
+neighbor 1 wdeathpowder Fire 1 Fire Fire
+neighbor 1 wdeathpowder Water 1 wdeathpowder wdeathpowder
+#HOT HOT HOT
+element liquidheat 0 0 250 1 1 0 3 1
+element heatwave 250 0 0 0 0 1 0 0 
+element heatwave2 250 0 0 0 0 1 0 0
+neighbor 1 liquidheat heatwall 1 Empty heatwave
+neighbor 1 heatwave hotwall 1 heatwave heatwave
+self 0.05 heatwave 1 heatwave2
+self 0.02 heatwave2 1 hotwall
+neighbor 1 heatwave heatwall 1 heatwave heatwave
+neighbor 0.5 heatwave heatwave2 1 heatwave2 heatwave2
+neighbor 1 wdeathpowder bakingsoda 1 bakingsoda bakingsoda
+
+
+#just fixed it for the new version
+element A-bomb 0 250 0 1 1 0.9 0 1
+element radiation 0 250 0 0 0 0.3 3 0
+pexplosion A-bomb Wall 200 radiation
+self 0.03 radiation 1 Empty
+neighbor 0.05 radiation Empty 0.8 radiation radiation 0.2 Empty Empty
+explosion radiation Empty 255 255
+pexplosion radiation Wall 16 flash
+pexplosion radiation byewall 16 flash
+pexplosion radiation glass 16 flash
+
+pexplosion radiation heatwall 16 flash
+pexplosion radiation pebble 16 flash 
+#stops fire acid blob um... alot more u figure it out
+element safewall 100 100 100 0 0 1 0 1
+element decaywall 100 100 100 0 0 1 0 0 
+self 0.005 decaywall 1 Empty
+neighbor 1 Fire safewall 1 Empty safewall
+neighbor 1 acid safewall 1 decaywall safewall
+neighbor 1 A-bomb safewall 1 decaywall safewall
+neighbor 1 blob safewall 1 decaywall safewall
+#erodes
+element rock 139 102 139 0 0 1 1 1
+element pebble 139 131 134 0.7 1 1 0 1
+neighbor 0.005 rock Water 0.3 pebble Water 0.7 Water Empty
+neighbor 0.5 pebble Water 1 Water pebble
+
+#good casing if u dump it in oil, dont let touch empty
+element byewall 250 250 250 0 0 1 0 1
+neighbor 0.02 byewall Empty 1 Empty Empty
+#make sure all three are touching eachother
+element ohno 250 0 0 1 0 0 1 1 
+element ohno2 0 250 0 1 0 0 1 1
+element ohno3 0 0 250 1 0 0 1 1
+neighbor 0.2 ohno ohno2 1 ohno2 ohno2
+neighbor 0.2 ohno2 ohno3 1 ohno3 ohno3
+neighbor 0.2 ohno3 ohno 1 ohno ohno
+
+#r g b gravity slip density conductivity visible
+#sand spout
+element sandstorm 255 235 205 0 0 1 01
+neighbor 1 sandstorm Empty 1 sandstorm Sand
+#salt spout
+element saltrock 250 250 250 0 0 1 0 1
+neighbor 1 saltrock Empty 1 saltrock Salt
+#saltwater spout
+element ocean 0 0 250 0 0 1 0 1
+neighbor 1 ocean Empty 1 ocean Saltwater 
+#ohnos spout
+element colorspout 250 250 250 0 0 1 0 1
+neighbor 1 colorspout Empty 0.4 colorspout ohno 0.3 colorspout ohno2 0.3 colorspout ohno3
+#wet it down
+element drycement 160 160 160 0.9 1 1 0 1 
+#wait
+element cement 140 140 140 1 1 1 0 1
+self 0.005 cement 1 Wall
+neighbor 1 drycement Water 1 cement Empty
+neighbor 0.05 drycement cement 1 cement cement
+#water filter
+element h2ogate 60 30 90 0 0 0.9 1 1
+element H2ogate 175 70 50 1 0 1 0 0
+neighbor 0.65 Water shell 1 Empty shell2
+neighbor 1 H2ogate Empty 1 h2ogate Water
+neighbor 1 h2ogate Empty 1 h2ogate shell
+element shell 0 0 0 0 0 1 0 0
+element shell2 0 0 0 0 0 1 0 0
+element shell3 0 0 0 0 0 1 0 0
+neighbor 1 shell2 h2ogate 1 shell H2ogate
+neighbor 0.05 shell H2ogate 1 shell3 h2ogate
+neighbor 1 shell3 Empty 1 shell Water
+
+element steamf 0 128 0 0 0 4 0 0
+neighbor 0.1 Steam h2ogate  1 Empty steamf
+neighbor 1 steamf h2ogate 1 h2ogate steamf
+element steamF 0 96 0 0 0 4 0 0
+neighbor 0.9 steamf Empty 1 h2ogate Steam
+#r g b gravity slip density conductivity visible
+#literally
+element coldfire 30 144 255 -1 1 0 0.1 1
+element coldember 0 0 250 0 .2 1 0 1
+self 0.05 coldfire 1 Empty
+neighbor 1 coldfire Water 1 smoke Water
+neighbor 1 coldfire Plant 1 coldfire coldfire
+neighbor 0.015 coldfire Cera 1 MoltenCera coldember
+neighbor 1 coldfire Oil 1 coldfire coldfire
+self 0.0020000 coldember 1 coldfire
+neighbor 0.2 coldember Empty 1 coldember coldfire
+#when it hits 20 energy it goes back to 0
+element selfcoolant 0 0 250 0.7 0.5 0.6 0.1 1
+neighbor 1 selfcoolant Fire 1 selfcoolant smoke
+self 0.5 selfcoolant 1 selfcoolant
+hotcolor selfcoolant 250 0 0 
+hotself 20 selfcoolant 1 selfcoolant
+self 0.5 selfcoolant 1 selfcoolant
+
+#burns
+element coal 45 45 45 0.9 0.5 0.95 0.8 1
+neighbor 0.3 coal Fire 1 burningcoal Empty
+hotself 70 coal burningcoal
+self 0.005 coal 1 burningcoal
+
+element burningcoal 153 0 0 0.9 0.5 0.9 1.8 0
+neighbor 0.5 burningcoal Empty 1 burningcoal Fire
+self 0.005 burningcoal 0.4 smoke 0.6 Empty
+#BLOWS UP
+element flyer 250 250 250 0 0 0 0 1
+pexplosion flyer Fire 100 Fire
+self 0.005 flyer 1 flyer2
+pexplosion flyer2 Empty 2 flyer 
+neighbor 0.5 flyer Empty 1 Empty flyer
+element flyer2 250 250 250 0 0 0 0 0
+#-.- figure it out
+element gate 250 0 250 0 0 1 0 1
+element key 250 250 250 1 0 1 0 1
+neighbor 0.05 key gate 1 key Empty
+#funfun go boom boom on wawall
+element waterballoon 0 0 250 0.7 1 0.4 0 1
+element waterboom 0 0 250 0 0 0 0 0
+neighbor 0.2 waterboom Empty 1 waterboom waterboom
+neighbor 1 waterballoon Wall 1 waterboom Wall
+self 0.01 waterboom 1 Water
+neighbor 1 Water waterboom 1 Water Water
+#melts in empty resolidifies later
+element meltwall 200 200 200 0 0 1 1 1
+element melted 150 150 150 0.7 0.5 1 0 0
+neighbor 0.05 meltwall Empty 1 melted Empty
+self 0.005 melted 1 meltwall 
+#CHARGe
+element megadense 150 0 150 1 0 3 0 1
+#STOP CHARGE
+element solidmegadense 150 0 150 0 0 3 0 1 
+#r g b gravity slip density conductivity visible
+#goes boom bigger in fire
+element bigbomb 255 255 255 1 1 1 0 1
+pexplosion bigbomb Wall 100 Fire
+pexplosion bigbomb Fire 200 Fire
+#goes boom boom boom boom boom boom boom
+element scatterbomb 255 255 255 0.7 0 0 0 1
+element scatterbomb2 255 255 255 -0.7 0.6 1 0 0
+pexplosion scatterbomb Wall 9 scatterbomb2 
+self 0.005 scatterbomb2 1 scatterbomb3
+element scatterbomb3 255 255 255 0.7 0.6 1 0 0
+pexplosion scatterbomb3 Wall 9 Fire
+#goes boom.... BLOB!
+element blobbomb 255 255 255 0.7 0.6 1 0 1 1
+pexplosion blobbomb Wall 25 blob
+#multiplies, explodes,flies around, gets stuck in wall
+element flyby 255 255 255 0 0 0.1 1 1
+element flyby2 255 255 255 1 0 0.1 0 0
+element flyby3 255 255 255 -1 0 0.1 0 0
+neighbor 1 flyby Empty 0.3 flyby2 flyby3 0.699 flyby2 flyby 0.001 flyby4 Empty
+explosion flyby Empty 155 155
+element flyby4 255 255 255 0 0 0 0 0
+pexplosion flyby4 Empty 9 flyby
+element flyby5 255 255 255 0 0 0 0 0
+self 0.005 flyby2 0.5 flyby5 0.5 flyby
+self 0.005 flyby3 1 flyby5
+pexplosion flyby5 Empty 25 Fire
+hotself 0.05 flyby 50 Fire
+neighbor 1 Fire flyby 1 Fire Fire
+
+element redpowder 255 0 0 1 0 0 0 0
+element redpowder2 255 0 0 1 0 0 0 0
+neighbor 1 redpowder Empty 1 redpowder2 redpowder2
+explosion redpowder Empty 255 255
+#releases cool red powder that can make mountain type thingies and stop flybies
+element redbomb 255 0 0 0 0 0 0 1
+pexplosion redbomb Empty 9 redpowder
+element redpowder3 255 0 0 1 0 0 0 0
+self 0.01 redpowder2 1 redpowder3
+pexplosion redpowder3 Empty 9 redpowder4
+#eats through ALOT of things, and sets alot more on fire
+element redpowder4 255 0 0 1 0 0 0 1
+#r g b gravity slip density conductivity visible
+element invisowall 0 0 0 0 0 1 1 0
+#use on wall meant so u can use galaxies without laggin up the game
+element invisomaker 250 250 250 1 1 0 0 1
+neighbor 1 invisomaker Wall 1 Empty invisowall
+neighbor 0.005 invisowall Wall 1 invisowall invisowall
+#-.-
+element visomaker 250 250 250 1 1 0 0 1
+element visomade 250 250 250 0 0 1 0 0
+neighbor 1 visomaker invisowall 1 Empty visomade
+neighbor 1 visomade invisowall 1 visomade visomade
+self 0.005 visomade 1 Wall
+#r g b gravity slip density conductivity visible
+#evolution
+element nebula 250 0 250 0 0 1 0 1
+neighbor 1 nebula evolution 1 protosun protosun
+pexplosion protosun Empty 32 protosun2
+element protosun 250 0 0 0 0 1 1.1 0
+element protosun2 250 0 0 0 0 1 1.1 0
+neighbor 1 protosun2 Empty 1 protosun2 Fire
+neighbor 1 protosun2 evolution 1 BOOM BOOM
+element BOOM 0 0 0 0 0 0 0 0
+element SUN 250 100 0 0 0 0 0 0
+pexplosion BOOM Empty 100 SUN
+pexplosion BOOM protosun2 100 SUN
+neighbor 0.005 SUN Empty 1 Ember Ember
+explosion SUN Empty 100 100
+neighbor 1 evolution SUN 1 supernova SUN
+element supernova 250 100 0 0 0 0 0 0
+pexplosion SUN supernova 400 supernova
+neighbor 0.005 supernova Empty 1 Ember Ember
+explosion supernova Empty 100 100
+element evolution 250 250 250 1 1 1 0 1
+element whitedwarf 250 250 250 0 0 1 0 0
+element blackdwarf 50 50 50 0 0 1 0 0
+neighbor 1 evolution supernova 0.5 supernova2 supernova2 0.5 Black_hole Black_hole
+pexplosion bboom bboom 200  bboom2
+element supernova2 250 100 0 0 0 0 0 0
+pexplosion supernova2 supernova 9 whitedwarf
+neighbor 1 evolution whitedwarf 1 Empty blackdwarf
+neighbor 0.05 blackdwarf whitedwarf 1 blackdwarf blackdwarf
+element wave 250 100 0 0 0 0 0 0
+neighbor 1 wave supernova 1 wave wave
+self 0.05 wave 1 Empty
+neighbor 1 whitedwarf supernova 1 whitedwarf wave
+neighbor 1 nebula blackdwarf 1 nebula nebula
+neighbor 1 evolution blackdwarf 1 Empty nebula
+neighbor 0.05 nebula Empty 1 Empty nebula
+element galaxy 100 100 100 0 0 0 0 1
+neighbor 1 galaxy Empty 1 galaxy galaxy
+self 0.05 galaxy 0.99 Empty 0.01 nebula
+#r g b gravity slip density conductivity visible
+#it goes EMBER BOOM
+element emboom 250 250 250 0 0 1 0 1
+neighbor 0.05 emboom Empty 1 emboom Ember
+explosion emboom Empty 255 255
+# it goes WATER BOOM
+element waboom 250 250 250 0 0 1 0 1
+neighbor 0.05 waboom Empty 1 waboom Water
+explosion waboom Empty 255 255
+# ig goes BLOB BOOM
+element blaboom 250 250 250 0 0 1 0 1
+neighbor 0.05 blaboom Empty 1 blaboom blob
+explosion blaboom Empty 255 255
+#flashy
+element implosioncore 0 0 250 0 0 1 0 1
+element implosioncore2 0 0 250 0 0 1 0 0
+element implosion 0 0 250 0 0 0 0 0
+element implosion2 0 0 250 0 0 0 0 0
+element implosion3 0 0 250 0 0 0 0 0
+neighbor 1 implosioncore Empty 1 implosioncore implosion
+neighbor 1 implosion2 implosioncore 1 implosion2 implosioncore2
+neighbor 0.3 implosion Empty 1 implosion implosion
+self 0.002 implosion 0.01 implosion2 0.99 implosion
+neighbor 0.8 implosion implosion2 1 implosion2 implosion2
+neighbor 1 Empty implosioncore2 1 implosion3 implosion3
+element flash 250 250 250 0 0 0 0 0
+pexplosion Empty implosion3 500 flash
+neighbor 0.07 implosion2 Empty 1 Empty Empty
+self 1 flash 1 Empty
+#r g b gravity slip density conductivity visible
+#multi boom
+element gunpowder 50 50 50 0.7 1 0.7 1 1
+element gunpowder2 50 50 50 0.7 1 0.7 1 0
+element gunpowder3 50 50 50 0.7 1 0.7 1 0
+pexplosion gunpowder Fire 50 gunpowder2
+pexplosion gunpowder3 gunpowder2 32 Fire
+pexplosion gunpowder3 Empty 32 Fire
+pexplosion gunpowder3 gunpowder3 32 Fire
+self 0.05 gunpowder2 0.9 gunpowder3 0.1 gunpowder
+#big multiboom
+element armedpowder 70 70 70 0.7 1 0.7 1 1
+pexplosion armedpowder Fire 300 bombboom
+element bombboom 0 0 0 0 0 0 0 0 0
+pexplosion bombboom Empty 100 Fire
+pexplosion bombboom bombboom 32 gunpowder2
+#heat-timed
+element timebomb 250 250 250 0 0 1 1.01 1
+self 1 timebomb 1 timebomb2
+hotself 90 timebomb
+element timebomb2 250 250 250 0 0 1 1.001 0
+pexplosion timebomb2 Empty 150 Fire
+#r g b gravity slip density conductivity visible
+#ONE PIXEL... ok so anything up to 8 is okay
+element fireball 200 50 50 0 0 0 0 1
+element fireball2 200 50 50 1 1 1 2 0
+element fireball3 200 50 50 1 0 1 2 0
+element fireball4 200 50 50 1 0 1 2 0
+element fireball5 200 50 50 1 0 1 2 0
+pexplosion fireball Empty 20 fireball2
+pexplosion fireball2 Wall 4 fireball3
+pexplosion fireball2 growblockhard 4 fireball3
+pexplosion fireball2 heatwall 4 fireball3
+pexplosion fireball2 glass 4 fireball3
+pexplosion fireball2 WAll2 4 fireball3
+pexplosion fireball2 WAll 4 fireball3
+pexplosion fireball2 byewall 4 fireball3
+pexplosion fireball2 rock 4 fireball3
+neighbor 1 fireball3 fireball3 1 fireball4 fireball4
+explosion fireball3 fireball3 255 255
+pexplosion fireball5 Wall 20 Fire
+pexplosion fireball5 Empty 20 Fire
+pexplosion fireball5 WAll 20 Fire
+pexplosion fireball5 growblockhard 20 Fire
+pexplosion fireball5 WAll2 20 Fire
+pexplosion fireball5 heatwall 20 Fire
+pexplosion fireball5 glass 20 Fire
+pexplosion fireball5 byewall 20 Fire
+pexplosion fireball5 rock 20 Fire
+self 0.005 fireball4 1 fireball5
+neighbor 1 fireball2 Empty 1 fireball2 Fire
+#r g b gravity slip density conductivity visible
+#makes walls that can spawn more 
+element WAboom 250 250 250 0 0 1 0 1
+element WAll 128 128 128 0 0 1 0.7 0
+self 0.5 WAll2 1 Empty
+hotself 99 WAll2
+neighbor 1 WAboom Empty 1 WAboom WAll
+explosion WAboom Empty 50 50
+neighbor 0.0001 WAll Empty 1 WAll WAboom
+element WAll2 128 128 128 0 0 1 0.7 0
+neighbor 0.0001 WAboom WAll 1 WAll2 WAll2
+neighbor 1 WAll WAll2 1 WAll2 WAll2
+neighbor 1 WAll2 WAboom 1 WAll2 WAll2
+# goes up and destroyes everything
+element rocket 250 250 0 1 0 1 1.1 1
+element r2 250 250 0 0 1 0 1.1 0
+element r3 250 250 0 0 1 0 1.1 0
+hotcolor rocket 250 100 100
+hotcolor r2 250 100 100
+hotcolor r3 250 100 100
+self 0.5 rocket 0.5 r2 0.5 r3
+self 0.2 r2 1 Empty
+neighbor 1 r3 Empty 1 Empty r3
+pexplosion r2 r3 6 r2
+self 0.5 r3 1 rocket
+hotself 98 r3
+neighbor 1 r2 r3 1 r3 r2
+#boombs rockets
+element rocketbomb 250 250 250 1 0 1 0 1
+pexplosion rocketbomb Wall 100 rocket
+pexplosion rocketbomb growblockhard 100 rocket
+pexplosion rocketbomb heatwall 100 rocket
+pexplosion rocketbomb glass 100 rocket
+pexplosion rocketbomb byewall 100 rocket
+pexplosion rocketbomb rock 100 rocket
+hotcolor timebomb 0 0 0
+#it goes WALL BOOM
+element walboom 250 250 250 0 0 1 0 1
+neighbor 1 walboom Empty 1 walboom Wall
+explosion walboom Empty 255 255
+# coooooooool
+element flashy 0 0 0 1 0 0 1.01 1
+self 1 flashy 1 flashy
+hotself 50 flashy
+hotcolor flashy 250 250 250
+
+
+element flashboom 0 0 0 0 0 0 0 0
+element flashbomb 250 250 250 0 0 1 1.01 1
+self 1 flashbomb 1 flashboom
+hotself 95 flashbomb
+hotcolor flashbomb 0 0 0
+pexplosion flashboom Empty 200 flash
+#just added credit goes to spacemonkey
+element colory 250 0 0 0 0 1 1.04 1 
+element colory2 0 0 250 0 0 1 1.04 1 
+element colory3 0 250 0 0 0 1 1.04 1 
+self 1 colory 1 colory5 
+hotself 95 colory 
+hotcolor colory 0 0 250 
+self 1 colory2 1 colory6 
+hotself 95 colory2 
+hotcolor colory2 0 250 0 
+self 1 colory3 1 colory4 
+hotself 95 colory3 
+hotcolor colory3 250 0 0 
+element colory4 250 0 0 0 0 1 0 0 
+element colory5 0 0 250 0 0 1 0 0 
+element colory6 0 250 0 0 0 1 0 0 
+self .001 colory4 1 colory 
+neighbor 1 colory colory4 1 colory colory 
+neighbor 1 colory5 colory2 1 colory2 colory2 
+self .001 colory5 1 colory2 
+self 1 colory6 1 colory3 
+neighbor 1 colory3 colory6 1 colory3 colory3 
+neighbor 1 colory6 colory2 1 colory6 colory6 
+neighbor 1 colory4 colory3 1 colory4 colory4 
+neighbor 1 colory5 colory 1 colory5 colory5
+
+element BIGbomb 250 250 250 1 1 0.7 1 1
+element bigboom 250 0 250 0 0 0 1.1 0
+pexplosion BIGbomb Wall 300 bigboom
+neighbor 1 bigboom bigboom 0.94 Fire Fire 0.05 Ember Ember 0.01 fireball4 fireball4 
+explosion bigboom bigboom 255 255
+hotcolor bigboom 250 0 0
+self 0.0005 bigboom 1 Empty
+
+neighbor 1 redpowder4 Plant 1 redpowder4 Fire
+neighbor 0.2 redpowder4 Cera 1 redpowder4 Fire
+neighbor 1 redpowder4 coal 1 redpowder4 Fire
+neighbor 1 redpowder4 methane 1 redpowder4 Fire
+neighbor 1 redpowder4 compost 1 redpowder4 Fire
+neighbor 1 redpowder4 Water 1 redpowder4 Steam
+neighbor 1 redpowder4 gunpowder 1 redpowder4 Fire
+neighbor 1 redpowder4 armedpowder 1 redpowder4 Fire
+neighbor 1 redpowder4 Saltwater 1 redpowder4 Steam
+neighbor 1 redpowder4 ice 1 redpowder4 Water
+pexplosion redpowder4 blob 100 Fire
+neighbor 0.02 redpowder4 Wall 1 redpowder4 Empty
+neighbor 0.02 redpowder4 safewall 0.2 redpowder4 Empty 0.8 redpowder4 decaywall
+neighbor 0.02 redpowder4 byewall 1 redpowder4 Empty
+neighbor 0.02 redpowder4 heatwall 1 redpowder4 Empty
+neighbor 0.02 redpowder4 glass 1 redpowder4 Empty
+neighbor 0.02 redpowder4 rock 1 redpowder4 Empty
+
+element supergrow 250 250 250 1 0 0 0.1 1
+self 0.02 supergrow 1 Empty
+neighbor 0.02 supergrow Empty 1 supergrow supergrow2 
+explosion supergrow Empty 50 50
+element supergrow2 250 0 0 1 0 0 1 0
+neighbor 1 supergrow2 supergrow 1 supergrow supergrow 
+element supergrow3 0 0 0 0 0 0 0 0
+pexplosion supergrow3 Empty 2 supergrow
+self 0.005 supergrow2 1 supergrow3
+
+element volcano 250 0 0 1 0 0.9 0 1
+element lava 250 0 0 0.7 1 1 0 1
+neighbor 0.1 volcano Empty 1 volcano lava
+self 0.002 lava 0.99 lava 0.01 rock
+neighbor 0.0005 lava rock 1 rock rock
+hotcolor lava 250 250 0
+self 0.0005 rock 1 lava
+hotself 99 rock
+
+element eruption 250 0 0 0 0 0 0 0
+neighbor 0.3 eruption Empty 1 eruption eruption
+self 0.35 eruption 1 lava
+element eruptor 150 0 150 0 0 1 0 1
+neighbor 0.005 eruptor lava 0.2 eruption eruption 0.8 eruptor eruption
+element reseter 250 0 250 0 0 1 1 1
+element reset 250 250 250 0 0 0 1 0
+neighbor 1 reset lava 1 reset reset
+self 0.7 reseter 1 reseter
+neighbor 0.01 reset Empty 1 Empty Empty
+self 0.1 reset 1 Empty
+neighbor 1 reseter lava 1 reseter reset
+element lava2 250 250 0 1 1 1 0 0 0
+self 0.05 lava 1 lava2
+self 0.05 lava2 1 lava
+neighbor 1 reset lava2 1 reset reset
+neighbor 1 volcano reset 1 reset reset
+
+element base 250 250 0 0 0 1 0 1
+neighbor 1 base Empty 1 base volcano
+neighbor 0.05 base lava 1 base volcano
+element rbase 250 250 250 0 0 0 0 0
+neighbor 1 base reset 1 base rbase
+self 0.05 rbase 1 Empty
+element plaboom 250 250 250 0 0 0 0 1
+neighbor 1 plaboom Empty 1 plaboom Plant
+explosion plaboom Empty 255 255
+
+element megaeruptor 250 250 0 0 0 1 0 1
+element megarupt 250 0 0 0 0 0 0 0
+neighbor 0.005 megaeruptor lava 1 megarupt megarupt
+explosion megaeruptor lava 255 255
+element megarupt2 0 0 0 0 0 0 0 0
+pexplosion megarupt2 Empty 50 magma 
+pexplosion megarupt2 rock 50 magma
+self 0.005 megarupt 1 megarupt2
+element magma 250 250 0 -1 0 0 0 0
+neighbor 1 magma Empty 1 lava magma
+self 0.05 magma 1 Empty
+
+element oilx 128	64	64 0.700000	1.000000	0.200000	0.000000	1
+neighbor 0.005 oilx Empty 1 oilx oilx
+pexplosion oilx Fire 2 Fire
+
+element tube 100 100 100 0 0 1 0 1
+element tube2 250 250 0 0 0 1 0 0
+element tube3 250 250 0 0 0 1 0 0
+neighbor 1 tube Oil 1 tube2 Empty
+self 0.05 tube2 1 tube3
+neighbor 1 tube tube2 1 tube2 tube2
+neighbor 1 tube3 tube2 1 tube3 tube3
+self 0.05 tube3 1 tube
+element trigger 150 200 150 0 0 1 0 1
+element trigger2 250 250 250 0 0 1 0 0
+neighbor 1 trigger tube2 1 trigger2 tube3
+neighbor 1 trigger2 trigger 1 trigger trigger2
+element readyfuel 100 150 100 0 0 0 0 0
+element chemfire 0 250 0 0 0 0 0 1
+neighbor 0.05 chemfire Empty 0.2 chemfire chemfire2 0.4 chemfire chemfire 0.4 chemfire Empty
+neighbor 1 chemfire readyfuel 1 chemfire chemfire
+neighbor 1 chemfire chemfire 1 chemfire chemfire
+explosion chemfire Empty 255 -255
+explosion chemfire chemfire 255 -255
+neighbor 1 chemfire safewall 1 Empty safewall
+neighbor 1 readyfuel Empty 1 Empty readyfuel
+neighbor 1 trigger2 Empty 1 trigger readyfuel
+neighbor 1 readyfuel Fire 1 chemfire chemfire
+self 0.02 chemfire 1 Fire
+neighbor 1 chemfire trigger 1 Empty trigger
+neighbor 1 Fire trigger 1 Empty trigger
+element chemfire2 0 250 0 0 0 0 0 0
+neighbor 0.5 chemfire2 Empty 1 chemfire2 chemfire2
+self 0.4 chemfire2 1 Fire
+neighbor 1 ??? chemfire 1 ??? ???
+neighbor 1 ??? chemfire2 1 ??? ???
+
+element firestorm 250 250 0 -1 0 0 3 1
+neighbor 0.01 firestorm Empty 1 firestorm firestorm
+self 0.009 firestorm 1 chemfire2
+
+element well 0 250 0 0 0 1 0 1
+neighbor 1 well Empty 1 well Oil
+neighbor 1 ??? well 1 ??? ???
+neighbor 1 ??? trigger 1 ??? ???
+neighbor 1 ??? trigger2 1 ??? ???
+neighbor 1 tube ??? 1 ??? ???
+
+element healer 255 0 250 0 0 1 0 1
+element heal 250 250 0 0 0 1 0 0
+element heal2 0 250 250 0 0 1 0 0
+element heal3 250 250 250 0 0 1 0 0
+neighbor 1 healer Empty 1 healer heal
+explosion healer Empty 255 -255
+self 0.0005 heal 1 heal2
+neighbor 0.5 heal2 Empty 1 heal3 Empty
+neighbor 0.05 healer heal2 1 healer healer
+neighbor 1 healer heal 1 healer heal
+explosion healer heal 100 -255
+neighbor 1 heal2 heal 1 heal2 heal2
+self 0.5 heal3 1 Wall
+neighbor 1 healer Wall 1 healer Wall
+explosion healer Wall 255 -255
+
+element purboom 250 0 250 0 0 1 0 1
+pexplosion purboom Empty 100 purboom2
+element purboom2 250 0 250 0 0 1 0 0
+self 1 purboom2 0.99 purboom3 0.01 purboom4
+self 1 purboom3 1 Empty
+self 0.005 purboom4 0.8 purboom 0.20 flashboom
+element purboom3 250 0 250 0 0 1 0 0
+element purboom4 250 0 250 0 0 1 0 0
+element purboom5 250 0 250 0 0 1 1 0
+neighbor 1 purboom4 Empty 1 purboom4 purboom5
+self 0.005 purboom5 1 Empty
+hotself 10 purboom5
+
+element saltboom 250 250 250 1 0 0.9 0.1 1
+element saltboom2 0 0 0 0 0 0 0 0
+self 1 saltboom2 0.6 Fire 0.4 burningcoal
+self 1 Salt 1 saltboom
+hotself 95 Salt
+pexplosion saltboom saltboom 32 saltboom2
+
+element 1 250 0 0 0 0 0 0 1
+element 2 0 250 0 0 0 0 0 1
+neighbor 0.05 1 2 0.49 2 2 0.49 1 1 0.02 walker walker
+neighbor 1 walker 2 1 1 walker
+neighbor 1 walker 1 1 2 walker
+self 0.005 walker 0.5 1 0.5 2 
+element walker 0 0 0 0 0 0 0 0
+neighbor 0.5 walker Empty 1 walker 1
+
+element Black_hole 50 50 50 0 0 1 0 1 
+element REnergy 0 0 0 1 0 .8 0 0 
+element REnergy2 0 0 0 1 0 .8 0 0 
+element REnergyBurst 0 0 0 -1 0 0 .8 0 0 
+self .045 REnergyBurst 1.0 Empty 
+neighbor .25 Black_hole Empty 1.0 Black_hole REnergy 
+self .045 REnergy 1.0 Empty 
+neighbor .005 REnergy evolution 1.0 REnergy2 REnergy 
+self .002 REnergy2 .5 REnergyBurst .5 Empty 
+self .065 REnergy2 .2 Empty 
+neighbor .9 REnergy2 REnergy 1.0 REnergy2 REnergy2 
+explosion REnergy2 REnergy 110 110 
+neighbor 1 Black_hole Wall 1 Black_hole Empty
+neighbor 1 Black_hole glass 1 Black_hole Empty
+neighbor 1 Black_hole safewall 1 Black_hole Empty
+neighbor 1 Black_hole rock 1 Black_hole Empty
+neighbor 1 Black_hole heatwall 1 Black_hole Empty
+neighbor 1 Black_hole Plant 1 Black_hole Empty
+neighbor 1 Black_hole Torch 1 Black_hole Empty
+neighbor 1 Black_hole solidmegadense 1 Black_hole Empty
+neighbor 1 Black_hole 2 1 Black_hole Empty
+neighbor 1 Black_hole 1 1 Black_hole Empty
+neighbor 1 Black_hole well 1 Black_hole Empty
+neighbor 1 Black_hole Spout 1 Black_hole Empty
+neighbor 1 Black_hole Oil 1 Black_hole Empty
+neighbor 1 Black_hole nebula 1 Black_hole Empty
+neighbor 1 Black_hole protosun 1 Black_hole Empty
+neighbor 1 Black_hole SUN 1 Black_hole Empty
+neighbor 1 Black_hole whitedwarf 1 Black_hole Empty
+neighbor 1 Black_hole blackdwarf 1 Black_hole Empty
+neighbor 1 Black_hole supernova 0.334 Black_hole Black_hole 0.666 Black_hole Empty
+neighbor 1 Black_hole Ember 1 Black_hole Empty
+neighbor 1 Black_hole Fire 1 Black_hole Empty
+neighbor 1 Black_hole protosun2 1 Black_hole Empty
+element bboom 0 0 0 0 0 0 0 1
+element bboom2 0 0 0 0 0 0 0 0 0 0 0 
+pexplosion bboom Empty 200 bboom2
+self 1 bboom2 0.1 Black_hole 0.9 Empty
+
+element Destroyer 50 50 50 0 0 1 0 1
+element hboom 50 0 0 0 0 1 0 0
+element hboomx 0 0 50 0 0 1 0 0
+pexplosion Destroyer Empty 4 hboom
+self 0.2 hboom 0.1 hboomx 0.9 Empty
+pexplosion hboomx hboom 4 Destroyer
+neighbor 1 hboom Empty 1 hboom Empty
+explosion hboom Empty 255 255
+neighbor 1 hboomx Empty 1 hboomx Empty
+explosion hboomx Empty 255 255
+pexplosion hboomx hboomx 8 Destroyer
+element Destroyer-Destroyer 250 250 250 0 0 1 0 1
+pexplosion Destroyer-Destroyer Destroyer 50 Destroyer-Destroyer
+pexplosion Destroyer-Destroyer hboom 50 Destroyer-Destroyer
+pexplosion Destroyer-Destroyer hboomx 50 Destroyer-Destroyer
+neighbor 1 bakingsoda Destroyer-Destroyer 1 bakingsoda bakingsoda
+

@@ -1,0 +1,2163 @@
+#JPWheless's Underwater Base Mod
+#Falling Sand: Owen Piette's Falling Sand Game
+#Version 4.4, File subversion 2
+group	Solids Wall Rock Plant Wood Glass Acrylic Grate Radiator Insulator NGrate Grate2 NWall
+group	Liquids Water Saltwater Sand Salt Oil Dirt Mud Cement LAcrylic LGlass MAP Remover Coolant
+group	Gases Steam Oxygen CO2 Hydrogen Methane
+group	LifeSupport1 PowerP SWFilter Scrubber Electro K&amp;B Reactor AirFilter Dock MiniSub Pipe1 Pipe2 Pipe3 PipeM
+group	LifeSupport2 Electricity Wire IWire Switch Deton Gate Condenser Rebreather RBClean Battery Turbine
+group	Life Person Fish sFish Coral
+group	Destructive Fire Ember FallingEmber Torch Lava Timer C4 DetCord
+group	War RFactory RBFish BFactory BBFish Red Blue RShield BShield Center Back Walls Corner
+sources	Saltwater Saltwater Saltwater Saltwater Saltwater Saltwater
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#Clears the screen.
+element	Clear	0	0	0	0.000000	0.000000	0.000000	0.000000	1
+self	0.5	Clear	1.0	Empty
+pexplosion	Clear	Empty	1024	Empty	
+#Eraser element.
+element	Drain	50	50	50	0.000000	1.000000	1.000000	0.200000	1
+self	1.0	Drain	1.0	Empty
+hotself	90	Drain
+neighbor	1.0	Drain	Water	1.0	Drain	Empty
+neighbor	1.0	Drain	Smoke	1.0	Drain	Empty
+neighbor	1.0	Drain	Oil	1.0	Drain	Empty
+neighbor	1.0	Drain	Steam	1.0	Drain	Empty
+neighbor	1.0	Drain	Sand	1.0	Drain	Empty
+neighbor	1.0	Drain	Salt	1.0	Drain	Empty
+neighbor	1.0	Drain	Saltwater	1.0	Drain	Empty
+neighbor	1.0	Drain	FallingEmber	1.0	Drain	Empty
+neighbor	1.0	Drain	Fish	1.0	Drain	Empty
+neighbor	1.0	Drain	sFish	1.0	Drain	Empty
+neighbor	1.0	Drain	Deadfish	1.0	Drain	Empty
+neighbor	1.0	Drain	Blood	1.0	Drain	Empty
+neighbor	1.0	Drain	Person	1.0	Drain	Empty
+neighbor	1.0	Drain	Corpse	1.0	Drain	Empty
+neighbor	1.0	Drain	Poo	1.0	Drain	Empty
+neighbor	1.0	Drain	EWater	1.0	Drain	Empty
+neighbor	1.0	Drain	ESaltwater	1.0	Drain	Empty
+neighbor	1.0	Drain	MGlass	1.0	Drain	Empty
+neighbor	1.0	Drain	MWire	1.0	Drain	Empty
+neighbor	1.0	Drain	Coolant	1.0	Drain	Empty
+neighbor	1.0	Drain	Electricity	1.0	Drain	Empty
+neighbor	1.0	Drain	Methane	1.0	Drain	Empty
+neighbor	1.0	Drain	MAP	1.0	Drain	Empty
+neighbor	1.0	Drain	MAcrylic	1.0	Drain	Empty
+neighbor	1.0	Drain	Dirt	1.0	Drain	Empty
+neighbor	1.0	Drain	Mud	1.0	Drain	Empty
+neighbor	1.0	Drain	Cement	1.0	Drain	Empty
+neighbor	1.0	Drain	Hydrogen	1.0	Drain	Empty
+neighbor	1.0	Drain	Oxygen	1.0	Drain	Empty
+neighbor	1.0	Drain	CO2	1.0	Drain	Empty
+neighbor	1.0	Drain	RBFish	1.0	Drain	Empty
+neighbor	1.0	Drain	RBFish2	1.0	Drain	Empty
+neighbor	1.0	Drain	BBFish	1.0	Drain	Empty
+neighbor	1.0	Drain	BBFish2	1.0	Drain	Empty
+neighbor	1.0	Drain	NWaste	1.0	Drain	Empty
+neighbor	1.0	Drain	Fallout2	1.0	Drain	Empty
+neighbor	1.0	Drain	Plasma5	1.0	Drain	Empty
+neighbor	1.0	Drain	RCoolant	1.0	Drain	Empty
+neighbor	1.0	Drain	DCoolant	1.0	Drain	Empty
+#Erases gas.
+element	GasDrain	50	50	50	0.000000	1.000000	1.000000	0.200000	1
+self	1.0	GasDrain	1.0	Empty
+hotself	90	GasDrain
+neighbor	1.0	GasDrain	Steam	1.0	GasDrain	Empty
+neighbor	1.0	GasDrain	Methane	1.0	GasDrain	Empty
+neighbor	1.0	GasDrain	Hydrogen	1.0	GasDrain	Empty
+neighbor	1.0	GasDrain	Oxygen	1.0	GasDrain	Empty
+neighbor	1.0	GasDrain	CO2	1.0	GasDrain	Empty
+neighbor	1.0	GasDrain	RCoolant	1.0	GasDrain	Empty
+#Acrylic. It melts with fire. Also good for making bases out of.
+element	Acrylic	190	190	190	0.000000	0.000000	1.000000	0.300000	1
+self	1.0	Acrylic	1.0	MAcrylic
+hotself	78 	Acrylic
+#Molten Acrylic
+element	MAcrylic	190	255	0	0.900000	0.000000	0.700000	1.300000	0
+self	0.02	MAcrylic	1.0	Fire
+neighbor	0.2	MAcrylic	Empty	1.0	MAcrylic	Fire
+neighbor	0.9	MAcrylic	Water	1.0	MAcrylic	Steam
+neighbor	0.75	MAcrylic	Oil	1.0	MAcrylic	Fire
+neighbor	1.0	MAcrylic	Plant	1.0	MAcrylic	Fire
+#A solid element. Good for making bases out of.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.100000	1
+self	0.5	Wall	1.0	Lava
+hotself	98	Wall
+hotcolor	Wall	255	0	0
+#A solid element. Make the sea floor out of this.
+element	Rock	162	125	111	0.000000	0.000000	1.000000	0.100000	1
+self	0.5	Rock	1.0	Lava
+hotself	98	Rock
+hotcolor	Rock	255	0	0
+#Soluable in water.
+element	Salt	240	220	240	0.900000	0.000000	0.800000	0.500000	1
+#Inert element. Make your base out of this.
+element	Glass	240	240	240	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Glass	1.0	MGlass
+hotself	95 	Glass
+hotcolor	Glass	255	255	0
+#Molten Glass
+element	MGlass	255	235	0	0.900000	0.000000	0.850000	1.100000	0
+self	0.0005	MGlass	1.0	Glass
+#Does nothing. Useful for explosion aftermaths.
+element	Smoke	102	107	84	-1.000000	1.000000	0.000000	1.100000	0
+self	0.01	Smoke	1.0000	Empty
+#Does nothing. Useful for explosion aftermaths.
+element	Dust	128	128	128	0.900000	0.000000	0.100000	0.500000	0
+#Does nothing..
+element	Gunk	101	117	62	0.000000	0.000000	1.000000	1.000000	0
+self	1.0	Gunk	1.0	Ember
+hotself	70	Gunk	
+#Burns other elements. Source of energy.
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.300000	1
+self	0.05	Fire	1.0000	Empty
+hotcolor	Fire   255    63     63
+neighbor	0.9	Fire	Water	1.0	Empty		Steam
+neighbor	0.75	Fire	Oil	1.0	Fire		Fire
+neighbor	1.0	Fire	Plant	1.0	Fire		Fire
+#Dissolves other elements. Turns to steam when heated.
+element	Water	52	52	255	0.700000	1.000000	0.500000	0.400000	1
+self    0.2     Water   1.0     Steam
+hotself	60     Water
+hotcolor Water  200     200     255
+#Electrically charged water
+element	EWater	92	92	255	0.700000	1.000000	0.500000	0.400000	0
+self    0.05     EWater   1.0     Water
+hotcolor EWater  200     200     255
+neighbor	0.005	EWater	Water	1.0	EWater	EWater
+neighbor	0.8	Water	EWater	1.0	EWater	Water
+#Grows in water.
+element	Plant	32	204	32	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	Plant	1.0	Fire
+hotself	75	Plant
+neighbor	0.2	Plant	Water	1.0	Plant	Plant
+neighbor	0.05	Plant	BFire	1.0	Fire	BFire
+neighbor	0.2	Plant	Wood	1.0	Wood	Wood
+neighbor	0.1	Plant	EWater	1.0	Wood	EWater
+#Dead plant. Burns slowly.
+element	Wood	157	119	47	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	Wood	1.0	Ember
+hotself	80	Wood
+neighbor	0.05	Wood	Fire	1.0	Ember	Fire
+neighbor	0.05	Wood	BFire	1.0	Ember	Fire
+#Dirt.
+element	Dirt	163	103	47	0.500000	0.000000	0.400000	0.500000	1
+neighbor	0.4	Dirt	Water	1.0	Mud	Empty
+neighbor	0.4	Dirt	Saltwater	1.0	Mud	Empty
+neighbor	0.4	Dirt	EWater	1.0	Mud	Empty
+neighbor	0.4	Dirt	ESaltwater	1.0	Mud	Empty
+#Mud.
+element	Mud	133	73	17	0.700000	0.000000	0.700000	0.500000	1
+self	0.5	Mud	0.5	Dirt	0.5	Steam
+hotself	60	Mud
+neighbor	1.0	Mud	Fire	1.0	Dirt	Steam
+neighbor	1.0	Mud	BFire	1.0	Dirt	Steam
+neighbor	1.0	Mud	Ember	1.0	Dirt	Steam
+neighbor	1.0	Mud	FallingEmber	1.0	Dirt	Steam
+neighbor	1.0	Mud	MWire	1.0	Dirt	Steam
+neighbor	1.0	Mud	MGlass	1.0	Dirt	Steam
+neighbor	1.0	Mud	MAcrylic	1.0	Dirt	Steam
+#Inert.
+element	Sand	238	204	128	0.900000	0.000000	0.800000	0.500000	1
+self	0.5	Sand	1.0	Glass
+hotself	95	Sand
+hotcolor  Sand  255     0     0
+neighbor	0.2	Sand	Fire	1.0	Glass	Empty
+#Source of water.
+element	Spout	10	100	10	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	Spout	1.0	Water
+hotself	75	Spout
+neighbor	0.75	Spout	Empty	1.0	Spout	Water
+neighbor	0.75	Spout	Steam	1.0	Spout	Water
+neighbor	0.75	Spout	Hydrogen	1.0	Spout	Water
+neighbor	0.75	Spout	Oxygen	1.0	Spout	Water
+neighbor	0.75	Spout	Methane	1.0	Spout	Water
+neighbor	0.75	Spout	CO2	1.0	Spout	Water
+neighbor	0.5	Spout	Sand	1.0	Empty	Empty
+#Source of saltwater.
+element	SSpout	10	100	100	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	SSpout	1.0	Saltwater
+hotself	75	SSpout
+neighbor	0.75	SSpout	Empty	1.0	SSpout	Saltwater
+neighbor	1.0	SSpout	Steam	1.0	SSpout	Saltwater
+neighbor	1.0	SSpout	Water	1.0	SSpout	Saltwater
+neighbor	1.0	SSpout	Steam	1.0	SSpout	Water
+neighbor	1.0	SSpout	Hydrogen	1.0	SSpout	Water
+neighbor	1.0	SSpout	Oxygen	1.0	SSpout	Water
+neighbor	1.0	SSpout	Methane	1.0	SSpout	Water
+neighbor	1.0	SSpout	CO2	1.0	SSpout	Water
+neighbor	1.0	SSpout	Fire	1.0	SSpout	Water
+neighbor	1.0	SSpout	BFire	1.0	SSpout	Water
+neighbor	1.0	SSpout	Corpse	1.0	SSpout	Water
+neighbor	1.0	SSpout	Poo	1.0	SSpout	Water
+neighbor	0.5	SSpout	Sand	1.0	Empty	Empty
+#Destroys almost everything.
+element	???	231	7	231	0.000000	1.000000	0.500000	0.000000	1
+self	0.100000	???	1.0000	Leftover???
+neighbor	1.0	???	Empty	1.0	???	???
+neighbor	1.0	???	Wall	1.0	???	???
+neighbor	1.0	???	Fire	1.0	???	???
+neighbor	1.0	???	Water	1.0	???	???
+neighbor	1.0	???	Sand	1.0	???	???
+neighbor	1.0	???	Spout	1.0	???	???
+neighbor	1.0	???	Oil	1.0	???	???
+neighbor	1.0	???	Salt	1.0	???	???
+neighbor	1.0	???	Ember	1.0	???	???
+neighbor	1.0	???	Steam	1.0	???	???
+neighbor	1.0	???	Saltwater	1.0	???	???
+neighbor	1.0	???	Torch	1.0	???	???
+neighbor	0.2	???	Leftover???	1.0	Leftover???	Leftover???
+#Burns.
+element	Oil	128	64	64	0.700000	1.000000	0.200000	0.500000	1
+self	0.5	Oil	1.0	Fire
+hotself	70	Oil
+neighbor	1.0	Oil	BFire	1.0	Fire	BFire
+#Burns for a little while.
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.800000	1
+self	0.002000	Ember	1.0000	Fire
+neighbor	0.2		Ember	Empty	1.0	Ember	Fire
+neighbor	0.9		Ember	Water	1.0	Empty	Steam
+neighbor	0.75		Ember	Oil	1.0	Ember	Fire
+neighbor	1.0		Ember	Plant	1.0	Ember	Fire
+#Burns for a little while.
+element	FallingEmber	200	50	50	1.000000	0.200000	0.500000	1.300000	1
+self	0.002000	FallingEmber	1.0000	Fire
+neighbor	0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor	0.9		FallingEmber	Water	1.0	Empty	Steam
+neighbor	1.0		FallingEmber	Oil	1.0	FallingEmber	FallingEmber
+neighbor	1.0		FallingEmber	Plant	1.0	FallingEmber	Fire
+#Heat timer. If it is put inside another material, it NEEDS to be insulated. Also, seperate it from the explosive with some Empty.
+element	Timer	170	97	61	0.000000	0.000000	1.000000	1.010000	1
+self	1.0	Timer	1.0000	Fire
+hotself	90	Timer
+neighbor	1.0	Timer	Fire	1.0	Fire	Fire
+#Lava
+element	Lava	190	35	35	1.000000	0.000000	0.980000	1.400000	1
+self	0.01	Lava	0.8	Lava2	0.2	Lava3
+neighbor	0.02	Lava	Empty	1.0	Lava	Fire
+#Lava
+element	Lava2	100	35	35	1.000000	0.000000	0.980000	1.400000	0
+self	0.01	Lava2	0.8	Lava	0.2	Lava3
+neighbor	0.02	Lava2	Empty	1.0	Lava2	Fire
+#Lava
+element	Lava3	230	35	35	1.000000	0.000000	0.800000	1.400000	0
+self	0.1	Lava3	1.0	Lava2
+neighbor	0.05	Lava3	Empty	1.0	Lava2	Empty
+neighbor	0.7	Empty	Lava3	1.0	Lava3	Empty
+#Will eventually condense.
+element	Steam	85	85	255	-1.000000	1.000000	0.010000	0.500000	1
+self	0.001000	Steam	1.0000	Water
+#Salt will slowly come out of solution.
+element	Saltwater	0	0	150	0.700000	0.000000	0.600000	0.600000	1
+self    0.1         Saltwater       0.8   Water  0.2  Salt
+hotself	65	Saltwater
+neighbor	0.01	Water	Salt	0.7	Saltwater	Saltwater	0.3	Saltwater	Empty
+neighbor	0.001	Saltwater	Saltwater	1.0	Salt	Steam
+hotneighbor	50	Saltwater	Saltwater
+neighbor	0.08	Saltwater	Water	1.0	Water	Saltwater
+neighbor	0.2	Saltwater	Salt	1.0	Saltwater	Saltwater
+hotneighbor	50	Saltwater	Salt
+#Electrified saltwater.
+element	ESaltwater	60	40	150	0.700000	0.000000	0.600000	0.600000	0
+self	0.05	ESaltwater       1.0	Saltwater
+neighbor	0.8	ESaltwater	Saltwater	1.0	Saltwater		ESaltwater
+neighbor	0.001	Saltwater	ESaltwater	1.0	ESaltwater		ESaltwater
+neighbor	0.1	EWater	Salt	1.0	ESaltwater		ESaltwater
+neighbor	0.04	ESaltwater	Water		1.0	Water		ESaltwater
+neighbor	0.9	ESaltwater	Fire		1.0	Salt		Steam
+#Continuous fire.
+element	Torch	100	0	0	0.000000	1.000000	1.000000	0.900000	1
+neighbor	0.4	Torch	Empty	1.0	Torch		Fire
+neighbor	0.2	Torch	Water	1.0	Torch		Steam
+neighbor	0.2	Torch	Saltwater	0.5	Torch		Steam	0.5	Torch	Salt
+neighbor	0.2	Torch	Oil	1.0	Torch		Fire
+#A helper element.
+element	Leftover???	200	0	0	0.000000	0.000000	1.000000	1.000000	0
+self	0.005	Leftover???	1.0	Empty
+#People need this to live.
+element	Oxygen	0	100	100	-1.000000	1.000000	0.100000	0.100000	1
+self	1.0	Oxygen	1.0	BFire
+hotself	80	Oxygen
+neighbor	0.4	Oxygen	BFire	1.0	BFire	BFire
+#People exhale this.
+element	CO2	90	100	100	1.000000	1.000000	0.400000	0.100000	1
+self	1.0	CO2	1.0	Empty
+hotself	70	CO2
+#Explosive gas.
+element	Hydrogen	141	167	175	-1.000000	0.500000	0.090000	0.500000	1
+self	1.0	Hydrogen	1.0	Fire
+hotself	80	Hydrogen
+pexplosion	Hydrogen	Fire	20	Fire
+pexplosion	Hydrogen	BFire	20	Fire
+pexplosion	Hydrogen	Electricity	20	Fire
+#Very natural gas. Burns superhot.
+element	Methane	151	177	95	-1.000000	1.000000	0.090000	0.500000	1
+self	1.0	Methane	1.0	BFire
+hotself	70	Methane
+neighbor 1.0	Methane	Fire	1.0	BFire	BFire
+neighbor 1.0	Methane	BFire	1.0	BFire	BFire
+#Very natural gas. Burns superhot.
+element	Methane2	151	177	95	-1.000000	1.000000	0.090000	0.500000	0
+self	1.0	Methane2	1.0	BFire
+hotself	70	Methane2
+neighbor 1.0	Methane2	Fire	1.0	BFire	BFire
+neighbor 1.0	Methane2	BFire	1.0	BFire	BFire
+#Wet Cement. Dries to wall.
+element	Cement	128	128	158	1.000000	0.000000	0.900000	0.500000	1
+self	0.00003	Cement	1.0	Wall
+neighbor	0.02	Cement	Wall	1.0	Wall	Wall
+neighbor	0.5	Cement	Fire	1.0	Wall	Empty
+neighbor	0.5	Cement	BFire	1.0	Wall	Empty
+neighbor	0.5	Cement	Torch	1.0	Wall	Torch
+neighbor	0.5	Cement	Ember	1.0	Wall	Ember
+neighbor	0.5	Cement	FallingEmber	1.0	Wall	FallingEmber
+#Wet Glass. Dries.
+element	LGlass	128	128	158	1.000000	0.000000	0.900000	0.500000	1
+self	0.001	LGlass	1.0	Glass
+neighbor	0.01	LGlass	Glass	1.0	Glass	Glass
+#Wet Acrylic. Dries.
+element	LAcrylic	128	128	158	1.000000	0.000000	0.900000	0.500000	1
+self	0.001	LAcrylic	1.0	Acrylic
+neighbor	0.01	LAcrylic	Acrylic	1.0	Acrylic	Acrylic
+#Fills stuff up. Put only in closed containers. Works with some liquids. some gasses and Battery.
+element	Filler	3	160	131	0.000000	0.000000	0.010000	0.500000	1
+neighbor	1.0	Filler	Empty	1.0	Filler	Filler
+neighbor	1.0	Filler	Sand	1.0	Sand	Sand
+neighbor	1.0	Filler	Salt	1.0	Salt	Salt
+neighbor	1.0	Filler	Oil	1.0	Oil	Oil
+neighbor	1.0	Filler	Water	1.0	Water	Water
+neighbor	1.0	Filler	Saltwater	1.0	Saltwater	Saltwater
+neighbor	1.0	Filler	Cement	1.0	Cement	Cement
+neighbor	1.0	Filler	LGlass	1.0	LGlass	LGlass
+neighbor	1.0	Filler	LAcrylic	1.0	LAcrylic	LAcrylic
+neighbor	1.0	Filler	Dirt	1.0	Dirt	Dirt
+neighbor	1.0	Filler	Mud	1.0	Mud	Mud
+neighbor	1.0	Filler	Coolant	1.0	Coolant	Coolant
+neighbor	1.0	Filler	Remover	1.0	Remover	Remover
+neighbor	1.0	Filler	Hydrogen	1.0	Hydrogen	Hydrogen
+neighbor	1.0	Filler	Methane	1.0	Methane	Methane
+neighbor	1.0	Filler	Oxygen	1.0	Oxygen	Oxygen
+neighbor	1.0	Filler	CO2	1.0	CO2	CO2
+neighbor	1.0	Filler	Battery	1.0	Battery	Battery
+neighbor	1.0	Filler	MPocket	1.0	MPocket	MPocket
+#Monoammonium Phosphate . Puts out fire.
+element	MAP	220	220	240	1.000000	0.000000	0.980000	0.900000	1
+self	0.5	MAP	1.0	MAP
+hotself	30	MAP
+neighbor 1.0	MAP	Fire	1.0	MAP	Empty
+neighbor 1.0	MAP	BFire	1.0	MAP	Empty
+neighbor 1.0	MAP	Torch	1.0	MAP	Broken
+neighbor 1.0	MAP	Ember	1.0	MAP	Wood
+neighbor 1.0	MAP	FallingEmber	1.0	MAP	Empty
+neighbor 1.0	MAP	MWire	1.0	MAP	Wire
+neighbor 1.0	MAP	MGlass	1.0	MAP	Glass
+neighbor 1.0	MAP	MAcrylic	1.0	MAP	Acrylic
+neighbor 1.0	MAP	Lava	1.0	MAP	Wall
+neighbor 1.0	MAP	Lava2	1.0	MAP	Wall
+neighbor 1.0	MAP	Electricity	1.0	MAP	Empty
+neighbor 1.0	MAP	Remover	1.0	Empty	Remover
+#An all purpose remover. Removes Filler, MAP, CO2, and Oxygen.
+element	Remover	167	107	160	0.700000	1.000000	0.800000	0.900000	1
+self	0.05	Remover	1.0	Empty
+neighbor	1.0	Remover	Oxygen	1.0	Empty	Remover
+neighbor	1.0	Remover	CO2	1.0	Empty	Remover
+neighbor	1.0	MAP	Remover	1.0	Empty	Remover
+neighbor	1.0	Filler	Remover	1.0	Remover	Remover
+#Goes boom.
+element	C4	250	242	156	1.000000	0.000000	0.800000	0.500000	1
+neighbor 1.0	C4	Empty	1.0	C4	Fire
+hotneighbor	70	C4	Empty
+neighbor	1.0	C4	C4	1.0	C4	Fire
+hotneighbor	70	C4	C4
+pexplosion	C4	Fire	50	Fire
+pexplosion	C4	BFire	50	Fire
+pexplosion	C4	CWire	50	Fire
+pexplosion	C4	EWater	50	Fire
+pexplosion	C4	ESaltwater	50	Fire
+pexplosion	C4	Electricity	50	Fire
+#Blue fire.
+element	BFire	95	162	243	-1.000000	1.000000	0.000000	1.800000	0
+self	0.050000	BFire	1.0000	Empty
+neighbor	0.9	BFire	Water	1.0	Empty		Steam
+neighbor	0.75	BFire	Oil	1.0	Fire		Fire
+neighbor	1.0	BFire	Plant	1.0	Plant		Fire
+neighbor	1.0	BFire	Wood	1.0	Ember		Fire
+#Fuse. Burns fast.
+element	DetCord	62	113	53	0.000000	0.000000	1.000000	0.500000	1
+neighbor	1.0	DetCord	Empty	1.0	DetCord	Fire
+hotneighbor	70	DetCord	Empty
+neighbor	1.0	DetCord	DetCord	1.0	DetCord	Fire
+hotneighbor	70	DetCord	DetCord
+pexplosion	DetCord	Fire	4	Fire
+pexplosion	DetCord	BFire	4	Fire
+#Blue fire.
+element	BFire	95	162	243	-1.000000	1.000000	0.000000	2.000000	0
+self	0.04	BFire	1.0000	Empty
+#Cools stuff. Put in a container of Radiator touching whatever you want to cool. Also use in reactors.
+element	Coolant	80	197	203	0.700000	1.000000	0.400000	1.000000	1
+self	1.0	Coolant	1.0	Coolant
+hotself	40	Coolant
+hotcolor	Coolant	120	197	203
+neighbor	0.05	Coolant	Water	1.0	Empty	Water
+neighbor	0.05	Coolant	Saltwater	1.0	Empty	Saltwater
+#Fill with Coolant. Also condenses steam. Conducts electricity.
+element	Radiator	86	128	131	0.000000	0.000000	1.000000	1.000000	1
+hotcolor	Radiator	126	128	131
+neighbor 1.0	Radiator	Steam	1.0	Radiator	Water
+neighbor 0.1	Radiator	CWire	1.0	CWire	CWire
+#Insulates. It does burn, but it doesn't conduct heat.
+element	Insulator	106	148	151	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.1	Fire	Insulator	1.0	Fire	Fire
+neighbor 0.1	Insulator	BFire	1.0	Fire	Fire
+#Gets rid of water.
+element	Water???	0	0	0	0.000000	1.000000	1.000000	0.000000	1
+self	0.05	Water???	1.0	Empty
+neighbor 1.0	Water	Water???	1.0	Water???	Water???
+neighbor 1.0	Saltwater	Water???	1.0	Water???	Water???
+neighbor 1.0	EWater	Water???	1.0	Water???	Water???
+neighbor 1.0	ESaltwater	Water???	1.0	Water???	Water???
+#Grate. Keeps unwanted stuff away from equipment.
+element	Grate	128	178	128	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	Grate	1.0	MWire
+hotself	80	Grate
+hotcolor	Grate	255	0	0
+neighbor	0.8	Grate	Water	1.0	WGrate	Empty
+neighbor	1.0	Grate	EWater	1.0	WGrate	Empty
+neighbor	1.0	Grate	ESaltwater	1.0	SWGrate	Empty
+neighbor	1.0	Grate	Saltwater	1.0	SWGrate	Empty
+neighbor	0.8	Grate	Sand	1.0	SdGrate	Empty
+neighbor	0.8	Grate	Salt	1.0	StGrate	Empty
+neighbor	0.8	Grate	Oil	1.0	OGrate	Empty
+neighbor	0.8	Grate	Oxygen	1.0	OxGrate	Empty
+neighbor	0.8	Grate	Hydrogen	1.0	HGrate	Empty
+neighbor	0.8	Grate	CO2	1.0	CGrate	Empty
+neighbor	0.8	OxGrate	CO2	1.0	CGrate	Oxygen
+neighbor	0.8	Grate	Methane	1.0	MGrate	Empty
+#Water in Grate.
+element	WGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	WGrate	1.0	MWire
+hotself	80	WGrate
+neighbor	1.0	WGrate	Grate	1.0	Grate	WGrate
+neighbor	1.0	WGrate	Empty	1.0	Grate	Water
+#Saltwater in Grate.
+element	SWGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	SWGrate	1.0	MWire
+hotself	80	SWGrate
+neighbor	1.0	SWGrate	Grate	1.0	Grate	SWGrate
+neighbor	1.0	SWGrate	Empty	1.0	Grate	Saltwater
+#Sand in Grate.
+element	SdGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	SdGrate	1.0	MWire
+hotself	80	SdGrate
+neighbor	1.0	SdGrate	Grate	1.0	Grate	SdGrate
+neighbor	1.0	SdGrate	Empty	1.0	Grate	Sand
+#Salt in Grate.
+element	StGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	StGrate	1.0	MWire
+hotself	80	StGrate
+neighbor	1.0	StGrate	Grate	1.0	Grate	StGrate
+neighbor	1.0	StGrate	Empty	1.0	Grate	Salt
+#Oil in Grate.
+element	OGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	OGrate	1.0	MWire
+hotself	80	OGrate
+neighbor	1.0	OGrate	Grate	1.0	Grate	OGrate
+neighbor	1.0	OGrate	Empty	1.0	Grate	Oil
+#Oxygen in Grate.
+element	OxGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	OxGrate	1.0	MWire
+hotself	80	OxGrate
+neighbor	1.0	OxGrate	Grate	1.0	Grate	OxGrate
+neighbor	1.0	OxGrate	Empty	1.0	Grate	Oxygen
+#Hydrogen in Grate.
+element	HGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	HGrate	1.0	MWire
+hotself	80	HGrate
+neighbor	1.0	HGrate	Grate	1.0	Grate	HGrate
+neighbor	1.0	HGrate	Empty	1.0	Grate	Hydrogen
+#CO2 in Grate.
+element	CGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	CGrate	1.0	MWire
+hotself	80	CGrate
+neighbor	1.0	CGrate	Grate	1.0	Grate	CGrate
+neighbor	1.0	CGrate	Empty	1.0	Grate	CO2
+neighbor	1.0	CGrate	Oxygen	1.0	OxGrate	CO2
+#Methane in Grate.
+element	MGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	MGrate	1.0	MWire
+hotself	80	MGrate
+neighbor	1.0	MGrate	Grate	1.0	Grate	MGrate
+neighbor	1.0	MGrate	Empty	1.0	Grate	Methane
+#Grate. Only lets people through. Also put at the beginning of pipes
+element	Grate2	158	208	128	0.000000	0.000000	1.000000	0.500000	1
+self	0.5	Grate2	1.0	MWire
+hotself	80	Grate2
+hotcolor	Grate	255	0	0
+neighbor	0.8	Grate2	Person	1.0	PGrate	Oxygen
+#Person in Grate.
+element	PGrate	128	178	128	0.000000	0.000000	1.000000	0.500000	0
+self	0.5	PGrate	1.0	MWire
+hotself	80	PGrate
+neighbor	1.0	PGrate	Grate2	1.0	Grate2	PGrate
+neighbor	1.0	PGrate	Empty	1.0	Grate2	Person
+#Power Plant. Burns hydrogen or methane. It MUST be kept cool. Connect with pipe to life support.
+element	PowerP	131	138	167	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	PowerP	1.0	MWire
+hotself	90	PowerP
+hotcolor	PowerP	255	0	0
+neighbor	1.0	PowerP	Hydrogen	1.0	CPowerP	Methane
+neighbor	1.0	PowerP	Methane	0.5	CPowerP	Methane2	0.5	CPowerP	Empty
+neighbor	1.0	PowerP	Methane2	1.0	CPowerP	Empty
+neighbor	1.0	PowerP	CPowerP	1.0	CPowerP	PowerP
+neighbor	0.3	CPowerP	BPowerP	1.0	BPowerP	BPowerP
+neighbor	0.3	PowerP	BPowerP	1.0	BPowerP	BPowerP
+neighbor	1.0	PowerP	Person	1.0	CPowerP	Fire
+neighbor	1.0	PowerP	Corpse	1.0	CPowerP	Fire
+neighbor	1.0	PowerP	Deadfish	1.0	CPowerP	Fire
+pexplosion	PowerP	Water	26	BFire
+pexplosion	PowerP	Steam	26	BFire
+pexplosion	PowerP	EWater	26	BFire
+pexplosion	PowerP	Saltwater	26	BFire
+pexplosion	PowerP	ESaltwater	26	BFire
+#Charged PowerP.
+element	CPowerP	151	158	197	0.000000	0.000000	1.000000	1.010000	0
+self	1.0	CPowerP	1.0	MWire
+hotself	90 	CPowerP
+hotcolor  CPowerP  255     0     0
+neighbor	0.3	CPowerP	BPowerP	1.0	BPowerP	BPowerP
+pexplosion	CPowerP	Water	26	BFire
+pexplosion	CPowerP	Steam	26	BFire
+pexplosion	CPowerP	EWater	26	BFire
+pexplosion	CPowerP	Saltwater	26	BFire
+pexplosion	CPowerP	ESaltwater	26	BFire
+#Broken PowerP.
+element	BPowerP	131	138	197	0.000000	0.000000	1.000000	1.050000	0
+self	1.0	BPowerP	1.0	MWire
+hotself	70 	BPowerP
+neighbor	1.0	BPowerP	Hydrogen	1.0	BPowerP	Empty
+neighbor	1.0	BPowerP	Methane	1.0	BPowerP	Empty
+#Conducts electricity. Don't let water touch this when charged.
+element	Wire	150	150	150	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Wire	1.0	MWire
+hotself	90	Wire
+hotcolor  Wire  255     0     0
+neighbor	1.0	CPowerP	Wire	1.0	PowerP	CWire
+neighbor	1.0	Wire	CWire	1.0	CWire	Wire
+neighbor 	1.0	Wire	EWater	1.0	CWire	Water
+neighbor 	1.0	Wire	ESaltwater	1.0	CWire	Saltwater
+#Pipe #1. This is the first layer you put in a pipe.
+element	Pipe1	200	200	20	0.000000	0.000000	1.000000	0.100000	1
+self	1.0	Pipe1	1.0	MWire
+hotself	80	Pipe1
+neighbor	1.0	Pipe1	Electricity	1.0	Ele1	Empty
+neighbor	1.0	Pipe1	CWire	1.0	Ele1	Wire
+neighbor	1.0	Pipe1	Sand	1.0	Sd1	Empty
+neighbor	1.0	Pipe1	Salt	1.0	St1	Empty
+neighbor	1.0	Pipe1	Water	1.0	Wat1	Empty
+neighbor	1.0	Pipe1	Oil	1.0	Oil1	Empty
+neighbor	1.0	Pipe1	Saltwater	1.0	SW1	Empty
+neighbor	1.0	Pipe1	Oxygen	1.0	Oxy1	Empty
+neighbor	1.0	Pipe1	CO2	1.0	CO21	Empty
+neighbor	1.0	Pipe1	Methane	1.0	Met1	Empty
+neighbor	1.0	Pipe1	Hydrogen	1.0	Hyd1	Empty
+neighbor	1.0	Pipe1	Person	1.0	Per1	Empty
+neighbor	1.0	Pipe1	StarvingP	1.0	Per1	Empty
+neighbor	1.0	Pipe1	DyingP	1.0	Per1	Empty
+neighbor	1.0	Pipe1	PGrate	1.0	Per1	Grate2
+neighbor	1.0	Pipe1	Coolant	1.0	Coo1	Empty
+neighbor	1.0	Pipe1	DCoolant	1.0	Coo1	Empty
+neighbor	1.0	Pipe1	Ele1	1.0	Ele1	Pipe1
+neighbor	1.0	Pipe1	Sd1	1.0	Sd1	Pipe1
+neighbor	1.0	Pipe1	St1	1.0	St1	Pipe1
+neighbor	1.0	Pipe1	Wat1	1.0	Wat1	Pipe1
+neighbor	1.0	Pipe1	Oil1	1.0	Oil1	Pipe1
+neighbor	1.0	Pipe1	SW1	1.0	SW1	Pipe1
+neighbor	1.0	Pipe1	Oxy1	1.0	Oxy1	Pipe1
+neighbor	1.0	Pipe1	CO21	1.0	CO21	Pipe1
+neighbor	1.0	Pipe1	Met1	1.0	Met1	Pipe1
+neighbor	1.0	Pipe1	Hyd1	1.0	Hyd1	Pipe1
+neighbor	1.0	Pipe1	Per1	1.0	Per1	Pipe1
+neighbor	1.0	Pipe1	Coo1	1.0	Coo1	Pipe1
+#Electricity in pipe.
+element	Ele1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Ele1	1.0	MWire
+hotself	80	Ele1
+neighbor	1.0	Ele1	Pipe2	1.0	Pipe1	Ele2
+#Sand in pipe.
+element	Sd1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Sd1	1.0	MWire
+hotself	80	Sd1
+neighbor	1.0	Sd1	Pipe2	1.0	Pipe1	Sd2
+#Salt in pipe.
+element	St1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	St1	1.0	MWire
+hotself	80	St1
+neighbor	1.0	St1	Pipe2	1.0	Pipe1	St2
+#Water in pipe.
+element	Wat1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Wat1	1.0	MWire
+hotself	80	Wat1
+neighbor	1.0	Wat1	Pipe2	1.0	Pipe1	Wat2
+#Oil in pipe.
+element	Oil1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Oil1	1.0	MWire
+hotself	80	Oil1
+neighbor	1.0	Oil1	Pipe2	1.0	Pipe1	Oil2
+#Saltwater in pipe.
+element	SW1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	SW1	1.0	MWire
+hotself	80	SW1
+neighbor	1.0	SW1	Pipe2	1.0	Pipe1	SW2
+#Oxygen in pipe.
+element	Oxy1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Oxy1	1.0	MWire
+hotself	80	Oxy1
+neighbor	1.0	Oxy1	Pipe2	1.0	Pipe1	Oxy2
+#CO2 in pipe.
+element	CO21	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	CO21	1.0	MWire
+hotself	80	CO21
+neighbor	1.0	CO21	Pipe2	1.0	Pipe1	CO22
+#Methane in pipe.
+element	Met1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Met1	1.0	MWire
+hotself	80	Met1
+neighbor	1.0	Met1	Pipe2	1.0	Pipe1	Met2
+#Hydrogen in pipe.
+element	Hyd1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Hyd1	1.0	MWire
+hotself	80	Hyd1
+neighbor	1.0	Hyd1	Pipe2	1.0	Pipe1	Hyd2
+#Person in pipe.
+element	Per1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Per1	1.0	Ember
+hotself	80	Per1
+neighbor	1.0	Per1	Pipe2	1.0	Pipe1	Per2
+#Coolant in pipe.
+element	Coo1	160	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Coo1	1.0	MWire
+hotself	80	Coo1
+neighbor	1.0	Coo1	Pipe2	1.0	Pipe1	Coo2
+#Pipe #2. This is the second layer you put in a pipe.
+element	Pipe2	200	150	20	0.000000	0.000000	1.000000	0.200000	1
+self	1.0	Pipe2	1.0	MWire
+hotself	80	Pipe2
+neighbor	1.0	Pipe2	Ele2	1.0	Ele2	Pipe2
+neighbor	1.0	Pipe2	Sd2	1.0	Sd2	Pipe2
+neighbor	1.0	Pipe2	St2	1.0	St2	Pipe2
+neighbor	1.0	Pipe2	Wat2	1.0	Wat2	Pipe2
+neighbor	1.0	Pipe2	Oil2	1.0	Oil2	Pipe2
+neighbor	1.0	Pipe2	SW2	1.0	SW2	Pipe2
+neighbor	1.0	Pipe2	Oxy2	1.0	Oxy2	Pipe2
+neighbor	1.0	Pipe2	CO22	1.0	CO22	Pipe2
+neighbor	1.0	Pipe2	Met2	1.0	Met2	Pipe2
+neighbor	1.0	Pipe2	Hyd2	1.0	Hyd2	Pipe2
+neighbor	1.0	Pipe2	Per2	1.0	Per2	Pipe2
+neighbor	1.0	Pipe2	Coo2	1.0	Coo2	Pipe2
+#Electricity in pipe.
+element	Ele2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Ele2	1.0	MWire
+hotself	80	Ele2
+neighbor	1.0	Ele2	Pipe3	1.0	Pipe2	Ele3
+#Sand in pipe.
+element	Sd2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Sd2	1.0	MWire
+hotself	80	Sd2
+neighbor	1.0	Sd2	Pipe3	1.0	Pipe2	Sd3
+#Salt in pipe.
+element	St2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	St2	1.0	MWire
+hotself	80	St2
+neighbor	1.0	St2	Pipe3	1.0	Pipe2	St3
+#Water in pipe.
+element	Wat2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Wat2	1.0	MWire
+hotself	80	Wat2
+neighbor	1.0	Wat2	Pipe3	1.0	Pipe2	Wat3
+#Oil in pipe.
+element	Oil2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Wat2	1.0	MWire
+hotself	80	Wat2
+neighbor	1.0	Oil2	Pipe3	1.0	Pipe2	Oil3
+#Saltwater in pipe.
+element	SW2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Wat2	1.0	MWire
+hotself	80	Wat2
+neighbor	1.0	SW2	Pipe3	1.0	Pipe2	SW3
+#Oxygen in pipe.
+element	Oxy2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Oxy2	1.0	MWire
+hotself	80	Oxy2
+neighbor	1.0	Oxy2	Pipe3	1.0	Pipe2	Oxy3
+#CO2 in pipe.
+element	CO22	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	CO22	1.0	MWire
+hotself	80	CO22
+neighbor	1.0	CO22	Pipe3	1.0	Pipe2	CO23
+#Methane in pipe.
+element	Met2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Met2	1.0	MWire
+hotself	80	Met2
+neighbor	1.0	Met2	Pipe3	1.0	Pipe2	Met3
+#Hydrogen in pipe.
+element	Hyd2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Hyd2	1.0	MWire
+hotself	80	Hyd2
+neighbor	1.0	Hyd2	Pipe3	1.0	Pipe2	Hyd3
+#Person in pipe.
+element	Per2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Per2	1.0	Ember
+hotself	80	Per2
+neighbor	1.0	Per2	Pipe3	1.0	Pipe2	Per3
+#Coolant in pipe.
+element	Coo2	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Coo2	1.0	MWire
+hotself	80	Coo2
+neighbor	1.0	Coo2	Pipe3	1.0	Pipe2	Coo3
+#Pipe #3. This is the third layer you put in a pipe.
+element	Pipe3	200	20	20	0.000000	0.000000	1.000000	0.200000	1
+self	1.0	Pipe3	1.0	MWire
+hotself	80	Pipe3
+neighbor	1.0	Pipe3	Ele3	1.0	Ele3	Pipe3
+neighbor	1.0	Pipe3	Sd3	1.0	Sd3	Pipe3
+neighbor	1.0	Pipe3	St3	1.0	St3	Pipe3
+neighbor	1.0	Pipe3	Wat3	1.0	Wat3	Pipe3
+neighbor	1.0	Pipe3	Oil3	1.0	Oil3	Pipe3
+neighbor	1.0	Pipe3	SW3	1.0	SW3	Pipe3
+neighbor	1.0	Pipe3	Oxy3	1.0	Oxy3	Pipe3
+neighbor	1.0	Pipe3	CO23	1.0	CO23	Pipe3
+neighbor	1.0	Pipe3	Met3	1.0	Met3	Pipe3
+neighbor	1.0	Pipe3	Hyd3	1.0	Hyd3	Pipe3
+neighbor	1.0	Pipe3	Per3	1.0	Per3	Pipe3
+neighbor	1.0	Pipe3	Coo3	1.0	Coo3	Pipe3
+#Electricity in pipe.
+element	Ele3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Ele3	1.0	MWire
+hotself	80	Ele3
+neighbor	1.0	Ele3	Pipe1	1.0	Pipe3	Ele1
+neighbor	1.0	Ele3	Empty	1.0	Pipe3	Electricity
+neighbor	1.0	Ele3	Wire	1.0	Pipe3	CWire
+neighbor	1.0	Ele3	Water	1.0	Pipe3	EWater
+neighbor	1.0	Ele3	Saltwater	1.0	Pipe3	ESaltwater
+#Sand in pipe.
+element	Sd3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Sd3	1.0	MWire
+hotself	80	Sd3
+neighbor	1.0	Sd3	Pipe1	1.0	Pipe3	Sd1
+neighbor	1.0	Sd3	Empty	1.0	Pipe3	Sand
+#Salt in pipe.
+element	St3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	St3	1.0	MWire
+hotself	80	St3
+neighbor	1.0	St3	Pipe1	1.0	Pipe3	St1
+neighbor	1.0	St3	Empty	1.0	Pipe3	Salt
+#Water in pipe.
+element	Wat3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Wat3	1.0	MWire
+hotself	80	Wat3
+neighbor	1.0	Wat3	Pipe1	1.0	Pipe3	Wat1
+neighbor	1.0	Wat3	Empty	1.0	Pipe3	Water
+#Oil in pipe.
+element	Oil3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Oil3	1.0	MWire
+hotself	80	Oil3
+neighbor	1.0	Oil3	Pipe1	1.0	Pipe3	Oil1
+neighbor	1.0	Oil3	Empty	1.0	Pipe3	Oil
+#Saltwater in pipe.
+element	SW3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	SW3	1.0	MWire
+hotself	80	SW3
+neighbor	1.0	SW3	Pipe1	1.0	Pipe3	SW1
+neighbor	1.0	SW3	Empty	1.0	Pipe3	Saltwater
+#Oxygen in pipe.
+element	Oxy3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Oxy3	1.0	MWire
+hotself	80	Oxy3
+neighbor	1.0	Oxy3	Pipe1	1.0	Pipe3	Oxy1
+neighbor	1.0	Oxy3	Empty	1.0	Pipe3	Oxygen
+#CO2 in pipe.
+element	CO23	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	CO23	1.0	MWire
+hotself	80	CO23
+neighbor	1.0	CO23	Pipe1	1.0	Pipe3	CO21
+neighbor	1.0	CO23	Empty	1.0	Pipe3	CO2
+#Methane in pipe.
+element	Met3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Met3	1.0	MWire
+hotself	80	Met3
+neighbor	1.0	Met3	Pipe1	1.0	Pipe3	Met1
+neighbor	1.0	Met3	Empty	1.0	Pipe3	Methane
+#Hydrogen in pipe.
+element	Hyd3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Hyd3	1.0	MWire
+hotself	80	Hyd3
+neighbor	1.0	Hyd3	Pipe1	1.0	Pipe3	Hyd1
+neighbor	1.0	Hyd3	Empty	1.0	Pipe3	Hydrogen
+#Person in pipe.
+element	Per3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Per3	1.0	Ember
+hotself	80	Per3
+neighbor	1.0	Per3	Pipe1	1.0	Pipe3	Per1
+neighbor	1.0	Per3	Empty	1.0	Pipe3	Person
+neighbor	1.0	Per3	CO2	1.0	Pipe3	Person
+neighbor	1.0	Per3	Oxygen	1.0	Pipe3	Person
+neighbor	1.0	Per3	Water	1.0	Pipe3	Person
+neighbor	1.0	Per3	Saltwater	1.0	Pipe3	Person
+#Coolant in pipe.
+element	Coo3	0	190	20	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	Coo3	1.0	MWire
+hotself	80	Coo3
+neighbor	1.0	Coo3	Pipe1	1.0	Pipe3	Coo1
+neighbor	1.0	Coo3	Empty	1.0	Pipe3	Coolant
+#Creates pipes. Just draw it like the pipe you want, then put Pipe1 at the beginning. You will probably have to finish the end of it. Credit goes to ManaUser.
+element	PipeM	200	230	20	0.000000	0.000000	1.000000	0.000000	1
+self	1.0	PipeM	1.0	MWire
+hotself	80	PipeM
+neighbor	1.0	PipeM	Empty	1.0	PipeM	Glass
+neighbor	1.0	PipeM	Water	1.0	PipeM	Glass
+neighbor	1.0	PipeM	Saltwater	1.0	PipeM	Glass
+neighbor	1.0	PipeM	Pipe1	1.0	Pipe2b	Pipe1
+neighbor	1.0	PipeM	Pipe2	1.0	Pipe3b	Pipe2
+neighbor	1.0	PipeM	Pipe3	1.0	Pipe1b	Pipe3
+#Part of PipeM.
+element	Pipe1b	180	180	201	0.000000	0.000000	1.000000	0.000000	0
+self	1.0	Pipe1b	1.0000	Pipe1
+#Part of PipeM.
+element	Pipe2b	200	200	221	0.000000	0.000000	1.000000	0.000000	0
+self	1.0	Pipe2b	1.0000	Pipe2
+#Part of PipeM.
+element	Pipe3b	220	220	241	0.000000	0.000000	1.000000	0.000000	0
+self	1.0	Pipe3b	1.0000	Pipe3
+#Makes insulated wire.
+element	IWire	150	150	150	0.000000	0.000000	1.000000	0.500000	1
+self	0.1	IWire	1.0	Wire
+neighbor	1.0	IWire	Empty	1.0	IWire	Acrylic
+neighbor	1.0	IWire	Oxygen	1.0	IWire	Acrylic
+neighbor	1.0	IWire	CO2	1.0	IWire	Acrylic
+neighbor	1.0	IWire	Hydrogen	1.0	IWire	Acrylic
+neighbor	1.0	IWire	Methane	1.0	IWire	Acrylic
+neighbor	1.0	IWire	Water	1.0	IWire	Acrylic
+neighbor	1.0	IWire	EWater	1.0	IWire	Acrylic
+neighbor	1.0	IWire	Saltwater	1.0	IWire	Acrylic
+neighbor	1.0	IWire	ESaltwater	1.0	IWire	Acrylic
+#Charged wire.
+element	CWire	215	220	24	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CWire	1.0	MWire
+hotself	90 	CWire
+hotcolor	CWire	255	0	0
+neighbor	1.0	CWire	Empty	1.0	Wire	Electricity
+neighbor	1.0	CWire	Fish	1.0	Wire	Deadfish
+neighbor	1.0	CWire	Plant	1.0	Wire	Wood
+neighbor	1.0	CWire	Water	1.0	Wire	EWater
+neighbor	1.0	CWire	Saltwater	1.0	CWire	ESaltwater
+#Molten Wire
+element	MWire	255	150	150	0.900000	0.000000	0.860000	1.100000	0
+self	0.0005	MWire	1.0	Wire
+#Switch. Water turns it on. It can only be turned on once.
+element	Switch	200	150	150	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Switch	1.0	MWire
+hotself	90 	Switch
+hotcolor	Switch	255	0	0
+neighbor	1.0	Switch	Water	1.0	OnSwitch	Empty
+neighbor	1.0	Switch	EWater	1.0	OnSwitch	Empty
+#On Switch.
+element	OnSwitch	150	150	25	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	OnSwitch	1.0	MWire
+hotself	90 	OnSwitch
+hotcolor	OnSwitch	255	0	0
+neighbor	1.0	OnSwitch	Switch	1.0	OnSwitch	OnSwitch
+#Switch operated detonator.
+element	Deton	150	97	61	0.000000	0.000000	1.000000	1.000000	1
+self	1.0	Deton	1.0	Fire
+hotself	80 	Deton
+neighbor	1.0	Deton	OnSwitch	1.0	Fire	OnSwitch
+neighbor	1.0	Deton	Fire	1.0	Fire	Fire
+neighbor	1.0	Deton	BFire	1.0	Fire	BFire
+neighbor	1.0	Deton	Electricity	1.0	Fire	Empty
+#Electricity. It can burn out electrical components. Credit goes to 11neil11
+element	Electricity	80	104	222	1.000000	0.000000	0.100000	1.300000	1
+self	0.001	Electricity	1.0	Spark
+neighbor	1.0	Electricity	Empty	1.0	Electricity	Edge
+neighbor	0.1	Electricity	Broken	1.0	Empty	Broken
+neighbor	1.0	Electricity	MWire	1.0	Empty	MWire
+neighbor	1.0	Electricity	Wire	1.0	Empty	CWire
+neighbor	1.0	Electricity	Radiator	1.0	Empty	CWire
+neighbor	1.0	Electricity	Plant	1.0	Empty	Wood
+neighbor	1.0	Electricity	PowerP	1.0	Empty	BPowerP
+neighbor	1.0	Electricity	CPowerP	1.0	Empty	BPowerP
+neighbor	1.0	Electricity	Switch	1.0	Empty	Broken
+neighbor	1.0	Electricity	OnSwitch	1.0	Empty	Broken
+neighbor	1.0	Electricity	Water	1.0	Empty	EWater
+neighbor	1.0	Electricity	EWater	1.0	Empty	EWater
+neighbor	1.0	Electricity	Saltwater	1.0	Empty	ESaltwater
+neighbor	1.0	Electricity	ESaltwater	1.0	Empty	ESaltwater
+neighbor	1.0	Electricity	SWFilter	1.0	Empty	Broken
+neighbor	1.0	Electricity	CSWFilter	1.0	Empty	Broken
+#Electricity. Credit goes to 11neil11
+element	Edge	255	255	70	0.000000	0.000000	0.500000	1.100000	0
+self	1.0	Edge	1.0	Empty
+neighbor	1.0	Edge	Electricity	1.0	Electricity	Edge
+neighbor	1.0	Edge	CWire	1.0	Empty	CWire
+#Spark.
+element	Spark	255	255	70	-1.000000	1.000000	0.010000	1.500000	0
+self	0.05	Spark	1.0	Empty
+#Broken electrical components.
+element	Broken	85	81	51	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	Broken	1.0	MWire
+hotself	90	Broken
+hotcolor  Broken  255     0     0
+neighbor	0.0001	Broken	Empty	1.0	Broken	Spark
+neighbor	1.0	Broken	Switch	1.0	Broken	Broken
+neighbor	1.0	Broken	OnSwitch	1.0	Broken	Broken
+neighbor	1.0	Broken	SWFilter	1.0	Broken	Broken
+neighbor	1.0	Broken	CSWFilter	1.0	Broken	Broken
+#Disappears with Switch.
+element	Gate	143	177	203	0.000000	0.000000	2.000000	0.500000	1
+neighbor	1.0	Gate	EWater	1.0	DGate	Water
+neighbor	1.0	Gate	OnSwitch	1.0	DGate	OnSwitch
+neighbor	1.0	Gate	DGate	1.0	DGate	DGate
+#Disappearing Gate.
+element	DGate	143	167	203	0.000000	0.000000	1.000000	1.300000	0
+self	0.7	DGate	1.0	Empty
+#Electric desalinator. Put a funnel overhead to collect the steam.
+element	SWFilter	54	145	141	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	SWFilter	1.0	MWire
+hotself	80 	SWFilter
+neighbor	1.0	SWFilter	CWire	1.0	CSWFilter	Wire
+neighbor	1.0	SWFilter	CSWFilter	1.0	CSWFilter	SWFilter
+#Charged saltwater filter. 101
+element	CSWFilter	74	165	141	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CSWFilter	1.0	MWire
+hotself	80 	CSWFilter
+neighbor	1.0	CSWFilter	Saltwater	0.8	SWFilter	Steam	0.2	SWF	Empty
+neighbor	1.0	CSWFilter	ESaltwater	0.5	SWFilter	Steam	0.5	SWF	Empty
+neighbor	1.0	CSWFilter	Water	1.0	SWFilter	Steam
+neighbor	1.0	CSWFilter	EWater	1.0	SWFilter	Steam
+neighbor	1.0	CSWFilter	Fish	0.5	SWFilter	Blood	0.5	CSWFilter	Gunk
+neighbor	1.0	CSWFilter	Deadfish	0.5	SWFilter	Blood	0.5	CSWFilter	Gunk
+neighbor	1.0	CSWFilter	sFish	0.5	SWFilter	Blood	0.5	CSWFilter	Gunk
+neighbor	1.0	CSWFilter	Person	0.5	SWFilter	Blood	0.5	CSWFilter	Gunk
+neighbor	1.0	CSWFilter	Corpse	0.5	SWFilter	Blood	0.5	CSWFilter	Gunk
+neighbor	1.0	CSWFilter	Salt	1.0	SWF	Empty
+#Saltwater in filter.
+element	SWF	54	145	261	0.000000	0.000000	1.000000	0.500000	0
+neighbor	1.0	SWF	Empty	1.0	SWFilter	Salt
+neighbor	1.0	SWF	CSWFilter	1.0	CSWFilter	SWF
+neighbor	1.0	SWF	SWFilter	1.0	SWFilter	SWF
+#Turns CO2 into Oxygen. Needs electricity and Oxygen.
+element	Scrubber	157	17	204	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Scrubber	1.0	MWire
+hotself	80 	Scrubber
+neighbor	1.0	Scrubber	Oxy3	1.0	BOxy	Pipe3
+neighbor	1.0	Scrubber	CWire	1.0	CScrubber	Wire
+neighbor	1.0	Scrubber	CScrubber	1.0	CScrubber	Scrubber
+neighbor	1.0	Scrubber	CElectro	1.0	CScrubber	CElectro
+neighbor	1.0	Scrubber	Water	1.0	BScrubber	Methane
+neighbor	1.0	Scrubber	EWater	1.0	BScrubber	Methane
+neighbor	1.0	Scrubber	Saltwater	1.0	BScrubber	Methane
+neighbor	1.0	Scrubber	ESaltwater	1.0	BScrubber	Methane
+neighbor	1.0	Scrubber	BElectro	1.0	BScrubber	BElectro
+#Charged scrubber.
+element	CScrubber	177	37	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CScrubber	1.0	MWire
+hotself	80 	CScrubber
+neighbor	1.0	CScrubber	Wire	1.0	Scrubber	CWire
+neighbor	1.0	CScrubber	BElectro	1.0	BScrubber	BElectro
+neighbor	1.0	CScrubber	BScrubber	1.0	BScrubber	BScrubber
+neighbor	1.0	CScrubber	Oxy3	1.0	SOxy	Pipe3
+neighbor	1.0	CScrubber	Person	1.0	CScrubber	Blood
+neighbor	1.0	CScrubber	Corpse	1.0	CScrubber	Blood
+#Oxygen in scrubber.
+element	BOxy	157	17	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	BOxy	1.0	MWire
+hotself	80 	BOxy
+neighbor	1.0	BOxy	CWire	1.0	SOxy	Wire
+neighbor	1.0	BOxy	CScrubber	1.0	SOxy	SOxy
+neighbor	1.0	BOxy	Scrubber	1.0	Scrubber	BOxy
+#Oxygen in scrubber.
+element	SOxy	157	17	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	SOxy	1.0	MWire
+hotself	80 	SOxy
+neighbor	1.0	SOxy	CScrubber	1.0	CScrubber	SOxy
+neighbor	1.0	SOxy	Scrubber	1.0	Scrubber	SOxy
+neighbor	1.0	SOxy	AirFilter	1.0	AirFilter	SOxy
+neighbor	1.0	SOxy	CO2	0.5	Scrubber	Oxygen	0.5	SOxy	Oxygen
+neighbor	1.0	SOxy	Empty	0.5	Scrubber	Oxygen	0.5	SOxy	Oxygen
+#Turns water into Oxygen and Hydrogen with electrolysis. Needs electricity and water. Connect with pipe to Scrubber.
+element	Electro	127	157	24	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Electro	1.0	MWire
+hotself	80 	Electro
+neighbor	1.0	Electro	CWire	1.0	CElectro	Wire
+neighbor	1.0	Electro	CElectro	1.0	CElectro	Electro
+neighbor	1.0	Electro	BElectro	1.0	BElectro	BElectro
+#Charged Electro.
+element	CElectro	147	177	44	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CElectro	1.0	MWire
+hotself	80 	CElectro
+neighbor	1.0	CElectro	Wire	1.0	Electro	CWire
+neighbor	1.0	CElectro	Water	1.0	EOxy	Hydrogen
+neighbor	1.0	CElectro	Saltwater	0.5	EOxy	Hydrogen	0.5	EOxy	Gunk
+neighbor	1.0	CElectro	EWater	1.0	BElectro	Methane
+neighbor	1.0	CElectro	ESaltwater	1.0	BElectro	Methane
+neighbor	1.0	CElectro	BElectro	1.0	BElectro	BElectro
+neighbor	1.0	CElectro	EOxy	1.0	EOxy	CElectro
+neighbor	1.0	CElectro	Person	1.0	EOxy	Hydrogen
+neighbor	1.0	CElectro	Corpse	1.0	EOxy	Hydrogen
+neighbor	1.0	CElectro	Fish	1.0	EOxy	Hydrogen
+neighbor	1.0	CElectro	sFish	1.0	EOxy	Hydrogen
+neighbor	1.0	CElectro	Deadfish	1.0	EOxy	Hydrogen
+#Oxygen in Electro.
+element	EOxy	157	17	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	EOxy	1.0	MWire
+hotself	80 	EOxy
+neighbor	1.0	EOxy	CElectro	1.0	CElectro	EOxy
+neighbor	1.0	EOxy	Electro	1.0	Electro	EOxy
+neighbor	1.0	Pipe1	EOxy	1.0	Oxy1	Electro
+neighbor	1.0	EOxy	Water	1.0	EOxy	Hydrogen
+#Broken Scrubber.
+element	BScrubber	177	37	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	BScrubber	1.0	MWire
+hotself	80 	BScrubber
+neighbor	1.0	BScrubber	SOxy	1.0	BScrubber	BScrubber
+neighbor	0.01	BScrubber	Oxygen	1.0	BScrubber	Hydrogen
+neighbor	0.01	BScrubber	CO2	1.0	BScrubber	Methane
+neighbor	0.01	BScrubber	Empty	1.0	BScrubber	Methane
+#Broken Electro.
+element	BElectro	177	37	204	0.000000	0.000000	1.000000	1.010000	0
+self	1.0	BElectro	1.0	MWire
+hotself	80 	BElectro
+neighbor	1.0	BElectro	EOxy	1.0	BElectro	BElectro
+neighbor	0.01	BElectro	Oxygen	1.0	BElectro	Hydrogen
+neighbor	0.01	BElectro	CO2	1.0	BElectro	Methane
+neighbor	0.01	BElectro	Empty	1.0	BElectro	Methane
+#Cross Between a kitchen and a bathroom. Put in living area. Needs methane.
+element	K&amp;B	238	221	204	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	K&amp;B	1.0	MWire
+hotself	80 	K&amp;B
+neighbor	1.0	K&amp;B	Methane	1.0	Food1	Empty
+neighbor	1.0	Food1	K&amp;B	1.0	K&amp;B	Food1
+neighbor	1.0	K&amp;B	Water	1.0	BK&amp;B	Water
+neighbor	1.0	K&amp;B	EWater	1.0	BK&amp;B	EWater
+neighbor	1.0	K&amp;B	Saltwater	1.0	BK&amp;B	Saltwater
+neighbor	1.0	K&amp;B	ESaltwater	1.0	BK&amp;B	ESaltwater
+neighbor	1.0	K&amp;B	Electricity	1.0	BK&amp;B	Empty
+neighbor	1.0	K&amp;B	BK&amp;B	1.0	BK&amp;B	BK&amp;B
+neighbor	1.0	Food1	Oxygen	1.0	Food	Oxygen
+neighbor	1.0	K&amp;B	Waste	1.0	Waste	K&amp;B
+#Broken K&amp;B.
+element	BK&amp;B	177	37	204	0.000000	0.000000	1.000000	1.010000	0
+self	1.0	BK&amp;B	1.0	MWire
+hotself	80 	BK&amp;B
+neighbor	1.0	BK&amp;B	Food	1.0	BK&amp;B	BK&amp;B
+neighbor	1.0	BK&amp;B	Person	1.0	BK&amp;B	Blood
+neighbor	1.0	BK&amp;B	HungryP	1.0	BK&amp;B	Blood
+neighbor	1.0	BK&amp;B	StarvingP	1.0	BK&amp;B	Blood
+neighbor	1.0	BK&amp;B	DyingP	1.0	BK&amp;B	Blood
+neighbor	1.0	BK&amp;B	Waste	1.0	BK&amp;B	BK&amp;B
+neighbor	0.01	BK&amp;B	Oxygen	1.0	BK&amp;B	Poo
+neighbor	0.01	BK&amp;B	CO2	1.0	BK&amp;B	Methane
+#Food.
+element	Food	255	127	20	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	Food	1.0	Ember
+hotself	70	Food
+#Food.
+element	Food1	255	127	20	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	Food1	1.0	Ember
+hotself	70	Food1
+neighbor	1.0	Food1	Waste	1.0	Waste	Food1
+#Poo in K&amp;B.
+element	Waste	150	112	61	0.000000	0.000000	0.500000	0.500000	0
+self	0.5	Waste	1.0	Fire
+hotself	70	Waste
+neighbor	1.0	Waste	Empty	1.0	K&amp;B	Poo
+#Condenses steam. Put at the beginning of a pipe.
+element	Condenser	64	128	235	0.000000	0.000000	1.000000	0.200000	1
+self	1.0	Condenser	1.0	MWire
+hotself	80	Condenser
+neighbor	1.0	Steam	Condenser	1.0	Empty	CSteam
+neighbor	1.0	RCoolant	Condenser	1.0	Empty	CCoolant
+neighbor	1.0	CSteam	Condenser	1.0	Condenser	CSteam
+neighbor	1.0	CCoolant	Condenser	1.0	Condenser	CCoolant
+#Steam in condenser.
+element	CSteam	64	128	255	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CSteam	1.0	MWire
+hotself	80	CSteam
+neighbor	1.0	CSteam	Pipe1	1.0	Condenser	Wat1
+#Coolant in condenser.
+element	CCoolant	64	128	255	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CCoolant	1.0	MWire
+hotself	80	CCoolant
+neighbor	1.0	CCoolant	Pipe1	1.0	Condenser	Coo1
+#A temporary oxygen supply. Needs no power, but becomes dirty and unusable over time. Clean with Remover.
+element	Rebreather	210	115	10	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Rebreather	1.0	MWire
+hotself	80	Rebreather
+neighbor	0.2	Rebreather	Empty	1.0	Rebreather	Oxygen
+neighbor	0.05	Rebreather	CO2	1.0	Rebreather	Oxygen
+neighbor	0.004	CO2	Rebreather	1.0	Oxygen	DirtyRB
+pexplosion	Rebreather	Water	16	BFire
+pexplosion	Rebreather	EWater	16	BFire
+pexplosion	Rebreather	Saltwater	16	BFire
+pexplosion	Rebreather	ESaltwater	16	BFire
+#Dirty Rebreather
+element	DirtyRB	115	115	10	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	DirtyRB	1.0	MWire
+hotself	80	DirtyRB
+neighbor	0.0002	Oxygen	DirtyRB	1.0	CO2	UnRB
+neighbor	0.0002	CO2	DirtyRB	1.0	CO2	UnRB
+pexplosion	DirtyRB	Water	16	BFire
+pexplosion	DirtyRB	EWater	16	BFire
+pexplosion	DirtyRB	Saltwater	16	BFire
+pexplosion	DirtyRB	ESaltwater	16	BFire
+#Unusable Rebreather
+element	UnRB	115	115	10	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	UnRB	1.0	MWire
+hotself	80	UnRB
+#Rebreather cleaner.
+element	RBClean	167	137	160	0.700000	1.000000	0.800000	0.900000	1
+neighbor	0.5	RBClean	DirtyRB	1.0	Oxygen	Rebreather
+neighbor	0.05	RBClean	Oxygen	1.0	Oxygen	Oxygen
+neighbor	0.05	RBClean	CO2	1.0	CO2	CO2
+pexplosion	RBClean	Water	16	BFire
+pexplosion	RBClean	EWater	16	BFire
+pexplosion	RBClean	Saltwater	16	BFire
+pexplosion	RBClean	ESaltwater	16	BFire
+#A more permanant air supply. All it needs is power.
+element	AirFilter	170	115	200	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	AirFilter	1.0	MWire
+hotself	80	AirFilter
+neighbor	1.0	AirFilter	Ele3	1.0	AOxy	Pipe3
+neighbor	1.0	AirFilter	CWire	1.0	AOxy	Wire
+neighbor	1.0	AirFilter	Water	1.0	BScrubber	Methane
+neighbor	1.0	AirFilter	EWater	1.0	BScrubber	Methane
+neighbor	1.0	AirFilter	Saltwater	1.0	BScrubber	Methane
+neighbor	1.0	AirFilter	ESaltwater	1.0	BScrubber	Methane
+neighbor	1.0	AirFilter	Person	1.0	AirFilter	Blood
+neighbor	1.0	AirFilter	Corpse	1.0	AirFilter	Blood
+#Oxygen in airfilter.
+element	AOxy	157	17	204	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	AOxy	1.0	MWire
+hotself	80 	AOxy
+neighbor	1.0	AOxy	AirFilter	1.0	AirFilter	AOxy
+neighbor	1.0	AOxy	CO2	1.0	AirFilter	Oxygen
+neighbor	1.0	AOxy	Empty	1.0	AirFilter	Oxygen
+pexplosion	AOxy	Water	6	BFire
+pexplosion	AOxy	Saltwater	6	BFire
+pexplosion	AOxy	EWater	6	BFire
+pexplosion	AOxy	ESaltwater	6	BFire
+pexplosion	AOxy	Fire	6	BFire
+pexplosion	AOxy	BFire	6	BFire
+pexplosion	AOxy	Lava	6	BFire
+pexplosion	AOxy	MWire	6	BFire
+pexplosion	AOxy	MGlass	6	BFire
+pexplosion	AOxy	MAcrylic	6	BFire
+#Swims in saltwater.
+element	sFish	9	247	134	0.700000	1.000000	0.600000	0.500000	1
+self	1.0	sFish	1.0	Deadfish
+hotself	50	sFish
+neighbor	0.8	sFish	Saltwater	1.0	Saltwater	sFish
+neighbor	0.0002	Saltwater	sFish	1.0	Saltwater	Deadfish
+neighbor	0.1	sFish	Deadfish	1.0	sFish	Saltwater
+neighbor	0.01	sFish	Empty	1.0	Deadfish	Empty
+neighbor	0.1	sFish	Water	1.0	Deadfish	Water
+neighbor	0.1	sFish	Steam	1.0	Deadfish	Steam
+neighbor	0.2	sFish	Sand	1.0	Deadfish	Sand
+neighbor	0.2	sFish	Salt	1.0	Deadfish	Salt
+neighbor	0.2	sFish	Oil	1.0	Deadfish	Oil
+neighbor	0.2	sFish	Plant	1.0	Deadfish	Plant
+neighbor	1.0	sFish	EWater	1.0	Deadfish	EWater
+neighbor	1.0	sFish	ESaltwater	1.0	Deadfish	ESaltwater
+neighbor	1.0	sFish	CWire	1.0	Deadfish	Wire
+#Swims in water.
+element	Fish	9	247	134	0.700000	1.000000	0.500000	0.500000	1
+self	1.0	Fish	1.0	Deadfish
+hotself	50	Fish
+neighbor	0.8	Fish	Water	1.0	Water	Fish
+neighbor	0.0002	Water	Fish	1.0	Water	Deadfish
+neighbor	0.1	Fish	Deadfish	1.0	Fish	Water
+neighbor	0.01	Fish	Empty	1.0	Deadfish	Empty
+neighbor	0.1	Fish	Saltwater	1.0	Deadfish	Saltwater
+neighbor	0.1	Fish	Steam	1.0	Deadfish	Steam
+neighbor	0.2	Fish	Sand	1.0	Deadfish	Sand
+neighbor	0.2	Fish	Salt	1.0	Deadfish	Salt
+neighbor	0.2	Fish	Oil	1.0	Deadfish	Oil
+neighbor	0.2	Fish	Plant	1.0	Deadfish	Plant
+neighbor	1.0	Fish	EWater	1.0	Deadfish	EWater
+neighbor	1.0	Fish	ESaltwater	1.0	Deadfish	ESaltwater
+neighbor	1.0	Fish	CWire	1.0	Deadfish	Wire
+#Dead fish
+element	Deadfish	180	230	230	0.700000	1.000000	0.650000	0.500000	0
+self	1.0	Deadfish	1.0	Fire
+hotself	70	Deadfish
+#Circulatory liquid.
+element	Blood	255	0	0	0.700000	0.500000	0.200000	0.500000	0
+self	0.005	Blood	1.0	Empty
+#Waste.
+element	Poo	150	112	61	0.700000	0.500000	0.450000	0.500000	0
+self	0.5	Poo	1.0	Fire
+hotself	70	Poo
+neighbor 0.02	Poo	Plant	1.0	Methane	Plant
+neighbor 0.0001	Poo	Empty	1.0	Methane	Empty
+#Person. Drowns in water.
+element	Person	216	179	109	1.000000	0.500000	0.100000	0.500000	1
+self	1.0	Person	1.0	Ember
+hotself	60	Person
+neighbor	0.5	Person	Oxygen	1.0	Oxygen	Person
+neighbor	0.8	CO2	Person	1.0	Person	CO2
+neighbor	0.005	Oxygen	Person	1.0	Person	CO2
+neighbor	0.5	Person	Empty	1.0	DyingP	Empty
+neighbor	0.002	Person	CO2	1.0	DyingP	CO2
+neighbor	0.1	Person	Water	1.0	DyingP	Water
+neighbor	0.1	Person	Saltwater	1.0	DyingP	Saltwater
+neighbor	0.8	Person	EWater	1.0	Corpse	Water
+neighbor	0.8	Person	ESaltwater	1.0	Corpse	ESaltwater
+neighbor	0.1	Person	CWire	1.0	Corpse	Wire
+neighbor	0.1	Person	Electricity	1.0	Corpse	Empty
+neighbor	0.004	Person	Person	1.0	Person	HungryP
+neighbor	0.001	Wall	Person	1.0	Wall	HungryP
+neighbor	0.001	Acrylic	Person	1.0	Acrylic	HungryP
+neighbor	0.001	Glass	Person	1.0	Glass	HungryP
+neighbor	0.001	Wood	Person	1.0	Wood	HungryP
+#Dying person.
+element	DyingP	220	170	220	0.700000	1.000000	0.400000	0.500000	0
+self	0.01	DyingP	1.0	Corpse
+neighbor	0.5	DyingP	Oxygen	1.0	Oxygen	Person
+neighbor	0.5	DyingP	CO2	1.0	CO2	DyingP
+#Hungry person.
+element	HungryP	220	190	150	0.700000	1.000000	0.400000	0.500000	0
+self	0.003	HungryP	1.0	StarvingP
+neighbor	1.0	HungryP	Food	1.0	Person	Waste
+neighbor	0.8	HungryP	Oxygen	1.0	Oxygen	HungryP
+neighbor	0.8	CO2	HungryP	1.0	HungryP	CO2
+neighbor	0.005	Oxygen	HungryP	1.0	HungryP	CO2
+neighbor	0.5	HungryP	Empty	1.0	DyingP	Empty
+neighbor	0.01	HungryP	CO2	1.0	DyingP	CO2
+neighbor	0.1	HungryP	Water	1.0	DyingP	Water
+neighbor	0.1	HungryP	Saltwater	1.0	DyingP	Saltwater
+neighbor	0.8	HungryP	EWater	1.0	Corpse	Water
+neighbor	0.8	HungryP	ESaltwater	1.0	Corpse	ESaltwater
+neighbor	0.1	HungryP	CWire	1.0	Corpse	Wire
+neighbor	0.1	HungryP	Electricity	1.0	Corpse	Empty
+#Starving person.
+element	StarvingP	230	230	200	0.700000	1.000000	0.400000	0.500000	0
+self	0.005	StarvingP	1.0	Corpse
+neighbor	1.0	StarvingP	Food	1.0	Person	Waste
+neighbor	0.8	StarvingP	Oxygen	1.0	Oxygen	StarvingP
+neighbor	0.8	CO2	StarvingP	1.0	StarvingP	CO2
+neighbor	0.005	Oxygen	StarvingP	1.0	StarvingP	CO2
+neighbor	0.5	StarvingP	Empty	1.0	DyingP	Empty
+neighbor	0.01	StarvingP	CO2	1.0	DyingP	CO2
+neighbor	0.1	StarvingP	Water	1.0	DyingP	Water
+neighbor	0.1	StarvingP	Saltwater	1.0	DyingP	Saltwater
+neighbor	0.8	StarvingP	EWater	1.0	Corpse	Water
+neighbor	0.8	StarvingP	ESaltwater	1.0	Corpse	ESaltwater
+neighbor	0.1	StarvingP	CWire	1.0	Corpse	Wire
+neighbor	0.1	StarvingP	Electricity	1.0	Corpse	Empty
+#Corpse
+element	Corpse	240	240	200	0.700000	1.000000	0.400000	0.500000	0
+self	1.0	Corpse	1.0	Ember
+hotself	70	Corpse
+#This is a dock for mini subs. Just make some of a wall of the crew quaters out of this, and the people can travel through the water, then go back in.
+element	Dock	201	186	10	0.000000	0.000000	1.000000	0.400000	1
+self	1.0	Dock	1.0	MWire
+hotself	80	Dock
+neighbor	0.8	Dock	Person	1.0	Out	Oxygen
+neighbor	0.8	Dock	HungryP	1.0	Out	Oxygen
+neighbor	0.8	Dock	StarvingP	1.0	Out	Oxygen
+neighbor	0.8	Dock	DyingP	1.0	Out	Oxygen
+neighbor	0.8	Dock	MiniSub2	1.0	In	MiniSub
+neighbor	0.8	Dock	sMiniSub2	1.0	In	MiniSub
+#Person entering through dock.
+element	In	201	186	10	0.000000	0.000000	1.000000	0.400000	0
+self	1.0	In	1.0	Ember
+hotself	80	In
+neighbor	1.0	Oxygen	In	1.0	Person	Dock
+neighbor	1.0	Dock	In	1.0	In	Dock
+#Person exiting through dock.
+element	Out	201	186	10	0.000000	0.000000	1.000000	0.400000	0
+self	1.0	Out	1.0	Ember
+hotself	80	Out
+neighbor	1.0	MiniSub	Out	1.0	MiniSub2	Dock
+neighbor	1.0	Dock	Out	1.0	Out	Dock
+#These are the MiniSubs that people travel in. They have their own life support systems, so they can be used as escape pods. Just put a single-pixel layer of them on a dock.
+element	MiniSub	60	255	40	0.000000	0.000000	1.000000	0.400000	1
+self	1.0	MiniSub	1.0	MWire
+hotself	80	MiniSub
+#These are full MiniSubs.
+element	MiniSub2	0	255	40	1.000000	0.000000	0.4700000	0.400000	0
+self	1.0	MiniSub2	1.0	MWire
+hotself	80	MiniSub2
+neighbor	1.0	MiniSub2	Water	1.0	Water	MiniSub2
+neighbor	1.0	MiniSub2	Saltwater	1.0	Saltwater	sMiniSub2
+#These are full MiniSubs.
+element	sMiniSub2	0	255	40	1.000000	0.000000	0.5700000	0.400000	0
+self	1.0	sMiniSub2	1.0	MWire
+hotself	80	sMiniSub2
+neighbor	1.0	sMiniSub2	Water	1.0	Water	MiniSub2
+neighbor	1.0	sMiniSub2	Saltwater	1.0	Saltwater	sMiniSub2
+#Coral. Grows only in saltwater.
+element	Coral	200	100	50	0.000000	0.000000	1.000000	0.500000	1
+self	0.0001	Coral	1.0	Saltwater
+neighbor	0.5	Coral	Deadfish	0.1	Coral	Coral	0.9	Coral	Saltwater
+neighbor	0.5	Coral	Corpse	1.0	Coral	Coral
+neighbor	0.5	Coral	Poo	1.0	Coral	Coral
+neighbor	0.0005	Saltwater	Coral	1.0	sFish	Coral
+neighbor	0.01	Coral	Empty	1.0	Sand	Empty
+neighbor	0.1	Coral	Water	1.0	Sand	Water
+neighbor	1.0	Coral	EWater	1.0	Sand	EWater
+neighbor	1.0	Coral	ESaltwater	1.0	Sand	ESaltwater
+neighbor	1.0	Coral	Fire	1.0	Sand	Fire
+neighbor	0.1	Coral	BFire	1.0	Sand	BFire
+neighbor	0.1	Coral	Lava	1.0	Sand	Lava
+neighbor	0.1	Coral	Ember	1.0	Sand	Ember
+neighbor	0.1	Coral	MGlass	1.0	Sand	MGlass
+neighbor	0.1	Coral	MAcrylic	1.0	Sand	MAcrylic
+neighbor	0.1	Coral	MWire	1.0	Sand	MWire
+neighbor	0.1	Coral	CO2	1.0	Sand	CO2
+neighbor	0.1	Coral	Methane	1.0	Sand	Methane
+neighbor	0.0002	Coral	Saltwater	1.0	Coral	Spore
+#Turns into coral when it touches something.
+element	Spore	150	100	50	0.700000	1.000000	0.600000	0.500000	0
+self	1.0	Spore	1.0	Deadfish
+hotself	50	Spore
+neighbor	0.8	Spore	Saltwater	1.0	Saltwater	Spore
+neighbor	0.01	Spore	Empty	1.0	Deadfish	Empty
+neighbor	0.1	Spore	Water	1.0	Deadfish	Water
+neighbor	0.1	Spore	Steam	1.0	Deadfish	Steam
+neighbor	0.2	Spore	Oil	1.0	Deadfish	Oil
+neighbor	0.2	Spore	Plant	1.0	Deadfish	Plant
+neighbor	1.0	Spore	EWater	1.0	Deadfish	EWater
+neighbor	1.0	Spore	ESaltwater	1.0	Deadfish	ESaltwater
+neighbor	1.0	Spore	CWire	1.0	Deadfish	Wire
+neighbor	1.0	Spore	Rock	1.0	Coral	Coral
+neighbor	1.0	Spore	Wall	1.0	Coral	Coral
+neighbor	0.5	Spore	Acrylic	1.0	Coral	Coral
+neighbor	1.0	Spore	Wood	1.0	Coral	Coral
+neighbor	0.05	Spore	Glass	1.0	Coral	Coral
+neighbor	1.0	Spore	Deadfish	1.0	Coral	Coral
+neighbor	1.0	Spore	Sand	1.0	Coral	Coral
+neighbor	1.0	Spore	Mud	1.0	Coral	Coral
+neighbor	0.5	Spore	Red	1.0	Coral	Coral
+neighbor	0.5	Spore	Blue	1.0	Coral	Coral
+#Red war factory. Makes Bomb Fish that explodes against Blue.
+element	RFactory	205	93	47	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	RFactory	1.0	MWire
+hotself	80	RFactory
+neighbor	1.0	RFactory	Ele3	1.0	RFish	Pipe3
+neighbor	1.0	RFactory	CWire	1.0	RFish	Wire
+neighbor	1.0	RFactory	RFish	1.0	RFish	RFactory
+#Fish in factory.
+element	RFish	205	123	47	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	RFish	1.0	MWire
+hotself	80	RFish
+neighbor	0.2	RFish	Empty	1.0	RFactory	RBFish
+neighbor	0.2	RFish	Water	1.0	RFactory	RBFish
+neighbor	0.2	RFish	Saltwater	1.0	RFactory	RBFish2
+pexplosion	RFish	Fire	16	BFire
+pexplosion	RFish	BFire	16	BFire
+pexplosion	RFish	EWater	16	BFire
+pexplosion	RFish	ESaltwater	16	BFire
+#Red bomb fish.
+element	RBFish	235	123	47	0.700000	1.000000	0.470000	0.500000	1
+self	1.0	RBFish	1.0	Fire
+hotself	80	RBFish
+neighbor	1.0	RBFish	Water	1.0	Water	RBFish
+neighbor	1.0	RBFish	Saltwater	1.0	Saltwater	RBFish2
+pexplosion	RBFish	Blue	16	RSplosion
+pexplosion	RBFish	Glass	16	RSplosion
+pexplosion	RBFish	Acrylic	16	RSplosion
+pexplosion	RBFish	Wall	16	RSplosion
+pexplosion	RBFish	NWall	16	RSplosion
+pexplosion	RBFish	BFactory	16	RSplosion
+pexplosion	RBFish	Coral	6	RSplosion
+pexplosion	RBFish	BShield	16	RSplosion
+pexplosion	RBFish	BShield2	16	RSplosion
+pexplosion	RBFish	Fire	16	RSplosion
+pexplosion	RBFish	BFire	16	RSplosion
+pexplosion	RBFish	EWater	16	RSplosion
+pexplosion	RBFish	ESaltwater	16	RSplosion
+pexplosion	RBFish	Electricity	16	RSplosion
+pexplosion	RBFish	Lava	16	RSplosion
+pexplosion	RBFish	FallingEmber	16	RSplosion
+pexplosion	RBFish	Torch	16	RSplosion
+pexplosion	RBFish	Ember	16	RSplosion
+pexplosion	RBFish	Fallout2	16	RSplosion
+pexplosion	RBFish	Plasma5	16	RSplosion
+#Red bomb fish.
+element	RBFish2	235	123	47	0.700000	1.000000	0.570000	0.500000	0
+self	1.0	RBFish2	1.0	Fire
+hotself	80	RBFish2
+neighbor	1.0	RBFish2	Water	1.0	Water	RBFish
+neighbor	1.0	RBFish2	Saltwater	1.0	Saltwater	RBFish2
+pexplosion	RBFish2	Blue	16	RSplosion
+pexplosion	RBFish2	Glass	16	RSplosion
+pexplosion	RBFish2	Acrylic	16	RSplosion
+pexplosion	RBFish2	Wall	16	RSplosion
+pexplosion	RBFish2	NWall	16	RSplosion
+pexplosion	RBFish2	BFactory	16	RSplosion
+pexplosion	RBFish2	Coral	6	RSplosion
+pexplosion	RBFish2	BShield	16	RSplosion
+pexplosion	RBFish2	BShield2	16	RSplosion
+pexplosion	RBFish2	Fire	16	RSplosion
+pexplosion	RBFish2	BFire	16	RSplosion
+pexplosion	RBFish2	EWater	16	RSplosion
+pexplosion	RBFish2	ESaltwater	16	RSplosion
+pexplosion	RBFish2	Electricity	16	RSplosion
+pexplosion	RBFish2	Lava	16	RSplosion
+pexplosion	RBFish2	FallingEmber	16	RSplosion
+pexplosion	RBFish2	Torch	16	RSplosion
+pexplosion	RBFish2	Ember	16	RSplosion
+pexplosion	RBFish2	Fallout2	16	RSplosion
+pexplosion	RBFish2	Plasma5	16	RSplosion
+#Red tag. If you are making war bases, cover your bases with Red and Blue. The bomb fish explode against them.
+element	Red	190	10	60	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Red	1.0	MWire
+hotself	70	Red
+#Red explosion.
+element	RSplosion	190	190	10	0.000000	1.000000	0.600000	0.500000	0
+self	1.0	RSplosion	1.0	Fire
+hotself	70	RSplosion
+neighbor	0.5	Water	RSplosion	1.0	Water	Water
+neighbor	0.5	Saltwater	RSplosion	1.0	Saltwater	Saltwater
+neighbor	0.5	RSplosion	Empty	1.0	Empty	Empty
+neighbor	1.0	RSplosion	Glass	1.0	RSplosion	Blue
+neighbor	1.0	RSplosion	Wall	1.0	RSplosion	Blue
+neighbor	1.0	RSplosion	Acrylic	1.0	RSplosion	Blue
+neighbor	1.0	RSplosion	PowerP	1.0	RSplosion	Blue
+neighbor	1.0	RSplosion	Scrubber	1.0	RSplosion	Blue
+neighbor	1.0	RSplosion	Electro	1.0	RSplosion	Blue
+pexplosion	RSplosion	Hydrogen	20	Fire
+pexplosion	RSplosion	PowerP	26	BFire
+pexplosion	RSplosion	C4	50	Fire
+pexplosion	RSplosion	Oxygen	8	BFire
+#Blue war factory. Makes Bomb Fish that explodes against Red.
+element	BFactory	47	93	205	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	BFactory	1.0	MWire
+hotself	80	BFactory
+neighbor	1.0	Ele3	BFactory	1.0	Pipe3	BFish
+neighbor	1.0	CWire	BFactory	1.0	Wire	BFish
+neighbor	1.0	BFactory	BFish	1.0	BFish	BFactory
+#Fish in factory.
+element	BFish	47	123	205	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	BFish	1.0	MWire
+hotself	80	BFish
+neighbor	0.2	BFish	Empty	1.0	BFactory	BBFish
+neighbor	0.2	BFish	Water	1.0	BFactory	BBFish
+neighbor	0.2	BFish	Saltwater	1.0	BFactory	BBFish2
+pexplosion	BFish	Fire	16	BFire
+pexplosion	BFish	BFire	16	BFire
+pexplosion	BFish	EWater	16	BFire
+pexplosion	BFish	ESaltwater	16	BFire
+#Blue bomb fish.
+element	BBFish	47	123	235	0.700000	1.000000	0.470000	0.500000	1
+self	1.0	BBFish	1.0	Fire
+hotself	80	BBFish
+neighbor	1.0	BBFish	Water	1.0	Water	BBFish
+neighbor	1.0	BBFish	Saltwater	1.0	Saltwater	BBFish2
+pexplosion	BBFish	Red	16	BSplosion
+pexplosion	BBFish	Glass	16	BSplosion
+pexplosion	BBFish	Acrylic	16	BSplosion
+pexplosion	BBFish	Wall	16	BSplosion
+pexplosion	BBFish	NWall	16	BSplosion
+pexplosion	BBFish	RFactory	16	BSplosion
+pexplosion	BBFish	Coral	6	BSplosion
+pexplosion	BBFish	RShield	16	BSplosion
+pexplosion	BBFish	RShield2	16	BSplosion
+pexplosion	BBFish	Fire	16	BSplosion
+pexplosion	BBFish	BFire	16	BSplosion
+pexplosion	BBFish	EWater	16	BSplosion
+pexplosion	BBFish	ESaltwater	16	BSplosion
+pexplosion	BBFish	Electricity	16	BSplosion
+pexplosion	BBFish	Lava	16	BSplosion
+pexplosion	BBFish	FallingEmber	16	BSplosion
+pexplosion	BBFish	Torch	16	BSplosion
+pexplosion	BBFish	Ember	16	BSplosion
+pexplosion	BBFish	Fallout2	16	BSplosion
+pexplosion	BBFish	Plasma5	16	BSplosion
+#Blue bomb fish.
+element	BBFish2	47	123	235	0.700000	1.000000	0.570000	0.500000	0
+self	1.0	BBFish	1.0	Fire
+hotself	80	BBFish
+neighbor	1.0	BBFish2	Water	1.0	Water	BBFish
+neighbor	1.0	BBFish2	Saltwater	1.0	Saltwater	BBFish2
+pexplosion	BBFish2	Red	16	BSplosion
+pexplosion	BBFish2	Glass	16	BSplosion
+pexplosion	BBFish2	Acrylic	16	BSplosion
+pexplosion	BBFish2	Wall	16	BSplosion
+pexplosion	BBFish2	NWall	16	BSplosion
+pexplosion	BBFish2	RFactory	16	BSplosion
+pexplosion	BBFish2	Coral	6	BSplosion
+pexplosion	BBFish2	RShield	16	BSplosion
+pexplosion	BBFish2	RShield2	16	BSplosion
+pexplosion	BBFish2	Fire	16	BSplosion
+pexplosion	BBFish2	BFire	16	BSplosion
+pexplosion	BBFish2	EWater	16	BSplosion
+pexplosion	BBFish2	ESaltwater	16	BSplosion
+pexplosion	BBFish2	Electricity	16	BSplosion
+pexplosion	BBFish2	Lava	16	BSplosion
+pexplosion	BBFish2	FallingEmber	16	BSplosion
+pexplosion	BBFish2	Torch	16	BSplosion
+pexplosion	BBFish2	Ember	16	BSplosion
+pexplosion	BBFish2	Fallout2	16	BSplosion
+pexplosion	BBFish2	Plasma5	16	BSplosion
+#Blue tag. If you are making war bases, cover your bases with Red and Blue. The bomb fish explode against them.
+element	Blue	60	10	190	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Blue	1.0	MWire
+hotself	70	Blue
+#Blue explosion.
+element	BSplosion	190	190	10	0.000000	1.000000	0.600000	0.500000	0
+self	1.0	BSplosion	1.0	BFire
+hotself	70	BSplosion
+neighbor	0.5	Water	BSplosion	1.0	Water	Water
+neighbor	0.5	Saltwater	BSplosion	1.0	Saltwater	Saltwater
+neighbor	0.5	BSplosion	Empty	1.0	Empty	Empty
+neighbor	1.0	BSplosion	Glass	1.0	BSplosion	Red
+neighbor	1.0	BSplosion	Wall	1.0	BSplosion	Red
+neighbor	1.0	BSplosion	Acrylic	1.0	BSplosion	Red
+neighbor	1.0	BSplosion	PowerP	1.0	BSplosion	Red
+neighbor	1.0	BSplosion	Scrubber	1.0	BSplosion	Red
+neighbor	1.0	BSplosion	Electro	1.0	BSplosion	Red
+pexplosion	BSplosion	Hydrogen	20	Fire
+pexplosion	BSplosion	PowerP	26	BFire
+pexplosion	BSplosion	C4	50	Fire
+pexplosion	BSplosion	Oxygen	8	BFire
+#Nuetral explosion.
+element	NSplosion	190	190	10	0.000000	1.000000	0.600000	0.500000	0
+self	1.0	NSplosion	1.0	BFire
+hotself	70	NSplosion
+neighbor	0.5	Water	NSplosion	1.0	Water	Water
+neighbor	0.5	Saltwater	NSplosion	1.0	Saltwater	Saltwater
+neighbor	0.5	NSplosion	Empty	1.0	Empty	Empty
+pexplosion	NSplosion	Hydrogen	20	Fire
+pexplosion	NSplosion	PowerP	26	BFire
+pexplosion	NSplosion	C4	50	Fire
+pexplosion	NSplosion	Oxygen	8	BFire
+#Red shield. It needs to be powered.
+element	RShield	140	10	60	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	RShield	1.0	MWire
+hotself	80	RShield
+neighbor	1.0	RShield	CWire	1.0	RShield2	Wire
+neighbor	1.0	RShield	Ele3	1.0	RShield2	Pipe3
+neighbor	1.0	RShield	Electricity	1.0	RShield3	Empty
+neighbor	1.0	RShield	EWater	1.0	RShield3	Water
+neighbor	1.0	RShield	ESaltwater	1.0	RShield3	Saltwater
+#Charged red shield.
+element	RShield2	160	10	60	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	RShield2	1.0	MWire
+hotself	80	RShield2
+neighbor	1.0	RShield	RShield2	1.0	RShield2	RShield
+neighbor	1.0	RShield2	Water	1.0	RShield3	Water
+neighbor	1.0	RShield2	Saltwater	1.0	RShield3	Saltwater
+neighbor	1.0	RShield2	Empty	1.0	RShield3	Empty
+#Charged red shield.
+element	RShield3	160	10	60	0.000000	0.000000	1.000000	0.100000	0
+self	1.0	RShield3	1.0	MWire
+hotself	80	RShield3
+neighbor	0.5	RShield3	BBFish	1.0	RShield	Water
+neighbor	0.5	RShield3	BBFish2	1.0	RShield	Saltwater
+#Blue shield. It needs to be powered.
+element	BShield	10	60	140	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	BShield	1.0	MWire
+hotself	80	BShield
+neighbor	1.0	BShield	CWire	1.0	BShield2	Wire
+neighbor	1.0	BShield	Ele3	1.0	BShield2	Pipe3
+neighbor	1.0	BShield	Electricity	1.0	BShield3	Empty
+neighbor	1.0	BShield	EWater	1.0	BShield3	Water
+neighbor	1.0	BShield	ESaltwater	1.0	BShield3	Saltwater
+#Charged blue shield.
+element	BShield2	60	10	160	0.000000	0.000000	1.000000	0.200000	0
+self	1.0	BShield2	1.0	MWire
+hotself	80	BShield2
+neighbor	1.0	BShield	RShield2	1.0	BShield2	RShield
+neighbor	1.0	BShield2	Water	1.0	BShield3	Water
+neighbor	1.0	BShield2	Saltwater	1.0	BShield3	Saltwater
+neighbor	1.0	BShield2	Empty	1.0	BShield3	Empty
+#Charged blue shield.
+element	BShield3	60	10	160	0.000000	0.000000	1.000000	0.100000	0
+self	1.0	BShield3	1.0	MWire
+hotself	80	BShield3
+neighbor	0.5	BShield3	RBFish	1.0	BShield	Water
+neighbor	0.5	BShield3	RBFish2	1.0	BShield	Saltwater
+#Battery. Runs out eventually.
+element	Battery	93	128	55	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Battery	1.0	MWire
+hotself	80	Battery
+neighbor	1.0	Wire	Battery	1.0	CWire	DBattery
+neighbor	1.0	Pipe1	Battery	1.0	Ele1	DBattery
+neighbor	1.0	Water	Battery	0.2	EWater	SBattery	0.8	Water	SBattery
+neighbor	1.0	Saltwater	Battery	0.2	ESaltwater	SBattery	0.8	Saltwater	SBattery
+#Dead battery.
+element	DBattery	73	108	35	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	DBattery	1.0	MWire
+hotself	80	DBattery
+neighbor	1.0	DBattery	Battery	1.0	Battery	DBattery
+neighbor	1.0	Water	DBattery	1.0	Water	SBattery
+neighbor	1.0	Saltwater	DBattery	1.0	Saltwater	SBattery
+neighbor	1.0	Electricity	DBattery	1.0	Empty	Battery
+#Shorted battery.
+element	SBattery	73	108	35	0.000000	0.000000	1.000000	1.200000	0
+self	1.0	SBattery	1.0	MWire
+hotself	80	SBattery
+neighbor	1.0	SBattery	Battery	1.0	SBattery	SBattery
+neighbor	1.0	SBattery	DBattery	1.0	SBattery	SBattery
+#Underground methane pocket. Connect a pipe to it to power your base. Remember, you still need to extract oxygen from the water.
+element	MPocket	121	147	65	-0.400000	1.000000	0.180000	0.300000	1
+self	1.0	MPocket	1.0	BFire
+hotself	80	MPocket
+neighbor	0.3	MPocket	Pipe1	0.6	MPocket	Met1	0.4	Empty	Met1
+pexplosion	MPocket	BFire	50	BFire
+#Turbine. Use with your nuclear reactor.
+element	Turbine	50	190	150	0.000000	0.000000	1.000000	0.500000	1
+self	1.0	Turbine	1.0	BFire
+hotself	80	Turbine
+neighbor	1.0	Turbine	Coolant	1.0	TCoolant	Empty
+neighbor	0.5	Turbine	DCoolant	1.0	tCoolant	Empty
+pexplosion	Turbine	EWater	20	Fire
+pexplosion	Turbine	ESaltwater	20	Fire
+pexplosion	Turbine	Water	20	Fire
+pexplosion	Turbine	Saltwater	20	Fire
+pexplosion	Turbine	RBFish	20	Fire
+pexplosion	Turbine	RBFish2	20	Fire
+pexplosion	Turbine	BBFish	20	Fire
+pexplosion	Turbine	BBFish2	20	Fire
+neighbor	1.0	Turbine	BFire	0.2	BFire	Turbine	0.8	MWire	MWire
+explosion	Turbine	BFire	255	-254
+neighbor	1.0	Turbine	MWire	0.2	BFire	Turbine	0.8	MWire	MWire
+explosion	Turbine	MWire	255	-254
+neighbor	1.0	Turbine	MGlass	0.2	BFire	Turbine	0.8	MWire	MWire
+explosion	Turbine	MGlass	255	-254
+#Charged turbine.
+element	CTurbine	50	190	150	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	CTurbine	1.0	BFire
+hotself	80	CTurbine
+neighbor	1.0	CTurbine	Turbine	1.0	Turbine	CTurbine
+neighbor	1.0	CTurbine	Wire	1.0	Turbine	CWire
+neighbor	1.0	CTurbine	Pipe1	1.0	Turbine	Ele1
+neighbor	1.0	CTurbine	TCoolant	1.0	TCoolant	CTurbine
+neighbor	1.0	CTurbine	tCoolant	1.0	tCoolant	CTurbine
+pexplosion	CTurbine	EWater	20	Fire
+pexplosion	CTurbine	ESaltwater	20	Fire
+neighbor	1.0	CTurbine	BFire	0.2	BFire	CTurbine	0.8	MWire	MWire
+explosion	CTurbine	BFire	255	-254
+neighbor	1.0	CTurbine	MWire	0.2	BFire	Turbine	0.8	MWire	MWire
+explosion	CTurbine	MWire	255	-254
+neighbor	1.0	Turbine	MGlass	0.2	BFire	Turbine	0.8	MWire	MWire
+explosion	Turbine	MGlass	255	-254
+#Coolant in turbine.
+element	TCoolant	50	150	150	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	TCoolant	1.0	BFire
+hotself	80	TCoolant
+neighbor	1.0	TCoolant	Turbine	0.9	CTurbine	tCoolant	.1	Turbine	tCoolant
+neighbor	1.0	TCoolant	BFire	1.0	BFire	TCoolant
+explosion	TCoolant	BFire	255	-254
+#Coolant in turbine.
+element	tCoolant	50	150	150	0.000000	0.000000	1.000000	0.500000	0
+self	1.0	tCoolant	1.0	BFire
+hotself	80	tCoolant
+neighbor	1.0	tCoolant	Turbine	1.0	Turbine	tCoolant
+neighbor	1.0	tCoolant	TCoolant	1.0	TCoolant	tCoolant
+neighbor	1.0	tCoolant	Empty	1.0	Turbine	DCoolant
+neighbor	1.0	tCoolant	BFire	1.0	BFire	tCoolant
+explosion	tCoolant	BFire	255	-254
+#Depleted Coolant.
+element	DCoolant	80	197	203	0.700000	1.000000	0.500000	1.000000	0
+self	1.0	DCoolant	1.0	DCoolant
+hotself	20	DCoolant
+hotcolor	DCoolant	120	197	203
+neighbor	0.05	DCoolant	Water	1.0	Empty	Water
+neighbor	0.05	DCoolant	Saltwater	1.0	Empty	Saltwater
+#Radioactive Coolant.
+element	RCoolant	80	197	203	-1.000000	0.400000	0.100000	0.200000	0
+self	1.0	RCoolant	1.0	RCoolant
+hotself	70	RCoolant
+hotcolor	RCoolant	120	197	203
+neighbor	0.05	RCoolant	Water	1.0	Empty	Water
+neighbor	0.05	RCoolant	Saltwater	1.0	Empty	Saltwater
+#Nuclear reactor. Put it in a container of NWall filled with coolant. Do NOT let flammables touch it.
+element	Reactor	85	205	85	0.000000	0.000000	1.200000	1.100000	1
+neighbor	0.3	Reactor	Coolant	1.0	Reactor	RCoolant
+hotneighbor	30	Reactor	Coolant
+neighbor	0.002	Coolant	Reactor	1.0	RCoolant	NWaste
+neighbor	0.005	Empty	Reactor	1.0	Fallout2	Reactor
+pexplosion	Reactor	Turbine	32	Plasma5
+pexplosion	Reactor	C4	32	Plasma5
+pexplosion	Reactor	Hydrogen	32	Plasma5
+pexplosion	Reactor	MPocket	32	Plasma5
+pexplosion	Reactor	Methane	32	Plasma5
+pexplosion	Reactor	Oxygen	32	Plasma5
+pexplosion	Reactor	Oil	32	Plasma5
+pexplosion	Reactor	Plant	32	Plasma5
+pexplosion	Reactor	Plasma5	26	Plasma5
+pexplosion	Reactor	Plasma6	26	Plasma5
+pexplosion	Reactor	Plasma3	26	Plasma5
+pexplosion	Reactor	Plasma3	26	Plasma5
+pexplosion	Reactor	Plasma4	26	Plasma5
+pexplosion	Reactor	Water	26	Plasma5
+pexplosion	Reactor	Saltwater	26	Plasma5
+pexplosion	Reactor	Steam	26	Plasma5
+pexplosion	Reactor	RSplosion	26	Plasma5
+pexplosion	Reactor	BSplosion	26	Plasma5
+#Nuclear waste. Hold in a container of NWall.  Do NOT let flammables touch it.
+element	NWaste	100	230	100	1.000000	0.000000	1.1000000	1.000000	0
+neighbor	0.05	NWaste	Empty	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	Water	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	Saltwater	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	EWater	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	ESaltwater	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	Salt	1.0	NWaste	Fallout2
+neighbor	0.5	NWaste	Sand	1.0	NWaste	Fallout2
+pexplosion	NWaste	Turbine	32	Plasma5
+pexplosion	NWaste	C4	32	Plasma5
+pexplosion	NWaste	Hydrogen	32	Plasma5
+pexplosion	NWaste	MPocket	32	Plasma5
+pexplosion	NWaste	Methane	32	Plasma5
+pexplosion	NWaste	Oxygen	32	Plasma5
+pexplosion	NWaste	Oil	32	Plasma5
+pexplosion	NWaste	Wall	10	Plasma5
+pexplosion	NWaste	Rock	10	Plasma5
+pexplosion	NWaste	Acrylic	10	Plasma5
+pexplosion	NWaste	Glass	10	Plasma5
+pexplosion	NWaste	Water	10	Plasma5
+pexplosion	NWaste	Saltwater	10	Plasma5
+pexplosion	NWaste	Steam	10	Plasma5
+#Grate. Only lets nuclear waste through
+element	NGrate	128	148	128	0.000000	0.000000	1.200000	0.100000	1
+self	0.5	NGrate	1.0	MWire
+hotself	80	NGrate
+hotcolor	Grate	255	0	0
+neighbor	0.8	NGrate	NWaste	1.0	NWaste2	Empty
+#NWaste in Grate.
+element	NWaste2	128	178	128	0.000000	0.000000	1.200000	0.100000	0
+self	0.5	NWaste2	1.0	MWire
+hotself	80	NWaste2
+neighbor	1.0	NWaste2	NGrate	1.0	NGrate	NWaste2
+neighbor	1.0	NWaste2	Empty	1.0	NGrate	NWaste
+#Nuclear wall. Put around nuclear reactor and nuclear waste. It can degrade. If it turns red, replace it.
+element	NWall	100	100	190	0.000000	0.000000	1.200000	0.400000	1
+neighbor	0.0001	NWall	Fallout1	1.0	NWall2	Fallout1
+neighbor	0.0001	NWall	Fallout2	1.0	NWall2	Fallout2
+neighbor	0.0001	NWall	NWaste	1.0	NWall2	NWaste
+neighbor	0.0001	NWall	Reactor	1.0	NWall2	Reactor
+neighbor	0.01	NWall	Water	1.0	NWall2	Water
+neighbor	0.01	NWall	Saltwater	1.0	NWall2	Saltwater
+neighbor	0.01	NWall	Steam	1.0	NWall2	Steam
+#Nuclear wall. Replace immediately.
+element	NWall2	255	100	100	0.000000	0.000000	1.200000	0.200000	0
+self	1.0	NWall2	1.0	Lava
+hotself	90	NWall2
+neighbor	0.01	NWall2	Fallout1	1.0	Fallout1	Fallout1
+neighbor	0.01	NWall2	Fallout2	1.0	Fallout2	Fallout2
+neighbor	0.005	NWall2	NWaste	1.0	NWaste	NWaste
+neighbor	0.01	NWall2	Reactor	1.0	Fallout1	Reactor
+neighbor	0.01	NWall2	Water	1.0	Fire	Water
+neighbor	0.01	NWall2	Saltwater	1.0	Fire	Saltwater
+neighbor	0.01	NWall2	Steam	1.0	Fire	Steam
+#Plasma.
+element	Plasma5	255	255	0	0.000000	0.000000	1.000000	2.000000	0
+self	0.2	Plasma5	0.98	Plasma6	.02	Plasma7
+neighbor 0.1	Plasma5	Empty	1.0	Empty	Empty
+neighbor 0.4	Plasma5	Water	0.9	Plasma5	Plasma6	0.1	Fire	Water
+neighbor 0.4	Plasma5	Sand	0.9	Plasma5	Plasma6	0.1	Fire	Sand
+neighbor 0.4	Plasma5	Salt	0.9	Plasma5	Plasma6	0.1	Fire	Salt
+neighbor 0.4	Plasma5	Saltwater	0.9	Plasma5	Plasma6	0.1	Fire	Saltwater
+neighbor 0.4	Plasma5	Oil	0.9	Plasma5	Plasma6	0.1	Fire	Oil
+neighbor 0.4	Plasma5	Dust	0.9	Plasma5	Plasma6	0.1	Fire	Dust
+neighbor 0.4	Plasma5	Steam	0.9	Plasma5	Plasma6	0.1	Fire	Steam
+neighbor 0.4	Plasma5	FallingEmber	0.9	Plasma5	Plasma6	0.1	Fire	FallingEmber
+neighbor 0.4	Plasma5	Remover	0.9	Plasma5	Plasma5	0.1	Fire	Remover
+neighbor 0.4	Plasma5	Fish	0.9	Plasma5	Plasma5	0.1	Fire	Fish
+neighbor 0.4	Plasma5	sFish	0.9	Plasma5	Plasma5	0.1	Fire	Fish
+neighbor 0.4	Plasma5	Deadfish	0.9	Plasma5	Plasma5	0.1	Fire	Deadfish
+neighbor 0.4	Plasma5	Poo	0.9	Plasma5	Plasma5	0.1	Fire	Poo
+neighbor 0.4	Plasma5	Blood	0.9	Plasma5	Plasma5	0.1	Fire	Blood
+neighbor 0.4	Plasma5	Spore	0.9	Plasma5	Plasma5	0.1	Fire	Spore
+neighbor 0.4	Plasma5	EWater	0.9	Plasma5	Plasma5	0.1	Fire	EWater
+neighbor 0.4	Plasma5	MGlass	0.9	Plasma5	Plasma5	0.1	Fire	MGlass
+neighbor 0.4	Plasma5	MWire	0.9	Plasma5	Plasma5	0.1	Fire	MWire
+neighbor 0.4	Plasma5	Coolant	0.9	Plasma5	Plasma5	0.1	Fire	Coolant
+neighbor 0.4	Plasma5	Electricity	0.9	Plasma5	Plasma5	0.1	Fire	Electricity
+neighbor 0.4	Plasma5	Methane	0.9	Plasma5	Plasma5	0.1	Fire	Methane
+neighbor 0.4	Plasma5	Hydrogen	0.9	Plasma5	Plasma5	0.1	Fire	Hydrogen
+neighbor 0.4	Plasma5	MAP	0.9	Plasma5	Plasma5	0.1	Fire	MAP
+neighbor 0.1	Plasma5	Wall	0.9	Plasma5	Plasma5	0.1	Fire	Wall
+hotneighbor	80	Plasma5	Wall
+neighbor 0.1	Plasma5	Rock	0.9	Plasma5	Plasma5	0.1	Fire	Rock
+hotneighbor	80	Plasma5	Rock
+neighbor 0.1	Plasma5	Glass	0.9	Plasma5	Plasma5	0.1	Fire	Glass
+hotneighbor	80	Plasma5	Glass
+neighbor 0.1	Plasma5	Acrylic	0.9	Plasma5	Plasma5	0.1	Fire	Acrylic
+hotneighbor	80	Plasma5	Acrylic
+neighbor 0.1	Plasma5	Wood	0.9	Plasma5	Plasma5	0.1	Fire	Wood
+hotneighbor	80	Plasma5	Wood
+neighbor 0.1	Plasma5	Plant	0.9	Plasma5	Plasma5	0.1	Fire	Wood
+hotneighbor	80	Plasma5	Plant
+neighbor 0.1	Plasma5	Lava	0.9	Plasma5	Plasma5	0.1	Fire	Lava
+neighbor 0.1	Plasma5	Lava2	0.9	Plasma5	Plasma5	0.1	Fire	Lava2
+neighbor 0.1	Plasma5	Lava3	0.9	Plasma5	Plasma5	0.1	Fire	Lava3
+neighbor 0.1	Plasma5	Cement	0.9	Plasma5	Plasma5	0.1	Fire	Lava2
+neighbor 0.1	Plasma5	SSpout	0.9	Plasma5	Plasma5	0.1	Fire	SSpout
+neighbor 0.1	Plasma5	Reactor	0.9	Plasma5	Plasma5	0.1	Fire	Filler
+neighbor 0.1	Plasma5	NGrate	0.9	Plasma5	Plasma5	0.1	Fire	Filler
+neighbor 0.1	Plasma5	NWall	0.9	Plasma5	Plasma5	0.1	Fire	Filler
+neighbor 0.1	Plasma5	Filler	0.9	Plasma5	Plasma5	0.1	Fire	Filler
+neighbor 0.1	Plasma5	Oxygen	0.9	Plasma5	Plasma5	0.1	Fire	Filler
+neighbor 0.4	Plasma5	Empty	1.0	Plasma3	Fallout1
+explosion	Plasma5	Empty	255	255
+#Plasma.
+element	Plasma6	255	50	0	0.000000	0.000000	1.000000	2.000000	0
+self	0.2	Plasma6	0.98	Plasma5	.02	Plasma7
+neighbor 0.1	Plasma6	Empty	1.0	Empty	Empty
+neighbor 0.4	Plasma6	Empty	1.0	Plasma2	Fallout1
+explosion	Plasma6	Empty	255	255
+#Plasma.
+element	Plasma7	110	90	90	0.000000	0.000000	1.000000	2.000000	0
+self	0.03	Plasma7	1.0	Empty
+neighbor 0.003	Plasma7	Plasma5	1.0	Plasma7	Plasma7
+neighbor 0.003	Plasma7	Plasma6	1.0	Plasma7	Plasma7
+neighbor 0.1	Plasma7	Empty	1.0	Empty	Empty
+neighbor 0.4	Plasma7	Empty	1.0	Plasma2	Fire
+explosion	Plasma7	Empty	255	255
+#Plasma.
+element	Plasma2	255	150	0	0.000000	0.000000	1.000000	2.000000	0
+neighbor 0.1	Plasma2	Empty	1.0	Empty	Empty
+neighbor 0.2	Plasma2	Empty	1.0	Plasma3	Fire
+explosion	Plasma2	Empty	255	255
+#Plasma.
+element	Plasma3	255	150	0	0.000000	0.000000	1.000000	2.000000	0
+neighbor 0.1	Plasma3	Empty	1.0	Empty	Empty
+neighbor 0.2	Plasma3	Empty	1.0	Plasma4	Fire
+explosion	Plasma3	Empty	255	255
+#Plasma. 246
+element	Plasma4	255	150	0	0.000000	0.000000	1.000000	2.000000	0
+neighbor 0.1	Plasma4	Empty	1.0	Empty	Empty
+neighbor 0.2	Plasma4	Empty	1.0	Fire	Fire
+explosion	Plasma4	Empty	255	255
+#Fallout.
+element	Fallout1	0	150	0	00.000000	0.000000	1.000000	1.300000	0
+self	0.05	Fallout1	1.0	Fallout2
+#Fallout.
+element	Fallout2	0	255	0	-1.000000	0.000000	1.000000	1.500000	0
+self	0.01	Fallout2	1.0	Empty
+neighbor	1.0	Fallout2	Empty	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Dust	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Plant	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Wood	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Acrylic	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Wall	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Torch	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Ember	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	FallingEmber	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Wire	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	CWire	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Switch	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	OnSwitch	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Deton	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Spout	0.3	Dust	Fallout2	0.7	Empty	Fallout2
+neighbor	1.0	Fallout2	Fish	0.5	Deadfish	Fallout2	0.5	Blood	Fallout2
+neighbor	1.0	Fallout2	MWire	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	MGlass	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Radiator	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Insulator	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Lava	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Lava2	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Lava3	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	PowerP	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CPowerP	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BPowerP	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Pipe1	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Pipe2	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Pipe3	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	IWire	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Electricity	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Broken	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Gate	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	SWFilter	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CSWFilter	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Scrubber	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CScrubber	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BOxy	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	SOxy	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Electro	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CElectro	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	EOxy	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BScrubber	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BElectro	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	K&amp;B	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BK&amp;B	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Food	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Food1	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Waste	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CSteam	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CCoolant	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Rebreather	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	DirtyRB	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	UnRB	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	RBClean	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	sFish	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Person	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	DyingP	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	StarvingP	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Corpse	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Coral	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	RFactory	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BFactory	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Red	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Blue	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	RFish	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	BFish	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Battery	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	DBattery	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	SBattery	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Turbine	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	CTurbine	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	TCoolant	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	tCoolant	0.5	Dust	Fallout2	0.5	Empty	Fallout2
+neighbor	1.0	Fallout2	Water	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Saltwater	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	EWater	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	ESaltwater	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Poo	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Sand	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Salt	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Coolant	0.3	RCoolant	Fallout2	0.7	Coolant	Empty
+neighbor	1.0	Fallout2	DCoolant	1.0	RCoolant	Fallout2
+neighbor	1.0	Fallout2	RCoolant	1.0	RCoolant	Fallout2
+neighbor	1.0	Fallout2	MAP	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Cement	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Dirt	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Mud	1.0	Empty	Fallout2
+neighbor	1.0	Fallout2	Oil	1.0	Fire	Fallout2
+neighbor	1.0	Fallout2	Plant	1.0	Fire	Fallout2
+neighbor	1.0	Fallout2	Methane	1.0	Fire	Fallout2
+neighbor	1.0	Fallout2	Hydrogen	1.0	Fire	Fallout2
+neighbor	1.0	Fallout2	Oxygen	1.0	BFire	Fallout2
+neighbor	1.0	Fallout2	MPocket	1.0	BFire	Fallout2
+neighbor	1.0	Fallout2	C4	1.0	Fire	C4
+neighbor	1.0	Fallout2	DetCord	1.0	Fire	DetCord
+
+#Front center element of Sub. Needs to be connected to a Dock, with people. Read directions on wiki.
+element Center   23   81   255   0   0   1   0   1
+neighbor	1.0	Out	Center	1.0	Empty	1Center
+
+################################&gt;All credit goes to Purple100.
+
+#Front center element of Sub.
+element 1Center   23   81   255   0   0   1   0   0
+element Center1   23   81   255   0   0   1   0   0
+element Center2   23   81   255   0   0   1   0   0
+element Center3   23   81   255   0   0   1   0   0
+element Center4   23   81   255   0   0   1   0   0
+element Center5   23   81   255   0   0   1   0   0
+element Center6   23   81   255   0   0   1   0   0
+element Center7   23   81   255   0   0   1   0   0
+element Center8   23   81   255   0   0   1   0   0
+element Center9   23   81   255   0   0   1   0   0
+
+neighbor   1.0   1Center   Empty   1.0   Center1   Front
+neighbor   1.0   Center1   Empty   1.0   Center2   Front
+neighbor   1.0   Center2   Empty   1.0   Center3   Front
+neighbor   1.0   Center3   Back   1.0   Center4   Back1
+neighbor   1.0   1Center   Water   1.0   Center1   Front
+neighbor   1.0   Center1   Water   1.0   Center2   Front
+neighbor   1.0   Center2   Water   1.0   Center3   Front
+neighbor   1.0   1Center   Saltwater   1.0   Center1   Front
+neighbor   1.0   Center1   Saltwater   1.0   Center2   Front
+neighbor   1.0   Center2   Saltwater   1.0   Center3   Front
+neighbor   1.0   1Center   RBFish   1.0   Center1   Front
+neighbor   1.0   Center1   RBFish   1.0   Center2   Front
+neighbor   1.0   Center2   RBFish   1.0   Center3   Front
+neighbor   1.0   1Center   RBFish2   1.0   Center1   Front
+neighbor   1.0   Center1   RBFish2   1.0   Center2   Front
+neighbor   1.0   Center2   RBFish2   1.0   Center3   Front
+neighbor   1.0   1Center   BBFish   1.0   Center1   Front
+neighbor   1.0   Center1   BBFish   1.0   Center2   Front
+neighbor   1.0   Center2   BBFish   1.0   Center3   Front
+neighbor   1.0   1Center   BBFish2   1.0   Center1   Front
+neighbor   1.0   Center1   BBFish2   1.0   Center2   Front
+neighbor   1.0   Center2   BBFish2   1.0   Center3   Front
+neighbor   1.0   1Center   Fish   1.0   Center1   Front
+neighbor   1.0   Center1   Fish   1.0   Center2   Front
+neighbor   1.0   Center2   Fish   1.0   Center3   Front
+neighbor   1.0   1Center   sFish   1.0   Center1   Front
+neighbor   1.0   Center1   sFish   1.0   Center2   Front
+neighbor   1.0   Center2   sFish   1.0   Center3   Front
+neighbor   1.0   1Center   Dock   1.0   Center1   Front
+neighbor   1.0   Center1   Dock   1.0   Center2   Front
+neighbor   1.0   Center2   Dock   1.0   Center3   Front
+
+pexplosion	1Center	Red	30	BSplosion
+pexplosion	Center1	Red	30	BSplosion
+pexplosion	Center2	Red	30	BSplosion
+pexplosion	Center3	Red	30	BSplosion
+pexplosion	Walls	Red	30	BSplosion
+pexplosion	Front	Red	30	BSplosion
+pexplosion	1Center	RFactory	30	BSplosion
+pexplosion	Center1	RFactory	30	BSplosion
+pexplosion	Center2	RFactory	30	BSplosion
+pexplosion	Center3	RFactory	30	BSplosion
+pexplosion	Walls	RFactory	30	BSplosion
+pexplosion	Front	RFactory	30	BSplosion
+pexplosion	1Center	RShield	30	BSplosion
+pexplosion	Center1	RShield	30	BSplosion
+pexplosion	Center2	RShield	30	BSplosion
+pexplosion	Center3	RShield	30	BSplosion
+pexplosion	Walls	RShield	30	BSplosion
+pexplosion	Front	RShield	30	BSplosion
+pexplosion	1Center	RShield3	30	BSplosion
+pexplosion	Center1	RShield3	30	BSplosion
+pexplosion	Center2	RShield3	30	BSplosion
+pexplosion	Center3	RShield3	30	BSplosion
+pexplosion	Walls	RShield3	30	BSplosion
+pexplosion	Front	RShield3	30	BSplosion
+pexplosion	1Center	Blue	30	RSplosion
+pexplosion	Center1	Blue	30	RSplosion
+pexplosion	Center2	Blue	30	RSplosion
+pexplosion	Center3	Blue	30	RSplosion
+pexplosion	Walls	Blue	30	RSplosion
+pexplosion	Front	Blue	30	RSplosion
+pexplosion	1Center	BFactory	30	RSplosion
+pexplosion	Center1	BFactory	30	RSplosion
+pexplosion	Center2	BFactory	30	RSplosion
+pexplosion	Center3	BFactory	30	RSplosion
+pexplosion	Walls	BFactory	30	RSplosion
+pexplosion	Front	BFactory	30	RSplosion
+pexplosion	1Center	BShield	30	RSplosion
+pexplosion	Center1	BShield	30	RSplosion
+pexplosion	Center2	BShield	30	RSplosion
+pexplosion	Center3	BShield	30	RSplosion
+pexplosion	Walls	BShield	30	RSplosion
+pexplosion	Front	BShield	30	RSplosion
+pexplosion	1Center	BShield3	30	RSplosion
+pexplosion	Center1	BShield3	30	RSplosion
+pexplosion	Center2	BShield3	30	RSplosion
+pexplosion	Center3	BShield3	30	RSplosion
+pexplosion	Walls	BShield3	30	RSplosion
+pexplosion	Front	BShield3	30	RSplosion
+pexplosion	1Center	Wall	30	NSplosion
+pexplosion	Center1	Wall	30	NSplosion
+pexplosion	Center2	Wall	30	NSplosion
+pexplosion	Center3	Wall	30	NSplosion
+pexplosion	Walls	Wall	30	NSplosion
+pexplosion	Front	Wall	30	NSplosion
+pexplosion	1Center	Glass	30	NSplosion
+pexplosion	Center1	Glass	30	NSplosion
+pexplosion	Center2	Glass	30	NSplosion
+pexplosion	Center3	Glass	30	NSplosion
+pexplosion	Walls	Glass	30	NSplosion
+pexplosion	Front	Glass	30	NSplosion
+pexplosion	1Center	Acrylic	30	NSplosion
+pexplosion	Center1	Acrylic	30	NSplosion
+pexplosion	Center2	Acrylic	30	NSplosion
+pexplosion	Center3	Acrylic	30	NSplosion
+pexplosion	Walls	Acrylic	30	NSplosion
+pexplosion	Front	Acrylic	30	NSplosion
+pexplosion	1Center	NWall	30	NSplosion
+pexplosion	Center1	NWall	30	NSplosion
+pexplosion	Center2	NWall	30	NSplosion
+pexplosion	Center3	NWall	30	NSplosion
+pexplosion	Walls	NWall	30	NSplosion
+pexplosion	Front	NWall	30	NSplosion
+pexplosion	1Center	Coral	10	NSplosion
+pexplosion	Center1	Coral	10	NSplosion
+pexplosion	Center2	Coral	10	NSplosion
+pexplosion	Center3	Coral	10	NSplosion
+pexplosion	Walls	Coral	10	NSplosion
+pexplosion	Front	Coral	10	NSplosion
+pexplosion	1Center	Fire	30	NSplosion
+pexplosion	Center1	Fire	30	NSplosion
+pexplosion	Center2	Fire	30	NSplosion
+pexplosion	Center3	Fire	30	NSplosion
+pexplosion	Walls	Fire	30	NSplosion
+pexplosion	Front	Fire	30	NSplosion
+pexplosion	1Center	BFire	30	NSplosion
+pexplosion	Center1	BFire	30	NSplosion
+pexplosion	Center2	BFire	30	NSplosion
+pexplosion	Center3	BFire	30	NSplosion
+pexplosion	Walls	BFire	30	NSplosion
+pexplosion	Front	BFire	30	NSplosion
+pexplosion	1Center	EWater	30	NSplosion
+pexplosion	Center1	EWater	30	NSplosion
+pexplosion	Center2	EWater	30	NSplosion
+pexplosion	Center3	EWater	30	NSplosion
+pexplosion	Walls	EWater	30	NSplosion
+pexplosion	Front	EWater	30	NSplosion
+pexplosion	1Center	ESaltwater	30	NSplosion
+pexplosion	Center1	ESaltwater	30	NSplosion
+pexplosion	Center2	ESaltwater	30	NSplosion
+pexplosion	Center3	ESaltwater	30	NSplosion
+pexplosion	Walls	ESaltwater	30	NSplosion
+pexplosion	Front	ESaltwater	30	NSplosion
+pexplosion	1Center	Electricity	30	NSplosion
+pexplosion	Center1	Electricity	30	NSplosion
+pexplosion	Center2	Electricity	30	NSplosion
+pexplosion	Center3	Electricity	30	NSplosion
+pexplosion	Walls	Electricity	30	NSplosion
+pexplosion	Front	Electricity	30	NSplosion
+pexplosion	1Center	Lava	30	NSplosion
+pexplosion	Center1	Lava	30	NSplosion
+pexplosion	Center2	Lava	30	NSplosion
+pexplosion	Center3	Lava	30	NSplosion
+pexplosion	Walls	Lava	30	NSplosion
+pexplosion	Front	Lava	30	NSplosion
+pexplosion	1Center	FallingEmber	30	NSplosion
+pexplosion	Center1	FallingEmber	30	NSplosion
+pexplosion	Center2	FallingEmber	30	NSplosion
+pexplosion	Center3	FallingEmber	30	NSplosion
+pexplosion	Walls	FallingEmber	30	NSplosion
+pexplosion	Front	FallingEmber	30	NSplosion
+pexplosion	1Center	Ember	30	NSplosion
+pexplosion	Center1	Ember	30	NSplosion
+pexplosion	Center2	Ember	30	NSplosion
+pexplosion	Center3	Ember	30	NSplosion
+pexplosion	Walls	Ember	30	NSplosion
+pexplosion	Front	Ember	30	NSplosion
+pexplosion	1Center	Torch	30	NSplosion
+pexplosion	Center1	Torch	30	NSplosion
+pexplosion	Center2	Torch	30	NSplosion
+pexplosion	Center3	Torch	30	NSplosion
+pexplosion	Walls	Torch	30	NSplosion
+pexplosion	Front	Torch	30	NSplosion
+pexplosion	1Center	Fallout2	30	NSplosion
+pexplosion	Center1	Fallout2	30	NSplosion
+pexplosion	Center2	Fallout2	30	NSplosion
+pexplosion	Center3	Fallout2	30	NSplosion
+pexplosion	Walls	Fallout2	30	NSplosion
+pexplosion	Front	Fallout2	30	NSplosion
+pexplosion	1Center	Plasma5	30	NSplosion
+pexplosion	Center1	Plasma5	30	NSplosion
+pexplosion	Center2	Plasma5	30	NSplosion
+pexplosion	Center3	Plasma5	30	NSplosion
+pexplosion	Walls	Plasma5	30	NSplosion
+pexplosion	Front	Plasma5	30	NSplosion
+
+element Front   255   69   63   0   0   1   0   0
+element Front1   255   69   63   0   0   1   0   0
+element Front2   255   69   63   0   0   1   0   0
+
+#Rear center element of Sub.
+element Back   85   255   31   0   0   1   0   1
+element Back1   85   255   31   0   0   1   0   0
+element Back2   85   255   31   0   0   1   0   0
+element Back3   85   255   31   0   0   1   0   0
+
+#Rear corner element of Sub.
+element   Corner   255   255   54   0   0   1   0   1
+#Front corner element of Glider
+element   Walls   255   0   243   0   0   1   0   1
+
+neighbor   1.0   Back1   Corner   1.0   Back2  Water
+neighbor   1.0   Back2   Corner   1.0   Back3   Water
+neighbor   1.0   Back3   Center4   1.0   Water  Center5
+
+neighbor   1.0   Center5   Walls   1.0   Center6   Corner
+
+neighbor   1.0   Corner   Front   1.0   Corner   Front1
+neighbor   1.0   Front1   Walls   1.0   Center7   Corner
+neighbor   1.0   Center6   Center7   1.0   Center8   Center9
+neighbor   1.0   Center8   Front1   1.0   Back   Walls
+neighbor   1.0   Center9   Front1   1.0   1Center   Walls
+
+################################&gt;All credit goes to Purple100
+

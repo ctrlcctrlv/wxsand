@@ -1,0 +1,49 @@
+#UberMod, Number 2. Let's see if I can get 510 elements.
+#Version 4, File subversion 2
+
+#Erases.
+element	Empty 255 255 255 0 1 0 0 1
+
+#What?
+element "Wall" 0 0 0 0 0 3 0.5 1
+hotcolor "Wall" 0 255 255
+#It's not really blue-fire, I just inverted the colors. And gravity...
+element "Fire" 0 193 193 0.9 0.2 0 1.5 1
+self 0.001 "Fire" 1 Empty
+#Wait, FALLING Sand? Oh...crap...
+element "Sand" 0 60 134 -1 1 0 0.5 1
+#Don't have much to say on this one.
+element "Salt" 0 0 0 -1 1 0 0.5 1
+#This was supposed to burn?
+element "Oil" 120 199 199 -1 1 0 0.5 1
+neighbor 0.5 "Oil" "Water" 1 "Oil"-ey"Water" "Oil"-ey"Water"
+#So you know, I just totally reversed the colors for most of these.
+element "Cera" 1 29 63 0 0 1 0.5 1
+neighbor 0.5 "Cera" "Fire" 1 "Cera" "Cera"
+#Sorry for the colors. All I'm doing is inverting them, I swear.
+element "Plant" 236 0 236 0 0 1 0.5 1
+neighbor 0.5 "Plant" "Fire" 1 "Plant" "Plant"
+neighbor 0.5 "Plant" "Water" 0.5 "Water" "Water" 0.5 Empty Empty
+#I didn't want to confuse people, so it still makes "Fire"
+element "Torch" 157 255 255 0 0 2.5 0.5 1
+neighbor 0.6 "Torch" Empty 1 "Torch" "Fire"
+#-Comment Here-
+element "Ember" 0 221 211 0 0 2 0.5 1
+self 0.2 "Ember" 1 "Fire"
+neighbor 0.5 "Ember" Empty 1 "Ember" "Fire"
+#Inverted colors/acid like effect. SWEET!
+element "Water" 236 209 19 -1 1 0 0.5 1
+self 0.005 "Water" 1 "Steam"
+#Spout
+#Yeah, it's weird. I know.
+element "Steam" 174 174 0 0.9 0.9 1 0.5 1
+neighbor 0.5 "Steam" "Plant" 0.5 "Steam" "Steam" 0.5 Empty Empty
+self 0.005 "Steam" 1 "Water"
+#Everything is weird, okay?
+element "Oil"-ey"Water" 140 206 113 -1 1 0 0.5 1
+neighbor 0.2 "Oil"-ey"Water" "Water" 1 "Oil"-ey"Water" "Oil"-ey"Water"
+neighbor 0.2 "Oil"-ey"Water" "Oil" 1 "Oil"-ey"Water" "Oil"-ey"Water"
+#You wanted them to MIX?
+element "Saltwater" 55 55 0 -1 0 0 0.5 1
+self 0.25 "Saltwater" 0.5 "Salt" 0.5 "Water"
+

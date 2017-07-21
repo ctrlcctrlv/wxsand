@@ -1,0 +1,224 @@
+#Version 4.4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+#self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]
+#hotself tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element
+#hotcolor element r g b
+#neighbor probabilityOfReacting element1 element2 [probabilityOfChangingIntoTheseElements element1 element2] [...]
+#hotneighbor tempAtWhichThisElementSelfProbabilityStartsToIncreaseTo100 element1 element2
+#explosion neighbor1 neighbor2 xspeed&lt;255 yspeed&lt;255
+#pexplosion neighbor1 neighbor2 diameter element
+
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#build stuff with this
+element	Concrete	140	140	140	0.000000	0.000000	1.000000	0.100000	1
+hotcolor Concrete	200	80	80
+
+element	Fire	247	63	63	-1.000000	1.000000	0.000000	1.100000	0
+self	0.050000	Fire	1.0000	Empty	
+hotcolor Fire   255    63     63
+
+element	Explode	247	247	63	-1.000000	1.000000	0.000000	0.100000	0
+self	0.50000	Explode	1.0000	Empty	
+hotcolor Explode   255    63     63
+
+element	Explode2	247	63	63	0.000000	0.000000	0.000000	0.000000	0
+self	0.01	Explode2	1.0	Fire
+pexplosion	Explode2	Fire	8	Explode
+pexplosion	Explode2	Empty	8	Explode
+neighbor 1.0	Explode2	PowerPlant	1.0	Explode2	Explode2
+
+element	Ember	200	50	50	0.000000	0.200000	1.000000	0.000000	0
+self	0.002000	Ember	1.0000	Fire
+neighbor 0.2		Ember	Empty	1.0	Ember	Fire
+
+element	FallingEmber	200	185	50	1.000000	0.800000	0.200000	1.100000	0
+self	0.002000	FallingEmber	1.0000	Fire
+neighbor 0.2		FallingEmber	Empty	1.0	FallingEmber	Fire
+neighbor 0.008		FallingEmber	Concrete	1.0	Exhaust	Fire
+neighbor 0.006		FallingEmber	ShieldGen	1.0	Exhaust	Fire
+neighbor 0.5		FallingEmber	PowerLine	0.6	Exhaust	Fire	0.4	Exhaust	FallingEmber
+neighbor 0.5		FallingEmber	PowerPlant	0.6	Exhaust	Fire	0.4	Exhaust	FallingEmber
+neighbor 0.006		FallingEmber	Magnetic_Emitter	1.0	Exhaust	Fire
+
+element Shield	0	180	255	0.000000	0.000000	1.000000	0.000000	0
+neighbor 1.0	Shield	Empty	1.0	Shield	Shield1
+
+element Shield1	0	100	255	1.000000	0.000000	0.100000	0.000000	0
+self	0.5	Shield1	1.0	Empty
+
+#strong shield generator. you wont survive without this.
+element ShieldGen	80	80	160	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.900000	PL1	ShieldGen	1.000000	PowerLine	SG1
+neighbor 0.900000	SG1	ShieldGen	1.000000	SG1	SG1
+
+element SG1	0	0	200	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.02	SG1	SG1	1.0	SG2	SG1
+neighbor 1.0	SG1	Empty	1.0	ShieldGen	Shield		
+
+element SG2	80	80	200	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.500000	SG2	SG1	1.000000	SG2	SG2
+self	0.070000	SG2	1.000000	ShieldGen
+
+#connects power with things that need it.
+element PowerLine	130	130	160	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.900000	PowerLine	PowerPlant	1.000000	PL1	PowerPlant
+neighbor 0.900000	PL1	PowerLine	1.000000	PL1	PL1
+
+element PL1	32	178	170	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.020000	PL1	PL1	1.000000	PL2	PL1
+
+element PL2	240	240	0	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.500000	PL2	PL1	1.000000	PL2	PL2
+self	0.070000	PL2	1.000000	PowerLine
+
+#powers up the city. must be connected to power lines
+element PowerPlant	255	255	255	0.000000	0.000000	1.000000	0.000000	1	
+
+#basic weapon
+element Laser	255	0	0	1.000000	0.000000	1.000000	0.000000	1
+pexplosion	Laser	Concrete	3	Explode
+pexplosion	Laser	ShieldGen	3	Explode
+pexplosion	Laser	PowerLine	5	Explode
+pexplosion	Laser	Magnetic_Emitter	6	Explode
+neighbor 1.0	Laser	Shield	1.0	Empty	Empty
+neighbor 1.0	Laser	Shield1	1.0	Empty	Empty
+neighbor 1.0	Laser	PowerPlant	1.0	Explode2	Explode2
+
+#High explosive rocket
+element	Rocket	255	255	255	1.000000	0.000000	1.000000	0.000000	1
+neighbor 1.0	Rocket	Empty	1.0	Rocket	Exhaust
+pexplosion	Rocket	Concrete	8	Explode
+pexplosion	Rocket	ShieldGen	6	Explode
+pexplosion	Rocket	PowerLine	10	Explode
+pexplosion	Rocket	Magnetic_Emitter	6	Explode
+neighbor 1.0	Rocket	PowerPlant	1.0	Explode2	Explode2
+neighbor 1.0	Rocket	Shield	1.0	Empty	Empty
+neighbor 1.0	Rocket	Shield1	1.0	Empty	Empty
+
+element Crazyrocket	255	255	255	0.400000	0.000000	0.500000	0.000000	0
+self	0.005	Crazyrocket	1.0	Explode2
+neighbor 0.9	Crazyrocket	Empty	1.0	p1	Crazyrocket
+pexplosion	Crazyrocket	Concrete	8	Explode
+pexplosion	Crazyrocket	ShieldGen	6	Explode
+pexplosion	Crazyrocket	PowerLine	10	Explode
+pexplosion	Crazyrocket	Magnetic_Emitter	6	Explode
+neighbor 1.0	Crazyrocket	PowerPlant	1.0	Explode2	Explode2
+
+#incendiary bomb, very effective against power systems.
+element	Fire_Bomb	100	100	100	1.000000	0.000000	1.000000	0.000000	1
+pexplosion	Fire_Bomb	Concrete	4	FallingEmber
+pexplosion	Fire_Bomb	ShieldGen	3	FallingEmber
+pexplosion	Fire_Bomb	PowerLine	10	FallingEmber
+pexplosion	Fire_Bomb	Magnetic_Emitter	3	FallingEmber
+pexplosion	Fire_Bomb	PowerPlant	10	FallingEmber
+pexplosion	Fire_Bomb	Shield	3	FallingEmber		
+pexplosion	Fire_Bomb	Shield1	3	FallingEmber
+
+#effective when fired in a continuous stream
+element	Particle_Beam	0	255	0	1.000000	0.000000	1.000000	0.000000	1
+neighbor 0.2	Particle_Beam	Empty	1.0	Particle_Beam	Particles
+neighbor 1.0	Particle_Beam	Concrete	0.6	Empty	Concrete	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	ShieldGen	0.6	Empty	ShieldGen	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	PowerLine	0.6	Empty	PowerLine	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	PowerPlant	0.6	Empty	PowerPlant	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	Magnetic_Emitter	0.6	Empty	Magnetic_Emitter	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	Shield	0.6	Empty	Shield	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	Shield1	0.6	Empty	Shield1	0.4	Empty	Empty
+neighbor 1.0	Particle_Beam	Pulse	1.0	Particles	Particles
+
+element	Particles	250	250	250	0.000001	3.000000	0.000000	0.000000	0
+self	0.2	Particles	1.0	Empty
+neighbor 1.0	Particles	Concrete	1.0	Empty	Empty
+neighbor 1.0	Particles	ShieldGen	1.0	Empty	Empty
+neighbor 1.0	Particles	PowerLine	1.0	Empty	Empty
+neighbor 1.0	Particles	PowerPlant	1.0	Empty	Empty
+neighbor 1.0	Particles	Magnetic_Emitter	1.0	Empty	Empty
+neighbor 1.0	Particles	Shield	1.0	Empty	Empty
+neighbor 1.0	Particles	Shield1	1.0	Empty	Empty
+
+element p1	255	0	0	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.9	p1	p1	1.0	p2	p1
+
+element p2	80	80	80	0.000000	0.000000	1.000000	0.000000	0
+self	0.2	p2	1.0	Empty
+self	0.2	p1	1.0	Empty
+
+element	Exhaust	255	0	0	-1.000000	1.000000	0.000000	0.000000	0
+self	0.5	Exhaust	1.0	Smoke
+
+element Smoke	80	80	80	-1.000000	1.000000	0.000000	0.000000	0
+self	0.05	Smoke	1.0	Empty
+
+#Creates a disruption field that confuses rockets and neutralizes particle beams.
+element Magnetic_Emitter	80	160	80	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.900000	PL1	Magnetic_Emitter	1.000000	PowerLine	ME1
+neighbor 0.900000	ME1	Magnetic_Emitter	1.000000	ME1	ME1
+
+element ME1	0	200	0	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.02	ME1	ME1	1.0	ME2	ME1
+neighbor 1.0	ME1	Empty	1.0	Magnetic_Emitter	Pulse		
+
+element ME2	80	200	80	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.500000	ME2	ME1	1.000000	ME2	ME2
+self	0.070000	ME2	1.000000	Magnetic_Emitter
+
+element	Pulse	0	35	0	0.000001	3.000000	0.000000	0.000000	0
+neighbor 1.0	Pulse	Rocket	1.0	Empty	Crazyrocket
+
+element Chaff	0	255	255	-1.000000	3.000000	0.500000	0.000000	0
+neighbor 1.0	Chaff	Empty	1.0	Chaff	Shield1
+pexplosion	Chaff	Rocket	5	Explode
+pexplosion	Chaff	Crazyrocket	5	Explode
+pexplosion	Chaff	Laser	5	Explode
+pexplosion	Chaff	Fire_Bomb	5	Explode
+pexplosion	Chaff	Particle_Beam	5	Explode
+
+#counters enemy weapons. needs to be plugged to control cable to turn it ON and OFF. doesn´t need power but will slowly deplete when on.
+element	Chaff_Launcher	80	0	255	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	Chaff_Launcher	OnPulse	1.0	CL1	ControlCable
+neighbor 0.9	Chaff_Launcher	CL1	1.0	CL1	CL1
+
+element CL1	0	100	255	0.000000	0.000000	1.000000	0.000000	0
+self	0.1	CL1	1.0	CLON
+
+element CL2	80	100	255	0.000000	0.000000	1.000000	0.000000	0
+self	0.1	CL2	1.0	Chaff_Launcher
+
+element	CLON	0	0	255	0.000000	0.000000	1.000000	0.000000	0
+neighbor 0.007	CLON	Empty	0.5	Empty	ChaffBomb	0.5	CLON	Empty
+neighbor 0.9	CLON	OffPulse	1.0	CL2	ControlCable
+neighbor 0.9	CLON	CL2	1.0	CL2	CL2
+
+element	ChaffBomb	0	0	255	-1.000000	3.000000	0.000000	0.900000	0
+self	1.0	ChaffBomb	1.0	CB1
+hotself	4	ChaffBomb
+
+element	CB1	0	0	255	-1.000000	3.000000	0.000000	0.000000	0
+pexplosion	CB1	Empty	3 Chaff
+
+element ControlCable	0	160	0	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.9	ControlCable	OFF	1.0	OffPulse	OffPulse
+neighbor 0.9	ControlCable	OffPulse	1.0	OffPulse	OffPulse
+neighbor 0.9	ControlCable	ON	1.0	OnPulse	OnPulse
+neighbor 0.9	ControlCable	OnPulse	1.0	OnPulse	OnPulse
+
+element OffPulse	233	0	0	0.000000	1.000000	0.000000	0.000000	0
+neighbor 0.02	OffPulse	OffPulse	1.0	CC	OffPulse
+
+element OnPulse	0	233	233	0.000000	1.000000	0.000000	0.000000	0
+neighbor 0.02	OnPulse	OnPulse	1.0	CC	OnPulse
+
+element CC	80	160	80	0.000000	1.000000	0.000000	0.000000	0
+self	0.07	CC	1.0	ControlCable
+neighbor 0.5	CC	OnPulse	1.0	CC	CC
+neighbor 0.5	CC	OffPulse	1.0	CC	CC
+
+element OFF	233	0	0	0.000000	0.000000	0.000000	0.000000	1
+
+element ON	0	233	233	0.000000	0.000000	0.000000	0.000000	1
+
+element Enemy	35	10	10	0.000000	0.000000	0.000000	0.000000	1
+neighbor 0.001	Enemy	Empty	0.5	Enemy	Laser	0.2	Enemy	Particle_Beam	0.1	Enemy	Fire_Bomb	0.2	Enemy	Rocket

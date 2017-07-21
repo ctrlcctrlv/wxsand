@@ -1,0 +1,181 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group	FireAndFuel	Fire	Ember
+group	Explosives	Nitroglycerin	DiatomaceousEarth
+group	Solids	Ground	Metal	Plaster	Paper	DryPlaster	Concrete	Rebar
+group	FireAlarm	AlarmWire	AlarmPull	AlarmSprinkler
+group	Disasters	Tsunami
+
+#Erases.
+element	Empty	0	0	0	0.0	1.0	0.0	0.5	1
+
+#Puts out fires. No steam yet.
+element	Water	32	32	255	0.700000	1.000000	0.500000	0.400000	1
+hotcolor Water  200     200     255
+neighbor 0.9	Fire	Water	1.0	Empty	Water
+
+#Dudes.
+element People	228	223	158	0.35	2.0	0.4	0.5	1
+neighbor 0.5	People	Fire	0.9	BurningPeople	Fire	0.1	PeopleA	Empty
+
+#Burns stuff.
+element Fire	255	0	0	-0.5	0.5	0.2	1.1	1
+neighbor 0.01	Fire	Empty	1.0	Fire	Smoke
+self 0.03	Fire	1.0	Empty
+
+#Smoky!
+element Smoke	100	100	100	-0.7	1.7	0.1	1.0	0
+self 0.04	Smoke	1.0	Empty
+neighbor 0.5	People	Smoke	1.0	PeopleA	Smoke
+
+#Hes on fire.
+element BurningPeople	228	224	159	0.35	2.0	1.0	0.5	0
+neighbor 0.2	BurningPeople	Empty	1.0	BurningPeople	Fire
+self 0.01	BurningPeople	1.0	Corpse
+neighbor 0.2	BurningPeople	Water	1.0	People	Water
+
+#Dead dude.
+element Corpse	75	75	75	0.35	2.0	1.0	0.4	0
+neighbor 0.04	Corpse	Fire	1.0	Ember	Fire
+
+#Burns for a little while.
+element	Ember	130	0	0	0.0	0.0	1.0	0.5	1
+neighbor 0.2	Ember	Empty	1.0	Ember	Fire
+self 0.01	Ember	1.0	Empty
+
+#Careful with this stuff.
+element Nitroglycerin	58	224	224	0.5	1.0	1.1	0.5	1
+hotcolor Nitroglycerin	205	248	248
+self	0.5	Nitroglycerin	1.0	Fire
+hotself	4	Nitroglycerin
+neighbor 1.0	Nitroglycerin	Fire	1.0	Exp1	Fire
+neighbor 1.0	Nitroglycerin	Exp1	1.0	Exp1	Fire
+neighbor 1.0	Nitroglycerin	Exp1-2	1.0	Exp1	Fire
+neighbor 1.0	Nitroglycerin	Fire	1.0	Exp2	Fire
+neighbor 1.0	Nitroglycerin	Exp2	1.0	Exp2	Fire
+neighbor 1.0	Nitroglycerin	Exp2-2	1.0	Exp2	Fire
+
+#Man of steel.
+element Metal	128	128	128	0.0	0.0	5.0	0.5	1
+hotcolor Metal	255	0	0
+
+#Sandwich between two layers of paper, and you've got drywall!
+element Plaster	240	240	240	0.0	0.0	5.0	0.5	1
+neighbor 0.07	Plaster	Fire	1.0	DryPlaster	Fire
+
+#Use to make plaster.
+element DryPlaster	220	220	220	1.0	1.0	0.8	0.5	1
+neighbor 0.5	DryPlaster	Water	1.0	WetPlaster	Empty
+
+element	WetPlaster	220	220	240	1.0	0.8	1.0	0.5	0
+self	0.01	WetPlaster	1.0	Plaster
+hotself	15	WetPlaster
+neighbor 0.01	WetPlaster	Empty	1.0	Plaster	Empty
+neighbor 0.01	WetPlaster	Plaster	1.0	Plaster	Plaster
+
+#Pretty solid, but a good shock might crack it.
+element Concrete	147	146	108	0.0	0.0	5.0	0.2	1
+self	0.5	Concrete	1.0	Rubble
+hotself	70	Concrete
+
+#Draw a line through concrete to reinforce it.
+element Rebar	167	111	48	0.0	0.0	5.0	0.2	1
+neighbor 1.0	Concrete	Rebar	1.0	RConcrete	Rebar
+
+element	RConcrete	130	129	96	0.0	0.0	5.0	0.2	0
+neighbor 1.0	RConcrete	Concrete	1.0	RConcrete	RConcrete
+
+#Paper. Burn it. Use for stuff like ceiling tiles.
+element Paper	245	241	207	0.0	0.0	5.0	0.5	1
+neighbor 0.1	Paper	Fire	1.0	Ember	Fire
+neighbor 0.1	Paper	Ember	1.0	Fire	Fire
+
+element	Rubble	160	160	120	1.0	1.0	0.8	0.5	0
+
+#The good earth.
+element	Ground	143	111	41	0.0	0.0	5.0	0.5	1
+
+
+#-----Fire alarm system----Copyright
+
+#Transmits the alarm signal to sprinklers.
+element AlarmWire	235	235	235	0.0	0.0	5.0	0.5	1
+neighbor 0.5	AlarmWire	AlarmWirex	1.0	AlarmWirex	AlarmWirex
+neighbor 0.5	AlarmPullx	AlarmWire	1.0	AlarmPullx	AlarmWirex
+
+element AlarmWirex	240	240	240	0.0	0.0	5.0	0.5	0
+
+#Guys pull it if they find fire.
+element AlarmPull	228	63	33	0.0	0.0	5.0	0.5	1
+neighbor 1.0	AlarmPull	PeopleA	1.0	AlarmPullx	PeopleA
+
+element AlarmPullx	228	63	33	0.0	0.0	5.0	0.5	0
+
+element PeopleA	174	165	49	0.35	2.0	1.0	0.5	0
+neighbor 0.5	PeopleA	Fire	1.0	BurningPeople	Fire
+neighbor 0.6	People	PeopleA	1.0	PeopleA	PeopleA
+self	0.05	PeopleA	1.0	People
+
+#Showers the burning building with water.
+element AlarmSprinkler	72	177	46	0.0	0.0	5.0	0.5	1
+neighbor 1.0 	AlarmSprinkler	AlarmWirex	1.0	AlarmSprinklerx	AlarmWirex
+neighbor 1.0	AlarmSprinkler	AlarmSprinklerx	1.0	AlarmSprinklerx	AlarmSprinklerx
+
+element AlarmSprinklerx	48	175	77	0.0	0.0	5.0	0.5	0
+neighbor 0.1	AlarmSprinklerx	Empty	1.0	AlarmSprinklerx	SprinklerWater
+
+element AlarmTrigger	111	111	111	0.0	0.0	5.0	0.5	1
+neighbor 1.0	AlarmTrigger	AlarmWire	1.0	AlarmTrigger	AlarmWirex
+
+#Puts out fires.
+element	SprinklerWater	33	33	255	0.30000	20.000000	0.500000	0.400000	0
+hotcolor Water  201     201     255
+self	0.006	SprinklerWater	1.0	Empty
+
+#____EXPLOSIons____
+#explosives from Dark2176's methane element, which he credited to _Twitch_, the microproccesor fad founder.
+element Exp1	200	0	0	0.000000	0.000000	0.000000	1.300000	0
+neighbor 1.0	Exp1	Empty	1	Exp1	Exp1
+self	.5	Exp1	1	Exp1-2
+
+element Exp1-2	200	0	0	0.000000	0.000000	0.0000000	1.200000	0
+self	.1	Exp1-2	1	Fire
+neighbor 1	Exp1-2	Exp1	1	Exp1-2	Exp1-2
+
+element Exp2	200	0	0	0.000000	0.000000	0.000000	1.400000	0
+neighbor 1.0	Exp2	Empty	1	Exp2	Exp2
+self	.4	Exp2	1	Exp2-2
+
+element Exp2-2	200	0	0	0.000000	0.000000	0.0000000	1.300000	0
+self	.01	Exp2-2	1	Fire
+neighbor 1	Exp2-2	Exp2	1	Exp2-2	Exp2-2
+
+#_____DISASTERS_____
+
+#Place a dot on the side of the screen and wait...
+element	Tsunami	50	50	255	0.9	0.0	5.0	0.5	1
+neighbor 0.5	Tsunami	Empty	1.0	Tsunami	Tsunami
+neighbor 0.07	Tsunami	Concrete	1.0	Tsunami	Rubble
+neighbor 0.05	Tsunami	RConcrete	1.0	Tsunami	Rubble
+neighbor 0.3	Plaster	Tsunami	1.0	WetPlaster	Tsunami
+neighbor 0.07	People	Tsunami	1.0	Corpse	Tsunami
+neighbor 0.07	PeopleA	Tsunami	1.0	Corpse	Tsunami
+self	0.25	Tsunami	1.0	Tsunamix
+
+element	Tsunamix	51	50	255	0.7	1.0	0.5	0.4	0
+neighbor 0.05	Tsunamix	Concrete	1.0	Tsunamix	Rubble
+neighbor 0.02	Tsunamix	RConcrete	1.0	Tsunamix	Rubble
+neighbor 0.07	Plaster	Tsunamix	1.0	WetPlaster	Tsunamix
+self	0.01	Tsunamix	1.0	Water
+
+#____BOMBs____
+
+#A common stabilizer. A naturally occurring, soft, chalk-like sedimentary rock that is easily crumbled into a fine white to off-white powder
+element	DiatomaceousEarth	231	227	218	0.8	0.2	0.7	0.2	1
+neighbor 0.05	DiatomaceousEarth	Nitroglycerin	1.0	Dynamite	Dynamite
+
+element	Dynamite	232	0	0	0.0	0.0	5.0	0.2	0
+neighbor 1.0	Dynamite	Fire	1.0	Exp2	Fire
+explosion	Dynamite	Fire	100	100
+

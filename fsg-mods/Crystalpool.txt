@@ -1,0 +1,247 @@
+#Version 4, File subversion 2
+#Mod: Sors - Crystalpool
+#class Fires GreenFire YellowFire RedFire
+group Walls Wall HotWall IsoWall CoolWall
+group Crystal CrystalWire FillCrystalWire CrystalEssence Solution SolutionBottle
+group Stuff Water WaterBottle Void Diffusa AntiBottle Empty
+group cheat PuroniumSolution GeriatSolution
+#Crystalpool Mod by Sors
+element Empty 0 0 0 0 1 0 0 1
+#The Void
+element Void 80 80 80 0 0 1 0 1
+neighbor 1 Void Acid 1 Void Empty
+neighbor 1 Void AcidBottle 1 Void Empty
+neighbor 1 Void AntiBottle 1 Void Empty
+neighbor 1 Void CoolWall 1 Void Empty
+neighbor 1 Void CrystalEssence 1 Void Empty
+neighbor 1 Void CrystalWire 1 Void Empty
+neighbor 1 Void Diffusa 1 Void Empty
+neighbor 1 Void FillCrystalWire 1 Void Empty
+neighbor 1 Void Geriat 1 Void Empty
+neighbor 1 Void GeriatCrystal 1 Void Empty
+neighbor 1 Void GeriatCrystalLight 1 Void Empty
+neighbor 1 Void GeriatCrystalShadow 1 Void Empty
+neighbor 1 Void GeriatEssence 1 Void Empty
+neighbor 1 Void GeriatSolution 1 Void Empty
+neighbor 1 Void GeriatSpawner 1 Void Empty
+neighbor 1 Void GreenFire 1 Void Empty
+neighbor 1 Void HotWall 1 Void Empty
+neighbor 1 Void IsoWall 1 Void Empty
+neighbor 1 Void LiquidPuronium 1 Void Empty
+neighbor 1 Void Puronium 1 Void Empty
+neighbor 1 Void PuroniumCrystal 1 Void Empty
+neighbor 1 Void PuroniumCrystalLight 1 Void Empty
+neighbor 1 Void PuroniumCrystalShadow 1 Void Empty
+neighbor 1 Void PuroniumEssence 1 Void Empty
+neighbor 1 Void PuroniumEssenceCoat 1 Void Empty
+neighbor 1 Void PuroniumSolution 1 Void Empty
+neighbor 1 Void PuroniumSpawner 1 Void Empty
+neighbor 1 Void RedFire 1 Void Empty
+neighbor 1 Void Solution 1 Void Empty
+neighbor 1 Void SolutionBottle 1 Void Empty
+neighbor 1 Void Steam 1 Void Empty
+neighbor 1 Void Wall 1 Void Empty
+neighbor 1 Void WaterBottle 1 Void Empty
+neighbor 1 Void YellowFire 1 Void Empty
+neighbor 1 Void GeriatWater 1 Void Empty
+neighbor 1 Void PuroniumSteam 1 Void Empty
+neighbor 1 Void PuroniumWater 1 Void Empty
+neighbor 1 Void Water 1 Void Empty
+#Heatable Wall
+element Wall 128 128 128 0 0 1 0.5 1
+hotcolor Wall 255 255 255
+#Heating Wall
+element HotWall 255 128 128 0 0 1 1.1 1
+#Isolated (nonheatable) Wall
+element IsoWall 128 128 255 0 0 1 0 1
+neighbor 1 IsoWall GreenFire 1 BurningWall GreenFire
+neighbor 1 IsoWall RedFire 1 BurningWall RedFire
+neighbor 1 IsoWall YellowFire 1 BurningWall YellowFire
+element BurningWall 255 0 0 0 0 1 0 0
+neighbor 0.3 BurningWall Empty 0.9 BurningWall RedFire 0.07 BurningWall YellowFire 0.03 BurningWall GreenFire
+neighbor 0.2 BurningWall IsoWall 1 BurningWall BurningWall
+#Cooling Wall (plug into a usual wall)
+element CoolWall 128 255 128 0 0 1 0 1
+neighbor 1 CoolWall Empty 1 CoolWall CoolCoat
+neighbor 1 CoolWall Wall 1 CoolWall CoolCoat
+element CoolCoat 128 255 128 0 0 1 0.7 0
+self 1 CoolCoat 1 Empty
+hotself 50 CoolCoat
+element XCoolWall 170 255 170 0 0 1 0 0
+element XCoolCoat 170 255 170 0 0 1 1 0
+hotself 20 XCoolCoat
+self 1 XCoolCoat 1 Empty
+neighbor 1 XCoolWall Empty 1 XCoolWall XCoolCoat
+neighbor 1 XCoolWall Wall 1 XCoolWall XCoolCoat
+neighbor 1 XCoolWall CoolWall 1 XCoolWall XCoolWall
+neighbor 1 IsoWall CoolWall 1 XCoolWall XCoolWall
+neighbor 1 XCoolWall CoolCoat 1 XCoolWall XCoolCoat
+#Crystal Wire for creating greater Crystals
+element CrystalWire 50 180 50 0 0 1 0 1
+#simple Water
+element Water 30 30 230 0.8 1 0.5 0.5 1
+hotcolor Water 150 150 250
+self 1 Water 1 Steam
+hotself 70 Water
+element Steam 80 80 250 -0.7 1 0.2 0.2 0
+self 0.01 Steam 1 Water
+#Essence of all Crystals (use with water)
+element CrystalEssence 0 255 0 0 0 1 0.3 1
+element GeriatEssence 0 255 0 0 0 1 0 0
+neighbor 1 CrystalEssence Empty 1 CrystalEssence GeriatEssence
+neighbor 1 GeriatEssence Water 1 GeriatEssence GeriatWater
+element GeriatWater 30 100 230 0.8 1 0.5 0.3 0
+hotcolor GeriatWater 80 170 250
+self 1 GeriatWater 0.3 GreenFire 0.7 Water
+hotself 70 GeriatWater
+element Geriat 50 200 50 1 0.01 0.8 0.1 0
+neighbor 0.5 GeriatWater CrystalWire 0.5 Water CrystalWire 0.5 Geriat CrystalWire
+hotneighbor 30 GeriatWater CrystalWire
+element GreenFire 0 255 0 -1 1 0 1.1 0
+element YellowFire 255 255 0 -1 1 0 1.1 0
+element RedFire 255 0 0 -1 1 0 1.1 0
+self 0.05 GreenFire 1 Empty
+self 0.05 RedFire 1 Empty
+self 0.05 YellowFire 1 Empty
+#Well...a WaterBottle
+element WaterBottle 0 0 80 0 0 1 0 1
+neighbor 0.02 WaterBottle Empty 1 WaterBottle Water
+#Sucks up Waters
+element AntiBottle 0 0 80 0 0 1 0 1
+neighbor 1 AntiBottle GeriatWater 1 AntiBottle Empty
+neighbor 1 AntiBottle PuroniumWater 1 AntiBottle Empty
+neighbor 1 AntiBottle Water 1 AntiBottle Empty
+#solution for crystalls. don't mix with water! dont heat!
+element Solution 150 150 30 0.5 1 0.2 0.8 1
+neighbor 1 Solution GeriatWater 1 YellowFire YellowFire
+neighbor 1 Solution PuroniumWater 1 YellowFire YellowFire
+neighbor 1 Solution Water 1 YellowFire YellowFire
+neighbor 1 Solution GreenFire 1 GreenFire GreenFire
+neighbor 1 Solution RedFire 1 RedFire RedFire
+neighbor 1 Solution YellowFire 1 YellowFire YellowFire
+self 1 Solution 1 YellowFire
+hotself 40 Solution
+#again just a Bottle
+element SolutionBottle 50 50 0 0 0 1 0.2 1
+self 1 SolutionBottle 1 AcidBottle
+hotself 50 SolutionBottle
+neighbor 0.01 SolutionBottle Empty 1 SolutionBottle Solution
+element Acid 180 30 180 0.5 0.6 0.1 0.3 0
+neighbor 0.05 Acid Acid 1 Acid Empty
+neighbor 0.05 Acid AcidBottle 1 Acid Empty
+neighbor 0.05 Acid AntiBottle 1 Acid Empty
+neighbor 0.05 Acid CoolWall 1 Acid Empty
+neighbor 0.05 Acid CrystalEssence 1 Acid Empty
+neighbor 0.05 Acid CrystalWire 1 Acid Empty
+neighbor 0.05 Acid Diffusa 1 Acid Empty
+neighbor 0.05 Acid FillCrystalWire 1 Acid Empty
+neighbor 0.05 Acid Geriat 1 Acid Empty
+neighbor 0.05 Acid GeriatCrystal 1 Acid Empty
+neighbor 0.05 Acid GeriatCrystalLight 1 Acid Empty
+neighbor 0.05 Acid GeriatCrystalShadow 1 Acid Empty
+neighbor 0.05 Acid GeriatEssence 1 Acid Empty
+neighbor 0.05 Acid GeriatSolution 1 Acid Empty
+neighbor 0.05 Acid GeriatSpawner 1 Acid Empty
+neighbor 0.05 Acid GreenFire 1 Acid Empty
+neighbor 0.05 Acid HotWall 1 Acid Empty
+neighbor 0.05 Acid IsoWall 1 Acid Empty
+neighbor 0.05 Acid LiquidPuronium 1 Acid Empty
+neighbor 0.05 Acid Puronium 1 Acid Empty
+neighbor 0.05 Acid PuroniumCrystal 1 Acid Empty
+neighbor 0.05 Acid PuroniumCrystalLight 1 Acid Empty
+neighbor 0.05 Acid PuroniumCrystalShadow 1 Acid Empty
+neighbor 0.05 Acid PuroniumEssence 1 Acid Empty
+neighbor 0.05 Acid PuroniumEssenceCoat 1 Acid Empty
+neighbor 0.05 Acid PuroniumSolution 1 Acid Empty
+neighbor 0.05 Acid PuroniumSpawner 1 Acid Empty
+neighbor 0.05 Acid RedFire 1 Acid Empty
+neighbor 0.05 Acid Solution 1 Acid Empty
+neighbor 0.05 Acid SolutionBottle 1 Acid Empty
+neighbor 0.05 Acid Steam 1 Acid Empty
+neighbor 0.05 Acid Wall 1 Acid Empty
+neighbor 0.05 Acid WaterBottle 1 Acid Empty
+neighbor 0.05 Acid YellowFire 1 Acid Empty
+neighbor 0.05 Acid GeriatWater 1 Acid Empty
+neighbor 0.05 Acid PuroniumSteam 1 Acid Empty
+neighbor 0.05 Acid PuroniumWater 1 Acid Empty
+neighbor 0.05 Acid Water 1 Acid Empty
+element AcidBottle 60 0 60 0 0 1 0 0
+neighbor 0.5 AcidBottle Empty 1 AcidBottle Acid
+neighbor 1 AcidBottle SolutionBottle 1 AcidBottle AcidBottle
+#Let a CrystalWire touch this
+element GeriatSolution 150 200 30 0.5 0.8 0.1 0.5 1
+neighbor 1 Geriat Solution 1 GeriatSolution GeriatSolution
+element GeriatCrystal 0 170 0 0 0 1 0 0
+element GeriatCrystalLight 0 255 0 0 0 1 0 0
+element GeriatCrystalShadow 0 155 0 0 0 1 0 0
+self 0.01 GeriatCrystal 0.7 GeriatCrystal 0.15 GeriatCrystalLight 0.15 GeriatCrystalShadow
+self 0.2 GeriatCrystalLight 0.7 GeriatCrystal 0.15 GeriatCrystalLight 0.15 GeriatCrystalShadow
+self 0.2 GeriatCrystalShadow 0.7 GeriatCrystal 0.15 GeriatCrystalLight 0.15 GeriatCrystalShadow
+element GeriatSpawner 0 255 0 0 0 1 0 0
+self 0.03 GeriatSpawner 1 GeriatCrystal
+neighbor 1 GeriatSpawner Empty 0.35 GeriatCrystal GeriatSpawner 0.35 GeriatSpawner GeriatSpawner 0.3 GeriatCrystal GeriatCrystal
+neighbor 1 CrystalWire GeriatSolution 1 GeriatCrystal GeriatSolution
+neighbor 1 CrystalWire GeriatCrystal 0.4 GeriatSpawner GeriatCrystal 0.6 GeriatCrystal GeriatCrystal
+#use this to fill Areas with CrystalWire
+element FillCrystalWire 255 255 255 0 0 1 0 1
+neighbor 1 FillCrystalWire Empty 1 FillCrystalWire FillCrystalWire
+self 0.02 FillCrystalWire 1 CrystalWire
+element PuroniumEssence 180 20 180 0 0 1 0 0
+element PuroniumEssenceCoat 180 20 180 0 0 1 0 0
+neighbor 1 CrystalEssence CoolWall 1 PuroniumEssence PuroniumEssence
+neighbor 1 PuroniumEssence CoolWall 1 PuroniumEssence PuroniumEssence
+neighbor 1 PuroniumEssence CrystalEssence 1 PuroniumEssence PuroniumEssence
+neighbor 1 PuroniumEssence GeriatEssence 1 PuroniumEssence PuroniumEssenceCoat
+neighbor 1 PuroniumEssence Empty 1 PuroniumEssence PuroniumEssenceCoat
+element PuroniumSteam 230 50 250 -1 1 0.1 0.2 0
+element PuroniumWater 180 50 200 1 0.5 0.5 0.5 0
+neighbor 1 PuroniumEssenceCoat Steam 1 PuroniumEssenceCoat PuroniumSteam
+self 0.04 PuroniumSteam 1 PuroniumWater
+self 1 PuroniumWater 1 PuroniumSteam
+hotself 50 PuroniumWater
+element Puronium 200 50 200 1 0.01 1 0.1 0
+neighbor 1 PuroniumSteam AntiBottle 1 LiquidPuronium AntiBottle
+element LiquidPuronium 230 20 230 1 0.01 0.8 1 0
+neighbor 1 LiquidPuronium Geriat 1 Puronium Diffusa
+hotneighbor 30 LiquidPuronium Geriat
+#Kills Crystals, but doesn't last long
+element Diffusa 255 255 255 1 1 0.5 0 1
+neighbor 1 CrystalEssence Diffusa 1 Diffusa Diffusa
+neighbor 1 CrystalWire Diffusa 1 Diffusa Diffusa
+neighbor 1 Geriat Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatCrystal Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatCrystalLight Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatCrystalShadow Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatEssence Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatSpawner Diffusa 1 Diffusa Diffusa
+neighbor 1 GeriatWater Diffusa 1 Diffusa Diffusa
+neighbor 1 Puronium Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumCrystal Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumCrystalLight Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumCrystalShadow Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumEssence Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumEssenceCoat Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumSpawner Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumSteam Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumWater Diffusa 1 Diffusa Diffusa
+self 0.01 Diffusa 1 Empty
+neighbor 1 GeriatSolution Diffusa 1 Diffusa Diffusa
+neighbor 1 PuroniumSolution Diffusa 1 Diffusa Diffusa
+#Let a CrystalWire touch this
+element PuroniumSolution 150 30 200 0.5 0.8 0.1 0.5 1
+neighbor 1 Puronium Solution 1 PuroniumSolution PuroniumSolution
+self 1 GeriatSolution 0.7 Water 0.3 GreenFire
+self 1 PuroniumSolution 0.7 Water 0.3 GreenFire
+hotself 50 GeriatSolution
+hotself 50 PuroniumSolution
+element PuroniumCrystal 170 0 170 0 0 1 0 0
+element PuroniumCrystalLight 255 0 255 0 0 1 0 0
+element PuroniumCrystalShadow 155 0 155 0 0 1 0 0
+self 0.01 PuroniumCrystal 0.7 PuroniumCrystal 0.15 PuroniumCrystalLight 0.15 PuroniumCrystalShadow
+self 0.2 PuroniumCrystalLight 0.7 PuroniumCrystal 0.15 PuroniumCrystalLight 0.15 PuroniumCrystalShadow
+self 0.2 PuroniumCrystalShadow 0.7 PuroniumCrystal 0.15 PuroniumCrystalLight 0.15 PuroniumCrystalShadow
+element PuroniumSpawner 255 0 255 0 0 1 0 0
+self 0.05 PuroniumSpawner 1 PuroniumCrystal
+neighbor 1 PuroniumSpawner Empty 0.38 PuroniumCrystal PuroniumSpawner 0.38 PuroniumSpawner PuroniumSpawner 0.24 PuroniumCrystal PuroniumCrystal
+neighbor 1 CrystalWire PuroniumSolution 1 PuroniumCrystal PuroniumSolution
+neighbor 1 CrystalWire PuroniumCrystal 0.6 PuroniumSpawner PuroniumCrystal 0.4 PuroniumCrystal PuroniumCrystal

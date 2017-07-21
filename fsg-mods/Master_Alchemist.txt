@@ -1,0 +1,262 @@
+#wxSand: Owen Piette's Falling Sand Game 
+#Version 4.4, File subversion 2
+
+group Tools Empty Container Torch Cleaner UnfinishedCleaner
+group Tests Person Rat Heart Stomach Brain Mouth
+group Ingreidents Water SlavareLeaf PreasureCartrage MagnesiumFlakes Liquid_Steel Leaves Blood
+
+#Clean Up
+element Empty 0 0 0 0 0 0 0 1
+#Make Potions in here
+element Container 150 150 150 0 0 3 0  1
+#Heat Potions and stuff
+element Torch 128 0 0 0  0  2   1   1
+neighbor 1 Torch Empty 1 Torch Fire
+element Fire 230 0 0 -1 1 0 1.2 0
+hotcolor Fire 255 0 0
+self 0.13 Fire 1 Empty
+#Clean Ingredients with this
+element Cleaner 255 255 255 1  1   1   1   1
+neighbor 1 Cleaner SlavareLeaf 1 Cleaner Cleaner
+neighbor 1 Cleaner Water 1 Cleaner Cleaner
+neighbor 1 Cleaner MagnesiumFlakes 1 Cleaner Cleaner
+neighbor 1 Cleaner PreasureCartrage 1 Cleaner Cleaner
+neighbor 1 Cleaner Dmflakes 1 Cleaner Cleaner
+neighbor 1 Cleaner Leaves 1 Cleaner Cleaner
+neighbor 1 Cleaner Blood 1 Cleaner Cleaner
+neighbor 1 Cleaner Liquid_Steel 1 Cleaner Cleaner
+self 0.1 Cleaner 1 Empty
+#For Unfinished Potion Cleanup
+element UnfinishedCleaner 255 255 255 1 1 1 1 1
+neighbor 1 UnfinishedCleaner BW 1 UnfinishedCleaner UnfinishedCleaner
+neighbor 1 UnfinishedCleaner BWL 1 UnfinishedCleaner UnfinishedCleaner
+self 0.01 UnfinishedCleaner 1 Empty
+
+
+#Your person
+element Person 255 255 230 0 0 5 0 1
+neighbor 1 Person Heart 1 Hp Heart
+neighbor 1 Person Hp 1 Hp Hp
+element Hp 255 255 230 0 0 1 0 0
+neighbor 1 Hp Brain 1 hpb Brain
+neighbor 1 Hp hpb 1 hpb hpb
+element hpb 255 255 230 0 0 1 0 0
+neighbor 1 hpb Stomach 1 Human Stomach
+neighbor 0.1 hpb Human 1 Human Human
+element Human 242 235 140 0 0 5 0 0
+#Your Test Rat
+element Rat 100 100 100 0 0 1 0 1
+neighbor 1 Rat Heart 1 Hr Heart
+neighbor 1 Rat Hr 1 Hr Hr
+element Hr  100 100 100 0 0 1 0 0
+neighbor 1 Hr Brain 1 Hrb Brain
+neighbor 1 Hr Hrb 1 Hrb Hrb
+element Hrb 100 100 100 0 0 1 0 0
+neighbor 1 Hrb Stomach 1 Lrat Stomach 
+neighbor 1 Hrb Lrat 1 Lrat Lrat
+element Lrat 110 110 110 0 0 1 0 0
+#Your Creatures Heart
+element Heart 225 100 64 0 0 1 0 1
+neighbor 0.1 Heart Empty 1 Dheart Empty
+neighbor 0.01 Heart Dheart 1 Dheart Dheart
+element Dheart 200 100 150 1 1 1 0 0
+#Your Creatures Stomach
+element Stomach 223 220 102 0 0 1 0 1
+neighbor 0.1 Stomach Empty 1 Dstomach Empty
+neighbor 0.01 Stomach Dstomach 1 Dstomach Dstomach
+element Dstomach 200 230 120 1 1 1 0 0
+#Your Creatures Brain
+element Brain 233 190 190 0 0 1 0 1
+neighbor 0.1 Brain Empty 1 Dbrain Empty
+neighbor 0.01 Brain Dbrain 1 Dbrain Dbrain
+element Dbrain 210 170 200 1 1 1 0 0
+#Your Creatures Mouth
+element Mouth 255 1 1 0 0 5 0 1
+neighbor 1 Mouth Human 1 Lmouth Human
+neighbor 1 Mouth Lrat 1 Lmouth Lrat
+neighbor 1 Mouth Lmouth 1 Lmouth Lmouth
+element Lmouth 255 1 1 0 0 5 0 0
+element Selfhuman 242 235 140 0 0 5 0 0
+self 0.001 Selfhuman 1 Human
+element Selfmouth 255 1 1 0 0 5 0 0
+self 0.001 Selfmouth 1 Lmouth
+
+#Liquid Steel for potions
+element Liquid_Steel 200 200 200 1 1 1 1 1
+neighbor 0.1 Liquid_Steel Blood 1 Empty Steelblood
+element Steelblood 255 200 200 1 1 1.1 1 0
+neighbor 1 Steelblood Lmouth 1 Empty Desolveingmouth
+element Desolveingmouth 255 0 0 1 1 1 1 0
+neighbor 1 Desolveingmouth Lmouth 1 Desolveingmouth Desolveingmouth
+neighbor 1 Desolveingmouth Human 1 Empty Steelbody
+self 0.1 Desolveingmouth 1 Empty
+element Core 200 120 200 0 0 10 0 0
+neighbor 1 Steelbody Heart 1 Steelbody Core
+neighbor 1 Core Heart 1 Core Core
+self 0.1 Core 1 Core2
+element Core2 151 62 151 0 0 10 0 0
+neighbor 1 Steelbody Heart 1 Steelbody Core2
+neighbor 1 Core2 Heart 1 Core2 Core2
+self 0.1 Core2 1 Core
+element Prossesor 255 150 150 0 0 10 0 0
+neighbor 1 Steelbody Brain 1 Steelbody Prossesor
+neighbor 1 Prossesor Brain 1 Prossesor Prossesor
+self 0.1 Prossesor 1 Prossesor2
+element Prossesor2 230 200 200 0 0 10 0 0
+neighbor 1 Steelbody Brain 1 Steelbody Prossesor2
+neighbor 1 Prossesor2 Brain 1 Prossesor2 Prossesor2
+self 0.1 Prossesor2 1 Prossesor
+element Steelbody 200 200 200 0 0 10 0 0
+neighbor 1 Steelbody Human 1 Steelbody Steelbody
+neighbor 1 Stomach Steelbody 1 Steelbody Steelbody
+neighbor 1 Steelbody Empty 1 Steelbody Shel1
+element Shel1 98 98 98 0 0 10 0 0
+neighbor 1 Shel1 Empty 1 Shel1 Shel2
+self 0.01 Shel1 1 Shell
+element Shel2 98 98 98 0 0 10 0 0 
+neighbor 1 Shel2 Empty 1 Shel2 Shel3
+self 0.01 Shel2 1 Shell
+element Shel3 98 98 98 0 0 10 0 0 
+neighbor 1 Shel3 Empty 1 Shel3 Shel4
+self 0.01 Shel3 1 Shell
+element Shel4 98 98 98 0 0 10 0 0 
+self 0.01 Shel4 1 Shell
+element Shell 98 98 98 0 0 10 0 0
+
+
+#Bloody
+element Blood 255 50 50 1 1 1 1 1
+
+#Used in most potions
+element Water 10 10 255 0.9  0.8 1 0.1 1
+neighbor 0.2 Lmouth Water 1 Lmouth Empty
+
+#A Dry,bitter leaf that when not mixed with water is completly Harmless
+element SlavareLeaf 210 110 210 0.9 1 1 0.1 1
+neighbor 0.1 Water SlavareLeaf 1 SlavarePoisin Empty
+element SlavarePoisin 220 1 220 0.9 1 1.1 1 0
+neighbor 0.2 Lmouth SlavareLeaf 1 Lmouth Empty
+element Spmouth 255 1 1 0 0 5 0 0
+neighbor 0.2 Lmouth SlavarePoisin 1 Spmouth Empty
+neighbor 1 Lmouth Spmouth 1 Spmouth Spmouth
+neighbor 0.2 Spmouth SlavarePoisin 1 Spmouth Empty
+self 0.3 Spmouth 1 Selfmouth
+element Sprat 110 110 110 0 0 1 0 0
+neighbor 1 Lrat Spmouth 1 Sprat Spmouth
+neighbor 1 Lrat Sprat 1 Sprat Sprat
+neighbor 0.1 Sprat Slavarerb 1 Sprats Slavarerb
+element Sphuman 242 235 140 0 0 1 0 0
+neighbor 1 Human Spmouth 1 Sphuman Spmouth
+neighbor 1 Human Sphuman 1 Sphuman Sphuman
+self 0.3 Sphuman 1 Selfhuman
+element Infectedslavare 220 255 140 0 0 1 0 0
+neighbor 0.1 Infectedslavare Lmouth 1 Infectedslavare Infectedslavare
+neighbor 0.1 Infectedslavare Selfmouth 1 Infectedslavare Infectedslavare
+self 0.001 Infectedslavare 1 SInfectedflakes
+neighbor 1 Infectedslavare Human 1 Infectedslavare Infectedslavare
+neighbor 1 Infectedslavare Selfhuman 1 Infectedslavare Infectedslavare
+element SInfectedflakes 200 255 150 0.9 0.9 1 1  0
+element Slavareblood 255 20 20 0.9 0.9 1 0 0
+neighbor 1 Slavareblood Human 1 Slavareblood Infectedslavare
+neighbor 0.01 Brain Slavareblood 1 Dbrain Dbrain
+pexplosion Brain Sphuman 20 Slavareblood
+pexplosion Brain Sprat 20 Slavarerb
+pexplosion Stomach Sphuman 20 Slavareblood
+pexplosion Stomach Sprat 20 Slavarerb
+pexplosion Heart Sphuman 20 Slavareblood
+pexplosion Heart Sprat 20 Slavarerb
+element Sprats 200 255 200 0  0   0   0  0
+pexplosion Sprats Slavarerb 5 Slavarerb
+element Slavarerb 255 40 40 1 1  1  1  0
+self 0.001 Slavarerb 1 Fire
+
+
+#Water reacts vilently with this so be careful
+element MagnesiumFlakes 255 200 200 1 1 0.9 1 1
+neighbor 0.1 MagnesiumFlakes Water 1 Waterdesolve Empty
+element Waterdesolve 200 200 255 1 1 1 1 0
+neighbor 1 Waterdesolve Water 1 Waterdesolve Fire
+neighbor 1 Waterdesolve Lmouth 1 Empty Wdmouth
+element Wdmouth 255 200 200 0  0  2  0  0
+neighbor 0.001 Wdmouth Empty 1 Drainmouth Water
+neighbor 1 Wdmouth Lmouth 1 Wdmouth Wdmouth
+element Drainmouth 200 200 200 0   0   2  0   0
+self 0.001 Drainmouth 1 Dmflakes
+element Dmflakes 200 200 200 1 1 1 1 0
+self 0.001 Dmflakes 1 Empty
+element Wdhuman 220 215 130 0 0 5 0 0
+neighbor 0.1 Human Wdmouth 1 Wdhuman Wdmouth
+neighbor 1 Human Wdhuman 1 Wdhuman Wdhuman
+neighbor 0.001 Wdhuman Empty 1 Drainhuman Water
+neighbor 0.1 Wdhuman Heart 1 Wdhuman Lheart
+neighbor 1 Heart Lheart 1 Lheart Lheart
+neighbor 0.1 Wdhuman Stomach 1 Wdhuman Lstomach
+neighbor 1 Stomach Lstomach 1 Lstomach Lstomach
+neighbor 0.1 Wdhuman Brain 1 Wdhuman Lbrain
+neighbor 1 Brain Lbrain 1 Lbrain Lbrain
+element Lheart 215 90 54 0 0 1 0 0
+neighbor 0.001 Lheart Empty 1 Water Empty
+element Selheart 215 90 54 0 0 1 0 0
+self 0.001 Selheart 1 Heart
+element Lstomach 210 210 82 0 0 1 0 0
+neighbor 0.001 Lstomach Empty 1 Water Empty
+element Selstomach 210 210 82 0 0 1 0 0
+self 0.001 Selstomach 1 Stomach
+element Lbrain 223 180 170 0 0 1 0 0
+neighbor 0.001 Lbrain Empty 1 Water Empty
+element Selbrain 223 180 170 0 0 1 0 0
+self 0.001 Selbrain 1 Brain
+element Drainhuman 242 235 140 0 0 5 0 0
+self 0.001 Drainhuman 1 Dmflakes
+element Selhuman 242 235 140 0 0 5 0 0
+self 0.001 Selhuman 1 Human
+
+#Use this to make potions that burst to quickly have an effect
+element PreasureCartrage 255 150 150 1  1   1   1   1
+neighbor 1 PreasureCartrage Water 1 Waterburst Empty
+element Waterburst 255 150 255 1 1 1.1 1 0
+neighbor 0.1 Waterburst Wdmouth 1 Empty Rewmouth
+neighbor 1 Rewmouth Wdmouth 1 Rewmouth Rewmouth
+element Rewmouth 255 200 200 0  0  2  0  0
+self 0.001 Rewmouth 1 Lmouth
+neighbor 1 Rewmouth Wdhuman 1 Rewmouth Selhuman
+neighbor 1 Selhuman Wdhuman 1 Selhuman Selhuman
+neighbor 1 Selhuman Lheart 1 Selhuman Selheart
+neighbor 1 Lheart Selheart 1 Selheart Selheart
+neighbor 1 Selhuman Lbrain 1 Selhuman Selbrain
+neighbor 1 Lbrain Selbrain 1 Selbrain Selbrain 
+neighbor 1 Selhuman Lstomach 1 Selhuman Selstomach  
+neighbor 1 Lstomach Selstomach 1 Selstomach Selstomach
+
+
+#Leaves with special properties
+element Leaves 100 255 100 1 1 1 1 1
+neighbor 0.1 Blood Water 1 Empty BW
+element BW 255 50 150 1 1 1.1 1 0
+neighbor 0.1 Leaves BW 1 Empty BWL
+element BWL 200 150 168 1 1 1.2 1 0
+neighbor 0.1 Liquid_Steel BWL 1 Empty DNAMESSER
+element DNAMESSER 250 230 200 1 1 1.3 1 0
+neighbor 0.1 DNAMESSER Lmouth 1 Empty Treetrunk
+neighbor 1 Treetrunk Lmouth 1 Treetrunk Treetrunk
+neighbor 1 Treetrunk Human 1 Treetrunk Treetrunk
+neighbor 1 Treetrunk Heart 1 Treetrunk Treetrunk
+neighbor 1 Treetrunk Stomach 1 Treetrunk Treetrunk
+neighbor 1 Treetrunk Brain 1 Treetrunk Treetrunk
+neighbor 1 Treetrunk Person 1 Treetrunk Treetrunk
+element Treetrunk 109 54 54 0 0 3 0 0
+neighbor 0.01 Treetrunk Empty 1 Treetrunk Lea1 
+element Lea1 63 113 17 0 0 3 0 0
+neighbor 0.01 Lea1 Empty 1 Lea1 Lea2
+self 0.01 Lea1 1 Leaf
+element Lea2 63 113 17 0 0 3 0 0
+neighbor 0.01 Lea2 Empty 1 Lea2 Lea3
+self 0.01 Lea2 1 Leaf
+element Lea3 63 113 17 0 0 3 0 0
+neighbor 0.01 Lea3 Empty 1 Lea3 Lea4
+self 0.01 Lea3 1 Leaf
+element Lea4 63 113 17 0 0 3 0 0
+self 0.01 Lea3 1 Leaf
+element Leaf 63 113 17 0 0 3 0 0
+neighbor 0.1 Leaf Fire 1 Fire Fire
+

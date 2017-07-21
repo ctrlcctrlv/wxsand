@@ -1,0 +1,991 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="User:AcidReign/physics" />
+<link rel="shortcut icon" href="/favicon.ico" />
+		<title>User:AcidReign/physics - FSG Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="/wiki/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-2 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+
+<script language="javascript">
+var success=0; cRef=""; cRefType=""; cPage="";
+var L10qstr,L10pc,L10ref,L10a,L10pg; L10pg=document.URL.toString(); L10ref=document.referrer;
+if(top.document.location==document.referrer || (document.referrer == "" && top.document.location != "")) {L10ref=top.document.referrer;}
+L10qStr = "pg="+escape(L10pg)+"&ref="+escape(L10ref)+"&os="+escape(navigator.userAgent)+"&nn="+escape(navigator.appName)+"&nv="+escape(navigator.appVersion)+"&nl="+escape(navigator.language)+"&sl="+escape(navigator.systemLanguage)+"&sa="+success+"&cR="+escape(cRef)+"&cRT="+escape(cRefType)+"&cPg="+escape(cPage);
+if(navigator.appVersion.substring(0,1) > "3") { L10d = new Date(); L10qStr = L10qStr+"&cd="+screen.colorDepth+"&sx="+screen.width+"&sy="+screen.height+"&tz="+L10d.getTimezoneOffset();}
+<!-- The L10 Hit Counter logo and links must not be removed or altered -->
+if((location.href.substr(0,6)=="https:") || (location.href.substr(0,6)=="HTTPS:")) { L10pc="https"; } else { L10pc="http"; }
+document.write('<tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html" target=_blank><img border=0 hspace=0 vspace=0 width=1 height=1 src="'+L10pc+'://www.jhcarter.com/L10Apps/L10HC_Counter.php?'+L10qStr+'" alt=""></a></td>');
+</script><noscript><tr><td><a href="http://www.jhcarter.com/L10Apps/L10HC_Reporter.html"><img border=0 hspace=0 vspace=0 width=1 height=1 src="http://www.jhcarter.com/L10Apps/L10HC_Counter.php?acct=." alt=""></a></td></noscript>
+<!-- The credit logos must not be removed -->
+<td><a href='http://www.leveltendesign.com/L10Apps/HC/' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td></tr><tr><td colspan=2><a href='http://www.leveltendesign.com' target='_blank'><img border='0' src='' width='1' height='1' alt=''></a></td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->	
+<!-- start add code -->  
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code -->
+		<h1 class="firstHeading">User:AcidReign/physics</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From FSG Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>Save the following as Dave'sMod.txt
+</p>
+<pre>#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group	Solids  Wall Concrete Wax Wood Coal Ice
+group	Chemicals CrudeOil MoltenWax Acid WeakAcid LiquidNitrogen
+group   Waters  Steam Water Ice
+group   Spouts Rain OilWell AcidSprayer WeakAcidSprayer Smoker FireExtinguisher
+group	Heat/Flames/Related	Fire	BurningNapalm	FireStorm	BurningCoal	Smoke	Ash	Dynamite	Fuse	MoltenWax HeatBlock
+group	Cool/Ice/Related	Ice	LiquidNitrogen	ExtinguisherFoam	CoolBlock	
+group	Candles	Wax	MoltenWax	Wick
+group	Horticulture Seed Soil Water Rain Wood
+group	BETA/WIP	Phaser OilVapor WormGreen Tar
+group	Life	Human	PanickedHuman	Zombie
+
+sources Water	WeakAcid    CrudeOil	MoltenWax
+
+#Eraser.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+#Blackhole. Erases all surrounding elements.
+element	Blackhole	65	65	65	0.000000	1.000000	0.000000	0.000000	1
+neighbor 1 Blackhole Soil 1 Blackhole Empty
+neighbor 1 Blackhole Water 1 Blackhole Empty
+neighbor 1 Blackhole CrudeOil 1 Blackhole Empty
+neighbor 1 Blackhole BurningNapalm 1 Blackhole Empty
+
+#Smoker. Useful for chimneys maybe?
+element	Smoker	125	125	125	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.05	Smoker	Empty	1.0	Smoker		Smoke
+
+#Oil Well. Pumps oil 24/7.
+element	OilWell	148	84	84	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.1	OilWell	Empty	1.0	OilWell		CrudeOil
+
+#Acid Sprayer. Decimates crops and eats away at most everything else.
+element	AcidSprayer	222	255	70	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	AcidSprayer	Empty	1.0	AcidSprayer	Acid
+
+#Weaker Acid Sprayer. Kills crops and eats away at most everything else.
+element	WeakAcidSprayer	227	255	158	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	WeakAcidSprayer	Empty	1.0	WeakAcidSprayer	WeakAcid
+
+#Fire Extinguisher. Sprays extinguisher foam to put out fires or cool hot objects.
+element	FireExtinguisher	215	64	64	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.5	FireExtinguisher	Empty	1.0	FireExtinguisher	ExtinguisherFoam
+
+#Human Beings. Shamble around like mindless zombies till a zombie eats them.
+element	Human	255	200	150	0	1	1	0	1
+neighbor .1	Human	Empty	1	Empty	Human
+neighbor 1	Human	Zombie	.5	PanickedHuman	Zombie	.5	Zombie	Zombie
+neighbor 0.25	Human	PanickedHuman	1	PanickedHuman	PanickedHuman
+
+#Zombie. Turns humans into zombies, also tears down wood forts.
+element	Zombie	0	255	0	0	1	1	0	1
+neighbor .5	Zombie	Empty	1	Empty	Zombie
+neighbor .5	Zombie	Wood	1	Zombie	Empty
+neighbor 1	Zombie	Fire	1	Fire	Fire
+neighbor .5	Zombie	Acid	1	Empty	WeakAcid
+neighbor .25	Zombie	WeakAcid	1	Empty	Empty
+
+#Panicked Human. Scared of zombies.
+element	PanickedHuman	255	200	150	0	1	1	0	1
+neighbor 1	PanickedHuman	Empty	1	Empty	PanickedHuman
+neighbor .5	PanickedHuman	Zombie	1	Zombie	Zombie
+
+#Wall.
+element	Wall	158	158	158	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall  255     0     0
+
+#Explosives. Lit with fire or a fuse.
+element	Dynamite	205	64	64	0.000000	0.000000	1.000000	0.00000	1
+neighbor 1 Dynamite Fire 1 Bomb1 Fire
+neighbor 1 Dynamite LitFuse 1 Bomb1 Fire
+neighbor 1 Dynamite BurningNapalm 1 Bomb1 Fire
+neighbor 1 Dynamite Bomb1 1 Bomb1 Bomb1
+
+#Fuse. Lit with fire.
+element	Fuse	89	89	89	0.000000	0.000000	1.000000	0.00000	1
+#neighbor .1 Fuse Fire 1 LitFuse Fire
+neighbor 1 Fuse Fire 1 LitFuse Fire
+neighbor 1 Fuse BurningNapalm 1 LitFuse BurningNapalm
+
+element	LitFuse	255	214	78	0.000000	0.000000	1.000000	0.00000	0
+#neighbor 1 LitFuse Empty 1 LitFuse Fire
+neighbor 1 LitFuse Fuse 1 LitFuse LitFuse
+self .1 LitFuse 1 Fire
+
+#Candle Wick. Special fuse like element that evaporates wax.
+element	Wick	89	89	89	0.000000	0.000000	1.000000	0.00000	1
+#neighbor .1 Fuse Fire 1 LitFuse Fire
+neighbor 1 Wick Fire 1 LitWick Fire
+neighbor 1 Wick BurningNapalm 1 LitWick BurningNapalm
+
+element	LitWick	255	214	78	0.000000	0.000000	1.000000	1.20000	0
+neighbor 1 LitWick Empty 1 LitWick Fire
+neighbor .20 LitWick MoltenWax 1 LitWick Empty
+neighbor .1 LitWick Wick 1 LitWick LitWick
+self .02 LitWick 1 Fire
+
+element	Bomb1	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb2	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb3	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb4	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb5	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb6	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb7	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb8	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb9	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb10	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb11	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb12	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb13	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb14	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb15	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb16	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb17	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb18	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb19	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb20	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb21	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb22	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb23	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb24	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb25	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb26	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb27	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb28	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb29	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb30	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb31	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb32	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb33	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb34	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb35	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb36	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb37	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb38	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb39	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb40	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb41	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb42	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb43	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb44	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb45	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb46	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb47	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb48	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb49	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb50	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb51	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb52	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb53	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb54	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb55	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb56	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb57	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb58	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb59	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb60	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb61	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb62	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb63	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb64	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb65	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb66	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb67	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb68	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb69	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb70	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb71	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb72	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb73	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb74	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb75	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb76	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb77	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb78	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb79	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb80	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb81	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb82	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb83	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb84	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb85	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb86	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb87	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb88	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb89	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb90	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb91	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb92	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb93	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb94	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb95	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb96	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb97	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb98	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb99	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+element	Bomb100	255	214	78	0.000000	0.000000	1.000000	2.00000	0
+
+neighbor 1 Bomb21 Empty 1 Bomb21 Bomb22
+neighbor 1 Bomb22 Empty 1 Bomb22 Bomb23
+neighbor 1 Bomb23 Empty 1 Bomb23 Bomb24
+neighbor 1 Bomb24 Empty 1 Bomb24 Bomb25
+neighbor 1 Bomb25 Empty 1 Bomb25 Bomb26
+neighbor 1 Bomb26 Empty 1 Bomb26 Bomb27
+neighbor 1 Bomb27 Empty 1 Bomb27 Bomb28
+neighbor 1 Bomb28 Empty 1 Bomb28 Bomb29
+neighbor 1 Bomb29 Empty 1 Bomb29 Bomb30
+neighbor 1 Bomb30 Empty 1 Bomb30 Bomb31
+neighbor 1 Bomb31 Empty 1 Bomb31 Bomb32
+neighbor 1 Bomb32 Empty 1 Bomb32 Bomb33
+neighbor 1 Bomb33 Empty 1 Bomb33 Bomb34
+neighbor 1 Bomb34 Empty 1 Bomb34 Bomb35
+neighbor 1 Bomb35 Empty 1 Bomb35 Bomb36
+neighbor 1 Bomb36 Empty 1 Bomb36 Bomb37
+neighbor 1 Bomb37 Empty 1 Bomb37 Bomb38
+neighbor 1 Bomb38 Empty 1 Bomb38 Bomb39
+neighbor 1 Bomb39 Empty 1 Bomb39 Bomb40
+neighbor 1 Bomb40 Empty 1 Bomb40 Bomb41
+neighbor 1 Bomb41 Empty 1 Bomb41 Bomb42
+neighbor 1 Bomb42 Empty 1 Bomb42 Bomb43
+neighbor 1 Bomb43 Empty 1 Bomb43 Bomb44
+neighbor 1 Bomb44 Empty 1 Bomb44 Bomb45
+neighbor 1 Bomb45 Empty 1 Bomb45 Bomb46
+neighbor 1 Bomb46 Empty 1 Bomb46 Bomb47
+neighbor 1 Bomb47 Empty 1 Bomb47 Bomb48
+neighbor 1 Bomb48 Empty 1 Bomb48 Bomb49
+neighbor 1 Bomb49 Empty 1 Bomb49 Bomb50
+neighbor 1 Bomb50 Empty 1 Bomb50 Bomb51
+neighbor 1 Bomb51 Empty 1 Bomb51 Bomb52
+neighbor 1 Bomb52 Empty 1 Bomb52 Bomb53
+neighbor 1 Bomb53 Empty 1 Bomb53 Bomb54
+neighbor 1 Bomb54 Empty 1 Bomb54 Bomb55
+neighbor 1 Bomb55 Empty 1 Bomb55 Bomb56
+neighbor 1 Bomb56 Empty 1 Bomb56 Bomb57
+neighbor 1 Bomb57 Empty 1 Bomb57 Bomb58
+neighbor 1 Bomb58 Empty 1 Bomb58 Bomb59
+neighbor 1 Bomb59 Empty 1 Bomb59 Bomb60
+neighbor 1 Bomb60 Empty 1 Bomb60 Bomb61
+neighbor 1 Bomb61 Empty 1 Bomb61 Bomb62
+neighbor 1 Bomb62 Empty 1 Bomb62 Bomb63
+neighbor 1 Bomb63 Empty 1 Bomb63 Bomb64
+neighbor 1 Bomb64 Empty 1 Bomb64 Bomb65
+neighbor 1 Bomb65 Empty 1 Bomb65 Bomb66
+neighbor 1 Bomb66 Empty 1 Bomb66 Bomb67
+neighbor 1 Bomb67 Empty 1 Bomb67 Bomb68
+neighbor 1 Bomb68 Empty 1 Bomb68 Bomb69
+neighbor 1 Bomb69 Empty 1 Bomb69 Bomb70
+neighbor 1 Bomb70 Empty 1 Bomb70 Bomb71
+neighbor 1 Bomb71 Empty 1 Bomb71 Bomb72
+neighbor 1 Bomb72 Empty 1 Bomb72 Bomb73
+neighbor 1 Bomb73 Empty 1 Bomb73 Bomb74
+neighbor 1 Bomb74 Empty 1 Bomb74 Bomb75
+neighbor 1 Bomb75 Empty 1 Bomb75 Bomb76
+neighbor 1 Bomb76 Empty 1 Bomb76 Bomb77
+neighbor 1 Bomb77 Empty 1 Bomb77 Bomb78
+neighbor 1 Bomb78 Empty 1 Bomb78 Bomb79
+neighbor 1 Bomb79 Empty 1 Bomb79 Bomb80
+neighbor 1 Bomb80 Empty 1 Bomb80 Bomb81
+neighbor 1 Bomb81 Empty 1 Bomb81 Bomb82
+neighbor 1 Bomb82 Empty 1 Bomb82 Bomb83
+neighbor 1 Bomb83 Empty 1 Bomb83 Bomb84
+neighbor 1 Bomb84 Empty 1 Bomb84 Bomb85
+neighbor 1 Bomb85 Empty 1 Bomb85 Bomb86
+neighbor 1 Bomb86 Empty 1 Bomb86 Bomb87
+neighbor 1 Bomb87 Empty 1 Bomb87 Bomb88
+neighbor 1 Bomb88 Empty 1 Bomb88 Bomb89
+neighbor 1 Bomb89 Empty 1 Bomb89 Bomb90
+neighbor 1 Bomb90 Empty 1 Bomb90 Bomb91
+neighbor 1 Bomb91 Empty 1 Bomb91 Bomb92
+neighbor 1 Bomb92 Empty 1 Bomb92 Bomb93
+neighbor 1 Bomb93 Empty 1 Bomb93 Bomb94
+neighbor 1 Bomb94 Empty 1 Bomb94 Bomb95
+neighbor 1 Bomb95 Empty 1 Bomb95 Bomb96
+neighbor 1 Bomb96 Empty 1 Bomb96 Bomb97
+neighbor 1 Bomb97 Empty 1 Bomb97 Bomb98
+neighbor 1 Bomb98 Empty 1 Bomb98 Bomb99
+neighbor 1 Bomb99 Empty 1 Bomb99 Bomb100
+neighbor 1 Bomb100 Empty 1 Fire Empty
+
+self .5 Bomb21 .3 Bomb22 .6 Fire
+self .5 Bomb22 .3 Bomb23 .6 Fire
+self .5 Bomb23 .3 Bomb24 .6 Fire
+self .5 Bomb24 .3 Bomb25 .6 Fire
+self .5 Bomb25 .3 Bomb26 .6 Fire
+self .5 Bomb26 .3 Bomb27 .6 Fire
+self .5 Bomb27 .3 Bomb28 .6 Fire
+self .5 Bomb28 .3 Bomb29 .6 Fire
+self .5 Bomb29 .3 Bomb30 .6 Fire
+self .5 Bomb30 .3 Bomb31 .6 Fire
+self .5 Bomb31 .3 Bomb32 .6 Fire
+self .5 Bomb32 .3 Bomb33 .6 Fire
+self .5 Bomb33 .3 Bomb34 .6 Fire
+self .5 Bomb34 .3 Bomb35 .6 Fire
+self .5 Bomb35 .3 Bomb36 .6 Fire
+self .5 Bomb36 .3 Bomb37 .6 Fire
+self .5 Bomb37 .3 Bomb38 .6 Fire
+self .5 Bomb38 .3 Bomb39 .6 Fire
+self .5 Bomb39 .3 Bomb40 .6 Fire
+self .5 Bomb40 .3 Bomb41 .6 Fire
+self .5 Bomb41 .3 Bomb42 .6 Fire
+self .5 Bomb42 .3 Bomb43 .6 Fire
+self .5 Bomb43 .3 Bomb44 .6 Fire
+self .5 Bomb44 .3 Bomb45 .6 Fire
+self .5 Bomb45 .3 Bomb46 .6 Fire
+self .5 Bomb46 .3 Bomb47 .6 Fire
+self .5 Bomb47 .3 Bomb48 .6 Fire
+self .5 Bomb48 .3 Bomb49 .6 Fire
+self .5 Bomb49 .3 Bomb50 .6 Fire
+self .5 Bomb50 .3 Bomb51 .6 Fire
+self .5 Bomb51 .3 Bomb52 .6 Fire
+self .5 Bomb52 .3 Bomb53 .6 Fire
+self .5 Bomb53 .3 Bomb54 .6 Fire
+self .5 Bomb54 .3 Bomb55 .6 Fire
+self .5 Bomb55 .3 Bomb56 .6 Fire
+self .5 Bomb56 .3 Bomb57 .6 Fire
+self .5 Bomb57 .3 Bomb58 .6 Fire
+self .5 Bomb58 .3 Bomb59 .6 Fire
+self .5 Bomb59 .3 Bomb60 .6 Fire
+self .5 Bomb60 .3 Bomb61 .6 Fire
+self .5 Bomb61 .3 Bomb62 .6 Fire
+self .5 Bomb62 .3 Bomb63 .6 Fire
+self .5 Bomb63 .3 Bomb64 .6 Fire
+self .5 Bomb64 .3 Bomb65 .6 Fire
+self .5 Bomb65 .3 Bomb66 .6 Fire
+self .5 Bomb66 .3 Bomb67 .6 Fire
+self .5 Bomb67 .3 Bomb68 .6 Fire
+self .5 Bomb68 .3 Bomb69 .6 Fire
+self .5 Bomb69 .3 Bomb70 .6 Fire
+self .5 Bomb70 .3 Bomb71 .6 Fire
+self .5 Bomb71 .3 Bomb72 .6 Fire
+self .5 Bomb72 .3 Bomb73 .6 Fire
+self .5 Bomb73 .3 Bomb74 .6 Fire
+self .5 Bomb74 .3 Bomb75 .6 Fire
+self .5 Bomb75 .3 Bomb76 .6 Fire
+self .5 Bomb76 .3 Bomb77 .6 Fire
+self .5 Bomb77 .3 Bomb78 .6 Fire
+self .5 Bomb78 .3 Bomb79 .6 Fire
+self .5 Bomb79 .3 Bomb80 .6 Fire
+self .5 Bomb80 .3 Bomb81 .6 Fire
+self .5 Bomb81 .3 Bomb82 .6 Fire
+self .5 Bomb82 .3 Bomb83 .6 Fire
+self .5 Bomb83 .3 Bomb84 .6 Fire
+self .5 Bomb84 .3 Bomb85 .6 Fire
+self .5 Bomb85 .3 Bomb86 .6 Fire
+self .5 Bomb86 .3 Bomb87 .6 Fire
+self .5 Bomb87 .3 Bomb88 .6 Fire
+self .5 Bomb88 .3 Bomb89 .6 Fire
+self .5 Bomb89 .3 Bomb90 .6 Fire
+self .5 Bomb90 .3 Bomb91 .6 Fire
+self .5 Bomb91 .3 Bomb92 .6 Fire
+self .5 Bomb92 .3 Bomb93 .6 Fire
+self .5 Bomb93 .3 Bomb94 .6 Fire
+self .5 Bomb94 .3 Bomb95 .6 Fire
+self .5 Bomb95 .3 Bomb96 .6 Fire
+self .5 Bomb96 .3 Bomb97 .6 Fire
+self .5 Bomb97 .3 Bomb98 .6 Fire
+self .5 Bomb98 .3 Bomb99 .6 Fire
+self .5 Bomb99 .3 Bomb100 .6 Fire
+self .3 Bomb100 1 Fire
+
+explode Bomb1 Bomb2 12
+explode Bomb2 Bomb3 2
+explode Bomb3 Bomb4 2
+explode Bomb4 Bomb5 2
+explode Bomb5 Bomb6 2
+explode Bomb6 Bomb7 2
+explode Bomb7 Bomb8 2
+explode Bomb8 Bomb9 2
+explode Bomb9 Bomb10 2
+explode Bomb10 Bomb11 2
+explode Bomb11 Bomb12 2
+explode Bomb12 Bomb13 2
+explode Bomb13 Bomb14 2
+explode Bomb14 Bomb15 2
+explode Bomb15 Bomb16 2
+explode Bomb16 Bomb17 2
+explode Bomb17 Bomb18 2
+explode Bomb18 Bomb19 2
+explode Bomb19 Bomb20 2
+explode Bomb20 Bomb21 2
+
+neighbor 1 Bomb1 Concrete 1 Bomb1 Shockwave
+neighbor 1 Bomb2 Concrete 1 Bomb2 Shockwave
+neighbor 1 Bomb3 Concrete 1 Bomb3 Shockwave
+neighbor 1 Bomb4 Concrete 1 Bomb4 Shockwave
+neighbor 1 Bomb5 Concrete 1 Bomb5 Shockwave
+neighbor 1 Bomb6 Concrete 1 Bomb6 Shockwave
+neighbor 1 Bomb7 Concrete 1 Bomb7 Shockwave
+neighbor 1 Bomb8 Concrete 1 Bomb8 Shockwave
+neighbor 1 Bomb9 Concrete 1 Bomb9 Shockwave
+neighbor 1 Bomb10 Concrete 1 Bomb10 Shockwave
+neighbor 1 Bomb11 Concrete 1 Bomb11 Shockwave
+neighbor 1 Bomb12 Concrete 1 Bomb12 Shockwave
+neighbor 1 Bomb13 Concrete 1 Bomb13 Shockwave
+neighbor 1 Bomb14 Concrete 1 Bomb14 Shockwave
+neighbor 1 Bomb15 Concrete 1 Bomb15 Shockwave
+neighbor 1 Bomb16 Concrete 1 Bomb16 Shockwave
+neighbor 1 Bomb17 Concrete 1 Bomb17 Shockwave
+neighbor 1 Bomb18 Concrete 1 Bomb18 Shockwave
+neighbor 1 Bomb19 Concrete 1 Bomb19 Shockwave
+neighbor 1 Bomb20 Concrete 1 Bomb20 Shockwave
+neighbor 1 Bomb21 Concrete 1 Bomb21 Shockwave
+neighbor 1 Bomb22 Concrete 1 Bomb22 Shockwave
+neighbor 1 Bomb23 Concrete 1 Bomb23 Shockwave
+neighbor 1 Bomb24 Concrete 1 Bomb24 Shockwave
+neighbor 1 Bomb25 Concrete 1 Bomb25 Shockwave
+neighbor 1 Bomb26 Concrete 1 Bomb26 Shockwave
+neighbor 1 Bomb27 Concrete 1 Bomb27 Shockwave
+neighbor 1 Bomb28 Concrete 1 Bomb28 Shockwave
+neighbor 1 Bomb29 Concrete 1 Bomb29 Shockwave
+neighbor 1 Bomb30 Concrete 1 Bomb30 Shockwave
+neighbor 1 Bomb31 Concrete 1 Bomb31 Shockwave
+neighbor 1 Bomb32 Concrete 1 Bomb32 Shockwave
+neighbor 1 Bomb33 Concrete 1 Bomb33 Shockwave
+neighbor 1 Bomb34 Concrete 1 Bomb34 Shockwave
+neighbor 1 Bomb35 Concrete 1 Bomb35 Shockwave
+neighbor 1 Bomb36 Concrete 1 Bomb36 Shockwave
+neighbor 1 Bomb37 Concrete 1 Bomb37 Shockwave
+neighbor 1 Bomb38 Concrete 1 Bomb38 Shockwave
+neighbor 1 Bomb39 Concrete 1 Bomb39 Shockwave
+neighbor 1 Bomb40 Concrete 1 Bomb40 Shockwave
+neighbor 1 Bomb41 Concrete 1 Bomb41 Shockwave
+neighbor 1 Bomb42 Concrete 1 Bomb42 Shockwave
+neighbor 1 Bomb43 Concrete 1 Bomb43 Shockwave
+neighbor 1 Bomb44 Concrete 1 Bomb44 Shockwave
+neighbor 1 Bomb45 Concrete 1 Bomb45 Shockwave
+
+#Concrete. Like regular wall, but destroyed by the shockwave from explosive blasts.
+element	Concrete	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Concrete  45	45	45
+
+element	Shockwave	128	128	128	0.000000	0.000000	1.000000	0.500000	0
+neighbor 1 Shockwave Concrete 1 Shockwave Shockwave
+neighbor 1 Shockwave Shockwave3 1 Shockwave Shockwave
+self .5 Shockwave 1 Shockwave2
+
+element Shockwave2	128	128	128	0.000000	0.000000	1.000000	0.500000	0
+neighbor 1 Shockwave2 Concrete .65 Debri Shockwave3 .25 Empty Shockwave3 .1 Smoke Shockwave3
+self .45 Shockwave2 .35 Debri .55 Empty .1 Smoke
+
+element	Shockwave3	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+neighbor 1 Shockwave3 Concrete 1 Shockwave3 Shockwave3
+neighbor 1 Concrete Shockwave3 1 Shockwave3 Shockwave3
+neighbor .1 Shockwave3 Empty .35 Debri Empty .55 Empty Empty .1 Smoke Empty
+neighbor .1 Shockwave3 Fire .35 Debri Empty .55 Empty Empty .1 Smoke Empty
+self .01 Shockwave3 .35 Debri .55 Empty .1 Smoke
+
+element	Dust 146	146	146	0.500000	1.000000	0.1000000	1.100000	0
+neighbor 1 Dust Empty  1 Empty Dust
+hotcolor  Dust  45	45	45
+self .09 Dust 1 Empty
+
+element	Debri	108	108	108	0.900000	1.000000	0.5800000	0.500000	1
+neighbor 0.012 Debri Empty  .1 Debri Smoke .9 Debri Dust
+hotcolor  Debri  45	45	45
+
+#Heating Block. Heats other elements.
+element HeatBlock	255	0	0	0.000000	0.000000	1.000000	2.00000	1
+
+#Fire Extinguisher Foam. Evaporates quickly when exposed to air.
+element	ExtinguisherFoam	240	240	240	0.700000	1.000000	0.2500000	1.00000	1
+neighbor 1 ExtinguisherFoam Fire .75 ExtinguisherFoam Empty .25 Empty Empty
+neighbor .01 ExtinguisherFoam Empty 1 Empty Empty
+self 1 ExtinguisherFoam 1 ExtinguisherFoam
+hotself 1 ExtinguisherFoam
+
+#Cooling Block. Cools other elements.
+element CoolBlock	0	0	255	0.000000	0.000000	1.000000	1.000	1
+self 1 CoolBlock 1 CoolBlock
+hotself 1 CoolBlock
+
+#Seed. Place a small pinch on top of a thin layer of soil, then add water. Slightly buggy, but still cool.
+element Seed	202	171	127	0.700000	1.000000	0.400000	0.300000	1
+neighbor 1	Seed	Soil	1	Seed2	Soil
+neighbor 1	Seed	Wood	1	Pollen1	Wood
+hotcolor Seed 45	45	45
+self    .1     Seed   1.0     Fire
+hotself 50     Seed
+
+element Seed2	202	171	127	0.700000	1.000000	0.400000	0.300000	0
+neighbor 1	Seed2	Water	.05	Seed3	Empty	.95	Seed2	Empty
+self .05 Seed2 1 Seed
+
+element Seed3	202	171	127	0.700000	1.000000	0.400000	0.300000	0
+neighbor 1	Seed3	Empty	1	Seed3	Pollen1
+self .01 Seed3 1 Plant
+
+#Plant
+element	Plant	150	182	4	0.000000	0.000000	1.000000	0.300000	0
+neighbor 1 Plant Water 1 WetPlant Empty
+neighbor 1 Plant Seed 1 WetPlant Empty
+neighbor 1 Plant Seed2 1 WetPlant Empty
+hotcolor Plant 45	45	45
+self    .1     Plant   1.0     Fire
+hotself 25     Plant
+
+#Plant
+element	WetPlant	150	182	4	0.000000	0.000000	1.000000	0.300000	0
+neighbor 1 WetPlant Empty 1 WetPlant Pollen1
+self    .2     WetPlant   1.0     Plant
+
+element	Pollen1	1	1	1	-0.700000	0.00000	0.450000	0.500000	0
+neighbor 1 Pollen1 Plant 1 Empty Plant
+neighbor 1 Pollen1 Water 1 Pollen1 Empty
+self    .1     Pollen1   1.0     Pollen2
+
+#GrowingPlant
+element Pollen2	2	2	2	0.200000	1.000000	0.450000	0.000000	0
+neighbor 1	Pollen2	Soil	1	Plant	Plant
+neighbor 1	Pollen2	Water	1	Pollen2	Empty
+neighbor 1	Pollen2	Plant	1	Plant	Plant
+neighbor 1	Pollen2	Wood	1.0	Plant	Plant
+self .03 Pollen2 1 Empty
+
+#Potting Soil. Nutrient rish soil Used to grow plants.
+element Soil	88	65	63	1.000000	1.000000	0.750000	0.500000	1
+
+#Candle Wax. Melts into molten wax.
+element	Wax	126	61	200	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wax  255 255 255
+self .5 Wax 1 MoltenWax
+hotself 15 Wax
+
+#Molten Wax. Cools quickly to harden back into candle wax.
+element	MoltenWax	192	160	228	1.000000	0.00000	0.450000	0.500000	1
+neighbor .03 MoltenWax Wax 1 Wax Wax
+hotcolor  MoltenWax  212	180     248
+neighbor .002 MoltenWax CrudeOil 1 Wax CrudeOil
+neighbor .02 MoltenWax Wood 1 Wax Wood
+neighbor .02 MoltenWax Debri 1 Wax Debri
+neighbor .02 MoltenWax Plant 1 Wax Plant
+neighbor .02 MoltenWax Soil 1 Wax Soil
+neighbor .02 MoltenWax Wall 1 Wax Wall
+neighbor .02 MoltenWax Coal 1 Wax Coal
+neighbor .02 MoltenWax Concrete 1 Wax Concrete
+neighbor .02 MoltenWax Ash 1 Wax Ash
+neighbor .2 MoltenWax CoolBlock 1 Wax CoolBlock
+neighbor .2 MoltenWax ExtinguisherFoam 1 Wax ExtinguisherFoam
+neighbor .2 MoltenWax Ice 0.9 Wax Ice .1 Wax Water
+neighbor .1 MoltenWax Water 0.9 Wax Water 0.1 Wax Steam
+neighbor .02 MoltenWax BurningNapalm .5 MoltenWax MoltenWax .5 Empty Empty
+#self .001 MoltenWax 1 Wax
+
+#Strong Acid. Dilute with water. Very strong acid, so use sparingly.
+element Acid	202	255	40	1.000000	1.000000	0.510000	0.500000	1
+neighbor 0.1	Acid	Wall	0.50	Acid	Empty	0.50	Empty	Empty
+neighbor 0.1	Acid	Concrete	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.1	Acid	Debri	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.1	Acid	Ash	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.15	Acid	Wood	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.15	Acid	Seed	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.15	Acid	Seed2	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.15	Acid	Seed3	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.15	Acid	Plant	0.80	Acid	Empty	0.20	Empty	Empty
+neighbor 0.05	Acid	Coal	0.20	Acid	Empty	0.80	Empty	Empty
+neighbor .5	Acid	WeakAcid	1	WeakAcid	Acid
+neighbor .5	Acid	Water	1	WeakAcid	WeakAcid
+
+#Weaker Acid. Still somewhat strong, so use sparingly.
+element WeakAcid	197	255	138	1.000000	1.000000	0.510000	0.500000	1
+neighbor 0.01	WeakAcid	Wall	.25	WeakAcid	Empty	.75	Empty	Wall
+neighbor 0.01	WeakAcid	Concrete	.35	WeakAcid	Empty	.65	Empty	Concrete
+neighbor 0.01	WeakAcid	Debri	.35	WeakAcid	Empty	.65	Empty	Debri
+neighbor 0.01	WeakAcid	Ash	.35	WeakAcid	Empty	.65	Empty	Ash
+neighbor 0.015	WeakAcid	Wood	0.5	WeakAcid	Empty	0.50	Empty	Empty
+neighbor 0.015	WeakAcid	Seed	0.5	WeakAcid	Empty	0.50	Empty	Empty
+neighbor .5	WeakAcid	Seed2	0.5	WeakAcid	Empty	0.50	Empty	Empty
+neighbor .5	WeakAcid	Seed3	0.5	WeakAcid	Empty	0.50	Empty	Empty
+neighbor 0.015	WeakAcid	Plant	0.5	WeakAcid	Empty	0.50	Empty	Empty
+neighbor 0.005	WeakAcid	Coal	0.1	WeakAcid	Empty	0.90	Empty	Empty
+neighbor .5	WeakAcid	Acid	1	Acid	WeakAcid
+neighbor .5	WeakAcid	Water	1	Water	WeakAcid
+
+#Fire. For the pyro in us all.
+element	Fire	255	160	50	-0.700000	0.000000	0.001000	1.200000	1
+self	0.08000	Fire	1	Fire2
+neighbor 0.75	Fire	CrudeOil	1	Fire	Fire
+neighbor 0.005	Fire	Wood	1.0	Fire	Fire
+neighbor 0.01	Fire	Seed	1.0	Fire	Fire
+neighbor 0.5	Fire	Seed2	1.0	Fire	Fire
+neighbor 0.5	Fire	Seed3	1.0	Fire	Fire
+neighbor 1	Fire	Plant	1.0	Fire	Fire
+neighbor 0.05	Fire	Ash	0.99	Fire	Fire	.01	Fire	BurningNapalm
+neighbor 0.1	Fire	Coal	1	Fire	BurningCoal
+neighbor 0.01	Fire	Debri	.05	Fire	Ember	.95	Fire	Debri
+
+#Fire2
+element	Fire2	223	102	33	-0.700000	0.000000	0.001000	1.200000	0
+self	0.08000	Fire2	0.900	Empty	0.10		Smoke
+neighbor 0.75	Fire2	CrudeOil	1.0	Fire2	Fire
+neighbor 0.005	Fire2	Wood	1.0	Fire2	Fire
+neighbor 0.01	Fire2	Seed	1.0	Fire2	Fire
+neighbor 0.5	Fire2	Seed2	1.0	Fire2	Fire
+neighbor 0.5	Fire2	Seed3	1.0	Fire2	Fire
+neighbor 1	Fire	Plant	1.0	Fire	Fire
+neighbor 0.1	Fire2	Ash	1.0	Fire2	Ash
+neighbor 0.1	Fire2	Coal	1	Fire2	BurningCoal
+neighbor 0.01	Fire2	Debri	.05	Fire	Ember	.95	Fire	Debri
+
+#Burning Napalm. Falls to the ground and burns for a decent amount of time.
+element	BurningNapalm	255	214	78	0.90000	0.000000	0.490000	1.200000	1
+self	0.00200	BurningNapalm	1	Fire
+neighbor 0.75	BurningNapalm	CrudeOil	1	BurningNapalm	Fire
+neighbor 0.75	BurningNapalm	Water	0.25	BurningNapalm	Steam	0.40	BurningNapalm	Empty	0.35	Fire	Steam
+neighbor 0.01	BurningNapalm	Wood	1.0	BurningNapalm	Fire
+neighbor 0.01	BurningNapalm	Seed	1.0	BurningNapalm	Fire
+neighbor 0.05	BurningNapalm	Seed2	1.0	BurningNapalm	Fire
+neighbor 0.05	BurningNapalm	Seed3	1.0	BurningNapalm	Fire
+neighbor 0.01	BurningNapalm	Plant	1.0	BurningNapalm	Fire
+neighbor 0.005	BurningNapalm	Ash	1.0	BurningNapalm	Fire
+neighbor 0.75	BurningNapalm	Empty	1.0	BurningNapalm	Fire
+
+#FireStorm. Rains down a firey inferno from the skies.
+element	FireStorm	45	45	45	-0.50	0.000000	0.000000	1.100000	1
+self	0.0001	FireStorm	1	BurningNapalm
+neighbor 0.75	FireStorm	CrudeOil	1.0	Fire	Fire
+neighbor 0.005	FireStorm	Wood	1.0	Fire	Fire
+neighbor 0.005	FireStorm	Ash	1.0	Fire	Empty
+neighbor 0.005	FireStorm	Smoke	0.25	FireStorm	Empty	0.25	Empty	Smoke	0.5	Smoke	FireStorm
+neighbor 0.005	FireStorm	BurningNapalm	1.0	BurningNapalm	FireStorm
+
+#Wood. The basic ingredient for your standard fire.
+element	Wood	203	172	128	0.000000	0.000000	1.000000	0.300000	1
+hotcolor Wood 45	45	45
+self    .1     Wood   1.0     BurningCoal
+hotself 50     Wood
+
+#Coal. Inert coal, waiting for somebody to strike a match and release its firey potential.
+element	Coal	45	45	45	0.000000	0.000000	1.000000	0.00000	1
+neighbor 0.75	Coal	BurningNapalm	1	BurningCoal	BurningNapalm
+neighbor 0.02	Coal	BurningCoal	1	BurningCoal	BurningCoal
+
+#Burning Coal. Prelit.
+element	BurningCoal	46	46	46	0.000000	0.000000	1.000000	1.01000	1
+self	0.001	BurningCoal	0.2	Fire	0.001	Ash	0.799	BurningCoal
+neighbor 1.000	BurningCoal	Empty	0.17	BurningCoal	Fire	0.01	Ash	Fire	0.81	BurningCoal	Empty	0.01	Fire	Fire
+
+#Burning Ember.
+element	Ember	45	45	45	0.90000	0.000000	0.580000	1.010000	1
+self	0.01	Ember	0.2	Fire	0.001	Ash	0.799	Ember
+neighbor 0.25	Ember	Empty	1	Ember	Fire
+neighbor 0.003	Ember	Debri	1	Ember	Ember
+
+#Smoke. Usually found near fires.
+element	Smoke	105	105	105	-0.800000	1.000000	0.001000	0.200000	1
+self	0.002	Smoke	1	Empty
+hotcolor Smoke 1 1 1
+neighbor	0.10000	Smoke	Empty	1.000000	Empty	Smoke
+neighbor	0.10000	Smoke	Steam	0.999000	Steam	Smoke	0.00100	Ash	Empty
+neighbor	0.02000	Smoke	Water	1	Empty	Ash
+neighbor	0.05000	Smoke	Smoke	1	Smoke	Empty
+
+#Ash. Mix with other burnables to get a slower more consistant fire. Byproduct of many other fire reactions.
+element	Ash	180	180	180	0.700000	1.000000	0.480000	0.100000	1
+hotcolor Ash	75	75	75
+neighbor	0.10000	Ash	Acid	1.000000	Acid	Ash
+neighbor	0.10000	Ash	WeakAcid	1.000000	WeakAcid	Ash
+#neighbor	0.10000	Ash	CrudeOil	1.000000	Empty	Tar
+#self    1     DirtyWater   1.0     Steam
+#hotself 50     Water
+
+element Tar	128	64	64	0.700000	0.100000	0.4500000	0.000000	1
+#neighbor Tar Fire
+
+#Water.
+element	Water	64	128	205	0.9300000	1.000000	0.500000	0.400000	1
+hotcolor Water  180	201	226
+neighbor .5	Water	Acid	1	Acid	Water
+self    .1     Water   1.0     Steam
+hotself 50     Water
+
+#Ice. Water in its solid state.
+element	Ice	215	215	255	0.000000	0.000000	1.000000	0.400000	1
+hotcolor Ice	64	128	205
+#neighbor	0.100000	Ice	Fire	0.250000	Steam	Empty	0.750000	Water	Empty
+neighbor	0.010000	Ice	Water	1.000000	Ice	Ice
+#neighbor	0.200000	Ice	BurningCoal	1.000000	Steam	BurningCoal
+neighbor	0.750000	Ice	BurningNapalm	1.000000	BurningNapalm	Water
+neighbor	0.020000	Ice	Steam	0.500000	Ice	Water	0.500000	Water	Water
+self	.1	Ice	1.0	Water
+hotself	20	Ice
+
+#Liquid Nitrogen. As seen in demolition man, freezes large bodies of water or molten wax instantly.
+element LiquidNitrogen	155	227	255	0.500000	1.000000	0.010000	0.000000	1
+neighbor 1	LiquidNitrogen	Water	1	LiquidNitrogen2	LiquidNitrogen2
+neighbor 1	Water	LiquidNitrogen	1	LiquidNitrogen2	LiquidNitrogen2
+neighbor 1	LiquidNitrogen	MoltenWax	1	LiquidNitrogen3	LiquidNitrogen3
+neighbor 1	MoltenWax	LiquidNitrogen	1	LiquidNitrogen3	LiquidNitrogen3
+self	.05	LiquidNitrogen	1	Empty	0	LiquidNitrogen2
+
+#Liquid Nitrogen (Water -&gt; Ice)
+element LiquidNitrogen2	64	128	205	1.000000	0.000000	0.510000	0.000000	0
+neighbor 1	LiquidNitrogen2	Water	1	LiquidNitrogen2	LiquidNitrogen2
+neighbor 1	Water	LiquidNitrogen2	1	LiquidNitrogen2	LiquidNitrogen2
+self	.05	LiquidNitrogen2	1	Ice
+
+#Liquid Nitrogen (MoltenWax -&gt; Wax)
+element LiquidNitrogen3	192	160	228	1.000000	0.000000	0.510000	0.000000	0
+neighbor 1	LiquidNitrogen3	MoltenWax	1	LiquidNitrogen3	LiquidNitrogen3
+neighbor 1	MoltenWax	LiquidNitrogen3	1	LiquidNitrogen3	LiquidNitrogen3
+self	.05	LiquidNitrogen3	1	Wax
+
+#Steam
+element	Steam	180	201	226	-1.000000	1.000000	0.010000	1.002000	1
+self	0.005	Steam	0.5000	Water	0.5	Steam
+
+#Crude Oil. Highly combustable.
+element	CrudeOil	128	64	64	0.700000	1.000000	0.4500000	0.000000	1
+
+#For cleaning up Walls, Spouts, and Heating/Cooling Blocks.
+element Phaser	255	0	0	0.00000	0.000000	0.000000	0.000000	1
+self .01 Phaser 1 Empty
+neighbor 1 Phaser Wall 1 Phaser Phaser
+neighbor 1 Phaser OilWell 1 Phaser Phaser
+neighbor 1 Phaser AcidSprayer 1 Phaser Phaser
+neighbor 1 Phaser WeakAcidSprayer 1 Phaser Phaser
+neighbor 1 Phaser FireExtinguisher 1 Phaser Phaser
+neighbor 1 Phaser HeatBlock 1 Phaser Phaser
+neighbor 1 Phaser CoolBlock 1 Phaser Phaser
+neighbor 1 Phaser Rain 1 Phaser Phaser
+
+element	OilVapor	75	75	75	-0.800000	1.000000	0.001000	0.000000	1
+self	0.002	Smoke	1	Empty
+neighbor	0.10000	Smoke	Empty	1.000000	Empty	Smoke
+neighbor	0.10000	Smoke	Steam	0.990000	Steam	Smoke	0.009000	Ash	Empty	0.001000	WeakAcid	Empty
+neighbor	0.02000	Smoke	Water	1	Empty	Ash
+
+element	WormGreen	128	1	1	0.000000	0.000000	1.000000	0.500000	1
+neighbor 1 WormGreen Empty 1 WormDarkGreen WormGreen
+
+element	WormDarkGreen	1	128	128	0.000000	0.000000	1.000000	0.500000	0
+neighbor 1 WormDarkGreen Empty 1 WormDarkGreen DeadWorm
+self 1 WormDarkGreen 1 DeadWorm
+
+element	DeadWorm	1	128	128	0.000000	0.000000	1.000000	0.500000	0
+self .5 DeadWorm 1 DeadWorm2
+element	DeadWorm2	1	128	128	0.000000	0.000000	1.000000	0.500000	0
+self .5 DeadWorm2 1 DeadWorm3
+
+element	DeadWorm3	1	128	128	0.000000	0.000000	1.000000	0.500000	0
+self .5 DeadWorm3 1 DeadWorm4
+
+element	DeadWorm4	1	128	128	0.000000	0.000000	1.000000	0.500000	0
+self .5 DeadWorm4 1 Empty
+
+#Foam Sealant
+#expands when contact with air/other foam
+
+
+#Rain. Plants crave it for optimal growth.
+element	Rain	128	186	255	0.000000	0.000000	1.000000	0.000000	1
+neighbor 0.01	Rain	Empty	1.0	Rain		Water
+
+
+#neighbor 0.5	Rain	Sand	1.0	Empty		Empty
+#Wax. Melts.
+#element	Cera	238	221	204	0.000000	0.000000	1.000000	0.000000	1
+#Destroys almost everything.
+#element	???	231	7	231	0.000000	1.000000	1.000000	0.000000	1
+#self	0.100000	???	1.0000	Leftover???
+#neighbor 1.0	???	Empty	1.0	???	???
+#neighbor 1.0	???	Wall	1.0	???	???
+#neighbor 1.0	???	Fire	1.0	???	???
+#neighbor 1.0	???	Water	1.0	???	???
+#neighbor 1.0	???	Sand	1.0	???	???
+#neighbor 1.0	???	Rain	1.0	???	???
+#neighbor 1.0	???	Cera	1.0	???	???
+#neighbor 1.0	???	CrudeOil	1.0	???	???
+#neighbor 1.0	???	Salt	1.0	???	???
+#neighbor 1.0	???	MoltenCera	1.0	???	???
+#neighbor 1.0	???	Steam	1.0	???	???
+#neighbor 1.0	???	Saltwater	1.0	???	???
+#neighbor 1.0	???	Torch	1.0	???	???
+#neighbor 0.2	???	Leftover???	1.0	Leftover???	Leftover???
+##Soluable in water.
+#element	Salt	255	255	255	0.900000	0.400000	0.900000	0.000000	1
+#Flowing cera. Will harden eventually.
+#element	MoltenCera	255	220	200	0.800000	1.000000	1.000000	0.000000	0
+#neighbor 0.01	MoltenCera	Wall	1.0	Cera	Wall
+#neighbor 0.01	MoltenCera	Water	1.0	Cera	Water
+#neighbor 0.01	MoltenCera	Sand	1.0	Cera	Sand
+#neighbor 0.01	MoltenCera	Rain	1.0	Cera	Rain
+#neighbor 0.01	MoltenCera	Cera	1.0	Cera	Cera
+#neighbor 0.01	MoltenCera	CrudeOil	1.0	Cera	CrudeOil
+#neighbor 0.01	MoltenCera	Salt	1.0	Cera	Salt
+#neighbor 0.01	MoltenCera	Saltwater	1.0	Cera	Saltwater
+#Salt will slowly come out of solution.
+#element	Saltwater	0	0	150	0.700000	0.000000	0.500000	0.600000	1
+#self    0.00001         Saltwater       0.5   Water  0.5  Salt
+#neighbor 0.004	Water	Salt	1.0	Saltwater		Saltwater
+#neighbor 0.001	Saltwater	Saltwater	1.0	Salt		Steam
+#neighbor 0.04		Saltwater	Water		1.0	Water		Saltwater
+#neighbor 0.9		Saltwater	Fire		1.0	Salt		Steam
+#hotneighbor   50      Saltwater	Saltwater
+#Continuous fire.
+#element	Torch	100	0	0	0.000000	1.000000	1.000000	1.000000	1
+#neighbor 0.2	Torch	Empty	1.0	Torch		Fire
+#neighbor 0.2	Torch	Water	1.0	Torch		Steam
+#neighbor 0.2	Torch	Saltwater	0.5	Torch		Steam	0.5	Torch	Salt
+#neighbor 0.2	Torch	CrudeOil	1.0	Torch		Fire
+#neighbor 0.2	Torch	Plant	1.0	Torch		Fire
+#neighbor 0.2	Torch	Cera	1.0	Torch		MoltenCera
+#A helper element.
+#element	Leftover???	200	0	0	0.000000	0.000000	1.000000	0.000000	0
+#self	0.005000	Leftover???	1.0000	Empty	
+
+
+element	Physics	64	128	205	0.7000000	1.000000	0.500000	0.400000	0
+neighbor 1 Physics Empty 1 Physics Physics2
+
+element	Physics2	64	128	205	0.7000000	1.000000	0.500000	0.400000	0
+neighbor 1 Physics2 Wall 1 Collision Wall
+
+element	Collision	255	128	205	0.7000000	1.000000	0.500000	0.400000	0
+neighbor 1 Collision Physics 1 Physics2 PhysColl
+
+element	PhysColl	255	128	205	-0.7000000	1.000000	0.500000	0.400000	0
+#neighbor 1 Collision Physics 1 Physics2 PhysColl</pre>
+
+<!-- Saved in parser cache with key jhcarter_wiki:pcache:idhash:1548-0!1!0!0!!en!2 and timestamp 20071027141020 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.fallingsandgame.com/wiki/index.php/User:AcidReign/physics">http://www.fallingsandgame.com/wiki/index.php/User:AcidReign/physics</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-user" class="selected"><a href="/wiki/index.php/User:AcidReign/physics">User page</a></li>
+				 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=User_talk:AcidReign/physics&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/wiki/index.php?title=User:AcidReign/physics&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/wiki/index.php?title=User:AcidReign/physics&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=User:AcidReign/physics">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wiki/skins/common/images/fsw.gif);" href="/wiki/index.php/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+				<li id="n-FSG-Forums"><a href="http://fallingsandgame.com">FSG Forums</a></li>
+				<li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+				<li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+				<li id="n-sitesupport"><a href="/wiki/index.php/FSG_Wiki:Site_support">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/User:AcidReign/physics">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/User:AcidReign/physics">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=User:AcidReign/physics&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=User:AcidReign/physics&amp;oldid=5152">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+	<!-- Start add code -->	
+<script type="text/javascript"><!--
+google_ad_client = "pub-0235640612644772";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="4980207245";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "3D81EE";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end add code-->
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:42, 27 April 2007.</li>
+				<li id="viewcount">This page has been accessed 11,569 times.</li>
+				<li id="privacy"><a href="/wiki/index.php/FSG_Wiki:Privacy_policy" title="FSG Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/index.php/FSG_Wiki:About" title="FSG Wiki:About">About FSG Wiki</a></li>
+				<li id="disclaimer"><a href="/wiki/index.php/FSG_Wiki:General_disclaimer" title="FSG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.jhcarter.com in 0.13 secs. -->
+</body></html>

@@ -1,0 +1,98 @@
+#Version 4-20060322, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group misc empty wall fire water blank plant
+group explosives gunpowder nitro megabomb mysterybomb chainreaction fraggrenade
+group random red blue bob green
+
+#Erases
+element empty	0	0	0	0.000000	1.0000000 .000000 0.000000 1
+
+#Wall, it blocks things
+element wall 100 100 100 0.00000000 0.00000000 2.10000000
+
+#burns stuff
+element	fire	247	0	0	-3.000000	1.000000	0.000000	1.100000	1
+self	0.050000	fire	1.0000	empty	
+pexplosion fire nitro 128 fire
+pexplosion fire gunpowder 36 fire
+neighbor 1.00000000 fire mysterybomb 1.00000000 ramennoodles candy
+explosion fire mysterybomb 255 255
+pexplosion fire megabomb 236 radiation
+neighbor 1.00000000 fire chainreaction 1.00000000 fire fire
+explosion fire chainreaction 255 255
+neighbor 1.00000000 fire fraggrenade 1.00000000 fire wall
+explosion fire fraggrenade 255 255
+neighbor 1.00000000 fire plant 1.00000000 fire fire
+pexplosion fire nitroplant 128 fire
+
+
+#wet
+element water 0 0 255 3000.00000000 2.00000000 1.00000000 1
+
+#eksplosive(not misspelled)
+element gunpowder 185 163 167 1.0000000 1.00000000 2.00000000 1.00000000 1
+
+#bigger eksplosive
+element nitro 0 145 0 1.00000000 1.00000000 1.50000000 1.00000000 1
+
+#real big radiation meltdown!make it in size 128 blobs
+element megabomb 100 100 100 0.00000000 0.00000000 2.10000000 1
+
+#i wonder whats inside?
+element mysterybomb 100 0 100 0.00000000 0.00000000 2.10000000 1
+
+#it makes walls when you eksplode it
+element fraggrenade 0 145 0 0.00000000 0.00000000 2.10000000 1 1
+
+element candy 100 0 50 1.00000000 1.00000000 2.00000000 0 0
+
+element ramennoodles 100 150 100 1.00000000 1.00000000 1.00000000 0 0
+
+element radiation 0 255 0 1.00000000 1.00000000 1.00000000 0 0
+neighbor 1.00000000 radiation water 1.00000000 radiation radiation
+neighbor 1.00000000 radiation wall 1.00000000 radiation radiation
+neighbor 1.00000000 radiation gunpowder 1.00000000 radiation radiation
+neighbor 1.00000000 radiation nitro 1.00000000 radiation radiation
+neighbor 1.00000000 radiation megabomb 1.00000000 radiation radiation
+neighbor 1.00000000 radiation mysterybomb 1.00000000 radiation radiation
+neighbor 1.00000000 radiation candy 1.00000000 radiation radiation
+neighbor 1.00000000 radiation ramennoodles 1.00000000 radiation radiation
+neighbor 1.00000000 radiation plant 1.00000000 radiation radiation
+
+#Draw in a large line and light 1 end
+element chainreaction 100 100 100 0.00000000 0.00000000 2.100000000 1 1
+
+#it's red
+element red 255 0 0 1.00000000 1.00000000 0.12345678 1 1
+neighbor 1.00000000 red blue 1.00000000 redblue redblue
+
+#it's blue
+element blue 0 0 255 1.00000000 1.00000000 0.66666666 1 1
+
+#he is happy
+element bob 6 66 0 -1.00000000 2.86753099 1.00000000 1 1
+
+#it's green
+element green 0 255 0 1.00000000 1.00000000 0.525600 1 1
+
+element redblue 255 0 255 1.00000000 1.00000000 0.12345678 0 0
+neighbor 1.00000000 redblue green 1.00000000 redbluegreen redbluegreen
+
+element uberness 66 6 123  1.00000000 1.00000000 1.00000000 0 0
+pexplosion uberness empty 1000000 radiation
+
+element redbluegreen 255 255 255 1.00000000 1.00000000 1.00000000 0 0
+neighbor 1.00000000 redbluegreen bob 1.00000000 uberness uberness
+
+#clear the screen with it instead of pressing refresh. put near empty
+element blank 0 0 0 0.00000000 0.00000000 0.00000000 1 1
+pexplosion blank empty 1000000 empty
+
+#Grows with water or other things
+element plant 0 255 0 0.00000000 0.00000000 0.00000000 1 1
+neighbor 1.00000000 plant water 1.00000000 plant plant
+neighbor 1.00000000 plant nitro 1.00000000 nitroplant nitro
+
+element nitroplant 0 155 10 0.00000000 0.00000000 2.200000000 0 0
+neighbor 1.00000000 nitroplant plant 1.00000000 nitroplant nitroplant
+neighbor 1.00000000 nitroplant nitro 1.00000000 nitroplant nitroplant

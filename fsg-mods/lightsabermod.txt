@@ -1,0 +1,80 @@
+#wxSand: Owen Piette's Falling Sand Game - Light-saber Mod
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+
+group Setup Handle Blade Rubber Gold
+group PowerCrystals Ruby Sapphire Emerald Amethyst Diamond
+
+#----------Visibles----------#
+#Erases.
+element	Empty 0 0 0 0 1 0 0 1
+#The Hilt of the Saber.
+element Handle 195 195 195 0 0 1 .2 1
+#The uncharged blade.
+element Blade 200 200 200 0 0 1 .2 1
+#Rubber for the handgrip.
+element Rubber 70 70 70 0 0 1 0 1
+#Gold for decoration.
+element Gold 215 215 0 0 0 1 0 1
+#A Ruby.
+element Ruby 200 0 0 0 0 1 0 1
+#A Sapphire.
+element Sapphire 0 0 200 0 0 1 0 1
+#An Emerald.
+element Emerald 0 200 0 0 0 1 0 1
+#An Amethyst.
+element Amethyst 200 0 200 0 0 1 0 1
+#A Diamond.
+element Diamond 200 200 200 0 0 1 0 1
+#----------Invisibles----------#
+element RBlade 200 200 200 0 0 1 1.01 0
+element BBlade 200 200 200 0 0 1 1.01 0
+element GBlade 200 200 200 0 0 1 1.01 0
+element PBlade 200 200 200 0 0 1 1.01 0
+element WBlade 200 200 200 0 0 1 1.01 0
+element RS 255 0 0 0 0 1 0 0
+element BS 0 0 255 0 0 1 0 0
+element GS 0 255 0 0 0 1 0 0
+element PS 200 0 200 0 0 1 0 0
+element WS 255 255 255 0 0 1 0 0
+#----------Interactions----------#
+neighbor 1.0 Ruby Blade 1.0 Ruby RBlade
+neighbor 1.0 RBlade Blade 1.0 RBlade RBlade
+neighbor 1.0 Blade RBlade 1.0 RBlade RBlade
+neighbor 1.0 Sapphire Blade 1.0 Sapphire BBlade
+neighbor 1.0 BBlade Blade 1.0 BBlade BBlade
+neighbor 1.0 Blade BBlade 1.0 BBlade BBlade
+neighbor 1.0 Emerald Blade 1.0 Emerald GBlade
+neighbor 1.0 GBlade Blade 1.0 GBlade GBlade
+neighbor 1.0 Blade GBlade 1.0 GBlade GBlade
+neighbor 1.0 Amethyst Blade 1.0 Amethyst PBlade
+neighbor 1.0 PBlade Blade 1.0 PBlade PBlade
+neighbor 1.0 Blade PBlade 1.0 PBlade PBlade
+neighbor 1.0 Diamond Blade 1.0 Diamond WBlade
+neighbor 1.0 WBlade Blade 1.0 WBlade WBlade
+neighbor 1.0 Blade WBlade 1.0 WBlade WBlade
+neighbor 0.01 RBlade Empty 1.0 RBlade RS
+neighbor 0.01 BBlade Empty 1.0 BBlade BS
+neighbor 0.01 GBlade Empty 1.0 GBlade GS
+neighbor 0.01 PBlade Empty 1.0 PBlade PS
+neighbor 0.01 WBlade Empty 1.0 WBlade WS
+neighbor 1.0 RS Empty 0.999 Empty RS 0.001 RS RS
+neighbor 1.0 BS Empty 0.999 Empty BS 0.001 BS BS
+neighbor 1.0 GS Empty 0.999 Empty GS 0.001 GS GS
+neighbor 1.0 PS Empty 0.999 Empty PS 0.001 PS PS
+neighbor 1.0 WS Empty 0.999 Empty WS 0.001 WS WS
+#----------Selves----------#
+self 0.1 RS 1.0 Empty
+self 0.1 BS 1.0 Empty
+self 0.1 GS 1.0 Empty
+self 0.1 PS 1.0 Empty
+self 0.1 WS 1.0 Empty
+#----------Hotcolors----------#
+hotcolor Handle 210 210 210
+hotcolor Blade 210 210 210
+hotcolor RBlade 255 0 0
+hotcolor BBlade 0 0 255
+hotcolor GBlade 0 255 0
+hotcolor PBlade 255 0 255
+hotcolor WBlade 255 255 255
+

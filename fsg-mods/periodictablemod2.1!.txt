@@ -1,0 +1,232 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+group Pyro Thermite Napalm Fire Bluefire Propanetorch Bomb Highexplosive Fuse A-bomb Smoke
+group Solids/metals Wall Glass  Radium Scandium Lithium Titanium Tungsten  Beryllium Magnesium  Cobaltpowder 
+
+Scandium
+group Periodictable   Potassium   Rubidium   Caesium   Francium Hydrogen Strontium Sodium Plutonium
+group Corrosives Caesiumhydroxide Sulfuricacid 
+group phosphorus Whitephosphorus Redphosphorus
+
+
+
+#Erases.
+element	Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+#highest melting point,which means you should use something hotter than fire,or wait awhile.
+element Smoke 220 220 220 -0.7 0.5 0.5 1.0 1
+element Tungsten 200 200 200 0.0 0.0 1.0 0.2 1
+neighbor 0.003 Fire Tungsten 1.0 Debri3 Debri3
+neighbor 0.005 Bluefire Tungsten 1.0 Debri3 Debri3
+neighbor 0.5 Whitefire Tungsten 1.0 Debri3 Debri3
+neighbor 0.2 Thermite Tungsten 1.0 Empty Fire
+neighbor 0.3 Napalm Tungsten 1.0 Empty Debri3
+neighbor 1.0 Aexplode Tungsten 1.0 Debri3 Whitefire
+neighbor 1.0 Debri1 Wall 1.0 Empty Debri1
+neighbor 1.0 Debri3 Tungsten 1.0 Empty Debri3
+element Debri3 200 200 200 1.0 0.5 0.7 0.2 0 
+#ABSOLUTELY NOT salt. It might explode to air on its own,or it burn might to water.
+element Sodium 255 255 255 1.0 0.5 0.7 0.5 1
+neighbor 0.02 Sodium Empty 1.0 Explosivelyactivesodium Empty
+neighbor 1.0 Sodium Water 1.0 Fire Fire
+element Explosivelyactivesodium 119 134 130   0.7    0.3    0.5    0.3    0
+element Oil  128 64 64 0.9 0.5 0.7 1.0 1
+neighbor 1.0 Fire Oil 1.0 Fire Fire
+element	Wall	113	113	113	0.00000	0.00000	1.00000	0.70000	1
+hotcolor	Wall	255	0	0
+#drop it on the wall,and some unnoticeable radioactive cloud speckles will form,which make plutonium,which kills 
+
+humans.please note that it will take awhile to disappear.
+element A-bomb 113 110 110     0.9 0.0 0.5 1.0 1
+neighbor 1.0 A-bomb Wall 1.0 Plutonium Pbam
+element Plutonium 113 113 113 1.0 0.3 1.0 1.1 1
+neighbor 1.0 Plutonium Human 1.0 Greenhuman Greenhuman
+element Pbam 233 233 233 -0.9 0.7 1.0 0.0 0
+neighbor 1.0  Pbam Human 1.0 Greenhuman Greenhuman
+element Aexplode 255 0 0 -0.7 0.5 0.5 1.1 0
+explode  Pbam Aexplode 135
+neighbor 1.0 Pbam Wall 1.0 Fire Debri1
+neighbor 1.0 Aexplode Wall 1.0 Debri1 Fire 
+self 0.09 Pbam 0.009 Plutonium
+self 0.009 Aexplode 0.009 Plutonium
+self 0.009 Aexplode 0.07 Cloudradioactive
+element Cloudradioactive 255 35 45  -0.9 0.5 0.5 1.1 0
+self 0.007 Cloudradioactive 0.007 Plutonium 
+neighbor 0.07 Cloudradioactive Empty 1.0 Empty Empty
+#keep it in water OR ELSE!
+element Whitephosphorus 230 230 230 0.9 0.2 0.3 0.7 1 
+neighbor 1.0 Whitephosphorus Empty 1.0 Whitefire Fire
+#drop it on a wall,boom.
+element Redphosphorus 245 10 10 1.0 0.0 1.0 0.0 1
+neighbor 1.0 Redphosphorus Wall 1.0 Rexplosion Rexplosion
+element Water 0  0  230 0.9 0.7 0.5 0.7 1
+neighbor 0.9 Sodium Water 1.0  Fire Bluefire
+neighbor    0.003   Explosivelyactivesodium   Water    1.0    Fire    Fire
+neighbor  0.02    Explosivelyactivesodium    Empty    1.0    Sexplosion   Empty
+element Steam 10 10 235 -1.0 0.5 0.7 1.0 0
+element	Bluefire	0	0	255	-1.00000	0.50000	0.70000	1.90000	1
+self	0.005000	Bluefire	1.0000	Smoke
+self 0.07000 Smoke 1.0 Empty	
+element    Sexplosion  119    134    13    0.7    0.3    0.5    0.3    0
+explode Sexplosion Fire 16
+# just add water!
+element    Potassium    139    134    130    0.7    0.3    0.5    0.3    1
+neighbor    1.0    Potassium    Water    1.0    Fire    Steam
+neighbor    0.03    Potassium   Empty    1.0    OxidizedPotassium    Empty
+
+element    OxidizedPotassium     119    134    130    0.7    0.3    0.5    0.3    0
+neighbor    1.0    OxidizedPotassium    Water    1.0    Fire    Steam
+neighbor    0.004    OxidizedPotassium    Empty    1.0    Pexplosion   Empty
+#eats walls.
+element Sulfuricacid 245 245 245 0.9 0.5 0.7 0.7 1
+neighbor 0.3 Sulfuricacid Wall 1.0 Empty Sulfuricacid
+neighbor 0.3 Sulfuricacid Glass 1.0 Empty Sulfuricacid
+element    Pexplosion  119    134    13    0.7    0.3    0.5    0.3    0
+explode Pexplosion Fire 12
+element Magnesium 100 100 100 0.5 0.5 0.7 0.0 1
+neighbor 1.0 Magnesium Fire 1.0 Bluefire Whitefire
+neighbor 1.0 Magnesium Bluefire 1.0 Bluefire Whitefire
+#will ignite on its own,or will release some hydrogen if it touches water.
+element Rubidium 90 90 90   1.0  0.3  0.7 0.7   1
+neighbor 1.0 Rubidium Water 1.0 Hydrogen Fire
+neighbor 1.0 Rubidium Empty 1.0 Oxidizedrubidium Empty
+element    Oxidizedrubidium     119    134    130    0.7    0.3    0.5    0.3    0
+neighbor    1.0    Oxidizedrubidium    Water    1.0    Fire    Steam
+neighbor    0.0005    Oxidizedrubidium    Empty    1.0    Rexplosion   Empty
+
+element    Rexplosion  119    134    13    0.7    0.3    0.5    0.3    0
+explode Rexplosion Fire 20
+
+#Will eat away glass.
+hotcolor Glass 255 0 0
+element Debri2 224 238 238  0.7  0.5 0.5 0.8 0
+element Caesium 100 100 77 0.7 0.5 0.7 0.7 1
+neighbor 0.3 Caesium  Glass 1.0  Empty Debri2
+neighbor 1.0 Caesium Empty 1.0 Oxidizedcaesium Empty
+element Glass 224 238 238 0.0 0.0 1.0 0.7 1
+element Strontium  77 77 77  1.0 0.1 0.5 0.7 1
+self 0.03 Strontium 0.03 Fire 
+element Fire2 233 30 30 -1.0 0.7 0.5 1.1 0
+self  0.3 Fire2  0.3 Empty
+element  Bam2 233 222 200   0   0   1  0   0
+explode Bam2 Fire2 64
+element Pop 255 234 21  0     0   0 1 0 
+explode Pop Fire 64
+element	Fire	255	0	0	-1.00000	0.50000	1.00000	1.10000	1
+element    Cexplosion  119    134    13    0.7    0.3    0.5    0.3    0
+
+explode Cexplosion Fire 100
+neighbor 1.0 Lithium Water 1.0 Hydrogen Fire
+neighbor 0.05 Lithium Empty 1.0 Oxidizedlithium Empty
+element    Oxidizedcaesium      119    134    130    0.0    0.3    0.5    0.3    0
+neighbor    1.0    Oxidizedcaesium     Water    1.0    Fire    Steam
+neighbor    0.9    Oxidizedcaesium     Empty    1.0    Cexplosion   Empty
+#eats glass.
+element Caesiumhydroxide 100 100 77 0.9  0.5 0.7 0.7 1
+neighbor 0.5 Caesiumhydroxide Glass 1.0 Empty Smoke
+neighbor	1.0	Bluefire	Wall	1.0	Bluefire  Debri1	
+self	0.007000	Fire	1.0000	Smoke	
+neighbor 1.0 Napalm Glass 1.0 Fire Debri2
+neighbor	0.50000	Fire	Wall	1.00000	Fire	Debri1	
+neighbor 1.0 Thermite Glass 1.0 Fire Debri2
+element	Whitefire	255	255	255	-1.00000	0.50000	0.70000	1.99999	0
+neighbor	1.0	Whitefire	Wall	1.0	Bluefire	Debri1
+#add to fire,it will turn color.
+
+element	Napalm	255	100	10	1.00000	0.50000	0.70000	1.10000	1
+
+
+element	Debri1	113	113	113	1.0	0.7	0.5	0.7	0	
+hotcolor	Debri1	255	0	0
+neighbor	0.7	Debri1	Whitefire	1.0	Fire	Bluefire
+
+
+element	Fireorange	250	130	0	-1.0	0.7	0.5	1.1	0
+self	0.4	Fireorange	0.5	Empty
+element	Propanetorch	0	0	200	0.00000	0.50000	0.70000	1.10000	1
+neighbor	0.2	Propanetorch	Empty	1.0	Propanetorch	Whitefire
+element Hydrogen  0   0   0   -0.0008  0.5   0.1  0.3  1
+neighbor 1 Hydrogen Fire 1 Bam Fire
+neighbor 1 Hydrogen Bluefire 1 Bam Fire
+neighbor 1 Hydrogen Whitefire 1 Bam Fire
+element Bam 255 69 0         0          0         1     0     0
+explode Bam Fire 128
+element	Thermite	255	140	0	1.00000	0.70000	0.70000	0.70000	1
+self	0.001	Thermite	0.5	Empty	0.5	Fireorange
+neighbor	0.1	Thermite	Empty	1.0	Thermite	Fireorange
+neighbor	0.01	Thermite	Empty	1.0	Thermite	Fire
+neighbor	0.9	Thermite	Wall	1.0	Bluefire	Debri1
+neighbor	1.00000	Thermite	Whitefire	1.00000	Fire	Whitefire	
+neighbor 1 Highexplosive Bluefire 1 Blam Fire
+neighbor 1 Wall Bluefire 1 Fire Empty
+#lithium. just a little after hydrogen on the periodic table.will explode since theres some air in wxsand by default.
+element Lithium 111 111 111     0.0   0.0    0.0   0.3 1
+
+#Toxic compound. will kill humans.
+element Berydust 143 188 143    0.7 0.5 0.7 0 0
+element Beryllium 143 188 143   0  0.3 0.5 0 1 
+self 0.001 Beryllium 0.3 Empty 0.3 Berydust
+neighbor 0.003 Beryllium  Empty 1.0  Beryllium Berydust
+element    Lexplosion  119    134    13    0.7    0.3    0.5    0.3    0
+explode Lexplosion Fire 6
+neighbor 1.0 Lithium Water 1.0 Hydrogen Fire
+neighbor 0.05 Lithium Empty 1.0 Oxidizedlithium Empty
+element    Oxidizedlithium     119    134    130    0.0    0.3    0.5    0.3    0
+neighbor    1.0    Oxidizedlithium    Water    1.0    Fire    Steam
+neighbor    0.0005    Oxidizedlithium     Empty    1.0    Lexplosion   Empty
+
+self	0.03	Fire	0.03	Empty	0.0303	Smoke
+
+self 0.03 Smoke 0.03 Empty
+self     0.0001 Bluefire 0.001 Empty 0.001   Smoke
+element Human 255 250 205   0  0.5 0.5 0.9 1
+  hotcolor Human 0 230 0 
+neighbor 0.9 Human Beryllium 1.0 Empty Empty
+neighbor 0.5 Human Berydust 1.0 Empty Empty
+neighbor 0.5 Human Empty 1.0 Empty Human
+neighbor 1.0 Human Fire 1.0 Fire Fire
+neighbor 1.0 Human Bluefire 1.0 Fire Empty
+neighbor 1.0 Human Whitefire 1.0 Empty Empty
+neighbor 1.0 Human Bam 1.0 Empty Empty
+neighbor 1.0 Human Blam 1.0 Empty Empty
+neighbor 1 Blam Wall 1 Debri1 Empty
+neighbor 1 Bam Wall 1 Debri1 Fire
+self	0.03000	Whitefire	1.0000	Empty	
+element Greenhuman 10 200 10 0 0.5 0.5 0.9 0
+neighbor 0.5 Greenhuman Empty 1.0 Empty Greenhuman
+self 0.1 Greenhuman 0.5 Empty
+#radio active! ahhh!
+element Radium 0 255 0  0.0  0.3 0.5 0.5 1
+neighbor 1.0 Radium Human 1.0 Greenhuman Greenhuman
+neighbor	0.90000	Napalm	Wall	1.00000	Debri1	Fire	
+
+element Fuse 155 155 155      0.0   0.0   0.5 0.5    1
+neighbor 1.0 Fuse Fire 1.0 Fire Fire
+element Highexplosive 250 250 156  0    0    1   0   1
+neighbor 1 Highexplosive Fire 1    Blam Fire
+element Blam 255 170  0  0     0      0      1      0        0
+explode   Blam   Fire     64
+#just a bomb. Idea from chris220
+element Bomb   200 200 200      1     0     1   0      1
+neighbor 1.0 Bomb Wall 1.0 Nuke Nuke
+# can kill humans. no flammability.
+element Scandium 110 110 110 0.0 0.0 0.1 0.7 1
+neighbor 1.0 Debri1 Human 1.0 Empty Empty
+element Titanium 211 211 211 0.0 0.0 1.0 0.7 1
+neighbor 1.0 Titanium Fire 1.0 Fire Fire
+neighbor 1.99999 Titanium Bluefire 1.0 Empty Fire
+neighbor 1.99999 Titanium Whitefire 1.0 Empty Bluefire 
+neighbor 1.0 Human Scandium 1.0 Greenhuman Greenhuman
+element Nuke   255   0   0   0.000000   1.000000   1.000000   0.000000   0
+neighbor 1 Nuke Empty 1 Nuke Explode
+self .02 Nuke 1 Fire
+element Cobaltpowder 20 20 120 1.0 0.6 0.6 0.7 1
+neighbor 1.0 Fire Cobaltpowder 1.0 Fire Fire
+neighbor 1.0 Bluefire Cobaltpowder 1.0 Fire Bluefire
+neighbor 1.0 Whitefire Cobaltpowder 1.0 Bluefire Whitefire
+element Explode   0   0   0   0.000000   1.000000   1.000000   0.000000   0
+neighbor .25 Explode Empty 1 Explode Explode
+neighbor 1   Fire   Explode   1   Fire   Fire
+#highly rare and dangerous metal. kill some humans.
+element Francium 21 200 10      1.0 0.2 0.0 0.2  1
+neighbor 1.9 Francium Human 1.0 Empty Empty
+self 0.0003 Francium 0.0003 Empty

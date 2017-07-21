@@ -1,0 +1,373 @@
+#wxSand: Owen Piette's Falling Sand Game
+#Version 4, File subversion 2
+#element element r g b gravity slip density conductivity visible
+group Human Brain Head Body Arms Legs Pupil Mouth Nose Tattoo
+group Tools Wall TradingPost PerservingFluid Lifter
+group Healing Medicine Bandage BandageRemover
+sources Wall
+
+#Erases.
+element     Empty	0	0	0	0.000000	1.000000	0.000000	0.000000	1
+
+# A part of the body, usually people have brains inside.
+element     Head     196     133     135     0     0     1     0.5     1
+neighbor    1.0   Head    Brain   1.0   Head?   Brain? 
+neighbor    1.0   Head    Head?   1.0   Head?   Head?
+neighbor    1.0   Head    Empty   1.0   Skin    Empty
+neighbor    1.0   Head    SUPERBRAIN! 1.0 Head2 SUPERBRAIN!
+neighbor    1.0   Head    Head2   1.0   Head?   Head2
+
+# No function yet, just the look.
+element  Pupil   0 0 255 1 0 1 0.5 1
+neighbor 1.0 Pupil Head! 1.0 Pupil  Eye
+
+element  Eye     255 255 255 1 0 1 0.5 0
+neighbor  1.0  Eye  Head! 1.0 Eye Eye2
+
+element  Eye2     255 255 255 1 0 1 0.5 0
+neighbor  1.0  Eye2  Head! 1.0 Eye2 Eye3
+
+element  Eye3     255 255 255 1 0 1 0.5 0
+neighbor  1.0  Eye3  Head! 1.0 Eye3 Eye4
+
+element  Eye4     255 255 255 1 0 1 0.5 0
+neighbor  1.0  Eye4  Head! 1.0 Eye4 Eye5
+ 
+element  Eye5     255 255 255 1 0 1 0.5 0
+neighbor  1.0  Eye5  Head! 1.0 Eye5 Eye6
+ 
+element  Eye6     255 255 255 1 0 1 0.5 0
+
+# Yup, it's a wall.
+element	Wall	128	128	128	0.000000	0.000000	1.000000	0.500000	1
+hotcolor  Wall  255     0     0
+
+element  CocaineBrain1 0 0 0 1 0 1 0 0
+self 0.3 CocaineBrain1 1.0 CocaineBrain2
+neighbor 1.0 CocaineBrain1 Brain! 1.0 CocaineBrain1 CocaineBrain2
+neighbor 1.0 CocaineBrain1 Brain2 1.0 CocaineBrain1 CocaineBrain2
+
+element  CocaineBrain2 255   255 255 1 0 1 0 0
+self 0.3 CocaineBrain2 1.0 CocaineBrain1
+neighbor 1.0 CocaineBrain2 Brain! 1.0 CocaineBrain2 CocaineBrain1
+
+element  Cocaine       254 255 255 1 0.4 0.6 0.6 0
+neighbor 1.0 Cocaine Nose! 1.0 Empty Nose2
+neighbor 1.0 Cocaine Nose2 1.0 Blood Nose2
+
+element Nose2 200 130 130 0 0 1 0.5 0
+neighbor 0.001 Nose2 Empty 1.0 EndNose2 Empty
+neighbor 1.0   Nose2 Head! 1.0 Nose2 Head3
+neighbor 1.0   Nose2 Nose! 1.0 Nose2 Nose2
+
+element EndNose2 200 131 130 0 0 1 0.5 0
+self 0.01 EndNose2 1.0 Nose
+neighbor 0.3 EndNose2 Nose2 1.0 EndNose2 EndNose2 
+neighbor 1.0 EndNose2 Head3 1.0 EndNose2 EndHead3
+
+element EndHead3 195 130 132 0 0 1 0.5 0
+self 0.01 EndHead3 1.0 Head!
+neighbor 0.3 EndHead3 Head3 1.0 EndHead3 EndHead3
+ 
+element Head3 195 132 132 0 0 1 0.5 0
+neighbor 1.0  Head3 Head! 1.0 Head3 Head3
+neighbor 1.0  Head3 Head2 1.0 Head3 Head4
+
+element Head4 196 130 130 0 0 1 0.5 0
+self 0.3 Head4 1.0 Head2
+neighbor 1.0 Head4 Head2 1.0 Head4 Head4
+neighbor 1.0 Head4 Brain! 1.0 Head2 CocaineBrain1
+
+#People need brains, right? For all of you wannabe-brainsurgents, you must not let Brains contact Empty, perserve it instead.
+element     Brain    235     135     135     1     0.4   0.5   0.9     1 
+neighbor    1.0   Brain   Brain?  1.0   Brain?  Brain?
+
+# The main part of a human body.
+element     Body     195     133     135     0     0     1     0.5     1
+neighbor    1.0   Body    Head?   1.0   Body?   Head?
+neighbor    1.0   Body    Body?   1.0   Body?   Body?
+neighbor    1.0   Body    Empty   1.0   Skin    Empty
+
+# Too grab things and such.
+element     Arms     194     133     135     0     0     1     0.5     1
+neighbor    1.0   Arms    Body?   1.0   Body??  Arms?
+neighbor    1.0   Arms    Arms?   1.0   Arms?   Arms? 
+neighbor    1.0   Arms    Empty   1.0   Skin    Empty
+
+# Because you don't want to sit in a wheelchair.
+element     Legs     197     133     135     0     0     1     0.5     1
+neighbor    1.0   Legs    Body??  1.0   Legs!   Body!
+neighbor    1.0   Legs    Legs!   1.0   Legs!   Legs!
+neighbor    1.0   Legs    Body!   1.0   Legs!   Body!
+neighbor    1.0   Legs    Empty   1.0   Skin    Empty
+
+# Medicine and food would go here.
+element     Mouth    255     1     5     0     0     1     0.5     1
+neighbor    1.0   Mouth   Head!   1.0   Mouth!  Head!
+neighbor    1.0   Mouth   Mouth!  1.0   Mouth!  Mouth!
+
+# Addicts praise the lord for this thing.
+element     Nose     192     133     135     0     0     1     0.5     1
+neighbor    1.0   Nose    Nose!   1.0   Nose!   Nose! 
+neighbor    1.0   Nose    Head!   1.0   Nose!   Head! 
+
+element     Head?    196     132     135     0     0     1     0.5     0
+neighbor    1.0   Head?   Body!   1.0   Head!   Body!
+neighbor    1.0   Head?   Head!   1.0   Head!   Head!
+neighbor    1.0   Head?   Brain   1.0   Head?   Brain?
+
+element     Brain?   235    135     133     1     0.4   0.5   0.9     0 
+neighbor    1.0   Brain?  Head!   1.0   Brain!  Head!
+neighbor    1.0   Brain?  Brain!  1.0   Brain!  Brain!
+
+element     Arms?    196     135     135     0     0     1     0.5     0
+neighbor    1.0   Arms?   Body!   1.0   Arms!   Body!
+neighbor    1.0   Arms?   Arms!   1.0   Arms!   Arms! 
+
+element     Body?    196     130     135     0     0     1     0.5     0
+
+element     Body??   196     134     135     0     0     1     0.5     0
+neighbor    1.0   Body??  Body?   1.0   Body??  Body??
+neighbor    1.0   Body??  Body!   1.0   Body!   Body!
+
+element     Head!    196     133     134     0     0     1     0.5     0
+neighbor    1.0   Head!   Empty   1.0   Wound   Empty
+neighbor    1.0   Head!   Wall    1.0      Dying  Wall
+neighbor    1.0   Head!   TradingPost    1.0      Dying  TradingPost
+
+element     Wound    255     50      50      0     0     1     0.5     0
+self        0.001   Wound    1.0    Skin
+neighbor    0.05   Wound   Empty   0.99   Wound   Blood 0.01 Dying0 Empty
+neighbor    1.0   Wound   Bandage 1.0   Skin    Bandage
+neighbor    1.0   Wound   Dying   1.0   Dying Dying
+
+# To stop ye bleedin'. Back in the 19th century even brain surgents used it. It worked, sometimes.
+element     Bandage  220     200     200     0     0     1     0.5     1
+neighbor    1.0   Bandage   Blood  1.0  Bandage  Skin
+neighbor    0.1   Bandage   Body!  1.0  Bandage Skin
+
+element     Skin     195     130     130     0     0     1     0.5     0
+
+element     Blood    255     0       0       1     0.3   0.5   0.5     0 
+
+neighbor    0.001    Blood   Blood   0.9   Crust  Crust 0.1 Empty Empty
+
+element     Crust    200     100     200     1    0     0.4     0.5     0
+self        0.001    Crust    1.0   Skin  
+
+#Works fast. Fights cancer. Use of Medicine could neutralise drug effects. 
+element     Medicine  255     255     255     1    0     1     0.5     1
+neighbor    0.9     Medicine    Mouth!    1.0   Empty   MouthCure
+neighbor    0.1     Medicine    Nose!     1.0   Empty   Dying
+
+element     MouthCure  100   100      100     0    0     1.0   0       0
+neighbor    1.0      MouthCure   Mouth!    1.0   MouthCure  MouthCure
+neighbor    0.001      MouthCure   Empty   1.0   EndMouthCure  Empty   
+neighbor    1.0      MouthCure   Head!     1.0   MouthCure  HeadCure
+neighbor    1.0      MouthCure   EndMouthCure 1.0  EndMouthCure  EndMouthCure
+
+element     HeadCure   100   101      100     0    0     1.0   0       0 
+neighbor    1.0      HeadCure    Head!     1.0   HeadCure   HeadCure
+neighbor    1.0      HeadCure    Wound     1.0   HeadCure   Skin
+neighbor    1.0      HeadCure    Head4     1.0   HeadCure   Head4Cure
+neighbor    1.0      HeadCure    Body!     1.0   HeadCure   BodyCure
+
+element     BodyCure   101   101      101     0     0    1.0   0       0
+neighbor    1.0      BodyCure    Body!     1.0   BodyCure   BodyCure
+neighbor    1.0      BodyCure    Wound     1.0   BodyCure   Skin
+neighbor    1.0      BodyCure    EndHeadCure 1.0 EndBodyCure EndHeadCure 
+neighbor    1.0      BodyCure    Arms!     1.0   BodyCure   ArmCure
+neighbor    1.0      BodyCure    Legs!     1.0   BodyCure   LegCure
+neighbor    1.0      BodyCure    Cancer3     1.0   BodyCure   BodyCure
+neighbor    1.0      BodyCure    Cancer2     1.0   BodyCure   BodyCure
+neighbor    1.0      BodyCure    Cancer     1.0   BodyCure   BodyCure
+
+element     ArmCure   104   101      101     0     0    1.0   0       0
+neighbor    1.0      ArmCure     Arms!     1.0   ArmCure   ArmCure
+neighbor    1.0      ArmCure     Wound     1.0   ArmCure   Skin
+neighbor    1.0      ArmCure     EndBodyCure 1.0 EndArmCure EndBodyCure 
+
+element     LegCure   101   101      104     0     0    1.0   0       0
+neighbor    1.0      LegCure     Legs!     1.0   LegCure   LegCure
+neighbor    1.0      LegCure     Wound     1.0   LegCure   Skin
+neighbor    1.0      LegCure     EndBodyCure 1.0 EndLegCure EndBodyCure
+
+element     EndArmCure   104   101      101     0     0    1.0   0       0
+self        0.01     EndArmCure 1.0 Arms!
+neighbor    0.3      EndArmCure  ArmCure 1.0 EndArmCure EndArmCure
+
+element     EndLegCure   104   101      101     0     0    1.0   0       0
+self        0.01     EndLegCure 1.0 Legs!
+neighbor    0.3      EndLegCure  LegCure 1.0 EndLegCure EndLegCure
+
+element     EndBodyCure   101   101      101     0     0    1.0   0       0
+self        0.01  EndBodyCure 1.0 Body!
+neighbor    0.3   EndBodyCure BodyCure 1.0 EndBodyCure EndBodyCure
+
+element Head4Cure  100 101 103 0 0 1.0 0 0
+neighbor 1.0 Head4Cure  Head4 1. Head4Cure Head4Cure
+neighbor 1.0 Head4Cure  CocaineBrain1 1.0 Head4Cure CocaineCure
+neighbor 1.0 Head4Cure  SUPERBRAIN!! 1.0 Head4Cure CocaineCure2
+
+element CocaineCure 100 101 105 0 0 1.0 0 0
+neighbor 1.0 CocaineCure CocaineBrain1 1.0 CocaineCure CocaineCure 
+neighbor 1.0 CocaineCure CocaineBrain2 1.0 CocaineCure CocaineCure 
+
+element CocaineCure2 100 101 105 0 0 1.0 0 0
+neighbor 1.0 CocaineCure2 SUPERBRAIN!! 1.0 CocaineCure2 CocaineCure2 
+neighbor 1.0 CocaineCure2 SUPERBRAIN!!! 1.0 CocaineCure2 CocaineCure2 
+neighbor 1.0 CocaineCure2 SUPERBRAIN!!!! 1.0 CocaineCure2 CocaineCure2
+
+element EndCocaineCure 103 101 105 0 0 1.0 0 0
+neighbor 0.3 EndCocaineCure CocaineCure 1.0 EndCocaineCure EndCocaineCure
+self 0.01 EndCocaineCure 1.0 Brain!
+
+element EndHead4Cure 101 101 101 0 0 1.0 0 0
+neighbor 0.1 EndHead4Cure Head4Cure 1.0 EndHead4Cure EndHead4Cure
+neighbor 1.0 EndHead4Cure CocaineCure 1.0 EndHead4Cure EndCocaineCure
+neighbor 1.0 EndHead4Cure CocaineCure2 1.0 EndHead4Cure EndCocaineCure2
+self 0.01 EndHead4Cure 1.0 Head2
+
+element EndCocaineCure2 103 101 105 0 0 1.0 0 0
+neighbor 0.3 EndCocaineCure2 CocaineCure2 1.0 EndCocaineCure2 EndCocaineCure2
+self 0.01 EndCocaineCure2 1.0 SUPERBRAIN!	
+
+element     EndMouthCure 101 100      100     0    0     1.0   0       0
+self        0.01     EndMouthCure   1.0    Mouth!
+neighbor    0.3      EndMouthCure      HeadCure   1.0   EndMouthCure  EndHeadCure
+
+element     EndHeadCure  100 101 100          0    0     1.0   0       0
+self        0.01     EndHeadCure   1.0   Head!   
+neighbor    0.3      EndHeadCure   HeadCure   1.0  EndHeadCure EndHeadCure
+neighbor    0.3      EndHeadCure   Head4Cure  1.0 EndHeadCure  EndHead4Cure
+
+element     Brain!   235     133     133     1     0.4   1.00   0.4     0 
+neighbor    0.6   Brain!  Head!   1.0   Head2   Head2
+neighbor    1.0   Brain!  Arms!   1.0   Brain!  Dying
+neighbor    1.0   Brain!  Body!   1.0   Brain!  Dying
+neighbor    1.0   Brain!  Legs!   1.0   Brain!  Dying
+neighbor    0.1   Brain!  Empty   1.0   Empty   Empty
+
+element     Body!    196     133     132     0     0     1     0.5     0
+self        0.0001   Body!    0.99 Body??  0.01 Body2
+neighbor    0.3   Body!   Empty   1.0      Wound  Empty 
+neighbor    0.5   Body!   Body??  1.0      Body!  Body!
+neighbor    1.0   Body!   Wall    1.0      Dying  Wall
+neighbor    1.0   Body!   TradingPost    1.0      Dying  TradingPost
+
+element     Arms!    196     133     131     0     0     1     0.5     0
+neighbor    0.3   Arms!   Empty   1.0   Wound     Empty
+neighbor    1.0   Arms!   Wall    1.0      Dying  Wall
+neighbor    1.0   Arms!   TradingPost    1.0      Dying  TradingPost
+
+element     Legs!    196     133     130     0     0     1     0.5     0
+neighbor    0.3   Legs!   Empty   1.0   Wound     Empty 
+neighbor    1.0   Legs!   Wall    1.0      Dying  Wall
+neighbor    1.0   Legs!   TradingPost    1.0      Dying  TradingPost
+
+element     Mouth!   222     22      22      0     0     1     0.5     0
+
+element     Nose!    196     133     138     0     0     1     0.5     0     
+
+element     Head2    195     132     133     0     0     1     0.5     0
+neighbor    0.5   Head2   Brain!  1.0  Head2    Brain2 
+neighbor    0.4   Head2   Brain2  1.0  Head2    Brain!  
+neighbor    1.0   Head2   Empty   1.0  Dying    Empty
+neighbor    0.5   Head2   SUPERBRAIN! 1.0 Head2 SUPERBRAIN2
+neighbor    0.4   Head2   SUPERBRAIN2 1.0 Head2 SUPERBRAIN!
+
+element     Brain2   240     70      70      1     0     0.9   0.01     0
+neighbor 0.1 Brain2 Empty 1.0 Empty Empty
+
+element     Dying    180     180     180     0     0     1     0       0 
+self   0.001   Dying    1.0   Dead
+neighbor    1.0    Dying  Head!   1.0  Dying    Dying
+neighbor    1.0    Dying  Body!   1.0  Dying    Dying
+neighbor    1.0    Dying  Arms!   1.0  Dying    Dying
+neighbor    1.0    Dying  Legs!   1.0  Dying    Dying
+neighbor    1.0    Dying  Head2   1.0  Dying    Dying
+neighbor    1.0    Dying  Nose!   1.0  Dying    Dying
+neighbor    1.0    Dying  Mouth!  1.0  Dying    Dying
+neighbor    1.0    Dying  Skin    1.0  Dying    Dying
+ 
+element     Dead     200     200     200     0     0     1     0       0
+self   0.001   Dead     1.0   Rotten
+
+element     Rotten   200     200     200     0.4   0.5   0     0       0  
+
+# When a non-solid comes in contact with this Tradingpost it will get traded for other stuff. It is said they need a red organic fluid.
+element     TradingPost   255 255 255        0   0       1    0      1
+neighbor  1.0  TradingPost Brain! 1.0 TradingPost SUPERBRAIN!
+neighbor  1.0  TradingPost Brain2 1.0 TradingPost SUPERBRAIN!
+neighbor  1.0  TradingPost Blood  1.0 TradingPost Cocaine
+neighbor  1.0  TradingPost BandageRemover 1.0 TradingPost Rotten
+neighbor  1.0  TradingPost Medicine 1.0  TradingPost PerservingFluid
+
+element   SUPERBRAIN!      255   90     90   1.0 0.5     0.9   0      0     
+neighbor 1.0 SUPERBRAIN! Head! 1.0 SUPERBRAIN!  Head2
+neighbor 1.0 SUPERBRAIN! Head4 1.0 SUPERBRAIN!! Head4
+
+element   SUPERBRAIN!!    255  0     0    1   0.5     0.9   0      0
+self     0.3 SUPERBRAIN!! 1.0 SUPERBRAIN!!!
+neighbor 1.0 SUPERBRAIN!! SUPERBRAIN! 1.0 SUPERBRAIN!! SUPERBRAIN!!
+
+element   SUPERBRAIN!!!    0 255 0   1 0.5  0.9  0  0
+self 0.3 SUPERBRAIN!!! 1.0 SUPERBRAIN!!!!
+
+element   SUPERBRAIN2      0   255     255   1.0 0.5     0.5   0      0
+neighbor 1.0 SUPERBRAIN2 SUPERBRAIN!! 1.0 SUPERBRAIN!! SUPERBRAIN!!
+neighbor 1.0 SUPERBRAIN2 SUPERBRAIN!!! 1.0 SUPERBRAIN!! SUPERBRAIN!!
+neighbor 1.0 SUPERBRAIN2 SUPERBRAIN!!!! 1.0 SUPERBRAIN!! SUPERBRAIN!!
+
+element   SUPERBRAIN!!!!    0  0  255   1 0.5  0.9  0  0
+self 0.3 SUPERBRAIN!!!! 1.0 SUPERBRAIN!!
+
+element  Lifter   100 100 100        1.0    0     50    0   1
+
+#Organs (and such) can be perserved in this fluid, freaky.
+element  PerservingFluid 30 30 255     0.7     1      0.001   0.4   1
+
+element     Body2    193    130     133    0     0     1     0.5     0
+self        0.001    Body2   0.99 Body?? 0.01 Cancer
+
+element     Cancer    81    81     85     0     0     1     0.5     0
+neighbor  0.01  Cancer Body! 1.0 Cancer Cancer2
+neighbor  0.01  Cancer Body2 1.0 Cancer Cancer2
+
+element     Cancer2    40    40     40     0     0     1     0.5     0
+neighbor  0.01  Cancer2 Body! 1.0 Cancer2  Cancer3
+neighbor  0.01  Cancer2 Body2 1.0 Cancer2  Cancer3
+
+element     Cancer3    0   0     0     0     0     1     0.5     0
+neighbor  0.0001 Cancer3 Body! 1.0 Cancer3 Dying
+neighbor  0.0001 Cancer3 Body! 1.0 Cancer3 Dying
+
+element     Dying0    180     180     180     0     0     1     0       0 
+self      0.0001  Dying0  1.0 Dying
+neighbor     0.5  Dying0 Dying 1.0 Dying Dying
+neighbor  0.001   Dying0  Empty 1.0 Skin Empty
+
+# Because bandages are eventually not neccecary anymore. Drop a tiny bit on Bandage.
+element     BandageRemover   255 255 255  1.0 0.3 0.5 0.0 1
+neighbor  1.0   BandageRemover Bandage 1.0 NoBandage NoBandage
+
+element    NoBandage        255 255 255  1.0 0.3 0.5 0.0 0
+self      0.5 NoBandage 1.0 Empty
+neighbor  1.0 NoBandage Bandage 1.0 NoBandage NoBandage
+neighbor  1.0 NoBandage BandageRemover 1.0 NoBandage NoBandage
+
+# Place tattoos on your body, can only be done in while building your own human. Think of it as a reward for building your own dude.
+element    Tattoo           1    0   0    0  0  1.0  0.5   1
+neighbor  1.0  Tattoo Dying 1.0 Dying Dying
+neighbor  1.0  Tattoo Body 1.0 TattooBody Body 
+neighbor  1.0  Tattoo Head 1.0 TattooBody Body
+neighbor  1.0  Tattoo Arms 1.0 TattooBody Body
+neighbor  1.0  Tattoo Legs 1.0 TattooBody Body 
+neighbor  1.0  Tattoo Body! 1.0 Dying Dying
+neighbor  1.0  Tattoo Arms! 1.0 Dying Dying
+neighbor  1.0  Tattoo Legs! 1.0 Dying Dying
+neighbor  1.0  Tattoo Head! 1.0 Dying Dying
+
+element    TattooBody           80    80   80    0  0  1.0  0.5   0
+neighbor  1.0 TattooBody Dying 1.0 Dying Dying
+
