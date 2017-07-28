@@ -13,7 +13,13 @@ fallingsandgame.com, has been down now for many months with a MySQL error, so
 all mods seem to be lost. (If you have any others, open issues and I'll add
 them to the mods/ directory.)
 
-It's fun abandonware though, and works well on modern platforms. 
+It's fun abandonware though, and works well on modern platforms. Actually, I 
+think it works better on modern platforms than it ever did in 2006 -- on my 
+system, which has an i7-6700, it is impossible to get it to run slower than 
+15fps with the default mod, and that's with the entire screen full of sand. With
+the "Sources" on and "Limit FPS" off, the game runs at well over 200 FPS, 
+reaching 256 FPS. This performance would have been incredible when this game was 
+in active development...we can thank Moore's law for that.
 
 Also included: PKGBUILD for Arch Linux User Repository.
 
