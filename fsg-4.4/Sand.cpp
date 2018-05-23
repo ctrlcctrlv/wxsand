@@ -34,7 +34,7 @@
 #define CVERSION custom
 #endif
 
-char defaultFileContents[] =
+static const char defaultFileContents[] =
     "#wxSand: Owen Piette's Falling Sand Game\n\
 #Version 4.4, File subversion 2\n\
 #element element r g b gravity slip density conductivity visible\n\
