@@ -16,7 +16,7 @@ class Canvas : public wxWindow {
   void OnMouseMove(wxMouseEvent& event);
   void OnTimer(wxTimerEvent& event);
   void OnSecondTimer(wxTimerEvent& event);
-  void Refresh();
+  void Refresh(bool eraseBackground=true, const wxRect *rect=NULL);
   void OnIdle(wxIdleEvent& e);
 
   bool busyCalculating;

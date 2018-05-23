@@ -829,7 +829,7 @@ void Canvas::calculate() {
   this->busyCalculating = false;
 }
 
-void Canvas::Refresh() {
+void Canvas::Refresh(bool eraseBackground, const wxRect *rect) {
   wxString str(_(""));
   str.Printf(_("%s [%d]"), names[data[(g_width * mousey) + mousex]].c_str(),
              int(energy[(g_width * mousey) + mousex]));
