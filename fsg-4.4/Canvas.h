@@ -5,9 +5,8 @@
 
 #include "Sand.h"
 
-
-class Canvas : public wxWindow{
-public:
+class Canvas : public wxWindow {
+ public:
   Canvas(wxWindow* parent, wxWindowID id, wxPoint, wxSize);
 
   void OnEraseBG(wxEraseEvent& e);
@@ -20,15 +19,12 @@ public:
   void Refresh();
   void OnIdle(wxIdleEvent& e);
 
-
   bool busyCalculating;
   bool doUpdate;
   void calculate();
 
  private:
-
   DECLARE_EVENT_TABLE()
 };
-
 
 #endif

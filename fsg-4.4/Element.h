@@ -19,10 +19,9 @@ class Reaction {
 
   double m_probability_at_zero;
   double m_probability_at_limit;
-  
+
   int m_change_in_energy;
 };
-
 
 class Element {
  public:
@@ -38,10 +37,8 @@ class Element {
   double m_conductivity;
   bool m_visible;
   wxString m_description;
-
 };
 
 void FillGlobalProbabilityArrays(void);
-
 
 #endif

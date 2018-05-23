@@ -4,8 +4,8 @@
 /********************************************************************/
 
 #include <GL/gl.h>
-#include <GL/glut.h>
 #include <GL/glu.h> /* GLU extention library */
+#include <GL/glut.h>
 
 void init(void);
 void idle(void);
@@ -16,8 +16,7 @@ void drawcube(int, int, int);
 
 int is_depth; /* depth testing flag */
 
-int main (int argc, char **argv)
-{
+int main(int argc, char **argv) {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
   glutInitWindowSize(600, 600);
@@ -30,7 +29,7 @@ int main (int argc, char **argv)
 
   /* this time we're going to keep the aspect ratio
      constant by trapping the window resizes */
-  glutReshapeFunc(resize);  
+  glutReshapeFunc(resize);
 
   glutMainLoop();
   return 0;
@@ -39,9 +38,8 @@ int main (int argc, char **argv)
 int xloc;
 int count;
 
-void init(void)
-{
-  glEnable ( GL_LIGHTING ) ;
+void init(void) {
+  glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
   glClearColor(0.0, 0.0, 0.0, 0.0);
   glEnable(GL_DEPTH_TEST);
@@ -49,25 +47,21 @@ void init(void)
   glMatrixMode(GL_MODELVIEW);
   xloc = -100;
   count = 0;
-  GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+  GLfloat light_position[] = {1.0, 1.0, 1.0, 0.0};
   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
-  GLfloat light_ambient[] = { 0.0, 0.0, 1.0, 1.0};
+  GLfloat light_ambient[] = {0.0, 0.0, 1.0, 1.0};
   glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 }
 
-
-
-
-void display(void)
-{
+void display(void) {
   if (is_depth)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   else
     glClear(GL_COLOR_BUFFER_BIT);
   /* draw the floor */
   glBegin(GL_QUADS);
-  glNormal3f(0,1,0);
+  glNormal3f(0, 1, 0);
 
   glColor3f(0.2f, 0.2f, 0.2f);
   glVertex3f(-100.0, 0.0, -100.0);
@@ -79,7 +73,6 @@ void display(void)
   glVertex3f(100.0, 0.0, -100.0);
   glEnd();
   /* draw 12 cubes with different colors */
-
 
   drawcube(xloc, 57, 2);
   drawcube(-65, -12, 3);
@@ -95,8 +88,7 @@ void display(void)
   glutSwapBuffers();
 }
 
-void keyboard(unsigned char key, int x, int y)
-{
+void keyboard(unsigned char key, int x, int y) {
   /* This time the controls are:
 
   "a": move left
@@ -106,8 +98,7 @@ void keyboard(unsigned char key, int x, int y)
   "t": toggle depth-testing
 
   */
-  switch (key)
-    {
+  switch (key) {
     case 'i':
     case 'I':
       glRotatef(3.0, 1.0, 0.0, 0.0); /* rotate up */
@@ -142,31 +133,24 @@ void keyboard(unsigned char key, int x, int y)
       break;
     case 't':
     case 'T':
-      if (is_depth)
-	{
-	  is_depth = 0;
-	  glDisable(GL_DEPTH_TEST);
-	}
-      else
-	{
-	  is_depth = 1;
-	  glEnable(GL_DEPTH_TEST);
-	}
-    }
+      if (is_depth) {
+        is_depth = 0;
+        glDisable(GL_DEPTH_TEST);
+      } else {
+        is_depth = 1;
+        glEnable(GL_DEPTH_TEST);
+      }
+  }
   display();
 }
 
-
-void idle(void){
-
+void idle(void) {
   xloc += 1;
-  if (xloc > 100)
-    xloc = -100;
+  if (xloc > 100) xloc = -100;
   display();
 }
 
-void resize(int width, int height)
-{
+void resize(int width, int height) {
   if (height == 0) height = 1;
 
   glMatrixMode(GL_PROJECTION);
@@ -181,8 +165,7 @@ void resize(int width, int height)
   glMatrixMode(GL_MODELVIEW);
 }
 
-void drawcube(int x_offset, int z_offset, int color)
-{
+void drawcube(int x_offset, int z_offset, int color) {
   /* this function draws a cube centerd at (x_offset, z_offset)
      x and z _big are the back and rightmost points, x and z _small are
      the front and leftmost points */
@@ -190,55 +173,54 @@ void drawcube(int x_offset, int z_offset, int color)
   float z_big = (float)z_offset + 5;
   float x_small = (float)x_offset - 5;
   float z_small = (float)z_offset - 5;
-  switch(color)
-    {
+  switch (color) {
     case 1:
-      glColor3f(1.0,0.0,0.0);
+      glColor3f(1.0, 0.0, 0.0);
       break;
     case 2:
-      glColor3f(0.0,1.0,0.0);
+      glColor3f(0.0, 1.0, 0.0);
       break;
     case 3:
-      glColor3f(0.0,0.0,1.0);
+      glColor3f(0.0, 0.0, 1.0);
       break;
-    }
+  }
   glBegin(GL_QUADS);
-  glNormal3f(0,0,1);
+  glNormal3f(0, 0, 1);
 
-  glVertex3f(x_small,10.0,z_big); /* front */
-  glVertex3f(x_small,0.0,z_big);
-  glVertex3f(x_big,0.0,z_big);
-  glVertex3f(x_big,10.0,z_big);
+  glVertex3f(x_small, 10.0, z_big); /* front */
+  glVertex3f(x_small, 0.0, z_big);
+  glVertex3f(x_big, 0.0, z_big);
+  glVertex3f(x_big, 10.0, z_big);
 
-  glNormal3f(0,0,-1);
-  glVertex3f(x_big,10.0,z_small); /* back */
-  glVertex3f(x_big,0.0,z_small);
-  glVertex3f(x_small,0.0,z_small);
-  glVertex3f(x_small,10.0,z_small);
+  glNormal3f(0, 0, -1);
+  glVertex3f(x_big, 10.0, z_small); /* back */
+  glVertex3f(x_big, 0.0, z_small);
+  glVertex3f(x_small, 0.0, z_small);
+  glVertex3f(x_small, 10.0, z_small);
 
-  glNormal3f(0,1,0);
-  glVertex3f(x_big,10.0,z_big); /* right */
-  glVertex3f(x_big,0.0,z_big);
-  glVertex3f(x_big,0.0,z_small);
-  glVertex3f(x_big,10.0,z_small);
+  glNormal3f(0, 1, 0);
+  glVertex3f(x_big, 10.0, z_big); /* right */
+  glVertex3f(x_big, 0.0, z_big);
+  glVertex3f(x_big, 0.0, z_small);
+  glVertex3f(x_big, 10.0, z_small);
 
-  glNormal3f(0,-1,0);
-  glVertex3f(x_small,10.0,z_small); /* left */
-  glVertex3f(x_small,0.0,z_small);
-  glVertex3f(x_small,0.0,z_big);
-  glVertex3f(x_small,10.0,z_big);
+  glNormal3f(0, -1, 0);
+  glVertex3f(x_small, 10.0, z_small); /* left */
+  glVertex3f(x_small, 0.0, z_small);
+  glVertex3f(x_small, 0.0, z_big);
+  glVertex3f(x_small, 10.0, z_big);
 
-  glNormal3f(1,0,0);
-  glVertex3f(x_small,10.0,z_big); /* top */
-  glVertex3f(x_big,10.0,z_big);
-  glVertex3f(x_big,10.0,z_small);
-  glVertex3f(x_small,10.0,z_small);
+  glNormal3f(1, 0, 0);
+  glVertex3f(x_small, 10.0, z_big); /* top */
+  glVertex3f(x_big, 10.0, z_big);
+  glVertex3f(x_big, 10.0, z_small);
+  glVertex3f(x_small, 10.0, z_small);
 
-  glNormal3f(-1,0,0);
-  glVertex3f(x_small,0.0,z_small); /* bottom */
-  glVertex3f(x_big,0.0,z_small);
-  glVertex3f(x_big,0.0,z_big);
-  glVertex3f(x_small,0.0,z_big);
+  glNormal3f(-1, 0, 0);
+  glVertex3f(x_small, 0.0, z_small); /* bottom */
+  glVertex3f(x_big, 0.0, z_small);
+  glVertex3f(x_big, 0.0, z_big);
+  glVertex3f(x_small, 0.0, z_big);
   glEnd();
 }
 /**********************************************************************/
