@@ -1085,27 +1085,6 @@ void MainFrame::loadPhysics(wxString filename){
     }
   }
 
-  /*
-  //Print out the interactions.
-  for (int i=0;i<numberOfElements;++i){
-    for (int j=0;j<numberOfElements;++j){
-      char* ni = (char*)(names[i].c_str());
-      char* nj = (char*)(names[j].c_str());
-
-      printf("%s + %s @ %f = \n", ni, nj, trans_prob[i][j]);
-      for (int k=0;k<100;++k){
-	printf("%d ", trans_center[i][j][k]);
-      }
-      printf("\n");
-      for (int k=0;k<100;++k){
-	printf("%d ", trans_neighbor[i][j][k]);
-      }
-      printf("\n");
-
-    }
-  }
-  */
-
   //Update selections.
   RefreshPenList();
   
@@ -1228,124 +1207,13 @@ void MainFrame::OnMenu(wxCommandEvent& event){
     wxMessageDialog dlg(g_mainFrame, _("Sorry, the save feature has been temporarily disabled in this version."), _("Error"), wxOK);
     dlg.ShowModal();
 
-    /*
-    wxFileDialog dialog(this, _("Save to a file"), _(""), _(""), _("Physics files (*.txt)|*.txt"), wxFD_SAVE);
-    
-    if (dialog.ShowModal() == wxID_OK){
-      wxString filename = dialog.GetPath();
-      FILE* file = fopen(filename, "w");
-      
-      if (file == NULL){
-	wxMessageDialog dlg(g_mainFrame, _("Could not open file to save."), _("Error"), wxOK);
-	dlg.ShowModal();
-	return;
-      }
-      fprintf(file, "#wxSand: Owen Piette's Falling Sand Game\n#Version %s-%s, File subversion 2\n", VERSION, CVERSION);
-      
-      //groups
-      for(int i=0;i<numberOfGroups; ++i){
-	fprintf(file, "group\t%s", groupNames[i].c_str());
-	for(int j=0;j<numberOfGroupItems[i];++j){
-	  int n = groups[i][j];
-	  fprintf(file, "\t%s", names[n].c_str());
-	}
-	fprintf(file, "\n");
-      }
-
-      //sources
-      fprintf(file, "sources");
-      for(int i=0;i<numberOfSources; ++i){
-	fprintf(file, "\t%s", names[sources[i]].c_str());
-      }
-      fprintf(file, "\n");
-
-      for(int i=0;i<numberOfElements;++i){
-	//element
-	fprintf(file, "element\t%s\t%d\t%d\t%d\t%f\t%f\t%f\t%f\t%d\n", 
-		names[i].c_str(), colors[i][0].Red(), colors[i][0].Green(), colors[i][0].Blue(), 
-		gravity[i], slip[i], density[i], conductivity[i], (int)visible[i]);
-
-	//deathrate. "self [prob] [element] [prob][element] ..."
-	if (death_prob[i] > 0){
-	  fprintf(file, "self\t%f\t%s", death_prob[i], names[i].c_str());
-	  int sum = 1;
-	  int prev_index = death_center[i][0];
-	  for(int k=1;k<100;++k){
-	    if (prev_index == death_center[i][k]){
-	      ++sum;
-	    }
-	    else{
-	      fprintf(file, "\t%f\t%s", double(sum)/100.0, names[death_center[i][k-1]].c_str());
-	      sum = 1;
-	    }
-	    prev_index = death_center[i][k];
-	  }
-	  fprintf(file, "\t%f\t%s", double(sum)/100.0, names[death_center[i][99]].c_str());
-
-	  fprintf(file, "\n");
-	}
-
-	//Neighbors
-	for(int j=0;j<numberOfElements;++j){
-	  //neighbor [prob] [element] [element] [prob][element][element] ...
-	  if (trans_prob[i][j] != 0){
-	    fprintf(file, "neighbor\t%f\t%s\t%s", trans_prob[i][j], names[i].c_str(), names[j].c_str());
-	    int sum = 1;
-	    int prev_index = trans_center[i][j][0];
-	    for(int k=1;k<100;++k){
-	      if (prev_index == trans_center[i][j][k]){
-		++sum;
-	      }
-	      else{
-		fprintf(file, "\t%f\t%s\t%s", double(sum)/100.0, names[trans_center[i][j][k-1]].c_str(), 
-			names[trans_neighbor[i][j][k-1]].c_str());
-		sum = 1;
-	      }
-	      prev_index = trans_center[i][j][k];
-	    }
-	    fprintf(file, "\t%f\t%s\t%s", double(sum)/100.0, names[trans_center[i][j][99]].c_str(), 
-		    names[trans_neighbor[i][j][99]].c_str());
-	    fprintf(file, "\n");
-	  }
-	  if (trans_energy[i][j] != 0){
-	    fprintf(file, "hotneighbor\t%d\t%s\t%s\n", trans_energy[i][j], names[i].c_str(), names[j].c_str());
-	  }
-	}
-
-	//Hotcolor
-	if (colors[i][0] != colors[i][99]){
-	  fprintf(file, "hotcolor\t%s\t%d\t%d\t%d\n", names[i].c_str(), colors[i][99].Red(), colors[i][99].Green(), colors[i][99].Blue());
-	}
-
-	//Hotself
-	if (death_energy[i] != 0){
-	  fprintf(file, "hotself\t%d\t%s\n", death_energy[i], names[i].c_str());
-	}
-      
-      }
-      fprintf(file, "\n");
-      fclose(file);
-    }
-    */      
-
   }
   else if(event.GetId() == 1057){
-
     
     DownloadFileDialog* dp = new DownloadFileDialog(_("Download a physics file"), wxPoint(100,100), wxSize(500,500));
     dp->Show(true);
 
-
-    //wxFileDialog dialog(this, _("Load from a file"), _(""), _(""), _("Physics Files (*.txt)|*.txt"), wxFD_OPEN);
-    //if (dialog.ShowModal() == wxID_OK){
-    //  physicsFilename = dialog.GetPath();
-    //  loadPhysics(physicsFilename);
-    //}
-
   }
-
-
-
 
   doWalls = wallsCB->IsChecked();
   doSources = sourcesCB->IsChecked();

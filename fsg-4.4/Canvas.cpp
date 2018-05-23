@@ -1015,21 +1015,3 @@ void Canvas::OnMouseMove(wxMouseEvent& event){
     statusbar->SetStatusText(str, 2);
   }
 }
-
-
-
-
-/*
-void Canvas::OnIdle(wxIdleEvent& e){
-  if ((g_canvas->doUpdate || !doLimit) && !g_canvas->busyCalculating){
-    g_canvas->doUpdate = false;
-    g_canvas->calculate();
-    g_canvas->Refresh();
-    
-    ::wxWakeUpIdle();
-  }
-}
-*/
-
-
-
