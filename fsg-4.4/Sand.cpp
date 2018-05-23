@@ -329,7 +329,7 @@ bool Sand::OnInit() {
   str += _(VERSION);
   g_mainFrame = new MainFrame(str, wxDefaultPosition,
                               wxDefaultSize);  //, wxCLOSE_BOX | wxSYSTEM_MENU |
-                                               //wxCAPTION | wxCLIP_CHILDREN);
+                                               // wxCAPTION | wxCLIP_CHILDREN);
   g_mainFrame->Show(TRUE);
 
   ::wxInitAllImageHandlers();

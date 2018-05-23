@@ -1028,9 +1028,9 @@ void MainFrame::loadPhysics(wxString filename) {
         // double inc = death_prob[i]/(99.0-double(death_energy[i]));
         // printf("%f\n", inc);
         if (k > death_energy[i]) {
-          cdeath_prob[i][k] =
-              (int)round(death_prob[i] * RAND_MAX);  //(int)round(double(k-death_energy[i])
-                                                     //* inc * RAND_MAX);
+          cdeath_prob[i][k] = (int)round(
+              death_prob[i] * RAND_MAX);  //(int)round(double(k-death_energy[i])
+                                          //* inc * RAND_MAX);
         } else {
           cdeath_prob[i][k] = 0;
         }
@@ -1053,8 +1053,9 @@ void MainFrame::loadPhysics(wxString filename) {
           ctrans_prob[i][j][k] = (int)round(trans_prob[i][j] * RAND_MAX);
         else if (k > trans_energy[i][j]) {
           ctrans_prob[i][j][k] =
-              (int)round(trans_prob[i][j] * RAND_MAX);  //(int)round(double(k-trans_energy[i][j])
-                                                        //* inc) * RAND_MAX;
+              (int)round(trans_prob[i][j] *
+                         RAND_MAX);  //(int)round(double(k-trans_energy[i][j])
+                                     //* inc) * RAND_MAX;
         } else {
           ctrans_prob[i][j][k] = 0;
         }
