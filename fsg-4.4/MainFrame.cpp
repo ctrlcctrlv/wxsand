@@ -1149,7 +1149,7 @@ void MainFrame::OnMenu(wxCommandEvent& event) {
         bmp.SaveFile(filename, wxBITMAP_TYPE_BMP);
       }
 
-      delete bitmapdata2;
+      delete[] bitmapdata2;
     }
   } else if (event.GetId() == 1053) {
     // Exit
