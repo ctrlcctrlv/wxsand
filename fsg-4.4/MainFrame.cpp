@@ -1078,7 +1078,7 @@ bool OnNew(wxWindow* window) {
   wxString choices[] = {_("320x240 (fastest)"), _("640x480"), _("800x600"),
                         _("1024x768"), _("1280x1024 (slowest)")};
   wxSingleChoiceDialog dialog(NULL, _("Select an area size"), _("New"), 5,
-                              choices, (char**)NULL);
+                              choices);
 
   if (dialog.ShowModal() == wxID_OK) {
     if (dialog.GetSelection() == 0) {
