@@ -1,15 +1,15 @@
 #ifndef MAINFRAMEH
 #define MAINFRAMEH
 
-#include "Sand.h"
-#include <wx/wx.h>
-#include <wx/spinctrl.h>
 #include <string.h>
+#include <wx/spinctrl.h>
+#include <wx/wx.h>
+#include "Sand.h"
 
 class MainFrame : public wxFrame {
-public:
-  MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size, 
-	    long style = wxDEFAULT_FRAME_STYLE);
+ public:
+  MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size,
+            long style = wxDEFAULT_FRAME_STYLE);
   void OnSize(wxSizeEvent& event);
   void OnMove(wxFocusEvent& event);
 
@@ -27,12 +27,8 @@ public:
 
   void OnClose(wxCloseEvent& event);
 
-private:
+ private:
   DECLARE_EVENT_TABLE()
 };
-
-
-
-
 
 #endif

@@ -1,5 +1,5 @@
 /* XPM */
-static char * pause_xpm[] = {
+static const char * pause_xpm[] = {
 "50 50 51 1",
 " 	c #FFFFFF",
 ".	c #DEDEDE",

@@ -1,29 +1,28 @@
-/*   
+/*
  *   Copyright 2006 Owen Piette
  *   See license.txt for terms.
  *
  */
 
-#include <stdio.h>
-#include <iostream>
-#include <string.h>
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
 
-#include "Sand.h"
-#include <wx/wx.h>
-#include <wx/dcscreen.h>
-#include <wx/dcbuffer.h>
 #include <wx/datetime.h>
+#include <wx/dcbuffer.h>
+#include <wx/dcscreen.h>
+#include <wx/event.h>
+#include <wx/evtloop.h>
 #include <wx/file.h>
 #include <wx/image.h>
-#include <wx/thread.h>
-#include <wx/event.h>
+#include <wx/listctrl.h>
 #include <wx/menuitem.h>
-#include <wx/treectrl.h>
 #include <wx/tglbtn.h>
 #include <wx/thread.h>
-#include <wx/listctrl.h>
-#include <wx/evtloop.h>
+#include <wx/treectrl.h>
+#include <wx/wx.h>
+#include "Sand.h"
 
 #include "Canvas.h"
 
@@ -35,8 +34,8 @@
 #define CVERSION custom
 #endif
 
-
-char defaultFileContents[] = "#wxSand: Owen Piette's Falling Sand Game\n\
+static const char defaultFileContents[] =
+    "#wxSand: Owen Piette's Falling Sand Game\n\
 #Version 4.4, File subversion 2\n\
 #element element r g b gravity slip density conductivity visible\n\
 #self probabilityOfChanging element [probabilityOfChangingIntoThisElement element] [...]\n\
@@ -178,11 +177,7 @@ self	0.005000	Leftover???	1.0000	Empty	\n\
 \n\
 ";
 
-
 IMPLEMENT_APP(Sand)
-
-
-
 
 wxString names[MAXNUMBEROFELEMENTS];
 wxColor colors[MAXNUMBEROFELEMENTS][100];
@@ -197,8 +192,12 @@ double death_prob[MAXNUMBEROFELEMENTS];
 unsigned char death_center[MAXNUMBEROFELEMENTS][100];
 int death_energy[MAXNUMBEROFELEMENTS];
 
-double trans_prob[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS];   //Probability that something will happen.
-unsigned char trans_center[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS][100];//Probability that that something will be this.
+double
+    trans_prob[MAXNUMBEROFELEMENTS]
+              [MAXNUMBEROFELEMENTS];  // Probability that something will happen.
+unsigned char
+    trans_center[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS]
+                [100];  // Probability that that something will be this.
 unsigned char trans_neighbor[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS][100];
 int trans_energy[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS];
 unsigned char trans_xspeed[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS];
@@ -216,7 +215,8 @@ int ctrans_prob[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS][100];
 int cdeath_prob[MAXNUMBEROFELEMENTS][100];
 
 wxString groupNames[MAXNUMBEROFELEMENTS];
-int groups[MAXNUMBEROFELEMENTS][MAXNUMBEROFELEMENTS]; //groups[groupNumber][N] = element, or -1.
+int groups[MAXNUMBEROFELEMENTS]
+          [MAXNUMBEROFELEMENTS];  // groups[groupNumber][N] = element, or -1.
 int numberOfGroups;
 int numberOfGroupItems[MAXNUMBEROFELEMENTS];
 int groupChoices[MAXNUMBEROFELEMENTS];
@@ -235,7 +235,7 @@ bool g_isRunning;
 unsigned char data[MAXSIZE];
 unsigned char energy[MAXSIZE];
 unsigned char calc[MAXSIZE];
-unsigned char bitmapdata[MAXSIZE*4];
+unsigned char bitmapdata[MAXSIZE * 4];
 
 char xspeed[MAXSIZE];
 char yspeed[MAXSIZE];
@@ -263,9 +263,9 @@ wxString sandboxFilename;
 wxString physicsFilename;
 wxListBox* penSelections;
 wxListBox* groupSelections;
-wxTreeItemId penSelectionIds[MAXNUMBEROFELEMENTS*MAXNUMBEROFELEMENTS];
-wxTreeItemId penSelectionElements[MAXNUMBEROFELEMENTS*MAXNUMBEROFELEMENTS];
-wxTreeItemId groupSelectionIds[MAXNUMBEROFELEMENTS*MAXNUMBEROFELEMENTS];
+wxTreeItemId penSelectionIds[MAXNUMBEROFELEMENTS * MAXNUMBEROFELEMENTS];
+wxTreeItemId penSelectionElements[MAXNUMBEROFELEMENTS * MAXNUMBEROFELEMENTS];
+wxTreeItemId groupSelectionIds[MAXNUMBEROFELEMENTS * MAXNUMBEROFELEMENTS];
 int numberOfPenSelectionIds;
 int numberOfGroupSelectionIds;
 wxTimer* g_timer;
@@ -287,23 +287,20 @@ wxTextCtrl* elementDescription;
 wxDateTime startTime;
 int frameCount;
 
-
-
-
-bool DropTarget::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames){
-  
-  if (filenames[0].First(_(".txt")) != -1 || filenames[0].First(_(".TXT")) != -1 ){
+bool DropTarget::OnDropFiles(wxCoord x, wxCoord y,
+                             const wxArrayString& filenames) {
+  if (filenames[0].First(_(".txt")) != -1 ||
+      filenames[0].First(_(".TXT")) != -1) {
     g_mainFrame->loadPhysics(filenames[0]);
-  }
-  else{
+  } else {
     g_mainFrame->loadSandbox(filenames[0]);
   }
 
-  if (filenames.GetCount() == 2){
-    if (filenames[1].First(_(".txt")) != -1 || filenames[1].First(_(".TXT")) != -1 ){
+  if (filenames.GetCount() == 2) {
+    if (filenames[1].First(_(".txt")) != -1 ||
+        filenames[1].First(_(".TXT")) != -1) {
       g_mainFrame->loadPhysics(filenames[1]);
-    }
-    else{
+    } else {
       g_mainFrame->loadSandbox(filenames[1]);
     }
   }
@@ -311,12 +308,8 @@ bool DropTarget::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filename
   return true;
 }
 
-
-
 /* this is executed upon startup, like 'main()' in non-wxWidgets programs */
-bool Sand::OnInit()
-{
-
+bool Sand::OnInit() {
   g_mainFrame = NULL;
   g_canvas = NULL;
   mouseIsDown = false;
@@ -332,10 +325,11 @@ bool Sand::OnInit()
   numberOfElements = 17;
   numberOfSources = 0;
 
-
   wxString str = _("Owen Piette's Falling Sand Game ");
   str += _(VERSION);
-  g_mainFrame = new MainFrame(str, wxDefaultPosition, wxDefaultSize);//, wxCLOSE_BOX | wxSYSTEM_MENU | wxCAPTION | wxCLIP_CHILDREN);
+  g_mainFrame = new MainFrame(str, wxDefaultPosition,
+                              wxDefaultSize);  //, wxCLOSE_BOX | wxSYSTEM_MENU |
+                                               // wxCAPTION | wxCLIP_CHILDREN);
   g_mainFrame->Show(TRUE);
 
   ::wxInitAllImageHandlers();
@@ -344,71 +338,60 @@ bool Sand::OnInit()
   physicsFilename = _("");
 
   FILE* tfile = fopen("default.txt", "r");
-  if (tfile == NULL){
-  
+  if (tfile == NULL) {
     FILE* file = fopen("default.txt", "w");
     fprintf(file, defaultFileContents);
     fclose(file);
-  }
-  else{
+  } else {
     fclose(tfile);
   }
 
-  if (this->argc > 1){
-    if (wxString(argv[1]).First(_(".txt")) != -1 || wxString(argv[1]).First(_(".TXT")) != -1 ){
+  if (this->argc > 1) {
+    if (wxString(argv[1]).First(_(".txt")) != -1 ||
+        wxString(argv[1]).First(_(".TXT")) != -1) {
       physicsFilename = wxString(argv[1]);
       g_mainFrame->loadPhysics(physicsFilename);
-    }
-    else{
+    } else {
       sandboxFilename = wxString(argv[1]);
       g_mainFrame->loadSandbox(sandboxFilename);
     }
   }
-  if (this->argc > 2){
-    if (wxString(argv[2]).First(_(".txt")) != -1 || wxString(argv[2]).First(_(".TXT")) != -1 ){
+  if (this->argc > 2) {
+    if (wxString(argv[2]).First(_(".txt")) != -1 ||
+        wxString(argv[2]).First(_(".TXT")) != -1) {
       physicsFilename = wxString(argv[2]);
       g_mainFrame->loadPhysics(physicsFilename);
-    }
-    else{
+    } else {
       sandboxFilename = wxString(argv[2]);
       g_mainFrame->loadSandbox(sandboxFilename);
     }
   }
 
-  if (physicsFilename == _("")){
+  if (physicsFilename == _("")) {
     physicsFilename = _("default.txt");
     g_mainFrame->loadPhysics(physicsFilename);
   }
 
   g_mainFrame->SetDropTarget(new DropTarget());
 
-
-
-  //Load Settings
+  // Load Settings
   FILE* file = fopen("settings.ini", "r");
-  if (file){
+  if (file) {
     char line[1024];
     fgets(line, 1024, file);
-    if (atoi(&line[15]) == 0)
-      wallsCB->Check(false);
+    if (atoi(&line[15]) == 0) wallsCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[8]) == 0)
-      sourcesCB->Check(false);
+    if (atoi(&line[8]) == 0) sourcesCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[14]) == 0)
-      drawCB->Check(false);
+    if (atoi(&line[14]) == 0) drawCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[8]) == 0)
-      gravityCB->Check(false);
+    if (atoi(&line[8]) == 0) gravityCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[7]) == 0)
-      energyCB->Check(false);
+    if (atoi(&line[7]) == 0) energyCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[21]) == 0)
-      interactionsCB->Check(false);
+    if (atoi(&line[21]) == 0) interactionsCB->Check(false);
     fgets(line, 1024, file);
-    if (atoi(&line[10]) == 0)
-      limitCB->Check(false);
+    if (atoi(&line[10]) == 0) limitCB->Check(false);
     fclose(file);
   }
 
@@ -423,29 +406,24 @@ bool Sand::OnInit()
   return true;
 }
 
-
-
-int Sand::OnRun(){
-
+int Sand::OnRun() {
   wxEventLoop* eventLoop = new wxEventLoop();
   wxEventLoop::SetActive(eventLoop);
   m_mainLoop = eventLoop;
 
   g_isRunning = true;
 
-  while(g_isRunning){
-
-    if ((g_canvas->doUpdate || !doLimit) && !g_canvas->busyCalculating){
+  while (g_isRunning) {
+    if ((g_canvas->doUpdate || !doLimit) && !g_canvas->busyCalculating) {
       g_canvas->doUpdate = false;
       g_canvas->calculate();
       g_canvas->Refresh();
-      
     }
 
-    while (!Pending() && ProcessIdle());
+    while (!Pending() && ProcessIdle())
+      ;
 
-    while (Pending())
- 	Dispatch();
+    while (Pending()) Dispatch();
 
     //::wxYield();
   }
