@@ -21,11 +21,11 @@ the "Sources" on and "Limit FPS" off, the game runs at well over 200 FPS,
 reaching 256 FPS. This performance would have been incredible when this game was 
 in active development...we can thank Moore's law for that.
 
-Also included: PKGBUILD for Arch Linux User Repository.
-
 ## Compilation howto:
 
-Either, use the patched version in this repository in the `fsg-4.4` directory,
-or apply the patch "wxWidgets\_fix\_errors.patch" to the original source code.
-You may also compile it against wxWidgets 2.6, which is the last version that
-should work without errors and without patches.
+Compilation should be as simple as:
+
+    cd fsg-4.4
+    make
+
+Make sure you have wxWidgets installed. 
