@@ -39,19 +39,20 @@ Canvas.mswo: Canvas.cpp Canvas.h
 
 #######################################################  ###########################################
 
-dist: gtk msw
-	i386-mingw32msvc-strip sand.exe
-	strip sand
-	cp -f sand.exe fsg-$(MSVERSION)-`date +%Y%m%d`.exe
-	cp -f sand fsg-$(VERSION)-`date +%Y%m%d`
-	scp sand-* piettes.com:piettes.com/fallingsandgame/
-
-make distsrc:
-	rm -rf ../fsg-$(VERSION)
-	rm -f ../fsg-src-$(VERSION).tar.gz
-	mkdir ../fsg-$(VERSION)
-	cp *.cpp *.h *.xpm makefile ../fsg-$(VERSION)
-	tar -cf ../fsg-src-$(VERSION).tar ../fsg-$(VERSION)
-	gzip ../fsg-src-$(VERSION).tar
-	scp ../fsg-src-$(VERSION).tar.gz piettes.com:piettes.com/fallingsandgame/
-
+# This is historical information only at this point. It is how Owen Piette used to distribute new versions back in 2006 when he was actively developing this. It is commented out because it is no use to us in the present.
+#dist: gtk msw
+#	i386-mingw32msvc-strip sand.exe
+#	strip sand
+#	cp -f sand.exe fsg-$(MSVERSION)-`date +%Y%m%d`.exe
+#	cp -f sand fsg-$(VERSION)-`date +%Y%m%d`
+#	scp sand-* piettes.com:piettes.com/fallingsandgame/
+#
+#make distsrc:
+#	rm -rf ../fsg-$(VERSION)
+#	rm -f ../fsg-src-$(VERSION).tar.gz
+#	mkdir ../fsg-$(VERSION)
+#	cp *.cpp *.h *.xpm makefile ../fsg-$(VERSION)
+#	tar -cf ../fsg-src-$(VERSION).tar ../fsg-$(VERSION)
+#	gzip ../fsg-src-$(VERSION).tar
+#	scp ../fsg-src-$(VERSION).tar.gz piettes.com:piettes.com/fallingsandgame/
+#
