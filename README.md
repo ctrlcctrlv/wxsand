@@ -1,17 +1,19 @@
 # wxSand - Owen Piette's Falling Sand Game
 
+![screenshot](wxsand.png)
+
 As a kid, I spent many hours in the school library playing this game, and I
 compiled the Linux version as well. I tried finding it again, but it looks like
 the original author has [abandoned it](http://www.piettes.com/fallingsandgame/)
 as his site now only links to the Windows version.
 
 This repository contains the Linux source code he distributed, as well as a
-patch by me to make it compile under modern versions of wxWidgets.
+patched version by me to make it compile under modern versions of wxWidgets.
 
-This software was last updated in 2006, and is abandonware. The forum about it,
-fallingsandgame.com, has been down now for many months with a MySQL error, so
-all mods seem to be lost. (If you have any others, open issues and I'll add
-them to the mods/ directory.)
+This software was last updated by its original author in 2006, and is
+abandonware. The forum about it, fallingsandgame.com, has been down now for many
+months with a MySQL error, so all mods seem to be lost. (If you have any others,
+open issues and I'll add them to the mods/ directory.)
 
 It's fun abandonware though, and works well on modern platforms. Actually, I 
 think it works better on modern platforms than it ever did in 2006 -- on my 
