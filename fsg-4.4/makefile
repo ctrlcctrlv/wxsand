@@ -10,8 +10,8 @@ DEFAULT: gtk
 
 ####################################################### gtk ###########################################
 
-gtk: Sand.o MainFrame.o Canvas.o DownloadFileDialog.o
-	$(CPP) $(FLAGS) -ggdb Sand.o MainFrame.o Canvas.o DownloadFileDialog.o `wx-config --libs --cxxflags` -o sand 
+gtk: Sand.o MainFrame.o Canvas.o 
+	$(CPP) $(FLAGS) -ggdb Sand.o MainFrame.o Canvas.o `wx-config --libs --cxxflags` -o wxsand 
 
 Sand.o: Sand.cpp Sand.h
 	$(CPP) -c $(FLAGS) -ggdb Sand.cpp `wx-config --cxxflags` -o Sand.o 
@@ -22,14 +22,11 @@ MainFrame.o: MainFrame.cpp MainFrame.h pause.xpm refresh.xpm
 Canvas.o: Canvas.cpp Canvas.h
 	$(CPP) -c $(FLAGS) -ggdb Canvas.cpp `wx-config --cxxflags` -o Canvas.o
 
-DownloadFileDialog.o: DownloadFileDialog.cpp DownloadFileDialog.h
-	$(CPP) -c $(FLAGS) -ggdb DownloadFileDialog.cpp `wx-config --cxxflags` -o DownloadFileDialog.o
-
 ####################################################### msw ###########################################
 
 
-msw: Sand.mswo MainFrame.mswo Canvas.mswo DownloadFileDialog.mswo
-	$(MSWCPP) $(FLAGS) -ggdb Sand.mswo wxres.o MainFrame.mswo Canvas.mswo DownloadFileDialog.mswo `~/opt/cross-compile/bin/wx-config --libs --cxxflags` -o sand.exe
+msw: Sand.mswo MainFrame.mswo Canvas.mswo
+	$(MSWCPP) $(FLAGS) -ggdb Sand.mswo wxres.o MainFrame.mswo Canvas.mswo `~/opt/cross-compile/bin/wx-config --libs --cxxflags` -o wxsand.exe
 
 Sand.mswo: Sand.cpp Sand.h
 	$(MSWCPP) -c $(FLAGS) -ggdb Sand.cpp `~/opt/cross-compile/bin/wx-config --cxxflags` -o Sand.mswo 
@@ -39,10 +36,6 @@ MainFrame.mswo: MainFrame.cpp MainFrame.h pause.xpm refresh.xpm
 
 Canvas.mswo: Canvas.cpp Canvas.h
 	$(MSWCPP) -c $(FLAGS) -ggdb Canvas.cpp `~/opt/cross-compile/bin/wx-config --cxxflags` -o Canvas.mswo
-
-DownloadFileDialog.mswo: DownloadFileDialog.cpp DownloadFileDialog.h
-	$(MSWCPP) -c $(FLAGS) -ggdb DownloadFileDialog.cpp `~/opt/cross-compile/bin/wx-config --cxxflags` -o DownloadFileDialog.mswo
-
 
 #######################################################  ###########################################
 
