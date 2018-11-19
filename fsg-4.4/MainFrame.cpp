@@ -1160,9 +1160,12 @@ void MainFrame::OnMenu(wxCommandEvent& event) {
     // About
     wxString str = _("");
     str.Printf(
-        _("Owen Piette's Falling Sand Game\nCopyright Owen Piette "
-          "2006.\nVersion %s, compiled on %s\nCheck for updates "
-          "at:\nhttp://www.piettes.com/fallingsandgame/\nThanks to coppro for "
+        _("Owen Piette's Falling Sand Game\n\n"
+          "Version %s, compiled on %s\n\n"
+          "This version was patched by Fredrick Brennan <copypaste@kittens.ph>\n"
+          "to run on modern versions of wxWidgets. Check for updates on\n"
+          "https://github.com/ctrlcctrlv/wxsand\n\n"
+          "Copyright Owen Piette 2006\nThanks to coppro for "
           "his contributions.\nThanks to Troy Larson for the refresh button "
           "idea.\nThanks to purple100 for pexplosion.\nThanks to all the "
           "people at www.fallingsandgame.com for their support.\n\n"),
