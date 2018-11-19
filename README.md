@@ -28,4 +28,5 @@ Compilation should be as simple as:
     cd fsg-4.4
     make
 
-Make sure you have wxWidgets installed. 
+Make sure you have wxWidgets and an appropriate C++ compiler installed. The
+compiled binary will be output in the current directory and be named `wxsand`.
