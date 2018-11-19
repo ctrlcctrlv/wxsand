@@ -1,6 +1,5 @@
 #include "MainFrame.h"
 #include "Canvas.h"
-#include "DownloadFileDialog.h"
 #include "Sand.h"
 
 #include <math.h>
@@ -48,7 +47,6 @@ EVT_MENU(1053, MainFrame::OnMenu)
 EVT_MENU(1054, MainFrame::OnMenu)
 EVT_MENU(1055, MainFrame::OnMenu)
 EVT_MENU(1056, MainFrame::OnMenu)
-EVT_MENU(1057, MainFrame::OnMenu)
 
 EVT_CLOSE(MainFrame::OnClose)
 END_EVENT_TABLE()
@@ -68,7 +66,6 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos,
   fileMenu->Append(1052, _("Save sandbox.."), _(""));
   fileMenu->AppendSeparator();
   fileMenu->Append(1055, _("Load physics.."), _(""));
-  fileMenu->Append(1057, _("Load physics from online wiki.."), _(""));
   // fileMenu->Append(1056, _("Save physics.."), _(""));
   fileMenu->AppendSeparator();
   fileMenu->Append(1053, _("Exit"), _(""));
@@ -1190,12 +1187,7 @@ void MainFrame::OnMenu(wxCommandEvent& event) {
                         _("Error"), wxOK);
     dlg.ShowModal();
 
-  } else if (event.GetId() == 1057) {
-    DownloadFileDialog* dp = new DownloadFileDialog(
-        _("Download a physics file"), wxPoint(100, 100), wxSize(500, 500));
-    dp->Show(true);
-  }
-
+  } 
   doWalls = wallsCB->IsChecked();
   doSources = sourcesCB->IsChecked();
   doDraw = drawCB->IsChecked();
